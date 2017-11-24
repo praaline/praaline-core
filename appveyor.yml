@@ -24,4 +24,14 @@ build_script:
 artifacts:
 - path: build\release\pncore.dll
 
-test: off
+deploy:
+  - provider: GitHub
+    release: $(COMMIT_TIMESTAMP)
+    auth_token: 
+      secure: QP8Fu6Yw87cA6bQ0G7hf/MPFzYw0+/wwnLKnMahrETh7gPXh5Ad/2gOIEfvGrfpn
+    artifact: pncore.dll
+    force_update: true
+    on: 
+      branch: master
+
+test: off  # to avoid discovering tests
