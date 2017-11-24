@@ -1,9 +1,10 @@
-# Praaline
-# Core Library
-# (c) George Christodoulides 2012-2015
+# Praaline Core Library
+# (c) George Christodoulides 2012-2017
 
 ! include( ../common.pri ) {
-    error( Could not find the common.pri file! )
+    ! include( ./pncore-common.pri ) {
+        error( Could not find the common.pri file! )
+    }
 }
 
 TEMPLATE = lib
