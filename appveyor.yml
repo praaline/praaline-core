@@ -16,14 +16,12 @@ before_build:
 - set PATH=%MINGW%\bin;%QT5%\bin;%PATH%
 
 build_script:
-- if not exist build mkdir build
-- cd build
 # Build Praaline Core Library
 - qmake -v
 - qmake ..\pncore.pro CONFIG+=release && mingw32-make
 - dir /s
 
 artifacts:
-- path: build\pncore\build\release\pncore.dll
+- path: build\release\pncore.dll
 
 test: off
