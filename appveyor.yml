@@ -1,0 +1,29 @@
+version: '{build}'
+
+init:
+- git config --global core.autocrlf input
+
+environment:
+  matrix:
+  - arch: x86
+    QT5: C:\Qt\5.9.2\mingw53_32
+    MINGW: C:\Qt\Tools\mingw530_32
+
+matrix:
+  fast_finish: true
+
+before_build:
+- set PATH=%MINGW%\bin;%QT5%\bin;%PATH%
+
+build_script:
+- if not exist build mkdir build
+- cd build
+# Build Praaline Core Library
+- qmake -v
+- qmake ..\pncore.pro CONFIG+=release && mingw32-make
+- dir /s
+
+artifacts:
+- path: build\pncore\build\release\pncore.dll
+
+test: off
