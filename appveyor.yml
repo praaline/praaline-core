@@ -8,7 +8,7 @@ environment:
   - arch: x86
     QT5: C:\Qt\5.9.2\mingw53_32
     MINGW: C:\Qt\Tools\mingw530_32
-
+pncore.dll
 matrix:
   fast_finish: true
 
@@ -19,10 +19,11 @@ build_script:
 # Build Praaline Core Library
 - qmake -v
 - qmake .\pncore.pro CONFIG+=release && mingw32-make
+- copy build\release\pncore.dll .\pncore.dll
 - dir /s
 
 artifacts:
-- path: build\release\pncore.dll
+- path: pncore.dll
 
 deploy:
   - provider: GitHub
