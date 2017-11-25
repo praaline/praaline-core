@@ -52,6 +52,12 @@ script:
 - ls -R
 - tar -czv --exclude='.*' -f pncore_${TRAVIS_OS_NAME}.tar.gz ./build/release
 
+before_deploy:
+  # Set up git user name and tag for this commit
+  - git config --local user.name "praaline"
+  - git config --local user.email "info@praaline.org"
+  - git tag "$(date +'%Y%m%d')"
+
 deploy:
   provider: releases
   api-key:
@@ -60,6 +66,8 @@ deploy:
   skip_cleanup: true
   on:
     repo: praaline/praaline-core
+    all_branches: true
 
 notifications:
   email: false
+
