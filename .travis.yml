@@ -1,70 +1,64 @@
 language: cpp
 
 matrix:
- include:
+  include:
   - os: linux
     dist: trusty
     sudo: required
     compiler: gcc
     env:
-     - QT_BASE=59
+    - QT_BASE=59
   - os: osx
     compiler: clang
     env:
-     - QT_BASE=59
+    - QT_BASE=59
 
 cache: packages
 
 before_install:
-  - if [[ "$QT_BASE" = "59" && "$TRAVIS_OS_NAME" = "linux" ]]; then
-      sudo add-apt-repository ppa:beineri/opt-qt592-trusty -y;
-    fi
-  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then
-      sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y;
-      sudo apt-get update -qq;
-    else
-      brew update;
-    fi
-  # Variables
-  - COMMIT_TIMESTAMP=`date +%Y-%m-%d`
-  - echo $COMMIT_TIMESTAMP
+- if [[ "$QT_BASE" = "59" && "$TRAVIS_OS_NAME" = "linux" ]]; then 
+    sudo add-apt-repository ppa:beineri/opt-qt592-trusty -y; 
+  fi
+- if [ "$TRAVIS_OS_NAME" = "linux" ]; then 
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y; 
+    sudo apt-get update -qq; 
+  else 
+    brew update;
+  fi
+- COMMIT_TIMESTAMP=`date +%Y-%m-%d`
+- echo $COMMIT_TIMESTAMP
 
 install:
-  # Needed for a C++14 compiler
-  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then
-      sudo apt-get install -qq g++-5;
-      sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-5 90;
+- if [ "$TRAVIS_OS_NAME" = "linux" ]; then 
+    sudo apt-get install -qq g++-5;
+    sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-5 90;
+  fi
+- if [ "$QT_BASE" = "59" ]; then
+    if [ "$TRAVIS_OS_NAME" = "linux" ]; then
+      sudo apt-get install -qq qt59base;
+      source /opt/qt59/bin/qt59-env.sh;
+    else
+      brew install qt5;
+      brew link --force qt5;
+      export HOMEBREW_QT5_VERSION=$(brew list --versions qt5 | rev | cut -d' ' -f1 | rev);
+      ln -s /usr/local/Cellar/qt5/$HOMEBREW_QT5_VERSION/mkspecs /usr/local/mkspecs;
     fi
-  # Install Qt
-  - if [ "$QT_BASE" = "59" ]; then
-      if [ "$TRAVIS_OS_NAME" = "linux" ]; then
-        sudo apt-get install -qq qt59base ;
-        source /opt/qt59/bin/qt59-env.sh;
-      else
-        brew install qt5;
-        brew link --force qt5;
-        export HOMEBREW_QT5_VERSION=$(brew list --versions qt5 | rev | cut -d' ' -f1 | rev);
-        ln -s /usr/local/Cellar/qt5/$HOMEBREW_QT5_VERSION/mkspecs /usr/local/mkspecs;
-      fi
-    fi
+  fi
 
 script:
-  # Check versions
-  - g++ -v;
-  - qmake -v;
-  # Build Praaline Core Library
-  - qmake ./pncore.pro CONFIG+=release && make
-  - ls -R
-  - tar -czv --exclude='.*' -f pncore_${TRAVIS_OS_NAME}.tar.gz ./build/release
+- g++ -v;
+- qmake -v;
+- qmake ./pncore.pro CONFIG+=release && make
+- ls -R
+- tar -czv --exclude='.*' -f pncore_${TRAVIS_OS_NAME}.tar.gz ./build/release
 
 deploy:
   provider: releases
-  name: $COMMIT_TIMESTAMP
   api_key:
-    secure: QP8Fu6Yw87cA6bQ0G7hf/MPFzYw0+/wwnLKnMahrETh7gPXh5Ad/2gOIEfvGrfpn
-  file: pncore_$TRAVIS_OS_NAME.tar.gz
-  skip_cleanup: true
-  overwrite: true
+    secure: hVnTCuNrJgkZZS9kisZNH/tYo6xycBObiBNMnpzF1ZdUnC5Bg8MNA/aXgJ8Bp41qTYbzT/owHfXVJh0XJN8g62G9m8TJLDFMrep8iVMIzNqEoXhb5QUSDqyxrgDHbcI3mtPQHPOdtEOepv1LkVoQsMiXgDO76+1SBQjpCtrZ5P2VMakDY+A+b81Hgqo2452Fc0aettSHK0JBtwZ4ekWq0Tx3ZrUbzqVVg4OH50Lju9T376xH3yESmZvcZX0aEej1zLdBvdphMMiWrFX7dvGhQS1RAlTODk7Svcn7de8VD2/ae1V6x/xo92phHLkva6IiHY6VNvA5GUdoOV4BhoU6NW3Sb+DtrAaapjjNSKg87QBtRyuDjCWivTcFBxhhKqnL6MC8I2UV65BLfZDrz206A4nZO8sjK4/ZUUQlUs2OyNFVbXR5NCXQKwMVwW/GW1jN20GUZvj2nRxuAzFU3eNakl2zdf1g8xAf77M1RckhcuYj4qwnXlZjqcmbTrIvk5YwZii/q2wY/80SSrCpGHHHiw3l6yl0U+sQ+q4ugdRNWpp11ZBPi58a1W8+RE6QYwzhU8P9oeRskRDkQ3/W98232q2w//2cCSzDUyTBUl+vIZ0PbioOyFNKYrWdKx1G66Vp+CSvRwAATkCABm3k01vT4MiYBjJNERBaoGFQhGqOtJc=
+  file: pncore_${TRAVIS_OS_NAME}.tar.gz
+  on:
+    repo: praaline/praaline-core
 
 notifications:
   email: false
