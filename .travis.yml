@@ -55,7 +55,7 @@ script:
   # Build Praaline Core Library
   - qmake ./pncore.pro CONFIG+=release && make
   - ls -R
-  - tar -czvf --exclude=".*" pncore.tar.gz ./build/release
+  - tar -czv --exclude='.*' -f pncore.tar.gz ./build/release
 
 deploy:
   provider: releases
