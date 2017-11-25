@@ -64,8 +64,6 @@ deploy:
     secure: QP8Fu6Yw87cA6bQ0G7hf/MPFzYw0+/wwnLKnMahrETh7gPXh5Ad/2gOIEfvGrfpn
   file: pncore_$TRAVIS_OS_NAME.tar.gz
   skip_cleanup: true
-  on:
-    tags: true
 
 notifications:
   email: false
