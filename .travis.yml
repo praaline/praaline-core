@@ -56,7 +56,7 @@ before_deploy:
   # Set up git user name and tag for this commit
   - git config --local user.name "praaline"
   - git config --local user.email "info@praaline.org"
-  - git tag "$(date +'%Y%m%d')"
+  - git tag "$(date +'%Y-%m-%d')"
 
 deploy:
   provider: releases
