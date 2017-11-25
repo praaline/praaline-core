@@ -55,15 +55,16 @@ script:
   # Build Praaline Core Library
   - qmake ./pncore.pro CONFIG+=release && make
   - ls -R
-  - tar -czvf pncore.tar.gz ./build/release --exclude=".*"
+  - tar -czvf --exclude=".*" pncore.tar.gz ./build/release
 
 deploy:
   provider: releases
-  release: $(COMMIT_TIMESTAMP)
+  name: $(COMMIT_TIMESTAMP)
   api_key:
     secure: QP8Fu6Yw87cA6bQ0G7hf/MPFzYw0+/wwnLKnMahrETh7gPXh5Ad/2gOIEfvGrfpn
   file: pncore_$TRAVIS_OS_NAME.tar.gz
   skip_cleanup: true
+  overwrite: true
 
 notifications:
   email: false
