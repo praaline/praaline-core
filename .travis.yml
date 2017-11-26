@@ -2,16 +2,19 @@ language: cpp
 
 matrix:
   include:
-  - os: linux
+  - if: tag IS blank
+    os: linux
     dist: trusty
     sudo: required
     compiler: gcc
     env:
     - QT_BASE=59
-  - os: osx
+  - if: tag IS blank
+    os: osx
     compiler: clang
     env:
     - QT_BASE=59
+  fast_finish: true
 
 cache: packages
 
@@ -56,13 +59,16 @@ script:
 - qmake -v;
 - qmake ./pncore.pro CONFIG+=release && make
 - ls -R
-- tar -czv --exclude='.*' -f pncore_${TRAVIS_OS_NAME}.tar.gz -C build/release .
+# Package
+- mkdir deploy
+- cp build/release/*.* deploy
+- tar -czv --exclude='.*' -f pncore_${TRAVIS_OS_NAME}.tar.gz deploy
 
 before_deploy:
   # Set up git user name and tag for this commit
   - git config --local user.name "praaline"
   - git config --local user.email "info@praaline.org"
-  - git tag -f "$(date +'%Y-%m-%d')"
+  - git tag -d -f "$(date +'%Y-%m-%d')"
   
 deploy:
   provider: releases
