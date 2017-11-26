@@ -71,6 +71,7 @@ deploy:
   name: $(date +'%Y-%m-%d')
   file: pncore_${TRAVIS_OS_NAME}.tar.gz
   skip_cleanup: true
+  overwrite: true
   on:
     repo: praaline/praaline-core
     all_branches: true
