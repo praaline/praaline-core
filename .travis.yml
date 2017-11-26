@@ -56,8 +56,14 @@ script:
 - qmake -v;
 - qmake ./pncore.pro CONFIG+=release && make
 - ls -R
-- tar -czv --exclude='.*' -f pncore_${TRAVIS_OS_NAME}.tar.gz build/release
+- tar -czv --exclude='.*' -f pncore_${TRAVIS_OS_NAME}.tar.gz -C build/release .
 
+before_deploy:
+  # Set up git user name and tag for this commit
+  - git config --local user.name "praaline"
+  - git config --local user.email "info@praaline.org"
+  - git tag -f "$(date +'%Y-%m-%d')"
+  
 deploy:
   provider: releases
   api-key:
