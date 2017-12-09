@@ -29,5 +29,10 @@ RealTime AnnotationTier::tMax() const
     return m_tMax;
 }
 
+RealTime AnnotationTier::duration() const
+{
+    return m_tMax - m_tMin;
+}
+
 } // namespace Core
 } // namespace Praaline

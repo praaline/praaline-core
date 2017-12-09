@@ -35,6 +35,7 @@ class PRAALINE_CORE_SHARED_EXPORT AnnotationTier : public QObject
     Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)
     Q_PROPERTY(RealTime tMin READ tMin)
     Q_PROPERTY(RealTime tMax READ tMax)
+    Q_PROPERTY(RealTime duration READ duration)
 
 public:
     enum TierType {
@@ -54,6 +55,7 @@ public:
     virtual void setName(const QString &name);
     virtual RealTime tMin() const;
     virtual RealTime tMax() const;
+    virtual RealTime duration() const;
 
     virtual int count() const = 0;
     virtual bool isEmpty() const = 0;

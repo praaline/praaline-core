@@ -19,7 +19,7 @@
 */
 
 /*
-   This is a modified version of a source file from the 
+   This is a modified version of a source file from the
    Rosegarden MIDI and audio sequencer and notation editor.
    This file copyright 2000-2006 Chris Cannam.
 */
@@ -58,7 +58,7 @@ struct PRAALINE_CORE_SHARED_EXPORT RealTime
     RealTime(int s, int n);
 
     RealTime(const RealTime &r) :
-	sec(r.sec), nsec(r.nsec) { }
+        sec(r.sec), nsec(r.nsec) { }
 
     static RealTime fromSeconds(double sec);
     static RealTime fromMilliseconds(int msec);
@@ -69,37 +69,37 @@ struct PRAALINE_CORE_SHARED_EXPORT RealTime
     double toDouble() const;
 
     RealTime &operator=(const RealTime &r) {
-	sec = r.sec; nsec = r.nsec; return *this;
+        sec = r.sec; nsec = r.nsec; return *this;
     }
 
     RealTime operator+(const RealTime &r) const {
-	return RealTime(sec + r.sec, nsec + r.nsec);
+        return RealTime(sec + r.sec, nsec + r.nsec);
     }
     RealTime operator-(const RealTime &r) const {
-	return RealTime(sec - r.sec, nsec - r.nsec);
+        return RealTime(sec - r.sec, nsec - r.nsec);
     }
     RealTime operator-() const {
-	return RealTime(-sec, -nsec);
+        return RealTime(-sec, -nsec);
     }
 
     bool operator <(const RealTime &r) const {
-	if (sec == r.sec) return nsec < r.nsec;
-	else return sec < r.sec;
+        if (sec == r.sec) return nsec < r.nsec;
+        else return sec < r.sec;
     }
 
     bool operator >(const RealTime &r) const {
-	if (sec == r.sec) return nsec > r.nsec;
-	else return sec > r.sec;
+        if (sec == r.sec) return nsec > r.nsec;
+        else return sec > r.sec;
     }
 
     bool operator==(const RealTime &r) const {
         return (sec == r.sec && nsec == r.nsec);
     }
- 
+
     bool operator!=(const RealTime &r) const {
         return !(r == *this);
     }
- 
+
     bool operator>=(const RealTime &r) const {
         if (sec == r.sec) return nsec >= r.nsec;
         else return sec >= r.sec;
@@ -126,7 +126,7 @@ struct PRAALINE_CORE_SHARED_EXPORT RealTime
      * (probably not a format to show to a user directly).  If align
      * is true, prepend " " to the start of positive values so that
      * they line up with negative ones (which start with "-").
-     */ 
+     */
     std::string toString(bool align = false) const;
 
     /**

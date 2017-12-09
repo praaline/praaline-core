@@ -30,13 +30,7 @@ before_install:
   fi
 - COMMIT_TIMESTAMP=`date +%Y-%m-%d`
 - echo $COMMIT_TIMESTAMP
-
-before_deploy:
-  # Set up git user name and tag for this commit
-  - git config --local user.name "praaline"
-  - git config --local user.email "info@praaline.org"
-  - git tag -f "$(date +'%Y-%m-%d')"
-  
+ 
 install:
 - if [ "$TRAVIS_OS_NAME" = "linux" ]; then 
     sudo apt-get install -qq g++-5;
