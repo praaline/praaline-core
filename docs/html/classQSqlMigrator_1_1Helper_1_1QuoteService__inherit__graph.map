@@ -1,0 +1,4 @@
+<map id="QSqlMigrator::Helper::QuoteService" name="QSqlMigrator::Helper::QuoteService">
+<area shape="rect" id="node2" href="$classQSqlMigrator_1_1Helper_1_1BaseSqlQuoteService.html" title="QSqlMigrator::Helper\l::BaseSqlQuoteService" alt="" coords="11,95,170,136"/>
+<area shape="rect" id="node3" href="$classQSqlMigrator_1_1Helper_1_1PostgresqlQuoteService.html" title="QSqlMigrator::Helper\l::PostgresqlQuoteService" alt="" coords="5,184,176,225"/>
+</map>

@@ -65,8 +65,8 @@ public:
     Interval *interval(int index) const;
     QList<Interval *> intervals() const;
 
-    Interval *intervalAtTime(RealTime t);
-    int intervalIndexAtTime(RealTime t) const;
+    Interval *intervalAtTime(RealTime t, bool preferIntervalToTheLeftOfBoundary = false);
+    int intervalIndexAtTime(RealTime t, bool preferIntervalToTheLeftOfBoundary = false) const;
 
     // Mutators for Intervals
     Interval *addToEnd(RealTime tMax, const QString &text);
@@ -90,6 +90,7 @@ public:
     QList<RealTime> timesCenter() const;
     QList<RealTime> timesMax() const;
     void timeShift(const RealTime delta);
+    bool moveTierEnd(const RealTime time);
 
     RealTime getBoundaryClosestTo(const RealTime timePoint) const;
     void fixBoundariesBasedOnTier(const IntervalTier *correctBoundariesTier,

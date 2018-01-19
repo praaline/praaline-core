@@ -1,0 +1,5 @@
+<map id="QSqlMigrator::CommandExecution::BaseSqlRenameColumnService" name="QSqlMigrator::CommandExecution::BaseSqlRenameColumnService">
+<area shape="rect" id="node3" href="$classQSqlMigrator_1_1CommandExecution_1_1MysqlRenameColumnService.html" title="QSqlMigrator::CommandExecution\l::MysqlRenameColumnService" alt="" coords="549,5,773,47"/>
+<area shape="rect" id="node4" href="$classQSqlMigrator_1_1CommandExecution_1_1SqliteRenameColumnService.html" title="QSqlMigrator::CommandExecution\l::SqliteRenameColumnService" alt="" coords="549,71,773,112"/>
+<area shape="rect" id="node2" href="$classQSqlMigrator_1_1CommandExecution_1_1BaseCommandExecutionService.html" title="QSqlMigrator::CommandExecution\l::BaseCommandExecutionService" alt="" coords="5,39,229,80"/>
+</map>

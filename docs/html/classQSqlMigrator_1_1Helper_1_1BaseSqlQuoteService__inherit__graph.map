@@ -1,0 +1,4 @@
+<map id="QSqlMigrator::Helper::BaseSqlQuoteService" name="QSqlMigrator::Helper::BaseSqlQuoteService">
+<area shape="rect" id="node3" href="$classQSqlMigrator_1_1Helper_1_1PostgresqlQuoteService.html" title="QSqlMigrator::Helper\l::PostgresqlQuoteService" alt="" coords="5,184,176,225"/>
+<area shape="rect" id="node2" href="$classQSqlMigrator_1_1Helper_1_1QuoteService.html" title="interface for a service that is used to quote different kinds of strings for a database ..." alt="" coords="19,5,163,47"/>
+</map>

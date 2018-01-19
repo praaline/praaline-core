@@ -1,0 +1,4 @@
+<map id="QSqlMigrator::Helper::MysqlColumnService" name="QSqlMigrator::Helper::MysqlColumnService">
+<area shape="rect" id="node2" href="$classQSqlMigrator_1_1Helper_1_1BaseSqlColumnService.html" title="QSqlMigrator::Helper\l::BaseSqlColumnService" alt="" coords="5,95,173,136"/>
+<area shape="rect" id="node3" href="$classQSqlMigrator_1_1Helper_1_1ColumnService.html" title="interface for a service that can convert column and index definitions to proper SQL statements ..." alt="" coords="17,5,161,47"/>
+</map>

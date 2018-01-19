@@ -19,6 +19,7 @@
 #include <QObject>
 #include <QString>
 #include <QPointer>
+#include "base/DataType.h"
 #include "corpus/CorpusObjectInfo.h"
 
 namespace Praaline {
@@ -65,6 +66,12 @@ public:
     QPointer<AnnotationStructure> annotationStructure() const;
     void importMetadataStructure(MetadataStructure *otherStructure);
     void importAnnotationStructure(AnnotationStructure *otherStructure);
+    bool createMetadataAttribute(CorpusObject::Type type, const QString &sectionID, const QString &ID, const QString &name = QString(),
+                                 const QString &description = QString(), const DataType &datatype = DataType(DataType::VarChar, 256),
+                                 int order = 0, bool indexed = false, const QString &nameValueList = QString());
+    bool createAnnotationAttribute(const QString &annotationLevelID, const QString &ID, const QString &name = QString(),
+                                   const QString &description = QString(), const DataType &datatype = DataType(DataType::VarChar, 256),
+                                   int order = 0, bool indexed = false, const QString &nameValueList = QString());
 
     // Error handling and logging
     // ==========================================================================================================================

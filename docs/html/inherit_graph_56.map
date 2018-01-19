@@ -1,0 +1,6 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classQSqlMigrator_1_1Helper_1_1TypeMapperService.html" title="interface for a mapping basic types to proper sql types " alt="" coords="5,39,152,80"/>
+<area shape="rect" id="node2" href="$classQSqlMigrator_1_1Helper_1_1BaseSqlTypeMapperService.html" title="standard sql type mapping implementation " alt="" coords="200,39,395,80"/>
+<area shape="rect" id="node3" href="$classQSqlMigrator_1_1Helper_1_1MysqlTypeMapperService.html" title="QSqlMigrator::Helper\l::MysqlTypeMapperService" alt="" coords="456,5,637,47"/>
+<area shape="rect" id="node4" href="$classQSqlMigrator_1_1Helper_1_1PostgresqlTypeMapperService.html" title="QSqlMigrator::Helper\l::PostgresqlTypeMapperService" alt="" coords="443,71,651,112"/>
+</map>

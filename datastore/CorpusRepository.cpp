@@ -204,6 +204,47 @@ QPointer<AnnotationStructure> CorpusRepository::annotationStructure() const
     return d->annotationStructure;
 }
 
+bool CorpusRepository::createMetadataAttribute(CorpusObject::Type type, const QString &sectionID, const QString &ID, const QString &name,
+                                               const QString &description, const DataType &datatype,
+                                               int order, bool indexed, const QString &nameValueList)
+{
+    if (!d->datastoreMetadata) return false;
+    if (!d->metadataStructure) return false;
+    QString effectiveSectionID = sectionID;
+    if (effectiveSectionID.isEmpty()) effectiveSectionID = d->metadataStructure->defaultSectionID(type);
+    MetadataStructureSection *section = d->metadataStructure->section(type, effectiveSectionID);
+    if (!section) {
+        section = new MetadataStructureSection(sectionID, sectionID);
+        d->metadataStructure->addSection(type, section);
+    }
+    if (section->hasAttribute(ID)) return false; // already exists
+    MetadataStructureAttribute *attr = new MetadataStructureAttribute(ID, name, description, datatype,
+                                                                      order);
+    if (d->datastoreMetadata->createMetadataAttribute(type, attr)) {
+        section->addAttribute(attr);
+        return true;
+    }
+    return false;
+}
+
+bool CorpusRepository::createAnnotationAttribute(const QString &annotationLevelID, const QString &ID, const QString &name,
+                                                 const QString &description, const DataType &datatype,
+                                                 int order, bool indexed, const QString &nameValueList)
+{
+    if (!d->datastoreAnnotations) return false;
+    if (!d->annotationStructure) return false;
+    AnnotationStructureLevel *level = d->annotationStructure->level(annotationLevelID);
+    if (!level) return false; // level does not exist
+    if (level->hasAttribute(ID)) return false; // already exists
+    AnnotationStructureAttribute *attr = new AnnotationStructureAttribute(ID, name, description, datatype,
+                                                                          order, indexed, nameValueList);
+    if (d->datastoreAnnotations->createAnnotationAttribute(level->ID(), attr)) {
+        level->addAttribute(attr);
+        return true;
+    }
+    return false;
+}
+
 void CorpusRepository::importMetadataStructure(MetadataStructure *otherStructure)
 {
     if (!d->datastoreMetadata) return;

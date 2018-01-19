@@ -1,0 +1,11 @@
+<map id="Praaline::Core::IDatastore" name="Praaline::Core::IDatastore">
+<area shape="rect" id="node2" href="$classPraaline_1_1Core_1_1AnnotationDatastore.html" title="Praaline::Core::Annotation\lDatastore" alt="" coords="250,71,425,112"/>
+<area shape="rect" id="node5" href="$classPraaline_1_1Core_1_1MetadataDatastore.html" title="Praaline::Core::Metadata\lDatastore" alt="" coords="254,136,421,177"/>
+<area shape="rect" id="node8" href="$classPraaline_1_1Core_1_1MocaDBSerialiserMetadata.html" title="Praaline::Core::MocaDBSerialiser\lMetadata" alt="" coords="228,201,447,243"/>
+<area shape="rect" id="node9" href="$classPraaline_1_1Core_1_1SQLSerialiserAnnotation.html" title="Praaline::Core::SQLSerialiser\lAnnotation" alt="" coords="241,267,434,308"/>
+<area shape="rect" id="node10" href="$classPraaline_1_1Core_1_1SQLSerialiserMetadata.html" title="Praaline::Core::SQLSerialiser\lMetadata" alt="" coords="241,332,434,373"/>
+<area shape="rect" id="node3" href="$classPraaline_1_1Core_1_1SQLAnnotationDatastore.html" title="Praaline::Core::SQLAnnotation\lDatastore" alt="" coords="495,5,697,47"/>
+<area shape="rect" id="node4" href="$classPraaline_1_1Core_1_1XMLAnnotationDatastore.html" title="Praaline::Core::XMLAnnotation\lDatastore" alt="" coords="495,71,697,112"/>
+<area shape="rect" id="node6" href="$classPraaline_1_1Core_1_1SQLMetadataDatastore.html" title="Praaline::Core::SQLMetadata\lDatastore" alt="" coords="499,136,693,177"/>
+<area shape="rect" id="node7" href="$classPraaline_1_1Core_1_1XMLMetadataDatastore.html" title="Praaline::Core::XMLMetadata\lDatastore" alt="" coords="499,201,693,243"/>
+</map>

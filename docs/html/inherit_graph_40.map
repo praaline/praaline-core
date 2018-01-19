@@ -1,0 +1,6 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classPraaline_1_1Core_1_1XMLSerialiserBase.html" title="Praaline::Core::XMLSerialiserBase" alt="" coords="5,78,229,105"/>
+<area shape="rect" id="node2" href="$classPraaline_1_1Core_1_1XMLSerialiserAnnotation.html" title="Praaline::Core::XMLSerialiser\lAnnotation" alt="" coords="277,5,472,47"/>
+<area shape="rect" id="node3" href="$classPraaline_1_1Core_1_1XMLSerialiserCorpus.html" title="Praaline::Core::XMLSerialiser\lCorpus" alt="" coords="277,71,472,112"/>
+<area shape="rect" id="node4" href="$classPraaline_1_1Core_1_1XMLSerialiserCorpusBookmark.html" title="Praaline::Core::XMLSerialiser\lCorpusBookmark" alt="" coords="277,136,472,177"/>
+</map>

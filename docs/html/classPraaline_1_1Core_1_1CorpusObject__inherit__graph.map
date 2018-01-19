@@ -1,0 +1,10 @@
+<map id="Praaline::Core::CorpusObject" name="Praaline::Core::CorpusObject">
+<area shape="rect" id="node4" href="$classPraaline_1_1Core_1_1Corpus.html" title="Praaline::Core::Corpus" alt="" coords="511,5,666,32"/>
+<area shape="rect" id="node5" href="$classPraaline_1_1Core_1_1CorpusAnnotation.html" title="Praaline::Core::CorpusAnnotation" alt="" coords="480,56,697,83"/>
+<area shape="rect" id="node6" href="$classPraaline_1_1Core_1_1CorpusBookmark.html" title="Praaline::Core::CorpusBookmark" alt="" coords="481,107,696,133"/>
+<area shape="rect" id="node7" href="$classPraaline_1_1Core_1_1CorpusCommunication.html" title="Praaline::Core::CorpusCommunication" alt="" coords="465,157,712,184"/>
+<area shape="rect" id="node8" href="$classPraaline_1_1Core_1_1CorpusParticipation.html" title="Praaline::Core::CorpusParticipation" alt="" coords="475,208,702,235"/>
+<area shape="rect" id="node9" href="$classPraaline_1_1Core_1_1CorpusRecording.html" title="Praaline::Core::CorpusRecording" alt="" coords="481,259,696,285"/>
+<area shape="rect" id="node10" href="$classPraaline_1_1Core_1_1CorpusSpeaker.html" title="Praaline::Core::CorpusSpeaker" alt="" coords="487,309,690,336"/>
+<area shape="rect" id="node3" href="$classPraaline_1_1Core_1_1ISaveable.html" title="Praaline::Core::ISaveable" alt="" coords="5,183,176,209"/>
+</map>

@@ -1,0 +1,12 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classQSqlMigrator_1_1CommandExecution_1_1LocalSchemeBaseCommandExecutionService.html" title="QSqlMigrator::CommandExecution\l::LocalSchemeBaseCommandExecutionService" alt="" coords="5,267,307,308"/>
+<area shape="rect" id="node2" href="$classQSqlMigrator_1_1CommandExecution_1_1LocalSchemeAddColumnService.html" title="QSqlMigrator::CommandExecution\l::LocalSchemeAddColumnService" alt="" coords="370,5,594,47"/>
+<area shape="rect" id="node3" href="$classQSqlMigrator_1_1CommandExecution_1_1LocalSchemeAlterColumnTypeService.html" title="QSqlMigrator::CommandExecution\l::LocalSchemeAlterColumnTypeService" alt="" coords="355,71,609,112"/>
+<area shape="rect" id="node4" href="$classQSqlMigrator_1_1CommandExecution_1_1LocalSchemeCreateIndexService.html" title="QSqlMigrator::CommandExecution\l::LocalSchemeCreateIndexService" alt="" coords="370,136,594,177"/>
+<area shape="rect" id="node5" href="$classQSqlMigrator_1_1CommandExecution_1_1LocalSchemeCreateTableService.html" title="QSqlMigrator::CommandExecution\l::LocalSchemeCreateTableService" alt="" coords="370,201,594,243"/>
+<area shape="rect" id="node6" href="$classQSqlMigrator_1_1CommandExecution_1_1LocalSchemeDropColumnService.html" title="QSqlMigrator::CommandExecution\l::LocalSchemeDropColumnService" alt="" coords="369,267,595,308"/>
+<area shape="rect" id="node7" href="$classQSqlMigrator_1_1CommandExecution_1_1LocalSchemeDropIndexService.html" title="QSqlMigrator::CommandExecution\l::LocalSchemeDropIndexService" alt="" coords="370,332,594,373"/>
+<area shape="rect" id="node8" href="$classQSqlMigrator_1_1CommandExecution_1_1LocalSchemeDropTableService.html" title="QSqlMigrator::CommandExecution\l::LocalSchemeDropTableService" alt="" coords="370,397,594,439"/>
+<area shape="rect" id="node9" href="$classQSqlMigrator_1_1CommandExecution_1_1LocalSchemeRenameColumnService.html" title="QSqlMigrator::CommandExecution\l::LocalSchemeRenameColumnService" alt="" coords="359,463,605,504"/>
+<area shape="rect" id="node10" href="$classQSqlMigrator_1_1CommandExecution_1_1LocalSchemeRenameTableService.html" title="QSqlMigrator::CommandExecution\l::LocalSchemeRenameTableService" alt="" coords="365,528,599,569"/>
+</map>

@@ -205,15 +205,15 @@ bool IntervalTier::compareIntervals(Interval *A, Interval *B) {
     return (A->tMin() < B->tMin());
 }
 
-Interval *IntervalTier::intervalAtTime(RealTime t)
+Interval *IntervalTier::intervalAtTime(RealTime t, bool preferIntervalToTheLeftOfBoundary)
 {
-    int index = intervalIndexAtTime(t);
+    int index = intervalIndexAtTime(t, preferIntervalToTheLeftOfBoundary);
     if (index == -1)
-        return 0; // not found
+        return nullptr; // not found
     return m_intervals.at(index);
 }
 
-int IntervalTier::intervalIndexAtTime(RealTime t) const
+int IntervalTier::intervalIndexAtTime(RealTime t, bool preferIntervalToTheLeftOfBoundary) const
 {
     if ((t < m_tMin) || (t > m_tMax)) return -1;
     // The intervals are sorted by time. Therefore, use binary search.
@@ -233,7 +233,23 @@ int IntervalTier::intervalIndexAtTime(RealTime t) const
             imax = imid - 1;
         }
         else {
-            // interval found at index imid
+            // Interval found at index imid
+            // If t happens to be an interval boundary...
+            if      (m_intervals.at(imid)->tMin() == t) {
+                if (preferIntervalToTheLeftOfBoundary) {
+                    if (imid - 1 >= 0) return imid - 1;
+                } else {
+                    return imid;
+                }
+            }
+            else if (m_intervals.at(imid)->tMax() == t) {
+                if (!preferIntervalToTheLeftOfBoundary) {
+                    if (imid + 1 < m_intervals.count()) return imid + 1;
+                } else {
+                    return imid;
+                }
+            }
+            // ... otherwise t is inside interval imid
             return imid;
         }
     }
@@ -273,7 +289,7 @@ void IntervalTier::replaceAllIntervals(QList<Interval *> &newIntervals)
 Interval *IntervalTier::split(RealTime at)
 {
     int index = intervalIndexAtTime(at);
-    if (index <0) return 0;
+    if (index <0) return nullptr;
     return split(index, at);
 }
 
@@ -300,7 +316,7 @@ Interval *IntervalTier::addToEnd(RealTime tMax, const QString &text)
 {
     Interval *intv;
     intv = split(count() - 1, tMax);
-    if (intv == 0) return 0; // problem with tMax
+    if (intv == 0) return nullptr; // problem with tMax
     intv = interval(count() - 2);
     intv->setText(text);
     return intv;
@@ -471,7 +487,7 @@ void IntervalTier::fixBoundariesBasedOnTier(const IntervalTier *correctBoundarie
 QPair<int, int> IntervalTier::getIntervalIndexesContainedIn(const RealTime &timeStart, const RealTime &timeEnd) const
 {
     int left = intervalIndexAtTime(timeStart);
-    int right = intervalIndexAtTime(timeEnd);
+    int right = intervalIndexAtTime(timeEnd, true); // true = if timeEnd is a boundary, get interval to the left of it
     // Check for invalid indexes
     if ((left < 0) || (right < 0) || (left >= m_intervals.count()) || (right >= m_intervals.count()))
         return QPair<int, int>(-1, -1);
@@ -517,21 +533,19 @@ QList<Interval *> IntervalTier::getIntervalsContainedIn(const Interval *containe
 
 QPair<int, int> IntervalTier::getIntervalIndexesOverlappingWith(const RealTime &timeStart, const RealTime &timeEnd, const RealTime &threshold) const
 {
+    // left
     int left = intervalIndexAtTime(timeStart);
-    int right = intervalIndexAtTime(timeEnd);
+    if (left < 0) left = intervalIndexAtTime(timeStart + threshold);
+    int leftMinus = intervalIndexAtTime(timeStart - threshold);
+    if ((leftMinus >= 0) && (leftMinus < left)) left = leftMinus;
+    // right
+    int right = intervalIndexAtTime(timeEnd, true);
+    if (right < 0) right = intervalIndexAtTime(timeEnd - threshold, true);
+    int rightPlus = intervalIndexAtTime(timeEnd + threshold, true);
+    if ((rightPlus >= 0) && (rightPlus < m_intervals.count()) && (right < rightPlus)) right = rightPlus;
     // Check for invalid indexes
     if ((left < 0) || (right < 0) || (left >= m_intervals.count()) || (right >= m_intervals.count()))
         return QPair<int, int>(-1, -1);
-    // Strictly contained: move closer if needed
-    if (m_intervals.at(left)->tMin() + threshold < timeStart) left++;
-    if (m_intervals.at(right)->tMax() - threshold > timeEnd) right--;
-    // Move apart if needed
-    while (((left - 1) >= 0) && ((left - 1) < m_intervals.count()) &&
-           (timeStart <= m_intervals[left - 1]->tMin() + threshold) && (m_intervals[left - 1]->tMin() + threshold <= timeEnd))
-        left--;
-    while (((right + 1) >= 0) && ((right + 1) < m_intervals.count()) &&
-           (timeStart <= m_intervals[right + 1]->tMax() - threshold) && (m_intervals[right + 1]->tMax() - threshold <= timeEnd))
-        right++;
     // Check for a given time interval that would be smaller than any interval on the tier
     if (right < left) return QPair<int, int>(-1, -1);
     // Otherwise return result
@@ -733,6 +747,15 @@ bool IntervalTier::moveBoundary(int index, RealTime time)
     // Move boundary
     if (index > 0) m_intervals[index - 1]->m_tMax = time;
     m_intervals[index]->m_tMin = time;
+    return true;
+}
+
+bool IntervalTier::moveTierEnd(const RealTime time)
+{
+    if (m_intervals.isEmpty()) return false;
+    if (m_intervals.last()->tMin() >= time) return false;
+    m_intervals.last()->m_tMax = time;
+    m_tMax = time;
     return true;
 }
 

@@ -1,0 +1,4 @@
+<map id="QSqlMigrator::MigrationTracker::SqliteMigrationTableService" name="QSqlMigrator::MigrationTracker::SqliteMigrationTableService">
+<area shape="rect" id="node2" href="$classQSqlMigrator_1_1MigrationTracker_1_1BaseMigrationTableService.html" title="Implementation of the successfully executed migration tracking through an sql databse table..." alt="" coords="5,95,208,136"/>
+<area shape="rect" id="node3" href="$classQSqlMigrator_1_1MigrationTracker_1_1MigrationTrackerService.html" title="Interface of a service that is used to track successfully executed migrations. " alt="" coords="5,5,208,47"/>
+</map>

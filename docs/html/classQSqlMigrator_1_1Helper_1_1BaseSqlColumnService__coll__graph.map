@@ -1,0 +1,4 @@
+<map id="QSqlMigrator::Helper::BaseSqlColumnService" name="QSqlMigrator::Helper::BaseSqlColumnService">
+<area shape="rect" id="node2" href="$classQSqlMigrator_1_1Helper_1_1ColumnService.html" title="interface for a service that can convert column and index definitions to proper SQL statements ..." alt="" coords="5,5,149,47"/>
+<area shape="rect" id="node3" href="$classQSqlMigrator_1_1Helper_1_1TypeMapperService.html" title="interface for a mapping basic types to proper sql types " alt="" coords="173,5,320,47"/>
+</map>

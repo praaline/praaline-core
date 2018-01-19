@@ -1,0 +1,6 @@
+<map id="QSqlMigrator::Helper::SqlStructureService" name="QSqlMigrator::Helper::SqlStructureService">
+<area shape="rect" id="node2" href="$classQSqlMigrator_1_1Helper_1_1FirebirdSqlStructureService.html" title="QSqlMigrator::Helper\l::FirebirdSqlStructureService" alt="" coords="200,5,389,47"/>
+<area shape="rect" id="node3" href="$classQSqlMigrator_1_1Helper_1_1MysqlStructureService.html" title="QSqlMigrator::Helper\l::MysqlStructureService" alt="" coords="213,71,376,112"/>
+<area shape="rect" id="node4" href="$classQSqlMigrator_1_1Helper_1_1PostgresqlStructureService.html" title="QSqlMigrator::Helper\l::PostgresqlStructureService" alt="" coords="200,136,389,177"/>
+<area shape="rect" id="node5" href="$classQSqlMigrator_1_1Helper_1_1SqliteSqlStructureService.html" title="QSqlMigrator::Helper\l::SqliteSqlStructureService" alt="" coords="205,201,384,243"/>
+</map>

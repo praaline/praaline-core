@@ -1,0 +1,8 @@
+<map id="Praaline::Core::InterfaceTextFile" name="Praaline::Core::InterfaceTextFile">
+<area shape="rect" id="node2" href="$classPraaline_1_1Core_1_1AnvilMetadataTranscript.html" title="Praaline::Core::AnvilMetadata\lTranscript" alt="" coords="217,5,413,47"/>
+<area shape="rect" id="node3" href="$classPraaline_1_1Core_1_1PraatTextFile.html" title="Praaline::Core::PraatTextFile" alt="" coords="220,71,411,98"/>
+<area shape="rect" id="node6" href="$classPraaline_1_1Core_1_1SubtitlesFile.html" title="Praaline::Core::SubtitlesFile" alt="" coords="223,122,408,149"/>
+<area shape="rect" id="node7" href="$classPraaline_1_1Core_1_1TranscriberAnnotationGraph.html" title="Praaline::Core::Transcriber\lAnnotationGraph" alt="" coords="226,173,405,215"/>
+<area shape="rect" id="node4" href="$classPraaline_1_1Core_1_1PraatPointTierFile.html" title="Praaline::Core::PraatPoint\lTierFile" alt="" coords="471,35,646,76"/>
+<area shape="rect" id="node5" href="$classPraaline_1_1Core_1_1PraatTextGrid.html" title="Praaline::Core::PraatTextGrid" alt="" coords="461,101,656,127"/>
+</map>

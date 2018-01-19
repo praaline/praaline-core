@@ -1,0 +1,4 @@
+<map id="QSqlMigrator::Helper::PostgresqlColumnService" name="QSqlMigrator::Helper::PostgresqlColumnService">
+<area shape="rect" id="node2" href="$classQSqlMigrator_1_1Helper_1_1BaseSqlColumnService.html" title="QSqlMigrator::Helper\l::BaseSqlColumnService" alt="" coords="12,95,180,136"/>
+<area shape="rect" id="node3" href="$classQSqlMigrator_1_1Helper_1_1ColumnService.html" title="interface for a service that can convert column and index definitions to proper SQL statements ..." alt="" coords="24,5,168,47"/>
+</map>

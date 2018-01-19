@@ -1,0 +1,8 @@
+<map id="Praaline::Core::CorpusDatastore" name="Praaline::Core::CorpusDatastore">
+<area shape="rect" id="node3" href="$classPraaline_1_1Core_1_1AnnotationDatastore.html" title="Praaline::Core::Annotation\lDatastore" alt="" coords="384,71,559,112"/>
+<area shape="rect" id="node6" href="$classPraaline_1_1Core_1_1MetadataDatastore.html" title="Praaline::Core::Metadata\lDatastore" alt="" coords="388,136,555,177"/>
+<area shape="rect" id="node4" href="$classPraaline_1_1Core_1_1SQLAnnotationDatastore.html" title="Praaline::Core::SQLAnnotation\lDatastore" alt="" coords="607,5,809,47"/>
+<area shape="rect" id="node5" href="$classPraaline_1_1Core_1_1XMLAnnotationDatastore.html" title="Praaline::Core::XMLAnnotation\lDatastore" alt="" coords="607,71,809,112"/>
+<area shape="rect" id="node7" href="$classPraaline_1_1Core_1_1SQLMetadataDatastore.html" title="Praaline::Core::SQLMetadata\lDatastore" alt="" coords="611,136,805,177"/>
+<area shape="rect" id="node8" href="$classPraaline_1_1Core_1_1XMLMetadataDatastore.html" title="Praaline::Core::XMLMetadata\lDatastore" alt="" coords="611,201,805,243"/>
+</map>

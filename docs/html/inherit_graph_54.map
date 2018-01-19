@@ -1,0 +1,5 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classQSqlMigrator_1_1Helper_1_1QuoteService.html" title="interface for a service that is used to quote different kinds of strings for a database ..." alt="" coords="5,5,149,47"/>
+<area shape="rect" id="node2" href="$classQSqlMigrator_1_1Helper_1_1BaseSqlQuoteService.html" title="QSqlMigrator::Helper\l::BaseSqlQuoteService" alt="" coords="197,5,356,47"/>
+<area shape="rect" id="node3" href="$classQSqlMigrator_1_1Helper_1_1PostgresqlQuoteService.html" title="QSqlMigrator::Helper\l::PostgresqlQuoteService" alt="" coords="404,5,575,47"/>
+</map>
