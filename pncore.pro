@@ -208,7 +208,10 @@ HEADERS += \
     statistics/Measures.h \
     interfaces/phon/PhonTranscription.h \
     interfaces/ImportAnnotations.h \
-    statistics/SpeakerTimeline.h
+    statistics/SpeakerTimeline.h \
+    language/Tokeniser.h \
+    language/PhonemeDefinitions.h \
+    language/PhoneticAlphabet.h
 
 SOURCES += \
     base/RealTime.cpp \
@@ -377,7 +380,10 @@ SOURCES += \
     statistics/Measures.cpp \
     interfaces/phon/PhonTranscription.cpp \
     interfaces/ImportAnnotations.cpp \
-    statistics/SpeakerTimeline.cpp
+    statistics/SpeakerTimeline.cpp \
+    language/Tokeniser.cpp \
+    language/PhonemeDefinitions.cpp \
+    language/PhoneticAlphabet.cpp
 
 DISTFILES += \
     pncore.qmodel
