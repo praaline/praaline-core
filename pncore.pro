@@ -211,7 +211,8 @@ HEADERS += \
     statistics/SpeakerTimeline.h \
     language/Tokeniser.h \
     language/PhonemeDefinitions.h \
-    language/PhoneticAlphabet.h
+    language/PhoneticAlphabet.h \
+    annotation/Transcription.h
 
 SOURCES += \
     base/RealTime.cpp \
@@ -383,7 +384,8 @@ SOURCES += \
     statistics/SpeakerTimeline.cpp \
     language/Tokeniser.cpp \
     language/PhonemeDefinitions.cpp \
-    language/PhoneticAlphabet.cpp
+    language/PhoneticAlphabet.cpp \
+    annotation/Transcription.cpp
 
 DISTFILES += \
     pncore.qmodel
