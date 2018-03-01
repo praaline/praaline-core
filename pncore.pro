@@ -212,7 +212,8 @@ HEADERS += \
     language/Tokeniser.h \
     language/PhonemeDefinitions.h \
     language/PhoneticAlphabet.h \
-    annotation/Transcription.h
+    annotation/Transcription.h \
+    interfaces/praat/PraatPitchFile.h
 
 SOURCES += \
     base/RealTime.cpp \
@@ -385,7 +386,8 @@ SOURCES += \
     language/Tokeniser.cpp \
     language/PhonemeDefinitions.cpp \
     language/PhoneticAlphabet.cpp \
-    annotation/Transcription.cpp
+    annotation/Transcription.cpp \
+    interfaces/praat/PraatPitchFile.cpp
 
 DISTFILES += \
     pncore.qmodel
