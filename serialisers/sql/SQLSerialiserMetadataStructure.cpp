@@ -21,6 +21,7 @@ namespace Core {
 // static
 bool SQLSerialiserMetadataStructure::initialiseMetadataStructureSchema(QSqlDatabase &db)
 {
+    if (!db.isValid()) return false;
     Migrations::Migration initializeMetadataStructure;
     Table::Builder tableMetadataSections("praalineMetadataSections");
     tableMetadataSections
@@ -68,6 +69,7 @@ bool SQLSerialiserMetadataStructure::initialiseMetadataStructureSchema(QSqlDatab
 // static
 bool SQLSerialiserMetadataStructure::upgradeMetadataStructureSchema(QSqlDatabase &db)
 {
+    if (!db.isValid()) return false;
     int schemaVersion = getPraalineSchemaVersion(db);
     if (schemaVersion == 0) {
         if (db.tables().contains("praalineMetadataSections") && db.tables().contains("praalineMetadataAttributes")) {
@@ -86,6 +88,8 @@ bool SQLSerialiserMetadataStructure::upgradeMetadataStructureSchema(QSqlDatabase
 
 bool createNewSchema(MetadataStructure *structure, CorpusObject::Type what, QSqlDatabase &db)
 {
+    if (!structure) return false;
+    if (!db.isValid()) return false;
     Migrations::Migration initializeTable;
     QString tableName;
     ColumnList columns;
@@ -154,6 +158,8 @@ bool createNewSchema(MetadataStructure *structure, CorpusObject::Type what, QSql
 // static
 bool SQLSerialiserMetadataStructure::initialiseMetadataSchema(QPointer<MetadataStructure> structure, QSqlDatabase &db)
 {
+    if (!structure) return false;
+    if (!db.isValid()) return false;
     db.transaction();
     if (!createNewSchema(structure, CorpusObject::Type_Corpus, db))         { db.rollback(); return false; }
     if (!createNewSchema(structure, CorpusObject::Type_Communication, db))  { db.rollback(); return false; }
@@ -168,6 +174,8 @@ bool SQLSerialiserMetadataStructure::initialiseMetadataSchema(QPointer<MetadataS
 // static
 bool SQLSerialiserMetadataStructure::upgradeMetadataSchema(QPointer<MetadataStructure> structure, QSqlDatabase &db)
 {
+    if (!structure) return false;
+    if (!db.isValid()) return false;
     bool result = true;
     if (!db.tables().contains("corpus"))        result = result && createNewSchema(structure, CorpusObject::Type_Corpus, db);
     if (!db.tables().contains("communication")) result = result && createNewSchema(structure, CorpusObject::Type_Communication, db);
@@ -180,6 +188,8 @@ bool SQLSerialiserMetadataStructure::upgradeMetadataSchema(QPointer<MetadataStru
 
 void readAttribute(QSqlQuery &q, MetadataStructureAttribute *attribute)
 {
+    if (!attribute) return;
+    if (!q.isValid()) return;
     attribute->setID(q.value("attributeID").toString());
     attribute->setName(q.value("name").toString());
     attribute->setDescription(q.value("description").toString());
@@ -195,6 +205,7 @@ void readAttribute(QSqlQuery &q, MetadataStructureAttribute *attribute)
 bool SQLSerialiserMetadataStructure::loadMetadataStructure(QPointer<MetadataStructure> structure, QSqlDatabase &db)
 {
     if (!structure) return false;
+    if (!db.isValid()) return false;
     QSqlQuery q1(db), q2(db), q3(db);
     q1.setForwardOnly(true);
     q1.prepare("SELECT * FROM praalineMetadataSections ORDER BY itemOrder");
@@ -296,6 +307,7 @@ bool SQLSerialiserMetadataStructure::loadMetadataStructure(QPointer<MetadataStru
 bool SQLSerialiserMetadataStructure::saveMetadataStructure(QPointer<MetadataStructure> structure, QSqlDatabase &db)
 {
     if (!structure) return false;
+    if (!db.isValid()) return false;
     QSqlQuery q1(db), q2(db);
     q1.setForwardOnly(true);
     q1.prepare("SELECT sectionID FROM praalineMetadataSections WHERE objectType = :objectType");
@@ -339,6 +351,7 @@ bool SQLSerialiserMetadataStructure::saveMetadataStructure(QPointer<MetadataStru
 bool SQLSerialiserMetadataStructure::createMetadataSection(CorpusObject::Type type, QPointer<MetadataStructureSection> newSection, QSqlDatabase &db)
 {
     if (!newSection) return false;
+    if (!db.isValid()) return false;
     QSqlQuery q(db);
     q.prepare("INSERT INTO praalineMetadataSections (objectType, sectionID, name, description, itemOrder) "
               "VALUES (:objectType, :sectionID, :name, :description, :itemOrder) ");
@@ -357,6 +370,7 @@ bool SQLSerialiserMetadataStructure::createMetadataSection(CorpusObject::Type ty
 bool SQLSerialiserMetadataStructure::updateMetadataSection(CorpusObject::Type type, QPointer<MetadataStructureSection> updatedSection, QSqlDatabase &db)
 {
     if (!updatedSection) return false;
+    if (!db.isValid()) return false;
     QSqlQuery q_exists(db), q(db);
     // Check if section exists - if not, create it
     q_exists.prepare("SELECT sectionID FROM praalineMetadataSections WHERE sectionID=:sectionID ");
@@ -383,6 +397,7 @@ bool SQLSerialiserMetadataStructure::updateMetadataSection(CorpusObject::Type ty
 bool SQLSerialiserMetadataStructure::deleteMetadataSection(CorpusObject::Type type, const QString &sectionID, QSqlDatabase &db)
 {
     if (sectionID.isEmpty()) return false;
+    if (!db.isValid()) return false;
     db.transaction();
     QSqlQuery qupd(db), qdel(db);
     qupd.prepare("UPDATE praalineMetadataAttributes SET sectionID = :defaultSectionID WHERE objectType=:objectType AND sectionID = :sectionID ");
@@ -404,9 +419,10 @@ bool SQLSerialiserMetadataStructure::deleteMetadataSection(CorpusObject::Type ty
 bool SQLSerialiserMetadataStructure::createMetadataAttribute(CorpusObject::Type type, QPointer<MetadataStructureAttribute> newAttribute,
                                                              QSqlDatabase &db)
 {
+    if (!newAttribute) return false;
+    if (!db.isValid()) return false;
     QString tableName = SQLSerialiserSystem::tableNameForCorpusObjectType(type);
     if (tableName.isEmpty()) return false;
-    if (!newAttribute) return false;
     bool result = addColumnToTable(tableName, newAttribute->ID(), newAttribute->datatype(), db);
     if (!result) return false;
     QSqlQuery q(db);
@@ -434,6 +450,7 @@ bool SQLSerialiserMetadataStructure::updateMetadataAttribute(CorpusObject::Type 
                                                              QSqlDatabase &db)
 {
     if (!updatedAttribute) return false;
+    if (!db.isValid()) return false;
     QSqlQuery q_exists(db), q(db);
     // Check if attribute exists - if not, create it
     q_exists.prepare("SELECT attributeID FROM praalineMetadataAttributes WHERE attributeID=:attributeID ");
@@ -463,6 +480,9 @@ bool SQLSerialiserMetadataStructure::updateMetadataAttribute(CorpusObject::Type 
 bool SQLSerialiserMetadataStructure::renameMetadataAttribute(CorpusObject::Type type, const QString &attributeID, const QString &newAttributeID,
                                                              QSqlDatabase &db)
 {
+    if (attributeID.isEmpty()) return false;
+    if (newAttributeID.isEmpty()) return false;
+    if (!db.isValid()) return false;
     QString tableName = SQLSerialiserSystem::tableNameForCorpusObjectType(type);
     if (tableName.isEmpty()) return false;
     bool result = renameColumn(tableName, attributeID, newAttributeID, db);
@@ -481,6 +501,8 @@ bool SQLSerialiserMetadataStructure::renameMetadataAttribute(CorpusObject::Type 
 bool SQLSerialiserMetadataStructure::retypeMetadataAttribute(CorpusObject::Type type, const QString &attributeID,
                                                              const DataType &newDataType, QSqlDatabase &db)
 {
+    if (attributeID.isEmpty()) return false;
+    if (!db.isValid()) return false;
     QSqlQuery q(db);
     q.prepare("SELECT datatype, length FROM praalineMetadataAttributes "
               "WHERE objectType=:objectType AND attributeID=:attributeID ");
@@ -513,6 +535,8 @@ bool SQLSerialiserMetadataStructure::retypeMetadataAttribute(CorpusObject::Type 
 // static
 bool SQLSerialiserMetadataStructure::deleteMetadataAttribute(CorpusObject::Type type, const QString &attributeID, QSqlDatabase &db)
 {
+    if (attributeID.isEmpty()) return false;
+    if (!db.isValid()) return false;
     QString tableName = SQLSerialiserSystem::tableNameForCorpusObjectType(type);
     if (tableName.isEmpty()) return false;
     bool result = deleteColumn(tableName, attributeID, db);

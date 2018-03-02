@@ -20,6 +20,7 @@ namespace Core {
 // static
 bool SQLSerialiserNameValueList::initialiseNameValueListSchema(QSqlDatabase &db)
 {
+    if (!db.isValid()) return false;
     if (db.tables().contains("praalineNameValueLists")) return true;
     Migrations::Migration initialiseNameValueListSchema;
     Table::Builder tableNameValueLists("praalineNameValueLists");
@@ -39,6 +40,7 @@ bool SQLSerialiserNameValueList::initialiseNameValueListSchema(QSqlDatabase &db)
 // static
 bool SQLSerialiserNameValueList::upgradeNameValueListSchema(QSqlDatabase &db)
 {
+    if (!db.isValid()) return false;
     int schemaVersion = getPraalineSchemaVersion(db);
     if (schemaVersion < 2) {
         return initialiseNameValueListSchema(db);
@@ -49,6 +51,8 @@ bool SQLSerialiserNameValueList::upgradeNameValueListSchema(QSqlDatabase &db)
 // static
 NameValueList *SQLSerialiserNameValueList::getNameValueList(const QString &listID, NameValueListType listType, QSqlDatabase &db)
 {
+    if (listID.isEmpty()) return Q_NULLPTR;
+    if (!db.isValid()) return Q_NULLPTR;
     QString tableName = getTableName(listID, listType);
     if (!db.tables().contains(tableName)) return Q_NULLPTR;
     // Select information from internal table, then select data
@@ -82,6 +86,7 @@ NameValueList *SQLSerialiserNameValueList::getNameValueList(const QString &listI
 // static
 QStringList SQLSerialiserNameValueList::getAllNameValueListIDs(NameValueListType listType, QSqlDatabase &db)
 {
+    if (!db.isValid()) return QStringList();
     QStringList listIDs;
     QSqlQuery q1(db);
     q1.setForwardOnly(true);
@@ -100,6 +105,7 @@ QStringList SQLSerialiserNameValueList::getAllNameValueListIDs(NameValueListType
 QMap<QString, QPointer<NameValueList> > SQLSerialiserNameValueList::getAllNameValueLists(NameValueListType listType, QSqlDatabase &db)
 {
     QMap<QString, QPointer<NameValueList> > lists;
+    if (!db.isValid()) return lists;
     // Select information from internal table, then select data
     QSqlQuery q1(db);
     q1.setForwardOnly(true);
@@ -134,6 +140,8 @@ QMap<QString, QPointer<NameValueList> > SQLSerialiserNameValueList::getAllNameVa
 // static
 bool SQLSerialiserNameValueList::createNameValueList(NameValueList *newList, NameValueListType listType, QSqlDatabase &db)
 {
+    if (!newList) return false;
+    if (!db.isValid()) return false;
     QString tableName = getTableName(newList->ID(), listType);
     Migrations::Migration createList;
     ColumnList columns;
@@ -181,6 +189,8 @@ bool SQLSerialiserNameValueList::createNameValueList(NameValueList *newList, Nam
 // static
 bool SQLSerialiserNameValueList::updateNameValueList(NameValueList *list, NameValueListType listType, QSqlDatabase &db)
 {
+    if (!list) return false;
+    if (!db.isValid()) return false;
     QString tableName = getTableName(list->ID(), listType);
     if (!checkNameValueListExists(list->ID(), listType, db))
         return createNameValueList(list, listType, db);
@@ -214,6 +224,8 @@ bool SQLSerialiserNameValueList::updateNameValueList(NameValueList *list, NameVa
 // static
 bool SQLSerialiserNameValueList::deleteNameValueList(const QString &listID, NameValueListType listType, QSqlDatabase &db)
 {
+    if (listID.isEmpty()) return false;
+    if (!db.isValid()) return false;
     QString tableName = getTableName(listID, listType);
     if (!db.tables().contains(tableName)) return false;
     bool result = deleteTable(tableName, db);
@@ -231,6 +243,7 @@ bool SQLSerialiserNameValueList::deleteNameValueList(const QString &listID, Name
 // static
 bool SQLSerialiserNameValueList::checkNameValueListExists(const QString &listID, NameValueListType listType, QSqlDatabase &db)
 {
+    if (!db.isValid()) return false;
     QString tableName = getTableName(listID, listType);
     if (db.tables().contains(tableName)) return true;
     // else

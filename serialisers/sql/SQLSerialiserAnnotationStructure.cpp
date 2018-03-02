@@ -21,6 +21,7 @@ namespace Core {
 // static
 bool SQLSerialiserAnnotationStructure::initialiseAnnotationStructureTables(QSqlDatabase &db)
 {
+    if (!db.isValid()) return false;
     Migrations::Migration initializeAnnotationStructure;
     Table::Builder tableAnnotationLevels("praalineAnnotationLevels");
     tableAnnotationLevels
@@ -55,6 +56,7 @@ bool SQLSerialiserAnnotationStructure::initialiseAnnotationStructureTables(QSqlD
 bool SQLSerialiserAnnotationStructure::loadAnnotationStructure(QPointer<AnnotationStructure> structure, QSqlDatabase &db)
 {
     if (!structure) return false;
+    if (!db.isValid()) return false;
     QSqlQuery q1(db), q2(db);
     q1.setForwardOnly(true);
     q1.prepare("SELECT * FROM praalineAnnotationLevels");
@@ -106,11 +108,12 @@ bool SQLSerialiserAnnotationStructure::loadAnnotationStructure(QPointer<Annotati
 bool SQLSerialiserAnnotationStructure::saveAnnotationStructure(QPointer<AnnotationStructure> structure, QSqlDatabase &db)
 {
     if (!structure) return false;
+    if (!db.isValid()) return false;
     QSqlQuery q1(db), q2(db);
     q1.setForwardOnly(true);
     q1.prepare("SELECT levelID FROM praalineAnnotationLevels");
     q2.setForwardOnly(true);
-    q2.prepare("SELECT attributeID FROM praalineMetadataAttributes WHERE levelID = :levelID");
+    q2.prepare("SELECT attributeID FROM praalineAnnotationAttributes WHERE levelID = :levelID");
     bool result = true;
     // Get levelIDs in database
     QStringList levelIDsInDatabase, levelIDsInStructure;
@@ -118,6 +121,7 @@ bool SQLSerialiserAnnotationStructure::saveAnnotationStructure(QPointer<Annotati
     while (q1.next()) levelIDsInDatabase << q1.value("levelID").toString();
     // Update (possilby insert)
     foreach (QPointer<AnnotationStructureLevel> level, structure->levels()) {
+        if (!level) continue;
         result = result && updateAnnotationLevel(level, db);
         levelIDsInStructure << level->ID();
         // Get attributeIDs in database
@@ -146,6 +150,8 @@ bool SQLSerialiserAnnotationStructure::saveAnnotationStructure(QPointer<Annotati
 // static
 bool SQLSerialiserAnnotationStructure::createAnnotationLevel(QPointer<AnnotationStructureLevel> newLevel, QSqlDatabase &db)
 {
+    if (!newLevel) return false;
+    if (!db.isValid()) return false;
     Migrations::Migration createLevel;
     QString tableName = newLevel->ID();
     ColumnList columns;
@@ -234,6 +240,7 @@ bool SQLSerialiserAnnotationStructure::createAnnotationLevel(QPointer<Annotation
 bool SQLSerialiserAnnotationStructure::updateAnnotationLevel(QPointer<AnnotationStructureLevel> updatedLevel, QSqlDatabase &db)
 {
     if (!updatedLevel) return false;
+    if (!db.isValid()) return false;
     QSqlQuery q_exists(db), q(db);
     // Check if level exists - if not, create it
     q_exists.prepare("SELECT levelID FROM praalineAnnotationLevels WHERE levelID=:levelID ");
@@ -258,6 +265,9 @@ bool SQLSerialiserAnnotationStructure::updateAnnotationLevel(QPointer<Annotation
 // static
 bool SQLSerialiserAnnotationStructure::renameAnnotationLevel(const QString &levelID, const QString &newLevelID, QSqlDatabase &db)
 {
+    if (levelID.isEmpty()) return false;
+    if (newLevelID.isEmpty()) return false;
+    if (!db.isValid()) return false;
     bool result = renameTable(levelID, newLevelID, db);
     if (result) {
         QSqlQuery q(db);
@@ -279,8 +289,12 @@ bool SQLSerialiserAnnotationStructure::renameAnnotationLevel(const QString &leve
 // static
 bool SQLSerialiserAnnotationStructure::deleteAnnotationLevel(const QString &levelID, QSqlDatabase &db)
 {
+    if (levelID.isEmpty()) return false;
+    if (!db.isValid()) return false;
     bool result = deleteTable(levelID, db);
-    if (result) {
+    // If the table was deleted, or if it did not exist in the first place, delete the relevant records from the
+    // internal structure tables.
+    if (result || (!db.tables().contains(levelID))) {
         QSqlQuery qdel(db);
         qdel.prepare("DELETE FROM praalineAnnotationAttributes WHERE levelID = :levelID");
         qdel.bindValue(":levelID", levelID);
@@ -301,6 +315,7 @@ bool SQLSerialiserAnnotationStructure::createAnnotationAttribute(const QString &
 {
     if (levelID.isEmpty()) return false;
     if (!newAttribute) return false;
+    if (!db.isValid()) return false;
     bool result = addColumnToTable(levelID, newAttribute->ID(), newAttribute->datatype(), db);
     if (result) {
         QSqlQuery q(db), qdel(db);
@@ -331,7 +346,9 @@ bool SQLSerialiserAnnotationStructure::createAnnotationAttribute(const QString &
 bool SQLSerialiserAnnotationStructure::updateAnnotationAttribute(const QString &levelID, QPointer<AnnotationStructureAttribute> updatedAttribute,
                                                                  QSqlDatabase &db)
 {
+    if (levelID.isEmpty()) return false;
     if (!updatedAttribute) return false;
+    if (!db.isValid()) return false;
     QSqlQuery q_exists(db), q(db);
     // Check if attribute exists - if not, create it
     q_exists.prepare("SELECT attributeID FROM praalineAnnotationAttributes WHERE attributeID=:attributeID ");
@@ -357,6 +374,10 @@ bool SQLSerialiserAnnotationStructure::updateAnnotationAttribute(const QString &
 // static
 bool SQLSerialiserAnnotationStructure::renameAnnotationAttribute(const QString &levelID, const QString &attributeID, const QString &newAttributeID, QSqlDatabase &db)
 {
+    if (levelID.isEmpty()) return false;
+    if (attributeID.isEmpty()) return false;
+    if (newAttributeID.isEmpty()) return false;
+    if (!db.isValid()) return false;
     bool result = renameColumn(levelID, attributeID, newAttributeID, db);
     if (result) {
         QSqlQuery q(db);
@@ -374,6 +395,9 @@ bool SQLSerialiserAnnotationStructure::renameAnnotationAttribute(const QString &
 // static
 bool SQLSerialiserAnnotationStructure::retypeAnnotationAttribute(const QString &levelID, const QString &attributeID, const DataType &newDataType, QSqlDatabase &db)
 {
+    if (levelID.isEmpty()) return false;
+    if (attributeID.isEmpty()) return false;
+    if (!db.isValid()) return false;
     QSqlQuery q(db);
     q.prepare("SELECT datatype, length FROM praalineAnnotationAttributes "
               "WHERE levelID = :levelID AND attributeID = :attributeID ");
@@ -404,6 +428,9 @@ bool SQLSerialiserAnnotationStructure::retypeAnnotationAttribute(const QString &
 // static
 bool SQLSerialiserAnnotationStructure::deleteAnnotationAttribute(const QString &levelID, const QString &attributeID, QSqlDatabase &db)
 {
+    if (levelID.isEmpty()) return false;
+    if (attributeID.isEmpty()) return false;
+    if (!db.isValid()) return false;
     bool result = deleteColumn(levelID, attributeID, db);
     if (result) {
         QSqlQuery qdel(db);
