@@ -82,6 +82,7 @@ bool prepareSelectQuery(QSqlQuery &query, AnnotationStructureLevel *level, const
     }
     // Prepare query
     query.setForwardOnly(true);
+    // qDebug() << q;
     query.prepare(q);
     // Bind parameters
     if (!selection.annotationID.isEmpty())  query.bindValue(":annotationID", selection.annotationID);
@@ -659,8 +660,8 @@ IntervalTier *SQLSerialiserAnnotation::getSpeakerTimeline(
 // ==========================================================================================================================
 // Batch Processing
 // ==========================================================================================================================
-QList<QPair<QList<QVariant>, long> > SQLSerialiserAnnotation::getDistinctLabels(
-        const QString &levelID, const QStringList &attributeIDs, AnnotationStructure *structure, QSqlDatabase &db)
+QList<QPair<QList<QVariant>, long> > SQLSerialiserAnnotation::getDistinctLabels(const QString &levelID, const QStringList &attributeIDs,
+                                                                                AnnotationStructure *structure, QSqlDatabase &db)
 {
     QList<QPair<QList<QVariant>, long> > list;
     if (!structure) return list;

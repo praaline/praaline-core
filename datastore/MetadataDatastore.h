@@ -132,6 +132,12 @@ public:
     virtual bool deleteRecording(const QString &recordingID) = 0;
     virtual bool deleteAnnotation(const QString &annotationID) = 0;
     virtual bool deleteParticipation(const QString &communicationID, const QString &speakerID) = 0;
+
+    // ==========================================================================================================================
+    // Batch Processing
+    // ==========================================================================================================================
+    virtual QList<QPair<QList<QVariant>, long> > getDistinctValues(CorpusObject::Type type, const QStringList &attributeIDs) = 0;
+
 };
 
 } // namespace Core

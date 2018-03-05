@@ -15,7 +15,24 @@ namespace Core {
 // ==============================================================================================================================
 
 // Helper functions
-QStringList getEffectiveAttributeIDs(MetadataStructure *structure,  CorpusObject::Type type, const QStringList &requestedAttributeIDs = QStringList())
+
+// private static
+QString SQLSerialiserMetadata::tableName(CorpusObject::Type type)
+{
+    QString tableName;
+    if      (type == CorpusObject::Type_Corpus)         tableName = "corpus";
+    else if (type == CorpusObject::Type_Communication)  tableName = "communication";
+    else if (type == CorpusObject::Type_Speaker)        tableName = "speaker";
+    else if (type == CorpusObject::Type_Recording)      tableName = "recording";
+    else if (type == CorpusObject::Type_Annotation)     tableName = "annotation";
+    else if (type == CorpusObject::Type_Participation)  tableName = "participation";
+    return tableName;
+}
+
+// private static
+// The default value of requestedAttributeIDs is an empty QStringList - in which case only the basic attributes of the
+// requested Corpus Object will be returned.
+QStringList SQLSerialiserMetadata::getEffectiveAttributeIDs(MetadataStructure *structure,  CorpusObject::Type type, const QStringList &requestedAttributeIDs)
 {
     QStringList effectiveAttributeIDs;
     if (!structure) return effectiveAttributeIDs;
@@ -347,14 +364,7 @@ QMultiMap<QString, QPointer<CorpusAnnotation> > SQLSerialiserMetadata::getAnnota
 // static private
 QString SQLSerialiserMetadata::prepareInsertSQL(MetadataStructure *structure, CorpusObject::Type what, QStringList requestedAttributeIDs)
 {   
-    QString tableName;
-    if      (what == CorpusObject::Type_Corpus)         tableName = "corpus";
-    else if (what == CorpusObject::Type_Communication)  tableName = "communication";
-    else if (what == CorpusObject::Type_Speaker)        tableName = "speaker";
-    else if (what == CorpusObject::Type_Recording)      tableName = "recording";
-    else if (what == CorpusObject::Type_Annotation)     tableName = "annotation";
-    else if (what == CorpusObject::Type_Participation)  tableName = "participation";
-    QString sql1 = QString("INSERT INTO %1 (").arg(tableName);
+    QString sql1 = QString("INSERT INTO %1 (").arg(tableName(what));
     QString sql2 = "VALUES (";
     QStringList attributeIDs = getEffectiveAttributeIDs(structure, what, requestedAttributeIDs);
     foreach (QString attributeID, attributeIDs) {
@@ -933,6 +943,42 @@ bool SQLSerialiserMetadata::deleteParticipation(const QString &communicationID, 
     q.bindValue(":speakerID", speakerID);
     return q.exec();
 }
+
+// ==========================================================================================================================
+// Batch Processing
+// ==========================================================================================================================
+// static
+QList<QPair<QList<QVariant>, long> > SQLSerialiserMetadata::getDistinctValues(CorpusObject::Type type, const QStringList &attributeIDs,
+                                                                              QSqlDatabase &db, MetadataStructure *structure)
+{
+    QList<QPair<QList<QVariant>, long> > list;
+    if (!structure) return list;
+    if (!db.isValid()) return list;
+
+    QSqlQuery query(db);
+    QString attributesList;
+    foreach (QString attributeID, attributeIDs) {
+        attributesList.append(attributeID).append(", ");
+    }
+    if (attributesList.length() > 2) attributesList.chop(2);
+    QString q = QString("SELECT DISTINCT %1, COUNT(*) FROM %2 GROUP BY %1").arg(attributesList).arg(tableName(type));
+    query.setForwardOnly(true);
+    query.prepare(q);
+    query.exec();
+    while (query.next()) {
+        QPair<QList<QVariant>, int> row;
+        QList<QVariant> values;
+        for (int i = 0; i < attributeIDs.count(); ++i) {
+            values << query.value(i);
+        }
+        int count = query.value(attributeIDs.count()).toInt();
+        row.first = values;
+        row.second = count;
+        list << row;
+    }
+    return list;
+}
+
 
 } // namespace Core
 } // namespace Praaline

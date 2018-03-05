@@ -77,8 +77,19 @@ public:
     static bool deleteParticipation(const QString &communicationID, const QString &speakerID,
                                     QSqlDatabase &db, MetadataStructure *structure, CorpusDatastore *datastore);
 
+    // ==========================================================================================================================
+    // Batch Processing
+    // ==========================================================================================================================
+    static QList<QPair<QList<QVariant>, long> > getDistinctValues(CorpusObject::Type type, const QStringList &attributeIDs,
+                                                                  QSqlDatabase &db, MetadataStructure *structure);
+
 private:
     SQLSerialiserMetadata() {}
+
+    // Helper functions
+    static QString tableName(CorpusObject::Type type);
+    static QStringList getEffectiveAttributeIDs(MetadataStructure *structure, CorpusObject::Type type,
+                                                const QStringList &requestedAttributeIDs = QStringList());
 
     static void readRecording(QSqlQuery &q, CorpusRecording *rec, MetadataStructure *structure);
     static void readAnnotation(QSqlQuery &q, CorpusAnnotation *annot, MetadataStructure *structure);

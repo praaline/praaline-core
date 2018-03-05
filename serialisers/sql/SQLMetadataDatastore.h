@@ -81,6 +81,11 @@ public:
     bool deleteAnnotation(const QString &annotationID) override;
     bool deleteParticipation(const QString &communicationID, const QString &speakerID) override;
 
+    // ==========================================================================================================================
+    // Batch Processing
+    // ==========================================================================================================================
+    QList<QPair<QList<QVariant>, long> > getDistinctValues(CorpusObject::Type type, const QStringList &attributeIDs) override;
+
 private:
     SQLMetadataDatastoreData *d;
 };

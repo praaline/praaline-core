@@ -317,5 +317,13 @@ bool SQLMetadataDatastore::deleteParticipation(const QString &communicationID, c
     return SQLSerialiserMetadata::deleteParticipation(communicationID, speakerID, d->database, d->structure, this);
 }
 
+// ==========================================================================================================================
+// Batch Processing
+// ==========================================================================================================================
+QList<QPair<QList<QVariant>, long> > SQLMetadataDatastore::getDistinctValues(CorpusObject::Type type, const QStringList &attributeIDs)
+{
+    return SQLSerialiserMetadata::getDistinctValues(type, attributeIDs, d->database, d->structure);
+}
+
 } // namespace Core
 } // namespace Praaline
