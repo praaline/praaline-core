@@ -55,7 +55,7 @@ public:
     QList<PraatPitchFrame> frames;
 };
 
-class PraatPitchFile : public PraatTextFile
+class PRAALINE_CORE_SHARED_EXPORT PraatPitchFile : public PraatTextFile
 {
 public:
     PraatPitchFile();
