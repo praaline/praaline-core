@@ -286,6 +286,30 @@ void IntervalTier::replaceAllIntervals(QList<Interval *> &newIntervals)
     m_tMax = m_intervals.at(m_intervals.count() - 1)->m_tMax;
 }
 
+bool IntervalTier::patchIntervals(QList<Interval *> &newIntervals, RealTime from, RealTime to)
+{
+    if (newIntervals.isEmpty()) return false;
+    if (from < m_tMin) return false;
+    if (to > m_tMax) return false;
+    if (from > to) return false;
+    int indexFrom = intervalIndexAtTime(from);
+    int indexTo = intervalIndexAtTime(to, true);
+    if (indexFrom < 0) return false;
+    if (indexTo < 0) return false;
+    for (int i = 0; i < indexTo - indexFrom + 1; ++i) {
+        Interval *intv = m_intervals.takeAt(indexFrom);
+        delete intv;
+    }
+    // Copy intervals over to tier
+    m_intervals << newIntervals;
+    // Fix tier
+    qSort(m_intervals.begin(), m_intervals.end(), IntervalTier::compareIntervals);
+    fixEmptyIntervals();
+    m_tMin = m_intervals.at(0)->m_tMin;
+    m_tMax = m_intervals.at(m_intervals.count() - 1)->m_tMax;
+    return true;
+}
+
 Interval *IntervalTier::split(RealTime at)
 {
     int index = intervalIndexAtTime(at);
@@ -293,19 +317,27 @@ Interval *IntervalTier::split(RealTime at)
     return split(index, at);
 }
 
-Interval *IntervalTier::split(int index, RealTime at)
+Interval *IntervalTier::split(int index, RealTime at, bool moveOriginalDataToSecondInterval)
 {
-    // check index
+    // Check index
     if ((index < 0) || (index >= m_intervals.count())) return 0;
     Interval *intvOrig = m_intervals.at(index);
-    // check that the split point is inside the interval
+    // Check that the split point is inside the interval
     if (!((intvOrig->tMin() < at) && (at < intvOrig->tMax()))) return 0;
-    // create the two new intervals
-    Interval *intvNewA = new Interval(intvOrig->tMin(), at, intvOrig->text());
-    foreach (QString attributeID, intvOrig->attributes().keys())
-        intvNewA->setAttribute(attributeID, intvOrig->attribute(attributeID));
+    // Create the two new intervals
+    Interval *intvNewA = new Interval(intvOrig->tMin(), at, "");
     Interval *intvNewB = new Interval(at, intvOrig->tMax(), "");
-    // and replace in the tier
+    // Find out who gets to keep the original data
+    if (!moveOriginalDataToSecondInterval) {
+        intvNewA->setText(intvOrig->text());
+        foreach (QString attributeID, intvOrig->attributes().keys())
+            intvNewA->setAttribute(attributeID, intvOrig->attribute(attributeID));
+    } else {
+        intvNewB->setText(intvOrig->text());
+        foreach (QString attributeID, intvOrig->attributes().keys())
+            intvNewB->setAttribute(attributeID, intvOrig->attribute(attributeID));
+    }
+    // Replace in the tier
     m_intervals.removeAt(index);
     m_intervals.insert(index, intvNewB);
     m_intervals.insert(index, intvNewA);

@@ -71,12 +71,13 @@ public:
     // Mutators for Intervals
     Interval *addToEnd(RealTime tMax, const QString &text);
     Interval *split(RealTime at);
-    Interval *split(int index, RealTime at);
+    Interval *split(int index, RealTime at, bool moveOriginalDataToSecondInterval = false);
     QList<Interval *> splitToEqual(int index, int numberOfIntervals);
     QList<Interval *> splitToProportions(int index, const QList<int> &proportions);
     Interval *merge(int indexFrom, int indexTo, const QString &separator = QString());
     void copyIntervalsFrom(const IntervalTier *copy, bool copyData = true);
     void replaceAllIntervals(QList<Interval *> &newIntervals);
+    bool patchIntervals(QList<Interval *> &newIntervals, RealTime from, RealTime to);
     bool moveBoundary(int index, RealTime time);
     bool realignIntervals(int indexFrom, QList<RealTime> &newBoundaries);
     // Mutators that affect the total length of the tier
