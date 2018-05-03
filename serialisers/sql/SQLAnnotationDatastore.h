@@ -89,7 +89,8 @@ public:
     // Queries
     // ==========================================================================================================================
     QList<QueryOccurrencePointer *> runQuery(QueryDefinition *qdef) override;
-    QueryOccurrence *getOccurrence(QueryOccurrencePointer *pointer, QueryDefinition *qdef) override;
+    QueryOccurrence *getOccurrence(QueryOccurrencePointer *pointer, QueryDefinition *qdef,
+                                   int lengthContextLeft = 10, int lengthContextRight = 10) override;
     bool updateAnnotationsFromQueryOccurrences(const QList<QueryOccurrence *> &occurrences) override;
 
     // ==========================================================================================================================

@@ -35,6 +35,8 @@ public:
     QString name;
     QList<QueryFilterGroup> filterGroups;
     QList<QPair<QString, QString> > resultLevelsAttributes;
+    int lengthContextLeft;
+    int lengthContextRight;
 };
 
 } // namespace Core

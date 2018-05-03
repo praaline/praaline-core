@@ -160,7 +160,8 @@ public:
     // Queries
     // ==========================================================================================================================
     virtual QList<QueryOccurrencePointer *> runQuery(QueryDefinition *qdef) = 0;
-    virtual QueryOccurrence *getOccurrence(QueryOccurrencePointer *pointer, QueryDefinition *qdef) = 0;
+    virtual QueryOccurrence *getOccurrence(QueryOccurrencePointer *pointer, QueryDefinition *qdef,
+                                           int lengthContextLeft = 10, int lengthContextRight = 10) = 0;
     virtual bool updateAnnotationsFromQueryOccurrences(const QList<QueryOccurrence *> &occurrences) = 0;
 
     // ==========================================================================================================================

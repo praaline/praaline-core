@@ -310,9 +310,9 @@ QList<QueryOccurrencePointer *> SQLAnnotationDatastore::runQuery(QueryDefinition
     return SQLQueryEngineAnnotation::runQuery(qdef, d->structure, d->database);
 }
 
-QueryOccurrence *SQLAnnotationDatastore::getOccurrence(QueryOccurrencePointer *pointer, QueryDefinition *qdef)
+QueryOccurrence *SQLAnnotationDatastore::getOccurrence(QueryOccurrencePointer *pointer, QueryDefinition *qdef, int lengthContextLeft, int lengthContextRight)
 {
-    return SQLQueryEngineAnnotation::getOccurrence(pointer, qdef, d->structure, d->database);
+    return SQLQueryEngineAnnotation::getOccurrence(pointer, qdef, d->structure, d->database, lengthContextLeft, lengthContextRight);
 }
 
 bool SQLAnnotationDatastore::updateAnnotationsFromQueryOccurrences(const QList<QueryOccurrence *> &occurrences)

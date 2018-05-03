@@ -306,7 +306,8 @@ QList<QueryOccurrencePointer *> XMLAnnotationDatastore::runQuery(QueryDefinition
     return ret;
 }
 
-QueryOccurrence *XMLAnnotationDatastore::getOccurrence(QueryOccurrencePointer *pointer, QueryDefinition *qdef)
+QueryOccurrence *XMLAnnotationDatastore::getOccurrence(QueryOccurrencePointer *pointer, QueryDefinition *qdef,
+                                                       int lengthContextLeft, int lengthContextRight)
 {
     Q_UNUSED(pointer)
     Q_UNUSED(qdef)

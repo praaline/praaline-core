@@ -5,11 +5,12 @@ namespace Core {
 
 QueryDefinition::QueryDefinition()
 {
+    lengthContextLeft = 10;
+    lengthContextRight = 10;
 }
 
 QueryDefinition::~QueryDefinition()
 {
-
 }
 
 int QueryDefinition::longestSequenceLength() const
