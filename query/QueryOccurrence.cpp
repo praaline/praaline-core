@@ -56,6 +56,17 @@ QStringList QueryOccurrence::speakerIDs() const
     return speakerIDs;
 }
 
+int QueryOccurrence::intervalNoTarget() const
+{
+    foreach (QString annotationLevelID, m_resultIntervals.keys()) {
+        foreach (ResultInterval intv, m_resultIntervals.value(annotationLevelID)) {
+            if (intv.type == ResultInterval::Target)
+                return intv.intervalNo;
+        }
+    }
+    return -1;
+}
+
 QList<QueryOccurrence::ResultInterval> QueryOccurrence::resultIntervals(const QString &annotationLevelID)
 {
     QList<QueryOccurrence::ResultInterval> empty;

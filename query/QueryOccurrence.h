@@ -69,6 +69,7 @@ public:
     RealTime tMax() const;
     QStringList annotationLevelIDs() const;
     QStringList speakerIDs() const;
+    int intervalNoTarget() const;
 
     // lazy load mechanism
     bool loaded() const { return m_loaded; }
