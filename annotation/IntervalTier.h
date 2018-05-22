@@ -78,6 +78,8 @@ public:
     void copyIntervalsFrom(const IntervalTier *copy, bool copyData = true);
     void replaceAllIntervals(QList<Interval *> &newIntervals);
     bool patchIntervals(QList<Interval *> &newIntervals, RealTime from, RealTime to);
+    QList<Interval *> patchTextToIntervalsEqual(const QStringList &newIntervalsText, RealTime from, RealTime to);
+    QList<Interval *> patchTextToIntervalsProportional(const QStringList &newIntervalsText, RealTime from, RealTime to);
     bool moveBoundary(int index, RealTime time);
     bool realignIntervals(int indexFrom, QList<RealTime> &newBoundaries);
     // Mutators that affect the total length of the tier
@@ -103,22 +105,29 @@ public:
     QPair<int, int> getIntervalIndexesContainedIn(const Interval *container) const;
     QList<Interval *> getIntervalsContainedIn(const RealTime &timeStart, const RealTime &timeEnd) const;
     QList<Interval *> getIntervalsContainedIn(const Interval *container) const;
+    QString getIntervalsTextContainedIn(const RealTime &timeStart, const RealTime &timeEnd, const QString &separator = " ") const;
+    QString getIntervalsTextContainedIn(const Interval *container, const QString &separator = " ") const;
 
     QPair<int, int> getIntervalIndexesOverlappingWith(const RealTime &timeStart, const RealTime &timeEnd, const RealTime &threshold = RealTime()) const;
     QPair<int, int> getIntervalIndexesOverlappingWith(const Interval *contained, const RealTime &threshold = RealTime()) const;
     QList<Interval *> getIntervalsOverlappingWith(const RealTime &timeStart, const RealTime &timeEnd, const RealTime &threshold = RealTime()) const;
     QList<Interval *> getIntervalsOverlappingWith(const Interval *contained, const RealTime &threshold = RealTime()) const;
+    QString getIntervalsTextOverlappingWith(const RealTime &timeStart, const RealTime &timeEnd, const RealTime &threshold = RealTime(),
+                                            const QString &separator = " ") const;
+    QString getIntervalsTextOverlappingWith(const Interval *contained, const RealTime &threshold = RealTime(),
+                                            const QString &separator = " ") const;
 
+    IntervalTier *getIntervalTierWithAttributeAsText(const QString &attributeID) const;
     IntervalTier *getIntervalTierSubset(const RealTime &timeStart, const RealTime &timeEnd) const;
 
     PointTier *getPointsMin(const QString &name, QObject *parent = 0);
     PointTier *getPointsMax(const QString &name, QObject *parent = 0);
-    void setIOBAnnotationAttribute(const QString attribute, const IntervalTier *tierAnnotation);
-    QString getIntervalsText(int indexStart, int indexEnd, QString separator = " ");
-    QString getIntervalsText(RealTime timeStart, RealTime timeEnd, QString separator = " ");
+    void setIOBAnnotationAttribute(const QString &attribute, const IntervalTier *tierAnnotation);
+    QString getIntervalsText(int indexStart, int indexEnd, const QString &separator = " ") const;
+    QString getIntervalsText(RealTime timeStart, RealTime timeEnd, const QString &separator = " ") const;
     QList<Interval *> getContext(int index, int delta) const;
     QList<Interval *> getContext(int index, RealTime delta) const;
-    QString getContextSymmetricFormated(int index, int delta, QString sep = " ", QString left = "<", QString right = ">");
+    QString getContextSymmetricFormated(int index, int delta, const QString &sep = " ", const QString &left = "<", const QString &right = ">") const;
 
 protected:
     QList<Interval *> m_intervals;
@@ -126,6 +135,7 @@ protected:
 private:
     void fixEmptyIntervals();
     static bool compareIntervals(Interval *A, Interval *B);
+    QList<Interval *> createIntervalsToProportions(RealTime timeStart, RealTime duration, const QList<int> &proportions) const;
 };
 
 } // namespace Core

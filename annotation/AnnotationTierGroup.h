@@ -79,6 +79,7 @@ public:
     // Methods
     void insertTierClone(int index, const AnnotationTier *tier, const QString &newName);
     bool reorderTiers(QStringList tierNamesInNewOrder);
+    void mergeSilentPausesOnAllIntervalTiers(const QString &silentPauseText);
 
 signals:
     void tierInserted(AnnotationTier *tier);

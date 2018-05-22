@@ -310,6 +310,64 @@ bool IntervalTier::patchIntervals(QList<Interval *> &newIntervals, RealTime from
     return true;
 }
 
+QList<Interval *> IntervalTier::patchTextToIntervalsProportional(const QStringList &newIntervalsText, RealTime from, RealTime to)
+{
+    if (newIntervalsText.isEmpty()) return QList<Interval *>();
+    if (from < m_tMin) return QList<Interval *>();
+    if (to > m_tMax) return QList<Interval *>();
+    if (from > to) return QList<Interval *>();
+    QList<int> proportions;
+    foreach (QString text, newIntervalsText) proportions << ((text.length() > 0) ? text.length() : 1);
+    QList<Interval *> newIntervals = createIntervalsToProportions(from, to - from, proportions);
+    // Check that the correct number of new intervals was created.
+    if (newIntervalsText.count() != newIntervals.count()) {
+        // If it is not the case, free memory and exit false.
+        qDeleteAll(newIntervals);
+        return QList<Interval *>();
+    }
+    // Copy text from the string list passed in to the new intervals.
+    for (int i = 0; i < newIntervals.count(); ++i) {
+        newIntervals.at(i)->setText(newIntervalsText.at(i));
+    }
+    // Try to patch the intervals on the tier.
+    if (!patchIntervals(newIntervals, from, to)) {
+        // If patching was not successful, free memory and exit false.
+        qDeleteAll(newIntervals);
+        return QList<Interval *>();
+    }
+    // All worked well.
+    return newIntervals;
+}
+
+QList<Interval *> IntervalTier::patchTextToIntervalsEqual(const QStringList &newIntervalsText, RealTime from, RealTime to)
+{
+    if (newIntervalsText.isEmpty()) return QList<Interval *>();
+    if (from < m_tMin) return QList<Interval *>();
+    if (to > m_tMax) return QList<Interval *>();
+    if (from > to) return QList<Interval *>();
+    QList<int> proportions;
+    for (int i = 1; i <= newIntervalsText.count(); i++) proportions.append(1);
+    QList<Interval *> newIntervals = createIntervalsToProportions(from, to - from, proportions);
+    // Check that the correct number of new intervals was created.
+    if (newIntervalsText.count() != newIntervals.count()) {
+        // If it is not the case, free memory and exit false.
+        qDeleteAll(newIntervals);
+        return QList<Interval *>();
+    }
+    // Copy text from the string list passed in to the new intervals.
+    for (int i = 0; i < newIntervals.count(); ++i) {
+        newIntervals.at(i)->setText(newIntervalsText.at(i));
+    }
+    // Try to patch the intervals on the tier.
+    if (!patchIntervals(newIntervals, from, to)) {
+        // If patching was not successful, free memory and exit false.
+        qDeleteAll(newIntervals);
+        return QList<Interval *>();
+    }
+    // All worked well.
+    return newIntervals;
+}
+
 Interval *IntervalTier::split(RealTime at)
 {
     int index = intervalIndexAtTime(at);
@@ -354,11 +412,22 @@ Interval *IntervalTier::addToEnd(RealTime tMax, const QString &text)
     return intv;
 }
 
-QList<Interval *> IntervalTier::splitToEqual(int index, int numberOfIntervals)
+// private
+// Used by splitToProportions and patchIntervalsTextProportional
+QList<Interval *> IntervalTier::createIntervalsToProportions(RealTime timeStart, RealTime duration, const QList<int> &proportions) const
 {
-    QList<int> proportions;
-    for (int i = 1; i <= numberOfIntervals; i++) proportions.append(1);
-    return splitToProportions(index, proportions);
+    QList<Interval *> ret;
+    if (proportions.count() < 1) return ret;
+    int sumProportions = 0;
+    foreach (int p, proportions) sumProportions += p;
+    RealTime step = duration / sumProportions;
+    RealTime tMin = timeStart;
+    for (int i = 1; i <= proportions.count(); i++) {
+        RealTime tMax = (i < proportions.count()) ? tMin + step * proportions.at(i-1) : timeStart + duration;
+        ret << new Interval(tMin, tMax, "");
+        tMin = tMax;
+    }
+    return ret;
 }
 
 QList<Interval *> IntervalTier::splitToProportions(int index, const QList<int> &proportions)
@@ -367,29 +436,26 @@ QList<Interval *> IntervalTier::splitToProportions(int index, const QList<int> &
     // checks
     if ((index < 0) || (index >= m_intervals.count())) return ret;
     if (proportions.count() <= 1) return ret;
-    int sumProportions = 0;
-    foreach (int p, proportions) sumProportions += p;
     Interval *intvOrig = m_intervals.at(index);
-    RealTime durOrig = intvOrig->duration();
-    RealTime step = durOrig / sumProportions;
-    RealTime tMin = intvOrig->tMin();
-    for (int i = 1; i <= proportions.count(); i++) {
-        RealTime tMax = (i < proportions.count()) ? tMin + step * proportions.at(i-1) : intvOrig->tMax();
-        if (i == 1) {
-            Interval *s = new Interval(tMin, tMax, intvOrig->text());
-            foreach (QString attributeID, intvOrig->attributes().keys())
-                s->setAttribute(attributeID, intvOrig->attribute(attributeID));
-            ret << s;
-        }
-        else {
-            ret << new Interval(tMin, tMax, "");
-        }
-        tMin = tMax;
+    ret = createIntervalsToProportions(intvOrig->tMin(), intvOrig->duration(), proportions);
+    if (!ret.isEmpty()) {
+        // Move data from original interval to the new first interval
+        ret.first()->setText(intvOrig->text());
+        foreach (QString attributeID, intvOrig->attributes().keys())
+            ret.first()->setAttribute(attributeID, intvOrig->attribute(attributeID));
     }
     m_intervals.removeAt(index);
+    delete intvOrig;
     for (int i = proportions.count(); i >= 1; i--)
         m_intervals.insert(index, ret.at(i - 1));
     return ret;
+}
+
+QList<Interval *> IntervalTier::splitToEqual(int index, int numberOfIntervals)
+{
+    QList<int> proportions;
+    for (int i = 1; i <= numberOfIntervals; i++) proportions.append(1);
+    return splitToProportions(index, proportions);
 }
 
 Interval *IntervalTier::merge(int indexFrom, int indexTo, const QString &separator)
@@ -561,6 +627,18 @@ QList<Interval *> IntervalTier::getIntervalsContainedIn(const Interval *containe
     return getIntervalsContainedIn(container->tMin(), container->tMax());
 }
 
+QString IntervalTier::getIntervalsTextContainedIn(const RealTime &timeStart, const RealTime &timeEnd, const QString &separator) const
+{
+    QPair<int, int> indexes = getIntervalIndexesContainedIn(timeStart, timeEnd);
+    return getIntervalsText(indexes.first, indexes.second, separator);
+}
+
+QString IntervalTier::getIntervalsTextContainedIn(const Interval *container, const QString &separator) const
+{
+    QPair<int, int> indexes = getIntervalIndexesContainedIn(container);
+    return getIntervalsText(indexes.first, indexes.second, separator);
+}
+
 // Intervals overlapping with a time region. Default threshold is 0.
 
 QPair<int, int> IntervalTier::getIntervalIndexesOverlappingWith(const RealTime &timeStart, const RealTime &timeEnd, const RealTime &threshold) const
@@ -606,6 +684,28 @@ QList<Interval *> IntervalTier::getIntervalsOverlappingWith(const Interval *cont
     return getIntervalsOverlappingWith(contained->tMin(), contained->tMax(), threshold);
 }
 
+QString IntervalTier::getIntervalsTextOverlappingWith(const RealTime &timeStart, const RealTime &timeEnd, const RealTime &threshold, const QString &separator) const
+{
+    QPair<int, int> indexes = getIntervalIndexesOverlappingWith(timeStart, timeEnd, threshold);
+    return getIntervalsText(indexes.first, indexes.second, separator);
+}
+
+QString IntervalTier::getIntervalsTextOverlappingWith(const Interval *contained, const RealTime &threshold, const QString &separator) const
+{
+    QPair<int, int> indexes = getIntervalIndexesOverlappingWith(contained, threshold);
+    return getIntervalsText(indexes.first, indexes.second, separator);
+}
+
+// Tier with an attribute as text
+IntervalTier *IntervalTier::getIntervalTierWithAttributeAsText(const QString &attributeID) const
+{
+    IntervalTier *tier = new IntervalTier(this, attributeID, true);
+    for (int i = 0; (i < m_intervals.count()) && (i < tier->count()); ++i) {
+        tier->interval(i)->setText(this->at(i)->attribute(attributeID).toString());
+    }
+    return tier;
+}
+
 // Tier subset
 
 IntervalTier *IntervalTier::getIntervalTierSubset(const RealTime &timeStart, const RealTime &timeEnd) const
@@ -647,7 +747,7 @@ PointTier *IntervalTier::getPointsMax(const QString &name, QObject *parent)
     return ret;
 }
 
-QString IntervalTier::getIntervalsText(int indexStart, int indexEnd, QString separator)
+QString IntervalTier::getIntervalsText(int indexStart, int indexEnd, const QString &separator) const
 {
     if (indexStart < 0 || indexStart >= m_intervals.count()) return QString();
     if (indexEnd < 0 || indexEnd >= m_intervals.count()) return QString();
@@ -660,14 +760,14 @@ QString IntervalTier::getIntervalsText(int indexStart, int indexEnd, QString sep
     return ret;
 }
 
-QString IntervalTier::getIntervalsText(RealTime timeStart, RealTime timeEnd, QString separator)
+QString IntervalTier::getIntervalsText(RealTime timeStart, RealTime timeEnd, const QString &separator) const
 {
     int indexStart = this->intervalIndexAtTime(timeStart);
     int indexEnd = this->intervalIndexAtTime(timeEnd);
     return getIntervalsText(indexStart, indexEnd, separator);
 }
 
-void IntervalTier::setIOBAnnotationAttribute(const QString attribute, const IntervalTier *tierAnnotation)
+void IntervalTier::setIOBAnnotationAttribute(const QString &attribute, const IntervalTier *tierAnnotation)
 {
     int indexAnnotationPrevious = -2;
     foreach(Interval *intv, m_intervals) {
@@ -732,7 +832,7 @@ QList<Interval *> IntervalTier::getContext(int index, RealTime delta) const
     return ret;
 }
 
-QString IntervalTier::getContextSymmetricFormated(int index, int delta, QString sep, QString left, QString right)
+QString IntervalTier::getContextSymmetricFormated(int index, int delta, const QString &sep, const QString &left, const QString &right) const
 {
     if (index < 0 || index >= m_intervals.count()) return QString();
     QString ret;

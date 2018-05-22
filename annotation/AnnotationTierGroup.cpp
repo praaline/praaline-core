@@ -315,5 +315,15 @@ bool AnnotationTierGroup::reorderTiers(QStringList tierNamesInNewOrder) {
     return true;
 }
 
+void AnnotationTierGroup::mergeSilentPausesOnAllIntervalTiers(const QString &silentPauseText)
+{
+    foreach (AnnotationTier *annotationTier, m_tiers) {
+        IntervalTier *tier = qobject_cast<IntervalTier *>(annotationTier);
+        if (!tier) continue;
+        tier->fillEmptyWith("", silentPauseText);
+        tier->mergeIdenticalAnnotations(silentPauseText);
+    }
+}
+
 } // namespace Core
 } // namespace Praaline
