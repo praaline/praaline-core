@@ -1,5 +1,5 @@
-#ifndef DATASET_H
-#define DATASET_H
+#ifndef DATASETDEFINITION_H
+#define DATASETDEFINITION_H
 
 /*
     Praaline - Core module - Queries and Datasets
@@ -22,15 +22,14 @@
 namespace Praaline {
 namespace Core {
 
-class PRAALINE_CORE_SHARED_EXPORT Dataset
+class PRAALINE_CORE_SHARED_EXPORT DatasetDefinition
 {
 public:
-    Dataset();
-
-    void prepare();
+    DatasetDefinition();
+    ~DatasetDefinition();
 };
 
 } // namespace Core
 } // namespace Praaline
 
-#endif // DATASET_H
+#endif // DATASETDEFINITION_H

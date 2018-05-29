@@ -3,7 +3,7 @@
 
 /*
     Praaline - Core module - Statistics
-    Copyright (c) 2011-2017 George Christodoulides
+    Copyright (c) 2011-2018 George Christodoulides
 
     This file is based on:
     QGIS qgsstatisticalsummary.h

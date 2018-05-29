@@ -1,8 +1,8 @@
-#ifndef DATASET_H
-#define DATASET_H
+#ifndef JSONSERIALISERBASE_H
+#define JSONSERIALISERBASE_H
 
 /*
-    Praaline - Core module - Queries and Datasets
+    Praaline - Core module - JSON Serialisers
     Copyright (c) 2011-2018 George Christodoulides
 
     This program or module is free software: you can redistribute it
@@ -15,22 +15,16 @@
     the GNU General Public License for more details.
 */
 
-#include "pncore_global.h"
-#include <QString>
-#include <QPair>
-
 namespace Praaline {
 namespace Core {
 
-class PRAALINE_CORE_SHARED_EXPORT Dataset
+class JSONSerialiserBase
 {
 public:
-    Dataset();
-
-    void prepare();
+    JSONSerialiserBase();
 };
 
 } // namespace Core
 } // namespace Praaline
 
-#endif // DATASET_H
+#endif // JSONSERIALISERBASE_H

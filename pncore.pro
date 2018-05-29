@@ -213,7 +213,15 @@ HEADERS += \
     language/PhonemeDefinitions.h \
     language/PhoneticAlphabet.h \
     annotation/Transcription.h \
-    interfaces/praat/PraatPitchFile.h
+    interfaces/praat/PraatPitchFile.h \
+    statistics/WordAlign.h \
+    serialisers/json/JSONSerialiserCorpusBookmark.h \
+    serialisers/json/JSONSerialiserBase.h \
+    query/DatasetDefinition.h \
+    serialisers/json/JSONSerialiserDatasetDefinition.h \
+    serialisers/json/JSONSerialiserQueryDefinition.h \
+    serialisers/json/JSONSerialiserAnnotationStructure.h \
+    serialisers/json/JSONSerialiserMetadataStructure.h
 
 SOURCES += \
     base/RealTime.cpp \
@@ -387,7 +395,15 @@ SOURCES += \
     language/PhonemeDefinitions.cpp \
     language/PhoneticAlphabet.cpp \
     annotation/Transcription.cpp \
-    interfaces/praat/PraatPitchFile.cpp
+    interfaces/praat/PraatPitchFile.cpp \
+    statistics/WordAlign.cpp \
+    serialisers/json/JSONSerialiserCorpusBookmark.cpp \
+    serialisers/json/JSONSerialiserBase.cpp \
+    query/DatasetDefinition.cpp \
+    serialisers/json/JSONSerialiserDatasetDefinition.cpp \
+    serialisers/json/JSONSerialiserQueryDefinition.cpp \
+    serialisers/json/JSONSerialiserAnnotationStructure.cpp \
+    serialisers/json/JSONSerialiserMetadataStructure.cpp
 
 DISTFILES += \
     pncore.qmodel

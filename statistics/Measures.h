@@ -3,7 +3,7 @@
 
 /*
     Praaline - Core module - Queries and Datasets
-    Copyright (c) 2011-2017 George Christodoulides
+    Copyright (c) 2011-2018 George Christodoulides
 
     This program or module is free software: you can redistribute it
     and/or modify it under the terms of the GNU General Public License

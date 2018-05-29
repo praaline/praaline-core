@@ -55,9 +55,6 @@ bool XMLSerialiserCorpusBookmark::writeBookmark(CorpusBookmark *bookmark, QXmlSt
     }
     xml.writeAttribute("name", bookmark->name());
     xml.writeAttribute("notes", bookmark->notes());
-//    foreach (MetadataStructureAttribute *attribute, mstructure->attributes(CorpusObject::Type_Recording)) {
-//        xml.writeAttribute(attribute->ID(), rec->property(attribute->ID()).toString());
-//    }
     xml.writeEndElement(); // CorpusBookmark
     return true;
 }

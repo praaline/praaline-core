@@ -1,0 +1,11 @@
+#ifndef JSONSERIALISERANNOTATIONSTRUCTURE_H
+#define JSONSERIALISERANNOTATIONSTRUCTURE_H
+
+
+class JSONSerialiserAnnotationStructure
+{
+public:
+    JSONSerialiserAnnotationStructure();
+};
+
+#endif // JSONSERIALISERANNOTATIONSTRUCTURE_H
