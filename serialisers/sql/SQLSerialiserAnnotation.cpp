@@ -546,7 +546,7 @@ QList<QString> SQLSerialiserAnnotation::getSpeakersInLevel(
         bool filter)
 {
     QList<QString> speakerIDs;
-    if (db.isValid()) return speakerIDs;
+    if (!db.isValid()) return speakerIDs;
     // Check that the requested level exists in the annotation structure
     if (!structure) return speakerIDs;
     AnnotationStructureLevel *level = structure->level(levelID);
