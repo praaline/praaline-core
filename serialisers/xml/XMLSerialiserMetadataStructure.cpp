@@ -5,6 +5,7 @@
 namespace Praaline {
 namespace Core {
 
+// Initialise static strings
 QString XMLSerialiserMetadataStructure::xmlElementName_Structure("MetadataStructure");
 QString XMLSerialiserMetadataStructure::xmlElementName_Section("MetadataStructureSection");
 QString XMLSerialiserMetadataStructure::xmlElementName_Attribute("MetadataStructureAttribute");
@@ -35,20 +36,13 @@ bool XMLSerialiserMetadataStructure::write(MetadataStructure *structure, const Q
 void XMLSerialiserMetadataStructure::write(MetadataStructure *structure, QXmlStreamWriter &xml)
 {
     xml.writeStartElement(xmlElementName_Structure);
-    foreach (MetadataStructureSection *section, structure->sections(CorpusObject::Type_Corpus)) {
-        writeSection(CorpusObject::Type_Corpus, section, xml);
-    }
-    foreach (MetadataStructureSection *section, structure->sections(CorpusObject::Type_Communication)) {
-        writeSection(CorpusObject::Type_Communication, section, xml);
-    }
-    foreach (MetadataStructureSection *section, structure->sections(CorpusObject::Type_Speaker)) {
-        writeSection(CorpusObject::Type_Speaker, section, xml);
-    }
-    foreach (MetadataStructureSection *section, structure->sections(CorpusObject::Type_Recording)) {
-        writeSection(CorpusObject::Type_Recording, section, xml);
-    }
-    foreach (MetadataStructureSection *section, structure->sections(CorpusObject::Type_Annotation)) {
-        writeSection(CorpusObject::Type_Annotation, section, xml);
+    QList<CorpusObject::Type> corpusObjectTypes;
+    corpusObjectTypes << CorpusObject::Type_Corpus << CorpusObject::Type_Communication << CorpusObject::Type_Speaker
+                      << CorpusObject::Type_Recording << CorpusObject::Type_Annotation << CorpusObject::Type_Participation;
+    foreach (CorpusObject::Type corpusObjectType, corpusObjectTypes) {
+        foreach (MetadataStructureSection *section, structure->sections(corpusObjectType)) {
+            writeSection(corpusObjectType, section, xml);
+        }
     }
     xml.writeEndElement();
 }
@@ -67,15 +61,7 @@ void XMLSerialiserMetadataStructure::writePartial(MetadataStructure *structure, 
 void XMLSerialiserMetadataStructure::writeSection(CorpusObject::Type what, MetadataStructureSection *section, QXmlStreamWriter &xml)
 {
     xml.writeStartElement(xmlElementName_Section);
-    switch (what) {
-        case CorpusObject::Type_Corpus: xml.writeAttribute("object", "Corpus"); break;
-        case CorpusObject::Type_Communication: xml.writeAttribute("object", "Communication"); break;
-        case CorpusObject::Type_Speaker: xml.writeAttribute("object", "Speaker"); break;
-        case CorpusObject::Type_Recording: xml.writeAttribute("object", "Recording"); break;
-        case CorpusObject::Type_Annotation: xml.writeAttribute("object", "Annotation"); break;
-        case CorpusObject::Type_Participation: xml.writeAttribute("object", "Participation"); break;
-        default: return;
-    }
+    xml.writeAttribute("object", CorpusObject::typeToString(what));
     xml.writeAttribute("id", section->ID());
     xml.writeAttribute("name", section->name());
     xml.writeAttribute("description", section->description());
@@ -143,13 +129,7 @@ MetadataStructure *XMLSerialiserMetadataStructure::read(QXmlStreamReader &xml)
             if (xml.name() == xmlElementName_Section) {
                 if (xml.attributes().hasAttribute("object")) {
                     QString objectType = xml.attributes().value("object").toString();
-                    CorpusObject::Type object = CorpusObject::Type_Undefined;
-                    if (objectType == "Corpus") object = CorpusObject::Type_Corpus;
-                    else if (objectType == "Communication") object = CorpusObject::Type_Communication;
-                    else if (objectType == "Speaker") object = CorpusObject::Type_Speaker;
-                    else if (objectType == "Recording") object = CorpusObject::Type_Recording;
-                    else if (objectType == "Annotation") object = CorpusObject::Type_Annotation;
-                    else if (objectType == "Participation") object = CorpusObject::Type_Participation;
+                    CorpusObject::Type object = CorpusObject::stringToType(objectType);
                     MetadataStructureSection *section = readSection(xml);
                     if (section) {
                         section->setParent(structure);
@@ -178,13 +158,7 @@ MetadataStructure *XMLSerialiserMetadataStructure::readPartial(CorpusObject::Typ
             if (xml.name() == xmlElementName_Section) {
                 if (xml.attributes().hasAttribute("object")) {
                     QString objectType = xml.attributes().value("object").toString();
-                    CorpusObject::Type object = CorpusObject::Type_Undefined;
-                    if (objectType == "Corpus") object = CorpusObject::Type_Corpus;
-                    else if (objectType == "Communication") object = CorpusObject::Type_Communication;
-                    else if (objectType == "Speaker") object = CorpusObject::Type_Speaker;
-                    else if (objectType == "Recording") object = CorpusObject::Type_Recording;
-                    else if (objectType == "Annotation") object = CorpusObject::Type_Annotation;
-                    else if (objectType == "Participation") object = CorpusObject::Type_Participation;
+                    CorpusObject::Type object = CorpusObject::stringToType(objectType);
                     // PARTIAL READ: if the section is about a different type of object, ignore
                     if (object == what) {
                         MetadataStructureSection *section = readSection(xml);
@@ -208,7 +182,7 @@ MetadataStructureSection *XMLSerialiserMetadataStructure::readSection(QXmlStream
     MetadataStructureSection *section = new MetadataStructureSection();
     // Check that we're really reading a corpus metadata section specification
     if (xml.tokenType() != QXmlStreamReader::StartElement && xml.name() == xmlElementName_Section) {
-        return 0;
+        return nullptr;
     }
     // Read the corpus item's attributes
     QXmlStreamAttributes attributes = xml.attributes();

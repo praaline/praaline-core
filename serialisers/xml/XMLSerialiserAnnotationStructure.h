@@ -17,13 +17,14 @@
 
 #include "pncore_global.h"
 #include "structure/AnnotationStructure.h"
+#include "serialisers/base/SerialiserAnnotationStructure.h"
 #include <QXmlStreamReader>
 #include <QXmlStreamWriter>
 
 namespace Praaline {
 namespace Core {
 
-class PRAALINE_CORE_SHARED_EXPORT XMLSerialiserAnnotationStructure
+class PRAALINE_CORE_SHARED_EXPORT XMLSerialiserAnnotationStructure : public SerialiserAnnotationStructure
 {
 public:
     static bool write(AnnotationStructure *data, const QString &filename);
@@ -32,11 +33,13 @@ public:
     static AnnotationStructure *read(QXmlStreamReader &xml);
 
 private:
-    XMLSerialiserAnnotationStructure();
+    XMLSerialiserAnnotationStructure() {}
+    ~XMLSerialiserAnnotationStructure() {}
+
     static void writeLevel(AnnotationStructureLevel *level, QXmlStreamWriter &xml);
     static AnnotationStructureLevel *readLevel(QXmlStreamReader &xml);
     static void writeAttribute(AnnotationStructureAttribute *attribute, QXmlStreamWriter &xml);
-    static AnnotationStructureAttribute  *readAttribute(QXmlStreamReader &xml);
+    static AnnotationStructureAttribute *readAttribute(QXmlStreamReader &xml);
 
     static QString xmlElementName_Structure;
     static QString xmlElementName_Level;

@@ -23,6 +23,7 @@
 #include "corpus/CorpusSpeaker.h"
 #include "corpus/CorpusRecording.h"
 #include "corpus/CorpusAnnotation.h"
+#include "structure/MetadataStructure.h"
 
 namespace Praaline {
 namespace Core {

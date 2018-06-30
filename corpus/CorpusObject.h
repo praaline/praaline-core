@@ -49,7 +49,10 @@ public:
     Q_ENUM(Type)
 
     // User-friendly and translated names
+    static QString typeToFriendlyString(CorpusObject::Type type);
+    // String types for XML and JSON
     static QString typeToString(CorpusObject::Type type);
+    static CorpusObject::Type stringToType(const QString &str);
 
     explicit CorpusObject(CorpusRepository *repository = 0, QObject *parent = 0);
     explicit CorpusObject(const QString &ID, CorpusRepository *repository = 0, QObject *parent = 0);

@@ -221,7 +221,13 @@ HEADERS += \
     serialisers/json/JSONSerialiserDatasetDefinition.h \
     serialisers/json/JSONSerialiserQueryDefinition.h \
     serialisers/json/JSONSerialiserAnnotationStructure.h \
-    serialisers/json/JSONSerialiserMetadataStructure.h
+    serialisers/json/JSONSerialiserMetadataStructure.h \
+    serialisers/json/JSONSerialiserAnnotation.h \
+    serialisers/json/JSONSerialiserMetadata.h \
+    serialisers/base/SerialiserAnnotationStructure.h \
+    serialisers/base/SerialiserMetadataStructure.h \
+    serialisers/xml/XMLSerialiserNameValueList.h \
+    serialisers/json/JSONSerialiserNameValueList.h
 
 SOURCES += \
     base/RealTime.cpp \
@@ -403,7 +409,13 @@ SOURCES += \
     serialisers/json/JSONSerialiserDatasetDefinition.cpp \
     serialisers/json/JSONSerialiserQueryDefinition.cpp \
     serialisers/json/JSONSerialiserAnnotationStructure.cpp \
-    serialisers/json/JSONSerialiserMetadataStructure.cpp
+    serialisers/json/JSONSerialiserMetadataStructure.cpp \
+    serialisers/json/JSONSerialiserAnnotation.cpp \
+    serialisers/json/JSONSerialiserMetadata.cpp \
+    serialisers/base/SerialiserAnnotationStructure.cpp \
+    serialisers/base/SerialiserMetadataStructure.cpp \
+    serialisers/xml/XMLSerialiserNameValueList.cpp \
+    serialisers/json/JSONSerialiserNameValueList.cpp
 
 DISTFILES += \
     pncore.qmodel

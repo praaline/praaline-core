@@ -24,7 +24,7 @@ CorpusBookmark *XMLSerialiserCorpusBookmark::readBookmark(QXmlStreamReader &xml)
 {
     // Check that we're really reading a bookmark
     if (xml.tokenType() != QXmlStreamReader::StartElement && xml.name() == xmlElementName_CorpusBookmark) {
-        return 0;
+        return nullptr;
     }
     CorpusBookmark *bookmark = new CorpusBookmark();
     QXmlStreamAttributes xmlAttributes = xml.attributes();
@@ -43,6 +43,7 @@ CorpusBookmark *XMLSerialiserCorpusBookmark::readBookmark(QXmlStreamReader &xml)
 // private static
 bool XMLSerialiserCorpusBookmark::writeBookmark(CorpusBookmark *bookmark, QXmlStreamWriter &xml)
 {
+    if (!bookmark) return false;
     xml.writeStartElement(xmlElementName_CorpusBookmark);
     xml.writeAttribute("corpusID", bookmark->corpusID());
     xml.writeAttribute("communicationID", bookmark->communicationID());

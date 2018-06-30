@@ -69,7 +69,7 @@ void CorpusObject::copyPropertiesFrom(CorpusObject *other)
 }
 
 // static
-QString CorpusObject::typeToString(CorpusObject::Type type)
+QString CorpusObject::typeToFriendlyString(CorpusObject::Type type)
 {
     switch (type) {
     case CorpusObject::Type_Corpus:         return tr("Corpus");        break;
@@ -82,6 +82,35 @@ QString CorpusObject::typeToString(CorpusObject::Type type)
     case CorpusObject::Type_Undefined:      return tr("Corpus Item");   break;
     }
     return QString();
+}
+
+// static
+QString CorpusObject::typeToString(CorpusObject::Type type)
+{
+    switch (type) {
+    case CorpusObject::Type_Corpus:         return tr("Corpus");        break;
+    case CorpusObject::Type_Communication:  return tr("Communication"); break;
+    case CorpusObject::Type_Speaker:        return tr("Speaker");       break;
+    case CorpusObject::Type_Recording:      return tr("Recording");     break;
+    case CorpusObject::Type_Annotation:     return tr("Annotation");    break;
+    case CorpusObject::Type_Participation:  return tr("Participation"); break;
+    case CorpusObject::Type_Bookmark:       return tr("Bookmark");      break;
+    case CorpusObject::Type_Undefined:      return tr("CorpusObject");  break;
+    }
+    return "CorpusObject";
+}
+
+// static
+CorpusObject::Type CorpusObject::stringToType(const QString &str)
+{
+    if      (str == "Corpus")           return CorpusObject::Type_Corpus;
+    else if (str == "Communication")    return CorpusObject::Type_Communication;
+    else if (str == "Speaker")          return CorpusObject::Type_Speaker;
+    else if (str == "Recording")        return CorpusObject::Type_Recording;
+    else if (str == "Annotation")       return CorpusObject::Type_Annotation;
+    else if (str == "Participation")    return CorpusObject::Type_Participation;
+    else if (str == "Bookmark")         return CorpusObject::Type_Bookmark;
+    return CorpusObject::Type_Undefined;
 }
 
 } // namespace Core

@@ -7,13 +7,10 @@
 namespace Praaline {
 namespace Core {
 
+// Initialise static strings
 QString XMLSerialiserAnnotationStructure::xmlElementName_Structure("AnnotationStructure");
 QString XMLSerialiserAnnotationStructure::xmlElementName_Level("AnnotationStructureLevel");
 QString XMLSerialiserAnnotationStructure::xmlElementName_Attribute("AnnotationStructureAttribute");
-
-XMLSerialiserAnnotationStructure::XMLSerialiserAnnotationStructure()
-{
-}
 
 // -------------------------------------------------------------------------------------------------------------------------
 
@@ -43,38 +40,12 @@ void XMLSerialiserAnnotationStructure::write(AnnotationStructure *structure, QXm
     xml.writeEndElement();
 }
 
-QString convertLevelTypeToXML(AnnotationStructureLevel::LevelType levelType)
-{
-    QString ret;
-    switch(levelType) {
-    case AnnotationStructureLevel::IndependentPointsLevel:      ret = "independentpoints";    break;
-    case AnnotationStructureLevel::IndependentIntervalsLevel:   ret = "independentintervals"; break;
-    case AnnotationStructureLevel::GroupingLevel:               ret = "grouping";             break;
-    case AnnotationStructureLevel::SequencesLevel:              ret = "sequences";            break;
-    case AnnotationStructureLevel::TreeLevel:                   ret = "tree";                 break;
-    case AnnotationStructureLevel::RelationsLevel:              ret = "relations";            break;
-    default: ret = "independentintervals";
-    }
-    return ret;
-}
-
-AnnotationStructureLevel::LevelType convertXMLToLevelType(QString xml)
-{
-    if (xml == "independentpoints")     return AnnotationStructureLevel::IndependentPointsLevel;
-    if (xml == "independentintervals")  return AnnotationStructureLevel::IndependentIntervalsLevel;
-    if (xml == "grouping")              return AnnotationStructureLevel::GroupingLevel;
-    if (xml == "sequences")             return AnnotationStructureLevel::SequencesLevel;
-    if (xml == "tree")                  return AnnotationStructureLevel::TreeLevel;
-    if (xml == "relations")             return AnnotationStructureLevel::RelationsLevel;
-    return AnnotationStructureLevel::IndependentIntervalsLevel;
-}
-
 // static
 void XMLSerialiserAnnotationStructure::writeLevel(AnnotationStructureLevel *level, QXmlStreamWriter &xml)
 {
     xml.writeStartElement(xmlElementName_Level);
     xml.writeAttribute("id", level->ID());
-    xml.writeAttribute("levelType", convertLevelTypeToXML(level->levelType()));
+    xml.writeAttribute("levelType", convertLevelTypeToString(level->levelType()));
     xml.writeAttribute("parentLevelID", level->parentLevelID());
     xml.writeAttribute("name", level->name());
     xml.writeAttribute("description", level->description());
@@ -164,7 +135,7 @@ AnnotationStructureLevel *XMLSerialiserAnnotationStructure::readLevel(QXmlStream
     AnnotationStructureLevel *level = new AnnotationStructureLevel();
     // Check that we're really reading a corpus annotation level specification
     if (xml.tokenType() != QXmlStreamReader::StartElement && xml.name() == xmlElementName_Level) {
-        return 0;
+        return nullptr;
     }
     // Read the corpus item's attributes
     QXmlStreamAttributes xmlAttributes = xml.attributes();
@@ -172,7 +143,7 @@ AnnotationStructureLevel *XMLSerialiserAnnotationStructure::readLevel(QXmlStream
         level->setID(xmlAttributes.value("id").toString());
     }
     if (xmlAttributes.hasAttribute("levelType")) {
-        level->setLevelType(convertXMLToLevelType(xmlAttributes.value("levelType").toString()));
+        level->setLevelType(convertStringToLevelType(xmlAttributes.value("levelType").toString()));
     }
     if (xmlAttributes.hasAttribute("parentLevelID")) {
         level->setParentLevelID(xmlAttributes.value("parentLevelID").toString());
@@ -219,7 +190,7 @@ AnnotationStructureAttribute *XMLSerialiserAnnotationStructure::readAttribute(QX
     AnnotationStructureAttribute *attribute = new AnnotationStructureAttribute();
     // Check that we're really reading a corpus annotation level specification
     if (xml.tokenType() != QXmlStreamReader::StartElement && xml.name() == xmlElementName_Attribute) {
-        return 0;
+        return nullptr;
     }
     // Read the corpus item's attributes
     QXmlStreamAttributes xmlAttributes = xml.attributes();

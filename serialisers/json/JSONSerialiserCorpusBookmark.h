@@ -36,6 +36,9 @@ public:
 private:
     JSONSerialiserCorpusBookmark();
     ~JSONSerialiserCorpusBookmark();
+
+    static CorpusBookmark *readBookmark(QJsonObject &json);
+    static QJsonObject writeBookmark(CorpusBookmark *bookmark);
 };
 
 } // namespace Core
