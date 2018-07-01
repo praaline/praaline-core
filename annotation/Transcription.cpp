@@ -35,17 +35,18 @@ Transcription::~Transcription()
 
 int Transcription::speakerCount() const
 {
-
+    return 0;
 }
 
 QStringList Transcription::speakerIDs() const
 {
-
+    return QStringList();
 }
 
 QList<CorpusSpeaker> Transcription::speakers() const
 {
-
+    QList<CorpusSpeaker> ret;
+    return ret;
 }
 
 } // namespace Core
