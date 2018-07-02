@@ -45,8 +45,8 @@ public:
                    const RealTime &timeStart, const RealTime &timeEnd,
                    const QString &name, const QString &notes = QString(), QObject *parent = 0);
 
-    QString ID() const;
-    void setID(const QString &ID) { Q_UNUSED(ID) }
+    QString ID() const override;
+    void setID(const QString &ID) override { Q_UNUSED(ID) }
 
     CorpusObject::Type type() const override { return CorpusObject::Type_Bookmark; }
     bool save() override { return false; }
