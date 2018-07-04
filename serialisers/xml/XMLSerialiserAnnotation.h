@@ -19,11 +19,12 @@
 #include <QMap>
 #include "base/RealTime.h"
 #include "XMLSerialiserBase.h"
+#include <QXmlStreamReader>
+#include <QXmlStreamWriter>
 
 namespace Praaline {
 namespace Core {
 
-class Interval;
 class AnnotationTier;
 class AnnotationTierGroup;
 class AnnotationStructure;
@@ -32,22 +33,15 @@ class XMLSerialiserAnnotation : public XMLSerialiserBase
 {
 
 public:
-    static bool saveTiers(const QString &annotationID, const QString &speakerID,
-                          AnnotationTierGroup *tiers, AnnotationStructure *structure, const QString &filename);
-    static bool saveTier(const QString &annotationID, const QString &speakerID,
-                         AnnotationTier *tier, AnnotationStructure *structure, const QString &filename);
+    static bool saveTiers(AnnotationTierGroup *tiers, AnnotationStructure *structure, QXmlStreamWriter &xml);
+    static bool saveTier(AnnotationTier *tier, AnnotationStructure *structure, QXmlStreamWriter &xml);
 
-    static AnnotationTierGroup *getTiers(const QString &annotationID, const QString &speakerID,
-                                         const AnnotationStructure *structure, const QString &filename,
-                                         const QStringList &levelIDs = QStringList());
-    static AnnotationTier *getTier(const QString &annotationID, const QString &speakerID,
-                                   const AnnotationStructure *structure, const QString &filename,
-                                   const QString &levelID, const QStringList &attributeIDs = QStringList());
-
-    static QMap<RealTime, Interval *> getSpeakerTimeline(const QString &annotationID, const QString &levelID);
+    static AnnotationTierGroup *loadTiers(AnnotationStructure *structure, QXmlStreamReader &xml);
+    static AnnotationTier *loadTier(AnnotationStructure *structure, QXmlStreamReader &xml);
 
 private:
     XMLSerialiserAnnotation();    
+    ~XMLSerialiserAnnotation();
 };
 
 } // namespace Core

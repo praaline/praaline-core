@@ -1,5 +1,5 @@
-#ifndef XMLSERIALISERCORPUS_H
-#define XMLSERIALISERCORPUS_H
+#ifndef XMLSERIALISERMETADATA_H
+#define XMLSERIALISERMETADATA_H
 
 /*
     Praaline - Core module - XML Serialisers
@@ -15,6 +15,8 @@
     the GNU General Public License for more details.
 */
 
+#include <QList>
+#include <QPointer>
 #include <QXmlStreamWriter>
 #include <QXmlStreamReader>
 #include "XMLSerialiserBase.h"
@@ -28,27 +30,42 @@
 namespace Praaline {
 namespace Core {
 
-class XMLSerialiserCorpus : XMLSerialiserBase
+class XMLSerialiserMetadata : public XMLSerialiserBase
 {
 public:
-    static bool saveCorpus(Corpus *corpus, QXmlStreamWriter &xml);
-    static bool loadCorpus(Corpus *corpus, QXmlStreamReader &xml);
+    static bool saveCorpus(Corpus *corpus, MetadataStructure* mstructure, QXmlStreamWriter &xml);
+    static bool saveCommunication(CorpusCommunication *com, MetadataStructure *mstructure, QXmlStreamWriter &xml);
+    static bool saveSpeaker(CorpusSpeaker *spk, MetadataStructure *mstructure, QXmlStreamWriter &xml);
+    static bool saveRecording(CorpusRecording *rec, MetadataStructure *mstructure, QXmlStreamWriter &xml);
+    static bool saveAnnotation(CorpusAnnotation *annot, MetadataStructure *mstructure, QXmlStreamWriter &xml);
+    static bool saveParticipation(CorpusParticipation *participation, MetadataStructure *mstructure, QXmlStreamWriter &xml);
+
+    static bool saveCorpora(const QList<QPointer<Corpus> > &list, MetadataStructure *mstructure, QXmlStreamWriter &xml);
+    static bool saveCommunications(const QList<QPointer<CorpusCommunication> > &list, MetadataStructure *mstructure, QXmlStreamWriter &xml);
+    static bool saveSpeakers(const QList<QPointer<CorpusSpeaker> > &list, MetadataStructure *mstructure, QXmlStreamWriter &xml);
+    static bool saveRecordings(const QList<QPointer<CorpusRecording> > &list, MetadataStructure *mstructure, QXmlStreamWriter &xml);
+    static bool saveAnnotations(const QList<QPointer<CorpusAnnotation> > &list, MetadataStructure *mstructure, QXmlStreamWriter &xml);
+    static bool saveParticipations(const QList<QPointer<CorpusParticipation> > &list, MetadataStructure *mstructure, QXmlStreamWriter &xml);
+
+    static bool loadCorpora(QList<QPointer<Corpus> > &list, MetadataStructure *mstructure, QXmlStreamReader &xml);
+    static bool loadCommunications(QList<QPointer<CorpusCommunication> > &list, MetadataStructure *mstructure, QXmlStreamReader &xml);
+    static bool loadSpeakers(QList<QPointer<CorpusSpeaker> > &list, MetadataStructure *mstructure, QXmlStreamReader &xml);
+    static bool loadRecordings(QList<QPointer<CorpusRecording> > &list, MetadataStructure *mstructure, QXmlStreamReader &xml);
+    static bool loadAnnotations(QList<QPointer<CorpusAnnotation> > &list, MetadataStructure *mstructure, QXmlStreamReader &xml);
+   // static bool loadParticipations(QList<QPointer<CorpusParticipation> > &list, MetadataStructure *mstructure, QXmlStreamReader &xml);
 
 private:
-    XMLSerialiserCorpus();
-    static void writeCommunication(CorpusCommunication *com, MetadataStructure *mstructure, QXmlStreamWriter &xml);
-    static void writeSpeaker(CorpusSpeaker *spk, MetadataStructure *mstructure, QXmlStreamWriter &xml);
-    static void writeRecording(CorpusRecording *rec, MetadataStructure *mstructure, QXmlStreamWriter &xml);
-    static void writeAnnotation(CorpusAnnotation *annot, MetadataStructure *mstructure, QXmlStreamWriter &xml);
-    static void writeParticipation(CorpusParticipation *participation, MetadataStructure *mstructure, QXmlStreamWriter &xml);
+    XMLSerialiserMetadata();
+    ~XMLSerialiserMetadata();
 
+    static Corpus *readCorpus(MetadataStructure *mstructure, QXmlStreamReader &xml);
     static CorpusCommunication *readCommunication(MetadataStructure *mstructure, QXmlStreamReader &xml);
     static CorpusSpeaker *readSpeaker(MetadataStructure *mstructure, QXmlStreamReader &xml);
     static CorpusRecording *readRecording(MetadataStructure *mstructure, QXmlStreamReader &xml);
     static CorpusAnnotation *readAnnotation(MetadataStructure *mstructure, QXmlStreamReader &xml);
-    static void readParticipation(Corpus *corpus, MetadataStructure *mstructure, QXmlStreamReader &xml);
+   // static CorpusParticipation *readParticipation(MetadataStructure *mstructure, QXmlStreamReader &xml);
 
-    static void readAttributes(CorpusObject *obj, MetadataStructure *mstructure, CorpusObject::Type what, QXmlStreamReader &xml);
+    static void readAttributes(CorpusObject::Type what, CorpusObject *obj, MetadataStructure *mstructure, QXmlStreamReader &xml);
 
     static QString xmlElementName_Corpus;
     static QString xmlElementName_Communication;
@@ -61,4 +78,4 @@ private:
 } // namespace Core
 } // namespace Praaline
 
-#endif // XMLSERIALISERCORPUS_H
+#endif // XMLSERIALISERMETADATA_H

@@ -1,7 +1,12 @@
 #include "structure/AnnotationStructure.h"
 #include "annotation/AnnotationTierGroup.h"
 #include "annotation/AnnotationTier.h"
-#include "annotation/Interval.h"
+#include "annotation/PointTier.h"
+#include "annotation/IntervalTier.h"
+#include "annotation/SequenceTier.h"
+#include "annotation/TreeTier.h"
+#include "annotation/RelationTier.h"
+
 #include "XMLSerialiserAnnotation.h"
 
 namespace Praaline {
@@ -11,65 +16,34 @@ XMLSerialiserAnnotation::XMLSerialiserAnnotation()
 {
 }
 
-// static
-bool XMLSerialiserAnnotation::saveTiers(const QString &annotationID, const QString &speakerID,
-                                        AnnotationTierGroup *tiers, AnnotationStructure *structure, const QString &filename)
+XMLSerialiserAnnotation::~XMLSerialiserAnnotation()
 {
-    Q_UNUSED(annotationID)
-    Q_UNUSED(speakerID)
-    Q_UNUSED(tiers)
-    Q_UNUSED(structure)
-    Q_UNUSED(filename)
+}
+
+// public static
+bool XMLSerialiserAnnotation::saveTiers(AnnotationTierGroup *tiers, AnnotationStructure *structure, QXmlStreamWriter &xml)
+{
     return false;
 }
 
-//static
-bool XMLSerialiserAnnotation::saveTier(const QString &annotationID, const QString &speakerID,
-                                       AnnotationTier *tier, AnnotationStructure *structure, const QString &filename)
+// public static
+bool XMLSerialiserAnnotation::saveTier(AnnotationTier *tier, AnnotationStructure *structure, QXmlStreamWriter &xml)
 {
-    Q_UNUSED(annotationID)
-    Q_UNUSED(speakerID)
-    Q_UNUSED(tier)
-    Q_UNUSED(structure)
-    Q_UNUSED(filename)
     return false;
 }
 
-// static
-AnnotationTierGroup *XMLSerialiserAnnotation::getTiers(const QString &annotationID, const QString &speakerID,
-                                                       const AnnotationStructure *structure, const QString &filename,
-                                                       const QStringList &levelIDs)
+// public static
+AnnotationTierGroup *XMLSerialiserAnnotation::loadTiers(AnnotationStructure *structure, QXmlStreamReader &xml)
 {
-    Q_UNUSED(annotationID)
-    Q_UNUSED(speakerID)
-    Q_UNUSED(structure)
-    Q_UNUSED(filename)
-    Q_UNUSED(levelIDs)
-    return 0;
+    return nullptr;
 }
 
-// static
-AnnotationTier *XMLSerialiserAnnotation::getTier(const QString &annotationID, const QString &speakerID,
-                                                 const AnnotationStructure *structure, const QString &filename,
-                                                 const QString &levelID, const QStringList &attributeIDs)
+// public static
+AnnotationTier *XMLSerialiserAnnotation::loadTier(AnnotationStructure *structure, QXmlStreamReader &xml)
 {
-    Q_UNUSED(annotationID)
-    Q_UNUSED(speakerID)
-    Q_UNUSED(structure)
-    Q_UNUSED(filename)
-    Q_UNUSED(levelID)
-    Q_UNUSED(attributeIDs)
-    return 0;
+    return nullptr;
 }
 
-// static
-QMap<RealTime, Interval *> XMLSerialiserAnnotation::getSpeakerTimeline(const QString &annotationID, const QString &levelID)
-{
-    Q_UNUSED(annotationID)
-    Q_UNUSED(levelID)
-    QMap<RealTime, Interval *> ret;
-    return ret;
-}
 
 } // namespace Core
 } // namespace Praaline
