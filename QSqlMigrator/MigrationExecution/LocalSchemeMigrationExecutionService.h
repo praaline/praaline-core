@@ -32,7 +32,7 @@
 namespace QSqlMigrator {
 namespace MigrationExecution {
 
-class QSQLMIGRATOR_DLL_EXPORT LocalSchemeMigrationExecutionService
+class /* QSQLMIGRATOR_DLL_EXPORT */ LocalSchemeMigrationExecutionService
 {
 public:
     LocalSchemeMigrationExecutionService();

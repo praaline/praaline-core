@@ -12,7 +12,7 @@ namespace Structure {
 /*!
  * \brief value object that represent any sql type
  */
-class QSQLMIGRATOR_DLL_EXPORT SqlType
+class /* QSQLMIGRATOR_DLL_EXPORT */ SqlType
 {
 public:
     /*!

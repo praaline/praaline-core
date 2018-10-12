@@ -36,7 +36,7 @@ class DropIndex;
 
 namespace CommandExecution {
 
-class QSQLMIGRATOR_DLL_EXPORT BaseSqlDropIndexService : public BaseCommandExecutionService
+class /* QSQLMIGRATOR_DLL_EXPORT */ BaseSqlDropIndexService : public BaseCommandExecutionService
 {
 public:
     BaseSqlDropIndexService();

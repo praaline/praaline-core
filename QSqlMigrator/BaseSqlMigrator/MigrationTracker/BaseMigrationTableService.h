@@ -41,10 +41,10 @@ namespace MigrationTracker {
 /*!
  * \brief Implementation of the successfully executed migration tracking through an sql databse table
  */
-class QSQLMIGRATOR_DLL_EXPORT BaseMigrationTableService : public MigrationTracker::MigrationTrackerService
+class /* QSQLMIGRATOR_DLL_EXPORT */ BaseMigrationTableService : public MigrationTracker::MigrationTrackerService
 {
 public:
-    ~BaseMigrationTableService() QSQL_OVERRIDE_D {}
+    ~BaseMigrationTableService() Q_DECL_OVERRIDE {}
 
     bool canRevertStrucuturalChangesUsingTransactions() const Q_DECL_OVERRIDE;
 

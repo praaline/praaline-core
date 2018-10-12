@@ -36,7 +36,7 @@ class CreateTable;
 
 namespace CommandExecution {
 
-class QSQLMIGRATOR_DLL_EXPORT BaseSqlCreateTableService : public BaseCommandExecutionService
+class /* QSQLMIGRATOR_DLL_EXPORT */ BaseSqlCreateTableService : public BaseCommandExecutionService
 {
 public:
     BaseSqlCreateTableService();

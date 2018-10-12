@@ -10,7 +10,7 @@
 namespace QSqlMigrator {
 namespace LocalSchemeMigrator {
 
-QSharedPointer<CommandExecution::LocalSchemeCommandExecutionServiceRepository> QSQLMIGRATOR_DLL_EXPORT createCommandServiceRepository();
+QSharedPointer<CommandExecution::LocalSchemeCommandExecutionServiceRepository> /* QSQLMIGRATOR_DLL_EXPORT */ createCommandServiceRepository();
 
 } // namespace LocalSchemeMigrator
 } // namespace QSqlMigrator

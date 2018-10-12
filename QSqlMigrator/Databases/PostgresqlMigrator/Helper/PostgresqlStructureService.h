@@ -43,7 +43,7 @@ class PostgresqlStructureService : public SqlStructureService
 {
 public:
     PostgresqlStructureService();
-    ~PostgresqlStructureService() QSQL_OVERRIDE_D {}
+    ~PostgresqlStructureService() Q_DECL_OVERRIDE {}
 
     Structure::Table getTableDefinition(const QString &tableName,
                                         QSqlDatabase database) const Q_DECL_OVERRIDE;

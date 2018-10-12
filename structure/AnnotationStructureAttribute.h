@@ -18,7 +18,7 @@
 #include "pncore_global.h"
 #include <QObject>
 #include <QString>
-#include "StructureAttributeBase.h"
+#include "structure/StructureAttributeBase.h"
 
 namespace Praaline {
 namespace Core {

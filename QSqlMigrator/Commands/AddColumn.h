@@ -35,11 +35,11 @@ namespace Commands {
 /*!
  * \brief value object representing the command to add a column to a table
  */
-class QSQLMIGRATOR_DLL_EXPORT AddColumn : public BaseCommand
+class /* QSQLMIGRATOR_DLL_EXPORT */ AddColumn : public BaseCommand
 {
 public:
     explicit AddColumn(const Structure::Column &column, const QString &tableName);
-    ~AddColumn() QSQL_OVERRIDE_D {}
+    ~AddColumn() Q_DECL_OVERRIDE {}
 
     static const QString &typeName();
 

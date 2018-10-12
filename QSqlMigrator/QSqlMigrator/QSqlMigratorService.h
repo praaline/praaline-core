@@ -52,7 +52,7 @@ class MigrationExecutionContext;
  * // here all migrations are applied
  *
  */
-class QSQLMIGRATOR_DLL_EXPORT QSqlMigratorService
+class /* QSQLMIGRATOR_DLL_EXPORT */ QSqlMigratorService
 {
 public:
     /*! \return names of all migrations that have been applied */

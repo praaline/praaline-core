@@ -46,7 +46,7 @@ namespace MigrationExecution {
 
 typedef QSharedPointer<CommandExecution::LocalSchemeCommandExecutionServiceRepository> LocalSchemeCommandServiceRepositoryPtr;
 
-class QSQLMIGRATOR_DLL_EXPORT LocalSchemeMigrationExecutionContext
+class /* QSQLMIGRATOR_DLL_EXPORT */ LocalSchemeMigrationExecutionContext
 {
 public:
      typedef QMap<QString, const Migrations::Migration*> NameMigrationMap;

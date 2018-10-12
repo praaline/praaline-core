@@ -36,11 +36,11 @@ namespace Commands {
 /*!
  * \brief value object representing the command to rename a column of a table
  */
-class QSQLMIGRATOR_DLL_EXPORT RenameColumn : public BaseCommand
+class /* QSQLMIGRATOR_DLL_EXPORT */ RenameColumn : public BaseCommand
 {
 public:
     explicit RenameColumn(const QString &oldName, const QString &newName, const QString &tableName);
-    ~RenameColumn() QSQL_OVERRIDE_D {}
+    ~RenameColumn() Q_DECL_OVERRIDE {}
 
     static const QString &typeName();
 

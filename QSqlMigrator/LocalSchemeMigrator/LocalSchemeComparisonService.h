@@ -8,7 +8,7 @@ namespace LocalSchemeMigrator {
 
 class LocalSchemeComparisonContext;
 
-class QSQLMIGRATOR_DLL_EXPORT LocalSchemeComparisonService
+class /* QSQLMIGRATOR_DLL_EXPORT */ LocalSchemeComparisonService
 {
 public:
     LocalSchemeComparisonService();

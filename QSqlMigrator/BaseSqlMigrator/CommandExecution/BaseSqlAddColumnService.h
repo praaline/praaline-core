@@ -36,7 +36,7 @@ class AddColumn;
 
 namespace CommandExecution {
 
-class QSQLMIGRATOR_DLL_EXPORT BaseSqlAddColumnService : public BaseCommandExecutionService
+class /* QSQLMIGRATOR_DLL_EXPORT */ BaseSqlAddColumnService : public BaseCommandExecutionService
 {
 public:
     BaseSqlAddColumnService();

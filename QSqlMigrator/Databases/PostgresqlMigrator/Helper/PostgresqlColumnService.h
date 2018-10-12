@@ -45,7 +45,7 @@ class PostgresqlColumnService : public BaseSqlColumnService
 {
 public:
     PostgresqlColumnService(const PostgresqlTypeMapperService& postgresqlTypeMapperService);
-    ~PostgresqlColumnService() QSQL_OVERRIDE_D {}
+    ~PostgresqlColumnService() Q_DECL_OVERRIDE {}
 
     QString buildColumnTypeSql(const Structure::Column &column) const Q_DECL_OVERRIDE;
 

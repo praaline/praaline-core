@@ -35,11 +35,11 @@ namespace Commands {
 /*!
  * \brief value object representing the command to create a table
  */
-class QSQLMIGRATOR_DLL_EXPORT CreateTable : public BaseCommand
+class /* QSQLMIGRATOR_DLL_EXPORT */ CreateTable : public BaseCommand
 {
 public:
     explicit CreateTable(const Structure::Table &table);
-    ~CreateTable() QSQL_OVERRIDE_D {}
+    ~CreateTable() Q_DECL_OVERRIDE {}
 
     static const QString &typeName();
 

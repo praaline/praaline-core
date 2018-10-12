@@ -31,7 +31,7 @@
 namespace QSqlMigrator {
 namespace Migrations {
 
-class QSQLMIGRATOR_DLL_EXPORT Migration
+class /* QSQLMIGRATOR_DLL_EXPORT */ Migration
 {
 public:
      explicit Migration();

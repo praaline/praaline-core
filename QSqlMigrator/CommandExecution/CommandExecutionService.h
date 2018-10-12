@@ -34,7 +34,7 @@
 namespace QSqlMigrator {
 namespace CommandExecution {
 
-class QSQLMIGRATOR_DLL_EXPORT CommandExecutionService
+class /* QSQLMIGRATOR_DLL_EXPORT */ CommandExecutionService
 {
 public:
     bool execute(const Commands::CommandPtr command,

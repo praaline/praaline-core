@@ -35,12 +35,12 @@ namespace Commands {
 /*!
  * \brief value object representing the command to drop an index
  */
-class QSQLMIGRATOR_DLL_EXPORT DropIndex : public BaseCommand
+class /* QSQLMIGRATOR_DLL_EXPORT */ DropIndex : public BaseCommand
 {
 public:
     explicit DropIndex(const QString &name);
     explicit DropIndex(const Structure::Index &index);
-    ~DropIndex() QSQL_OVERRIDE_D {}
+    ~DropIndex() Q_DECL_OVERRIDE {}
 
     static const QString &typeName();
 

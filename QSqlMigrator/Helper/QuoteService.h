@@ -11,7 +11,7 @@ namespace Helper {
 /*!
  * \brief interface for a service that is used to quote different kinds of strings for a database
  */
-class QSQLMIGRATOR_DLL_EXPORT QuoteService
+class /* QSQLMIGRATOR_DLL_EXPORT */ QuoteService
 {
 public:
     virtual ~QuoteService() {}

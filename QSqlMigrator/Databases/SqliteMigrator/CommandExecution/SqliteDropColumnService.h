@@ -35,7 +35,7 @@ class SqliteDropColumnService : public BaseSqlDropColumnService
 {
 public:
     SqliteDropColumnService();
-    ~SqliteDropColumnService() QSQL_OVERRIDE_D {}
+    ~SqliteDropColumnService() Q_DECL_OVERRIDE {}
 
     bool execute(const Commands::ConstCommandPtr &command, CommandExecution::CommandExecutionContext &context) const Q_DECL_OVERRIDE;
 };

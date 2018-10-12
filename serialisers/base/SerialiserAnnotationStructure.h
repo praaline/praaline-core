@@ -17,14 +17,14 @@
 
 #include "pncore_global.h"
 #include <QString>
-#include "structure/AnnotationStructure.h"
+#include "structure/AnnotationStructureLevel.h"
 
 namespace Praaline {
 namespace Core {
 
 class SerialiserAnnotationStructure
 {
-protected:
+public:
     SerialiserAnnotationStructure() {}
     virtual ~SerialiserAnnotationStructure() {}
 

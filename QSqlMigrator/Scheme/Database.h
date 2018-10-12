@@ -35,7 +35,7 @@
 namespace QSqlMigrator {
 namespace Scheme {
 
-class QSQLMIGRATOR_DLL_EXPORT Database
+class /* QSQLMIGRATOR_DLL_EXPORT */ Database
 {
 public:
     Database &operator<< (const DbTable &table) {

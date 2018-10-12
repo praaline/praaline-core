@@ -14,7 +14,7 @@ namespace Helper {
 /*!
  * \brief interface for a mapping basic types to proper sql types
  */
-class QSQLMIGRATOR_DLL_EXPORT TypeMapperService
+class /* QSQLMIGRATOR_DLL_EXPORT */ TypeMapperService
 {
 public:
     virtual ~TypeMapperService() {}

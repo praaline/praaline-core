@@ -22,7 +22,7 @@
 #include <QList>
 #include <QHash>
 #include "corpus/CorpusObject.h"
-#include "MetadataStructureSection.h"
+#include "structure/MetadataStructureSection.h"
 
 namespace Praaline {
 namespace Core {

@@ -15,9 +15,9 @@
     the GNU General Public License for more details.
 */
 
+#include <QObject>
 #include "pncore_global.h"
 #include "base/DataType.h"
-#include <QObject>
 
 namespace Praaline {
 namespace Core {

@@ -27,7 +27,12 @@ using std::cerr;
 using std::endl;
 
 #include "RealTime.h"
+
+#ifdef _MSC_VER
+#include "winsock.h" // struct timeval is in here
+#else
 #include "sys/time.h"
+#endif
 
 // #include "Preferences.h"
 

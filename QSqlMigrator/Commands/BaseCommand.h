@@ -42,7 +42,7 @@ typedef QList<CommandPtr> CommandPtrList;
 /*!
  * \brief abstract class for value object representing all kinds of commands
  */
-class QSQLMIGRATOR_DLL_EXPORT BaseCommand
+class /* QSQLMIGRATOR_DLL_EXPORT */ BaseCommand
 {
 public:
     explicit BaseCommand(const QString &name);

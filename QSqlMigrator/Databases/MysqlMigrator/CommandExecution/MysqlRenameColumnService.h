@@ -42,7 +42,7 @@ class MysqlRenameColumnService : public BaseSqlRenameColumnService
 {
 public:
     MysqlRenameColumnService();
-    ~MysqlRenameColumnService() QSQL_OVERRIDE_D {}
+    ~MysqlRenameColumnService() Q_DECL_OVERRIDE {}
 
     static bool execute(const Commands::RenameColumn &renameColumn, const Structure::Column &originalColumn,
                         const CommandExecution::CommandExecutionContext &context);

@@ -35,7 +35,7 @@
 namespace QSqlMigrator {
 namespace CommandExecution {
 
-class QSQLMIGRATOR_DLL_EXPORT LocalSchemeCommandExecutionContext
+class /* QSQLMIGRATOR_DLL_EXPORT */ LocalSchemeCommandExecutionContext
 {
 public:
     LocalSchemeCommandExecutionContext(const LocalSchemePtr localScheme);

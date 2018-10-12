@@ -15,7 +15,7 @@ namespace Helper {
 /*!
  * \brief interface for a service that can convert column and index definitions to proper SQL statements
  */
-class QSQLMIGRATOR_DLL_EXPORT ColumnService
+class /* QSQLMIGRATOR_DLL_EXPORT */ ColumnService
 {
 public:
     virtual ~ColumnService() {}

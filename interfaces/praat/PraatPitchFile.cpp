@@ -162,7 +162,7 @@ bool PraatPitchFile::load(const QString &filename, PraatPitch &data)
 
 bool PraatPitchFile::save(const QString &filename, PraatPitch &data)
 {
-
+    return false;
 }
 
 } // namespace Core

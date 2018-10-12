@@ -20,8 +20,8 @@
 #include <QPointer>
 #include <QString>
 #include <QStringList>
-#include "StructureAttributeBase.h"
-#include "AnnotationStructureAttribute.h"
+#include "structure/StructureAttributeBase.h"
+#include "structure/AnnotationStructureAttribute.h"
 
 namespace Praaline {
 namespace Core {
@@ -43,13 +43,13 @@ public:
         RelationsLevel            = 60
     };
 
-    explicit AnnotationStructureLevel(QObject *parent = 0);
+    explicit AnnotationStructureLevel(QObject *parent = nullptr);
     AnnotationStructureLevel(const QString &ID, LevelType type = IndependentIntervalsLevel,
                              const QString &name = QString(), const QString &description = QString(),
                              const QString &parentLevelID = QString(),
                              const DataType &datatype = DataType(DataType::VarChar, 1024),
                              int order = 0, bool indexed = false, const QString &nameValueList = QString(),
-                             QObject *parent = 0);
+                             QObject *parent = nullptr);
 
     // Data
     LevelType levelType() const { return m_levelType; }
@@ -87,5 +87,5 @@ protected:
 } // namespace Core
 } // namespace Praaline
 
-#endif // CORPUSANNOTATIONLEVEL_H
+#endif // ANNOTATIONSTRUCTURELEVEL_H
 

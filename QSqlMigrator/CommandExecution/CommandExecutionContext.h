@@ -36,7 +36,7 @@
 namespace QSqlMigrator {
 namespace CommandExecution {
 
-class QSQLMIGRATOR_DLL_EXPORT CommandExecutionContext
+class /* QSQLMIGRATOR_DLL_EXPORT */ CommandExecutionContext
 {
 public:
     CommandExecutionContext(const QSqlDatabase database,

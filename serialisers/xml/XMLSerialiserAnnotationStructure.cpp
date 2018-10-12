@@ -2,6 +2,10 @@
 #include <QFile>
 #include <QXmlStreamWriter>
 #include <QXmlStreamReader>
+#include "structure/AnnotationStructure.h"
+#include "structure/AnnotationStructureLevel.h"
+#include "structure/AnnotationStructureAttribute.h"
+#include "serialisers/base/SerialiserAnnotationStructure.h"
 #include "XMLSerialiserAnnotationStructure.h"
 
 namespace Praaline {

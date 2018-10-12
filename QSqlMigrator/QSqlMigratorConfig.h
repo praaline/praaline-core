@@ -29,24 +29,22 @@
 #define QSQLMIGRATOR_VERSION "1.0.0"
 #define QSQLMIGRATOR_LOG_PREFIX "[QSqlMigrator] "
 
-#include <Qt>
-#include <QtCore/qglobal.h>
+#include <QtGlobal>
 
 //#if defined(_BUILDING_QSQLMIGRATOR_DLL)
-//#  define QSQLMIGRATOR_DLL_EXPORT Q_DECL_EXPORT
+//#  define /* QSQLMIGRATOR_DLL_EXPORT */ Q_DECL_EXPORT
 //#else
-//#  define QSQLMIGRATOR_DLL_EXPORT Q_DECL_IMPORT
+//#  define /* QSQLMIGRATOR_DLL_EXPORT */ Q_DECL_IMPORT
 //#endif
-#define QSQLMIGRATOR_DLL_EXPORT
 
-#ifndef Q_DECL_OVERRIDE
-#   define Q_DECL_OVERRIDE
-#endif
-#if _MSC_VER >= 1700
-#   define QSQL_OVERRIDE_D Q_DECL_OVERRIDE
-#else
-#   define QSQL_OVERRIDE_D
-#endif
+//#ifndef Q_DECL_OVERRIDE
+//#   define Q_DECL_OVERRIDE
+//#endif
+//#if _MSC_VER >= 1700
+//#   define QSQL_OVERRIDE_D Q_DECL_OVERRIDE
+//#else
+//#   define QSQL_OVERRIDE_D
+//#endif
 
 #ifndef Q_NULLPTR
 #   define Q_NULLPTR 0

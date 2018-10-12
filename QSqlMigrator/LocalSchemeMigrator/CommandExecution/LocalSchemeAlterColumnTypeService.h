@@ -31,7 +31,7 @@
 namespace QSqlMigrator {
 namespace CommandExecution {
 
-class QSQLMIGRATOR_DLL_EXPORT LocalSchemeAlterColumnTypeService : public LocalSchemeBaseCommandExecutionService
+class /* QSQLMIGRATOR_DLL_EXPORT */ LocalSchemeAlterColumnTypeService : public LocalSchemeBaseCommandExecutionService
 {
 public:
     LocalSchemeAlterColumnTypeService();

@@ -36,7 +36,7 @@ class DropColumn;
 
 namespace CommandExecution {
 
-class QSQLMIGRATOR_DLL_EXPORT BaseSqlDropColumnService : public BaseCommandExecutionService
+class /* QSQLMIGRATOR_DLL_EXPORT */ BaseSqlDropColumnService : public BaseCommandExecutionService
 {
 public:
     BaseSqlDropColumnService();

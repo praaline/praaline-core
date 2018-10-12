@@ -37,7 +37,7 @@ namespace Structure {
 /*!
  * \brief value object representing the structure of an sql index.
  */
-class QSQLMIGRATOR_DLL_EXPORT Index
+class /* QSQLMIGRATOR_DLL_EXPORT */ Index
 {
 public:
     /*!
@@ -52,7 +52,7 @@ public:
     /*!
      * \brief index column reference
      */
-    class QSQLMIGRATOR_DLL_EXPORT Column
+    class /* QSQLMIGRATOR_DLL_EXPORT */ Column
     {
     public:
         Column(const QString& name, const SortOrder& sortOrder = Default);
@@ -72,7 +72,7 @@ public:
     /*!
      * \brief helper to build Index classes
      */
-    class QSQLMIGRATOR_DLL_EXPORT Builder
+    class /* QSQLMIGRATOR_DLL_EXPORT */ Builder
     {
     public:
         Builder(const QString &name, const QString &tableName);

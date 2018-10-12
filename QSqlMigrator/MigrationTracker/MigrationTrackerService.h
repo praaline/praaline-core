@@ -41,7 +41,7 @@ namespace MigrationTracker {
 /*!
  * \brief Interface of a service that is used to track successfully executed migrations
  */
-class QSQLMIGRATOR_DLL_EXPORT MigrationTrackerService
+class /* QSQLMIGRATOR_DLL_EXPORT */ MigrationTrackerService
 {
 public:
     virtual ~MigrationTrackerService() {}

@@ -36,7 +36,7 @@ class RenameColumn;
 
 namespace CommandExecution {
 
-class QSQLMIGRATOR_DLL_EXPORT BaseSqlRenameColumnService : public BaseCommandExecutionService
+class /* QSQLMIGRATOR_DLL_EXPORT */ BaseSqlRenameColumnService : public BaseCommandExecutionService
 {
 public:
     BaseSqlRenameColumnService();

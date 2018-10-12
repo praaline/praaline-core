@@ -35,11 +35,11 @@ namespace Commands {
 /*!
  * \brief value object representing the command to create an index
  */
-class QSQLMIGRATOR_DLL_EXPORT CreateIndex : public BaseCommand
+class /* QSQLMIGRATOR_DLL_EXPORT */ CreateIndex : public BaseCommand
 {
 public:
     explicit CreateIndex(const Structure::Index &index);
-    ~CreateIndex() QSQL_OVERRIDE_D {}
+    ~CreateIndex() Q_DECL_OVERRIDE {}
 
     static const QString &typeName();
 

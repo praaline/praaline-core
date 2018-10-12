@@ -19,7 +19,7 @@
 #include <QObject>
 #include <QPointer>
 #include <QString>
-#include "MetadataStructureAttribute.h"
+#include "structure/MetadataStructureAttribute.h"
 
 namespace Praaline {
 namespace Core {

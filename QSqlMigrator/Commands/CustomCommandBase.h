@@ -39,11 +39,11 @@ namespace Commands {
 /*!
  * \brief base class for custom commands
  */
-class QSQLMIGRATOR_DLL_EXPORT CustomCommandBase : public BaseCommand
+class /* QSQLMIGRATOR_DLL_EXPORT */ CustomCommandBase : public BaseCommand
 {
 public:
     explicit CustomCommandBase(const QString &commandName);
-    ~CustomCommandBase() QSQL_OVERRIDE_D {}
+    ~CustomCommandBase() Q_DECL_OVERRIDE {}
 
     static const QString &typeName();
 

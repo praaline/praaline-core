@@ -36,7 +36,7 @@
 namespace QSqlMigrator {
 namespace Scheme {
 
-class QSQLMIGRATOR_DLL_EXPORT DbTable
+class /* QSQLMIGRATOR_DLL_EXPORT */ DbTable
 {
 public:
     explicit DbTable(const QString &name);

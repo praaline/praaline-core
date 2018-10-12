@@ -19,7 +19,7 @@
 #include <QObject>
 #include <QString>
 #include <QList>
-#include "AnnotationStructureLevel.h"
+#include "structure/AnnotationStructureLevel.h"
 
 namespace Praaline {
 namespace Core {
@@ -28,7 +28,7 @@ class PRAALINE_CORE_SHARED_EXPORT AnnotationStructure : public QObject
 {
     Q_OBJECT
 public:
-    explicit AnnotationStructure(QObject *parent = 0);
+    explicit AnnotationStructure(QObject *parent = nullptr);
     ~AnnotationStructure();
 
     QString ID() const { return m_ID; }
@@ -65,4 +65,4 @@ protected:
 } // namespace Core
 } // namespace Praaline
 
-#endif // CORPUSANNOTATIONSTRUCTURE_H
+#endif // ANNOTATIONSTRUCTURE_H

@@ -40,11 +40,11 @@ namespace Helper {
 /*!
  * \brief standard sql type mapping implementation
  */
-class QSQLMIGRATOR_DLL_EXPORT BaseSqlTypeMapperService : public TypeMapperService
+class /* QSQLMIGRATOR_DLL_EXPORT */ BaseSqlTypeMapperService : public TypeMapperService
 {
 public:
     BaseSqlTypeMapperService();
-    ~BaseSqlTypeMapperService() QSQL_OVERRIDE_D {}
+    ~BaseSqlTypeMapperService() Q_DECL_OVERRIDE {}
 
     QString map(const Structure::SqlType &type) const Q_DECL_OVERRIDE;
 

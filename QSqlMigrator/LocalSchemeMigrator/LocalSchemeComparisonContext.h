@@ -11,7 +11,7 @@
 namespace QSqlMigrator {
 namespace LocalSchemeMigrator {
 
-class QSQLMIGRATOR_DLL_EXPORT LocalSchemeComparisonContext
+class /* QSQLMIGRATOR_DLL_EXPORT */ LocalSchemeComparisonContext
 {
 public:
     LocalSchemeComparisonContext(const LocalSchemePtr &localScheme,

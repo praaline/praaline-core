@@ -41,7 +41,7 @@ class MysqlTypeMapperService : public BaseSqlTypeMapperService
 {
 public:
     MysqlTypeMapperService();
-    ~MysqlTypeMapperService() QSQL_OVERRIDE_D {}
+    ~MysqlTypeMapperService() Q_DECL_OVERRIDE {}
 
     QString map(const Structure::SqlType &type) const Q_DECL_OVERRIDE;
 };

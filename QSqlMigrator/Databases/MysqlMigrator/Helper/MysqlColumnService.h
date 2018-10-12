@@ -45,7 +45,7 @@ class MysqlColumnService : public BaseSqlColumnService
 {
 public:
     MysqlColumnService(const MysqlTypeMapperService& mysqlTypeMapperService);
-    ~MysqlColumnService() QSQL_OVERRIDE_D {}
+    ~MysqlColumnService() Q_DECL_OVERRIDE {}
 
     void buildColumnOptionsSql(const Structure::Column &column,
                                const StringOutputFunction &addOption) const Q_DECL_OVERRIDE;

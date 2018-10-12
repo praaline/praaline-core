@@ -12,7 +12,7 @@
 namespace QSqlMigrator {
 namespace Structure {
 
-class QSQLMIGRATOR_DLL_EXPORT LocalScheme
+class /* QSQLMIGRATOR_DLL_EXPORT */ LocalScheme
 {
 public:
     /*!

@@ -34,7 +34,7 @@
 namespace QSqlMigrator {
 namespace Scheme {
 
-class QSQLMIGRATOR_DLL_EXPORT DbColumn
+class /* QSQLMIGRATOR_DLL_EXPORT */ DbColumn
 {
 public:
     enum Attribute {

@@ -36,7 +36,7 @@ namespace Commands {
 /*!
  * \brief value object representing the command to alter the type of a column in a table
  */
-class QSQLMIGRATOR_DLL_EXPORT AlterColumnType : public BaseCommand
+class /* QSQLMIGRATOR_DLL_EXPORT */ AlterColumnType : public BaseCommand
 {
 public:
     explicit AlterColumnType(const QString &columnName,
@@ -48,7 +48,7 @@ public:
                              const QString &tableName,
                              const Structure::SqlType &newType);
 
-    ~AlterColumnType() QSQL_OVERRIDE_D {}
+    ~AlterColumnType() Q_DECL_OVERRIDE {}
 
     static const QString &typeName();
 

@@ -31,7 +31,7 @@
 namespace QSqlMigrator {
 namespace CommandExecution {
 
-class QSQLMIGRATOR_DLL_EXPORT CustomCommandService : public CommandExecution::BaseCommandExecutionService
+class /* QSQLMIGRATOR_DLL_EXPORT */ CustomCommandService : public CommandExecution::BaseCommandExecutionService
 {
 public:
     CustomCommandService();

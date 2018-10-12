@@ -33,7 +33,7 @@
 namespace QSqlMigrator {
 namespace CommandExecution {
 
-class QSQLMIGRATOR_DLL_EXPORT LocalSchemeCommandExecutionService
+class /* QSQLMIGRATOR_DLL_EXPORT */ LocalSchemeCommandExecutionService
 {
 public:
     bool execute(const Commands::CommandPtr command,

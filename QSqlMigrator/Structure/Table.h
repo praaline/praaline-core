@@ -39,10 +39,10 @@ typedef QList<Column> ColumnList;
 /*!
  * \brief The Table class represents basic table-structure.
  */
-class QSQLMIGRATOR_DLL_EXPORT Table
+class /* QSQLMIGRATOR_DLL_EXPORT */ Table
 {
 public:
-    class QSQLMIGRATOR_DLL_EXPORT Builder
+    class /* QSQLMIGRATOR_DLL_EXPORT */ Builder
     {
     public:
         explicit Builder(const QString &name, const ColumnList& columns);

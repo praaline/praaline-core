@@ -32,7 +32,7 @@
 namespace QSqlMigrator {
 namespace MigrationExecution {
 
-class QSQLMIGRATOR_DLL_EXPORT MigrationExecutionService
+class /* QSQLMIGRATOR_DLL_EXPORT */ MigrationExecutionService
 {
 public:
     enum Direction {

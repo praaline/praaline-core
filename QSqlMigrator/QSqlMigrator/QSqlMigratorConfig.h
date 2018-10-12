@@ -36,7 +36,7 @@ namespace QSqlMigrator {
  * \brief The QSqlMigratorConfig class is used to represent all configurations of interest
  * for the QSqlMigrator
  */
-class QSQLMIGRATOR_DLL_EXPORT QSqlMigratorConfig
+class /* QSQLMIGRATOR_DLL_EXPORT */ QSqlMigratorConfig
 {
 public:
      const QString &databaseType() const;

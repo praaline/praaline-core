@@ -36,7 +36,7 @@ class SqliteMigrationTableService : public MigrationTracker::BaseMigrationTableS
 {
 public:
     SqliteMigrationTableService();
-    ~SqliteMigrationTableService() QSQL_OVERRIDE_D {}
+    ~SqliteMigrationTableService() Q_DECL_OVERRIDE {}
 
     bool canRevertStrucuturalChangesUsingTransactions() const Q_DECL_OVERRIDE;
 };

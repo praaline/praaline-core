@@ -14,7 +14,7 @@ class SqlStructureService;
 /*!
  * \brief a simple repository of all helper classes
  */
-class QSQLMIGRATOR_DLL_EXPORT HelperRepository
+class /* QSQLMIGRATOR_DLL_EXPORT */ HelperRepository
 {
 public:
     HelperRepository(const QuoteService &quoteService,

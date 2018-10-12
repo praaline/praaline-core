@@ -31,7 +31,7 @@
 namespace QSqlMigrator {
 namespace CommandExecution {
 
-class QSQLMIGRATOR_DLL_EXPORT LocalSchemeRenameTableService : public LocalSchemeBaseCommandExecutionService
+class /* QSQLMIGRATOR_DLL_EXPORT */ LocalSchemeRenameTableService : public LocalSchemeBaseCommandExecutionService
 {
 public:
     LocalSchemeRenameTableService();

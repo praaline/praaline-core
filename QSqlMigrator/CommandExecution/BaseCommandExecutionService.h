@@ -39,7 +39,7 @@ namespace CommandExecution {
 class BaseCommandExecutionService;
 typedef QSharedPointer<BaseCommandExecutionService> BaseCommandServicePtr;
 
-class QSQLMIGRATOR_DLL_EXPORT BaseCommandExecutionService
+class /* QSQLMIGRATOR_DLL_EXPORT */ BaseCommandExecutionService
 {
 public:
     BaseCommandExecutionService();

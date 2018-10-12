@@ -36,7 +36,7 @@ class AlterColumnType;
 
 namespace CommandExecution {
 
-class QSQLMIGRATOR_DLL_EXPORT BaseSqlAlterColumnTypeService : public BaseCommandExecutionService
+class /* QSQLMIGRATOR_DLL_EXPORT */ BaseSqlAlterColumnTypeService : public BaseCommandExecutionService
 {
 public:
     BaseSqlAlterColumnTypeService();

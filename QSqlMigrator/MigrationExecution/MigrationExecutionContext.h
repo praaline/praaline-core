@@ -59,12 +59,12 @@ typedef QSharedPointer<MigrationTracker::MigrationTrackerService> MigrationTable
 class MigrationExecutionContext;
 typedef QSharedPointer<MigrationExecutionContext> MigrationExecutionContextPtr;
 
-class QSQLMIGRATOR_DLL_EXPORT MigrationExecutionContext
+class /* QSQLMIGRATOR_DLL_EXPORT */ MigrationExecutionContext
 {
 public:
     typedef QMap<QString, const Migrations::Migration*> NameMigrationMap;
 
-    class QSQLMIGRATOR_DLL_EXPORT Builder
+    class /* QSQLMIGRATOR_DLL_EXPORT */ Builder
     {
     public:
         Builder(const NameMigrationMap &migrations);

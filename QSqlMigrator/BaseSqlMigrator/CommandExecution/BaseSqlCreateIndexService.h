@@ -36,7 +36,7 @@ class CreateIndex;
 
 namespace CommandExecution {
 
-class QSQLMIGRATOR_DLL_EXPORT BaseSqlCreateIndexService : public BaseCommandExecutionService
+class /* QSQLMIGRATOR_DLL_EXPORT */ BaseSqlCreateIndexService : public BaseCommandExecutionService
 {
 public:
     BaseSqlCreateIndexService();

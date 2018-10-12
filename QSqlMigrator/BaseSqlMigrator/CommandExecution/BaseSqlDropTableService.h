@@ -36,7 +36,7 @@ class DropTable;
 
 namespace CommandExecution {
 
-class QSQLMIGRATOR_DLL_EXPORT BaseSqlDropTableService : public BaseCommandExecutionService
+class /* QSQLMIGRATOR_DLL_EXPORT */ BaseSqlDropTableService : public BaseCommandExecutionService
 {
 public:
     BaseSqlDropTableService();

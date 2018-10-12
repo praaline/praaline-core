@@ -34,7 +34,7 @@
 namespace QSqlMigrator {
 namespace Migrations {
 
-class QSQLMIGRATOR_DLL_EXPORT MigrationRepository
+class /* QSQLMIGRATOR_DLL_EXPORT */ MigrationRepository
 {
 public:
     typedef QMap<QString, const Migration*> NameMigrationMap;

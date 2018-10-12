@@ -35,7 +35,7 @@ namespace Commands {
 /*!
  * \brief value object representing the command to drop a column
  */
-class QSQLMIGRATOR_DLL_EXPORT DropColumn : public BaseCommand
+class /* QSQLMIGRATOR_DLL_EXPORT */ DropColumn : public BaseCommand
 {
 public:
     //! Constructs the command to drop a column by name (but cannot restore it)
@@ -44,7 +44,7 @@ public:
     //! Constructs the command to drop a column with a column definition, allowing a restore
     explicit DropColumn(const Structure::Column &column, const QString &tableName);
 
-    ~DropColumn() QSQL_OVERRIDE_D {}
+    ~DropColumn() Q_DECL_OVERRIDE {}
 
     static const QString &typeName();
 

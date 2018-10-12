@@ -35,11 +35,11 @@
 namespace QSqlMigrator {
 namespace Helper {
 
-class QSQLMIGRATOR_DLL_EXPORT BaseSqlQuoteService : public QuoteService
+class /* QSQLMIGRATOR_DLL_EXPORT */ BaseSqlQuoteService : public QuoteService
 {
 public:
     BaseSqlQuoteService();
-    ~BaseSqlQuoteService() QSQL_OVERRIDE_D {}
+    ~BaseSqlQuoteService() Q_DECL_OVERRIDE {}
 
     QString quoteTableName(const QString &tableName) const Q_DECL_OVERRIDE;
     QString quoteColumnName(const QString &columnName) const Q_DECL_OVERRIDE;

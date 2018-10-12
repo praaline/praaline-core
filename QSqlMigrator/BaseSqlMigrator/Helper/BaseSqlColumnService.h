@@ -39,13 +39,13 @@
 namespace QSqlMigrator {
 namespace Helper {
 
-class QSQLMIGRATOR_DLL_EXPORT BaseSqlColumnService : public ColumnService
+class /* QSQLMIGRATOR_DLL_EXPORT */ BaseSqlColumnService : public ColumnService
 {
 public:
     typedef std::function< void(const QString &type) > StringOutputFunction;
 
     BaseSqlColumnService(const TypeMapperService& typeMapperService);
-    ~BaseSqlColumnService() QSQL_OVERRIDE_D {}
+    ~BaseSqlColumnService() Q_DECL_OVERRIDE {}
 
     virtual QString buildColumnTypeSql(const Structure::Column &column) const;
     virtual void buildColumnOptionsSql(const Structure::Column &column, const StringOutputFunction &addOption) const;

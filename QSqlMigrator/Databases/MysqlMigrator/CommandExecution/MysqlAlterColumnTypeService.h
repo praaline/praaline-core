@@ -42,7 +42,7 @@ class MysqlAlterColumnTypeService : public BaseSqlAlterColumnTypeService
 {
 public:
     MysqlAlterColumnTypeService();
-    ~MysqlAlterColumnTypeService() QSQL_OVERRIDE_D {}
+    ~MysqlAlterColumnTypeService() Q_DECL_OVERRIDE {}
 
     static bool execute(const Commands::AlterColumnType &alterColumnType, const Structure::Column &originalColumn, const CommandExecution::CommandExecutionContext &context);
 

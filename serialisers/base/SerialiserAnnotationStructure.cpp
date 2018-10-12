@@ -1,14 +1,13 @@
 #include <QString>
 #include "structure/AnnotationStructure.h"
-
-#include "SerialiserAnnotationStructure.h"
+#include "serialisers/base/SerialiserAnnotationStructure.h"
 
 namespace Praaline {
 namespace Core {
 
 QString SerialiserAnnotationStructure::convertLevelTypeToString(AnnotationStructureLevel::LevelType levelType)
 {
-    QString ret;
+    QString ret("independentintervals");
     switch(levelType) {
     case AnnotationStructureLevel::IndependentPointsLevel:      ret = "independentpoints";    break;
     case AnnotationStructureLevel::IndependentIntervalsLevel:   ret = "independentintervals"; break;
@@ -16,7 +15,6 @@ QString SerialiserAnnotationStructure::convertLevelTypeToString(AnnotationStruct
     case AnnotationStructureLevel::SequencesLevel:              ret = "sequences";            break;
     case AnnotationStructureLevel::TreeLevel:                   ret = "tree";                 break;
     case AnnotationStructureLevel::RelationsLevel:              ret = "relations";            break;
-    default: ret = "independentintervals";
     }
     return ret;
 }
