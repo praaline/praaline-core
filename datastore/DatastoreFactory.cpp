@@ -5,8 +5,8 @@
 #include "CorpusRepository.h"
 #include "structure/AnnotationStructure.h"
 #include "structure/MetadataStructure.h"
-#include "serialisers/sql/SQLAnnotationDatastore.h"
-#include "serialisers/sql/SQLMetadataDatastore.h"
+#include "datastore/SQLAnnotationDatastore.h"
+#include "datastore/SQLMetadataDatastore.h"
 
 namespace Praaline {
 namespace Core {

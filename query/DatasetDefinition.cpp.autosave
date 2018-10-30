@@ -5,7 +5,7 @@ namespace Core {
 
 struct DatasetDefinitionData {
     QString minimalLevelID;
-
+    
 };
 
 DatasetDefinition::DatasetDefinition()

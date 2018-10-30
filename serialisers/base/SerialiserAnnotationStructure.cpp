@@ -5,6 +5,14 @@
 namespace Praaline {
 namespace Core {
 
+SerialiserAnnotationStructure::SerialiserAnnotationStructure()
+{
+}
+
+SerialiserAnnotationStructure::~SerialiserAnnotationStructure()
+{
+}
+
 QString SerialiserAnnotationStructure::convertLevelTypeToString(AnnotationStructureLevel::LevelType levelType)
 {
     QString ret("independentintervals");

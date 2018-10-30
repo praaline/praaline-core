@@ -1,5 +1,5 @@
-#ifndef SERIALISERMETADATASTRUCTURE_H
-#define SERIALISERMETADATASTRUCTURE_H
+#ifndef SERIALISERANNOTATION_H
+#define SERIALISERANNOTATION_H
 
 /*
     Praaline - Core module - Serialisers
@@ -16,20 +16,24 @@
 */
 
 #include "pncore_global.h"
-#include <QString>
-#include "structure/MetadataStructure.h"
+#include <QStringList>
+#include "structure/AnnotationStructureLevel.h"
 
 namespace Praaline {
 namespace Core {
 
-class SerialiserMetadataStructure
+class SerialiserAnnotation
 {
 protected:
-    SerialiserMetadataStructure();
-    virtual ~SerialiserMetadataStructure();
+    SerialiserAnnotation();
+    virtual ~SerialiserAnnotation();
+
+    /// Derives the list of attributes that will be requested from the datastore, based on the
+    /// user-requested attribute IDs and the attribute IDs actually in the datastore's structure.
+    static QStringList getEffectiveAttributeIDs(AnnotationStructureLevel *level, const QStringList &attributeIDs);
 };
 
 } // namespace Core
 } // namespace Praaline
 
-#endif // SERIALISERMETADATASTRUCTURE_H
+#endif // SERIALISERANNOTATION_H

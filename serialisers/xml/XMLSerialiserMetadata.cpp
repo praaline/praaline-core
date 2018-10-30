@@ -24,14 +24,6 @@ QString XMLSerialiserMetadata::xmlElementName_Recording("Recording");
 QString XMLSerialiserMetadata::xmlElementName_Annotation("Annotation");
 QString XMLSerialiserMetadata::xmlElementName_Participation("Participation");
 
-XMLSerialiserMetadata::XMLSerialiserMetadata()
-{
-}
-
-XMLSerialiserMetadata::~XMLSerialiserMetadata()
-{
-}
-
 // ========================================================================================================================================
 
 // public static

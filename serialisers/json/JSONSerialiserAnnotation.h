@@ -19,6 +19,7 @@
 #include <QMap>
 #include "base/RealTime.h"
 #include "JSONSerialiserBase.h"
+#include "serialisers/base/SerialiserAnnotation.h"
 #include <QJsonObject>
 
 namespace Praaline {
@@ -28,7 +29,7 @@ class AnnotationTier;
 class AnnotationTierGroup;
 class AnnotationStructure;
 
-class JSONSerialiserAnnotation : public JSONSerialiserBase
+class JSONSerialiserAnnotation : public SerialiserAnnotation, public JSONSerialiserBase
 {
 
 public:
@@ -39,8 +40,8 @@ public:
     static AnnotationTier *loadTier(AnnotationStructure *structure, QJsonObject &json);
 
 private:
-    JSONSerialiserAnnotation();
-    ~JSONSerialiserAnnotation();
+    JSONSerialiserAnnotation() {}
+    ~JSONSerialiserAnnotation() {}
 };
 
 } // namespace Core

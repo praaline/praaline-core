@@ -18,6 +18,7 @@
 #include <QPointer>
 #include <QSqlDatabase>
 #include "base/IDatastore.h"
+#include "serialisers/base/SerialiserMetadata.h"
 #include "corpus/CorpusObjectInfo.h"
 #include "corpus/Corpus.h"
 #include "corpus/CorpusCommunication.h"
@@ -33,7 +34,7 @@ namespace Core {
 class MetadataStructure;
 class CorpusDatastore;
 
-class SQLSerialiserMetadata : public IDatastore
+class SQLSerialiserMetadata : public SerialiserMetadata, public IDatastore
 {
 public:
     // Use this function to get the basic information for each corpus object and construct an hierarchical structure
@@ -102,8 +103,6 @@ private:
 
     // Helper functions
     static QString tableName(CorpusObject::Type type);
-    static QStringList getEffectiveAttributeIDs(MetadataStructure *structure, CorpusObject::Type type,
-                                                const QStringList &requestedAttributeIDs = QStringList());
 
     static void readRecording(QSqlQuery &q, CorpusRecording *rec, MetadataStructure *structure);
     static void readAnnotation(QSqlQuery &q, CorpusAnnotation *annot, MetadataStructure *structure);

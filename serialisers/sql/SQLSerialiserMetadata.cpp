@@ -30,28 +30,6 @@ QString SQLSerialiserMetadata::tableName(CorpusObject::Type type)
 }
 
 // private static
-// The default value of requestedAttributeIDs is an empty QStringList - in which case only the basic attributes of the
-// requested Corpus Object will be returned.
-QStringList SQLSerialiserMetadata::getEffectiveAttributeIDs(MetadataStructure *structure,  CorpusObject::Type type, const QStringList &requestedAttributeIDs)
-{
-    QStringList effectiveAttributeIDs;
-    if (!structure) return effectiveAttributeIDs;
-    // Basic attributes, based on corpus object type
-    effectiveAttributeIDs << MetadataStructure::basicAttributeIDs(type);
-    // Extra attributes
-    if (requestedAttributeIDs.isEmpty())
-        effectiveAttributeIDs << structure->attributeIDs(type);
-    else {
-        QStringList structureAttributeIDs = structure->attributeIDs(type);
-        foreach (QString attributeID, requestedAttributeIDs) {
-            if (structureAttributeIDs.contains(attributeID))
-                effectiveAttributeIDs << attributeID;
-        }
-    }
-    return effectiveAttributeIDs;
-}
-
-// private static
 void SQLSerialiserMetadata::readRecording(QSqlQuery &q, CorpusRecording *rec, MetadataStructure *structure)
 {
     rec->setID(q.value("recordingID").toString());

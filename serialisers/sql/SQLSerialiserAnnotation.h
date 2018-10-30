@@ -16,8 +16,9 @@
 */
 
 #include <QSqlDatabase>
-#include "base/IDatastore.h"
 #include "SQLSerialiserBase.h"
+#include "serialisers/base/SerialiserAnnotation.h"
+#include "base/IDatastore.h"
 #include "annotation/AnnotationElement.h"
 #include "annotation/Point.h"
 #include "annotation/Interval.h"
@@ -31,7 +32,7 @@
 namespace Praaline {
 namespace Core {
 
-class SQLSerialiserAnnotation : public SQLSerialiserBase, public IDatastore
+class SQLSerialiserAnnotation : public SerialiserAnnotation, public SQLSerialiserBase, public IDatastore
 {
 public:
     // ==========================================================================================================================
@@ -101,7 +102,7 @@ public:
             AnnotationStructure *structure, QSqlDatabase &db);
 
 private:
-    SQLSerialiserAnnotation();
+    SQLSerialiserAnnotation() {}
 };
 
 } // namespace Core

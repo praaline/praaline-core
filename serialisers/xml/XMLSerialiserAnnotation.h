@@ -19,6 +19,8 @@
 #include <QMap>
 #include "base/RealTime.h"
 #include "XMLSerialiserBase.h"
+#include "serialisers/base/SerialiserAnnotation.h"
+#include "base/IDatastore.h"
 #include <QXmlStreamReader>
 #include <QXmlStreamWriter>
 
@@ -29,7 +31,7 @@ class AnnotationTier;
 class AnnotationTierGroup;
 class AnnotationStructure;
 
-class XMLSerialiserAnnotation : public XMLSerialiserBase
+class XMLSerialiserAnnotation : public SerialiserAnnotation, public XMLSerialiserBase, public IDatastore
 {
 
 public:

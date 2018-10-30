@@ -1,5 +1,5 @@
-#ifndef SERIALISERMETADATASTRUCTURE_H
-#define SERIALISERMETADATASTRUCTURE_H
+#ifndef SERIALISERANNOTATIONSTRUCTURE_H
+#define SERIALISERANNOTATIONSTRUCTURE_H
 
 /*
     Praaline - Core module - Serialisers
@@ -17,19 +17,22 @@
 
 #include "pncore_global.h"
 #include <QString>
-#include "structure/MetadataStructure.h"
+#include "structure/AnnotationStructure.h"
 
 namespace Praaline {
 namespace Core {
 
-class SerialiserMetadataStructure
+class SerialiserAnnotationStructure
 {
 protected:
-    SerialiserMetadataStructure();
-    virtual ~SerialiserMetadataStructure();
+    SerialiserAnnotationStructure() {}
+    virtual ~SerialiserAnnotationStructure() {}
+
+    static QString convertLevelTypeToString(AnnotationStructureLevel::LevelType levelType);
+    static AnnotationStructureLevel::LevelType convertStringToLevelType(QString str);
 };
 
 } // namespace Core
 } // namespace Praaline
 
-#endif // SERIALISERMETADATASTRUCTURE_H
+#endif // SERIALISERANNOTATIONSTRUCTURE_H

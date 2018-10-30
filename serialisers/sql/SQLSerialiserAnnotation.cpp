@@ -17,30 +17,9 @@
 namespace Praaline {
 namespace Core {
 
-SQLSerialiserAnnotation::SQLSerialiserAnnotation()
-{
-}
-
 // ==========================================================================================================================
 // Helper Functions
 // ==========================================================================================================================
-
-// Derives the list of attributes that will be requested from the database, based on the requested attribute IDs and
-// the attribute IDs actually in the database.
-QStringList getEffectiveAttributeIDs(AnnotationStructureLevel *level, const QStringList &attributeIDs)
-{
-    QStringList effectiveAttributeIDs;
-    if (!level) return effectiveAttributeIDs;
-    if (attributeIDs.isEmpty())
-        effectiveAttributeIDs = level->attributeIDs();
-    else {
-        foreach (QString attributeID, attributeIDs) {
-            if (level->hasAttribute(attributeID))
-                effectiveAttributeIDs << attributeID;
-        }
-    }
-    return effectiveAttributeIDs;
-}
 
 bool prepareSelectQuery(QSqlQuery &query, AnnotationStructureLevel *level, const QStringList &effectiveAttributeIDs,
                         const AnnotationDatastore::Selection &selection)
@@ -275,7 +254,7 @@ QList<Sequence *> SQLSerialiserAnnotation::getSequences(
     // Read annotation elements
     while (query.next()) {
         int indexFrom = query.value("intervalNoLeft").toInt();
-        int indexTo = query.value("intervalNoRight").toInt();
+        int indexTo   = query.value("intervalNoRight").toInt();
         QString xText = query.value("xText").toString();
         QHash<QString, QVariant> attributes;
         foreach (QString attributeID, effectiveAttributeIDs) {

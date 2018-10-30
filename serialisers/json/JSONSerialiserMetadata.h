@@ -19,6 +19,7 @@
 #include <QPointer>
 #include <QJsonObject>
 #include "JSONSerialiserBase.h"
+#include "serialisers/base/SerialiserMetadata.h"
 #include "corpus/Corpus.h"
 #include "corpus/CorpusCommunication.h"
 #include "corpus/CorpusSpeaker.h"
@@ -29,7 +30,7 @@
 namespace Praaline {
 namespace Core {
 
-class JSONSerialiserMetadata : public JSONSerialiserBase
+class JSONSerialiserMetadata : public JSONSerialiserBase, public SerialiserMetadata
 {
 public:
     static bool saveCorpus(Corpus *corpus, MetadataStructure* structure, QJsonObject &json);
@@ -54,8 +55,8 @@ public:
    // static bool loadParticipations(QList<QPointer<CorpusParticipation> > &list, MetadataStructure *structure, QJsonObject &json);
 
 private:
-    JSONSerialiserMetadata();
-    ~JSONSerialiserMetadata();
+    JSONSerialiserMetadata() {}
+    ~JSONSerialiserMetadata() {}
 
     static Corpus *readCorpus(MetadataStructure *structure, QJsonObject &json);
     static CorpusCommunication *readCommunication(MetadataStructure *structure, QJsonObject &json);

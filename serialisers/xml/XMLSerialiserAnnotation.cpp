@@ -21,21 +21,16 @@ XMLSerialiserAnnotation::~XMLSerialiserAnnotation()
 }
 
 // public static
+bool XMLSerialiserAnnotation::saveTier(AnnotationTier *tier, AnnotationStructure *structure, QXmlStreamWriter &xml)
+{
+
+    return false;
+}
+
+// public static
 bool XMLSerialiserAnnotation::saveTiers(AnnotationTierGroup *tiers, AnnotationStructure *structure, QXmlStreamWriter &xml)
 {
     return false;
-}
-
-// public static
-bool XMLSerialiserAnnotation::saveTier(AnnotationTier *tier, AnnotationStructure *structure, QXmlStreamWriter &xml)
-{
-    return false;
-}
-
-// public static
-AnnotationTierGroup *XMLSerialiserAnnotation::loadTiers(AnnotationStructure *structure, QXmlStreamReader &xml)
-{
-    return nullptr;
 }
 
 // public static
@@ -44,6 +39,11 @@ AnnotationTier *XMLSerialiserAnnotation::loadTier(AnnotationStructure *structure
     return nullptr;
 }
 
+// public static
+AnnotationTierGroup *XMLSerialiserAnnotation::loadTiers(AnnotationStructure *structure, QXmlStreamReader &xml)
+{
+    return nullptr;
+}
 
 } // namespace Core
 } // namespace Praaline

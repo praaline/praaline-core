@@ -1,5 +1,5 @@
-#ifndef SERIALISERMETADATASTRUCTURE_H
-#define SERIALISERMETADATASTRUCTURE_H
+#ifndef SERIALISERMETADATA_H
+#define SERIALISERMETADATA_H
 
 /*
     Praaline - Core module - Serialisers
@@ -16,20 +16,27 @@
 */
 
 #include "pncore_global.h"
-#include <QString>
-#include "structure/MetadataStructure.h"
+#include <QStringList>
+#include "corpus/CorpusObjectInfo.h"
 
 namespace Praaline {
 namespace Core {
 
-class SerialiserMetadataStructure
+class MetadataStructure;
+
+class SerialiserMetadata
 {
 protected:
-    SerialiserMetadataStructure();
-    virtual ~SerialiserMetadataStructure();
+    SerialiserMetadata();
+    virtual ~SerialiserMetadata();
+
+    /// The default value of requestedAttributeIDs is an empty QStringList, in which case only the basic attributes of the
+    /// requested Corpus Object will be returned.
+    static QStringList getEffectiveAttributeIDs(MetadataStructure *structure, CorpusObject::Type type,
+                                                const QStringList &requestedAttributeIDs = QStringList());
 };
 
 } // namespace Core
 } // namespace Praaline
 
-#endif // SERIALISERMETADATASTRUCTURE_H
+#endif // SERIALISERMETADATA_H

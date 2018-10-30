@@ -5,10 +5,10 @@
 #include "datastore/CorpusRepository.h"
 #include "datastore/DatastoreInfo.h"
 #include "SQLAnnotationDatastore.h"
-#include "SQLSerialiserAnnotation.h"
-#include "SQLSerialiserAnnotationStructure.h"
-#include "SQLSerialiserNameValueList.h"
-#include "SQLQueryEngineAnnotation.h"
+#include "serialisers/sql/SQLSerialiserAnnotation.h"
+#include "serialisers/sql/SQLSerialiserAnnotationStructure.h"
+#include "serialisers/sql/SQLSerialiserNameValueList.h"
+#include "serialisers/sql/SQLQueryEngineAnnotation.h"
 
 namespace Praaline {
 namespace Core {

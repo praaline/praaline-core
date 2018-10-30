@@ -13,14 +13,6 @@
 namespace Praaline {
 namespace Core {
 
-JSONSerialiserMetadata::JSONSerialiserMetadata()
-{
-}
-
-JSONSerialiserMetadata::~JSONSerialiserMetadata()
-{
-}
-
 // public static
 bool JSONSerialiserMetadata::saveCorpus(Corpus *corpus, MetadataStructure* structure, QJsonObject &json)
 {

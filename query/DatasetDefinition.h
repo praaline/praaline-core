@@ -18,15 +18,44 @@
 #include "pncore_global.h"
 #include <QString>
 #include <QPair>
+#include <QVariantHash>
 
 namespace Praaline {
 namespace Core {
 
+struct DatasetDefinitionData;
+
 class PRAALINE_CORE_SHARED_EXPORT DatasetDefinition
 {
 public:
+    class Column {
+    public:
+        QString columnName;
+        QString levelID;
+        QString attributeID;
+        QString function;
+        QVariantHash parameters;
+    };
+
     DatasetDefinition();
     ~DatasetDefinition();
+
+    QString datasetName() const;
+    void setDatasetName(const QString &name);
+
+    QString minimalLevelID() const;
+    void setMinimalLevelID(const QString &levelID);
+
+    QList<Column> columns() const;
+    Column column(int index) const;
+    int columnCount() const;
+    void addColumn(const Column &column);
+    void addColumns(const QList<Column> &columns);
+    void removeColumn(int index);
+    void clear();
+
+private:
+    DatasetDefinitionData *d;
 };
 
 } // namespace Core

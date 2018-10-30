@@ -55,8 +55,8 @@ public:
    // static bool loadParticipations(QList<QPointer<CorpusParticipation> > &list, MetadataStructure *mstructure, QXmlStreamReader &xml);
 
 private:
-    XMLSerialiserMetadata();
-    ~XMLSerialiserMetadata();
+    XMLSerialiserMetadata() {}
+    ~XMLSerialiserMetadata() {}
 
     static Corpus *readCorpus(MetadataStructure *mstructure, QXmlStreamReader &xml);
     static CorpusCommunication *readCommunication(MetadataStructure *mstructure, QXmlStreamReader &xml);

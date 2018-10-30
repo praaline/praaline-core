@@ -26,41 +26,66 @@ INCLUDEPATH += . ..
 DEPENDPATH += . ..
 
 HEADERS += \
+    annotation/AnnotationDataTable.h \
+    annotation/AnnotationElement.h \
+    annotation/AnnotationTier.h \
+    annotation/AnnotationTierGroup.h \
+    annotation/Interval.h \
+    annotation/IntervalTier.h \
+    annotation/Point.h \
+    annotation/PointTier.h \
+    annotation/Relation.h \
+    annotation/RelationTier.h \
+    annotation/Sequence.h \
+    annotation/SequenceTier.h \
+    annotation/Transcription.h \
+    annotation/TreeTier.h \
     base/BaseTypes.h \
+    base/DataType.h \
+    base/IDatastore.h \
+    base/ISaveable.h \
     base/RealTime.h \
-    pncore_global.h \
-    interfaces/praat/PraatPointTierFile.h \
-    interfaces/anvil/AnvilMetadataTranscript.h \
     base/RealValueList.h \
-    statistics/StatisticalSummary.h \
-    statistics/StatisticalMeasureDefinition.h \
-    statistics/HistogramCalculator.h \
-    QSqlMigrator/Structure/Column.h \
-    QSqlMigrator/Structure/Index.h \
-    QSqlMigrator/Structure/LocalScheme.h \
-    QSqlMigrator/Structure/Table.h \
-    QSqlMigrator/Scheme/Database.h \
-    QSqlMigrator/Scheme/DbColumn.h \
-    QSqlMigrator/Scheme/DbTable.h \
-    QSqlMigrator/Helper/ColumnService.h \
-    QSqlMigrator/Helper/HelperRepository.h \
-    QSqlMigrator/Helper/QuoteService.h \
-    QSqlMigrator/Helper/SqlStructureService.h \
-    QSqlMigrator/Helper/TypeMapperService.h \
-    QSqlMigrator/Commands/AddColumn.h \
-    QSqlMigrator/Commands/AlterColumnType.h \
-    QSqlMigrator/Commands/BaseCommand.h \
-    QSqlMigrator/Commands/CreateIndex.h \
-    QSqlMigrator/Commands/CreateTable.h \
-    QSqlMigrator/Commands/CustomCommandBase.h \
-    QSqlMigrator/Commands/DropColumn.h \
-    QSqlMigrator/Commands/DropIndex.h \
-    QSqlMigrator/Commands/DropTable.h \
-    QSqlMigrator/Commands/RenameColumn.h \
-    QSqlMigrator/Commands/RenameTable.h \
-    QSqlMigrator/Migrations/Migration.h \
-    QSqlMigrator/Migrations/MigrationRepository.h \
-    QSqlMigrator/Migrations/RegisterMigration.h \
+    corpus/Corpus.h \
+    corpus/CorpusAnnotation.h \
+    corpus/CorpusBookmark.h \
+    corpus/CorpusCommunication.h \
+    corpus/CorpusObject.h \
+    corpus/CorpusObjectInfo.h \
+    corpus/CorpusParticipation.h \
+    corpus/CorpusRecording.h \
+    corpus/CorpusSpeaker.h \
+    datastore/AnnotationDatastore.h \
+    datastore/CorpusDatastore.h \
+    datastore/CorpusRepository.h \
+    datastore/CorpusRepositoryDefinition.h \
+    datastore/DatastoreFactory.h \
+    datastore/DatastoreInfo.h \
+    datastore/FileDatastore.h \
+    datastore/MetadataDatastore.h \
+    datastore/NameValueListDatastore.h \
+    datastore/SQLAnnotationDatastore.h \
+    datastore/SQLMetadataDatastore.h \
+    datastore/XMLAnnotationDatastore.h \
+    datastore/XMLMetadataDatastore.h \
+    interfaces/anvil/AnvilMetadataTranscript.h \
+    interfaces/csv/CSVFileAnnotation.h \
+    interfaces/exmaralda/ExmaraldaBasicTranscription.h \
+    interfaces/exmaralda/ExmaraldaTranscriptionBridge.h \
+    interfaces/ImportAnnotations.h \
+    interfaces/InterfaceTextFile.h \
+    interfaces/phon/PhonTranscription.h \
+    interfaces/praat/AnnotationInterfacePraat.h \
+    interfaces/praat/PraatPitchFile.h \
+    interfaces/praat/PraatPointTierFile.h \
+    interfaces/praat/PraatTextFile.h \
+    interfaces/praat/PraatTextGrid.h \
+    interfaces/subtitles/SubtitlesFile.h \
+    interfaces/transcriber/TranscriberAnnotationGraph.h \
+    language/PhonemeDefinitions.h \
+    language/PhoneticAlphabet.h \
+    language/Tokeniser.h \
+    pncore_global.h \
     QSqlMigrator/BaseSqlMigrator/CommandExecution/BaseSqlAddColumnService.h \
     QSqlMigrator/BaseSqlMigrator/CommandExecution/BaseSqlAlterColumnTypeService.h \
     QSqlMigrator/BaseSqlMigrator/CommandExecution/BaseSqlCreateIndexService.h \
@@ -83,6 +108,43 @@ HEADERS += \
     QSqlMigrator/CommandExecution/LocalSchemeCommandExecutionContext.h \
     QSqlMigrator/CommandExecution/LocalSchemeCommandExecutionService.h \
     QSqlMigrator/CommandExecution/LocalSchemeCommandExecutionServiceRepository.h \
+    QSqlMigrator/Commands/AddColumn.h \
+    QSqlMigrator/Commands/AlterColumnType.h \
+    QSqlMigrator/Commands/BaseCommand.h \
+    QSqlMigrator/Commands/CreateIndex.h \
+    QSqlMigrator/Commands/CreateTable.h \
+    QSqlMigrator/Commands/CustomCommandBase.h \
+    QSqlMigrator/Commands/DropColumn.h \
+    QSqlMigrator/Commands/DropIndex.h \
+    QSqlMigrator/Commands/DropTable.h \
+    QSqlMigrator/Commands/RenameColumn.h \
+    QSqlMigrator/Commands/RenameTable.h \
+    QSqlMigrator/Databases/FirebirdMigrator/FirebirdMigrator.h \
+    QSqlMigrator/Databases/FirebirdMigrator/Helper/FirebirdSqlStructureService.h \
+    QSqlMigrator/Databases/MysqlMigrator/CommandExecution/MysqlAlterColumnTypeService.h \
+    QSqlMigrator/Databases/MysqlMigrator/CommandExecution/MysqlRenameColumnService.h \
+    QSqlMigrator/Databases/MysqlMigrator/Helper/MysqlColumnService.h \
+    QSqlMigrator/Databases/MysqlMigrator/Helper/MysqlStructureService.h \
+    QSqlMigrator/Databases/MysqlMigrator/Helper/MysqlTypeMapperService.h \
+    QSqlMigrator/Databases/MysqlMigrator/MysqlMigrator.h \
+    QSqlMigrator/Databases/PostgresqlMigrator/Helper/PostgresqlColumnService.h \
+    QSqlMigrator/Databases/PostgresqlMigrator/Helper/PostgresqlQuoteService.h \
+    QSqlMigrator/Databases/PostgresqlMigrator/Helper/PostgresqlStructureService.h \
+    QSqlMigrator/Databases/PostgresqlMigrator/Helper/PostgresqlTypeMapperService.h \
+    QSqlMigrator/Databases/PostgresqlMigrator/PostgresqlMigrator.h \
+    QSqlMigrator/Databases/SqliteMigrator/CommandExecution/SqliteAlterColumnService.h \
+    QSqlMigrator/Databases/SqliteMigrator/CommandExecution/SqliteAlterColumnTypeService.h \
+    QSqlMigrator/Databases/SqliteMigrator/CommandExecution/SqliteDropColumnService.h \
+    QSqlMigrator/Databases/SqliteMigrator/CommandExecution/SqliteRenameColumnService.h \
+    QSqlMigrator/Databases/SqliteMigrator/DatabaseLock.h \
+    QSqlMigrator/Databases/SqliteMigrator/Helper/SqliteSqlStructureService.h \
+    QSqlMigrator/Databases/SqliteMigrator/MigrationTracker/SqliteMigrationTableService.h \
+    QSqlMigrator/Databases/SqliteMigrator/SqliteMigrator.h \
+    QSqlMigrator/Helper/ColumnService.h \
+    QSqlMigrator/Helper/HelperRepository.h \
+    QSqlMigrator/Helper/QuoteService.h \
+    QSqlMigrator/Helper/SqlStructureService.h \
+    QSqlMigrator/Helper/TypeMapperService.h \
     QSqlMigrator/LocalSchemeMigrator/CommandExecution/LocalSchemeAddColumnService.h \
     QSqlMigrator/LocalSchemeMigrator/CommandExecution/LocalSchemeAlterColumnTypeService.h \
     QSqlMigrator/LocalSchemeMigrator/CommandExecution/LocalSchemeCreateIndexService.h \
@@ -100,164 +162,126 @@ HEADERS += \
     QSqlMigrator/MigrationExecution/MigrationExecutionConfig.h \
     QSqlMigrator/MigrationExecution/MigrationExecutionContext.h \
     QSqlMigrator/MigrationExecution/MigrationExecutionService.h \
+    QSqlMigrator/Migrations/Migration.h \
+    QSqlMigrator/Migrations/MigrationRepository.h \
+    QSqlMigrator/Migrations/RegisterMigration.h \
     QSqlMigrator/MigrationTracker/MigrationTrackerService.h \
+    QSqlMigrator/QSqlMigrator.h \
     QSqlMigrator/QSqlMigrator/QSqlMigratorConfig.h \
     QSqlMigrator/QSqlMigrator/QSqlMigratorService.h \
-    QSqlMigrator/QSqlMigrator.h \
     QSqlMigrator/QSqlMigratorConfig.h \
-    QSqlMigrator/Databases/SqliteMigrator/SqliteMigrator.h \
-    QSqlMigrator/Databases/SqliteMigrator/DatabaseLock.h \
-    QSqlMigrator/Databases/SqliteMigrator/CommandExecution/SqliteAlterColumnService.h \
-    QSqlMigrator/Databases/SqliteMigrator/CommandExecution/SqliteAlterColumnTypeService.h \
-    QSqlMigrator/Databases/SqliteMigrator/CommandExecution/SqliteDropColumnService.h \
-    QSqlMigrator/Databases/SqliteMigrator/CommandExecution/SqliteRenameColumnService.h \
-    QSqlMigrator/Databases/SqliteMigrator/Helper/SqliteSqlStructureService.h \
-    QSqlMigrator/Databases/SqliteMigrator/MigrationTracker/SqliteMigrationTableService.h \
-    QSqlMigrator/Databases/MysqlMigrator/MysqlMigrator.h \
-    QSqlMigrator/Databases/MysqlMigrator/Helper/MysqlColumnService.h \
-    QSqlMigrator/Databases/MysqlMigrator/Helper/MysqlStructureService.h \
-    QSqlMigrator/Databases/MysqlMigrator/Helper/MysqlTypeMapperService.h \
-    QSqlMigrator/Databases/MysqlMigrator/CommandExecution/MysqlAlterColumnTypeService.h \
-    QSqlMigrator/Databases/MysqlMigrator/CommandExecution/MysqlRenameColumnService.h \
-    QSqlMigrator/Databases/FirebirdMigrator/FirebirdMigrator.h \
-    QSqlMigrator/Databases/FirebirdMigrator/Helper/FirebirdSqlStructureService.h \
-    QSqlMigrator/Databases/PostgresqlMigrator/PostgresqlMigrator.h \
-    QSqlMigrator/Databases/PostgresqlMigrator/Helper/PostgresqlColumnService.h \
-    QSqlMigrator/Databases/PostgresqlMigrator/Helper/PostgresqlQuoteService.h \
-    QSqlMigrator/Databases/PostgresqlMigrator/Helper/PostgresqlStructureService.h \
-    QSqlMigrator/Databases/PostgresqlMigrator/Helper/PostgresqlTypeMapperService.h \
-    base/DataType.h \
+    QSqlMigrator/Scheme/Database.h \
+    QSqlMigrator/Scheme/DbColumn.h \
+    QSqlMigrator/Scheme/DbTable.h \
+    QSqlMigrator/Structure/Column.h \
+    QSqlMigrator/Structure/Index.h \
+    QSqlMigrator/Structure/LocalScheme.h \
     QSqlMigrator/Structure/SqlType.h \
-    structure/AnnotationStructureAttribute.h \
-    structure/AnnotationStructureLevel.h \
-    structure/AnnotationStructure.h \
-    structure/MetadataStructureAttribute.h \
-    structure/MetadataStructureSection.h \
-    structure/MetadataStructure.h \
-    corpus/Corpus.h \
-    corpus/CorpusCommunication.h \
-    corpus/CorpusParticipation.h \
-    corpus/CorpusAnnotation.h \
-    corpus/CorpusObject.h \
-    corpus/CorpusRecording.h \
-    corpus/CorpusSpeaker.h \
-    corpus/CorpusBookmark.h \
-    annotation/AnnotationDataTable.h \
-    annotation/AnnotationElement.h \
-    annotation/AnnotationTier.h \
-    annotation/AnnotationTierGroup.h \
-    annotation/Interval.h \
-    annotation/IntervalTier.h \
-    annotation/Point.h \
-    annotation/PointTier.h \
-    annotation/TreeTier.h \
-    interfaces/praat/PraatTextFile.h \
-    interfaces/praat/PraatTextGrid.h \
-    interfaces/exmaralda/ExmaraldaBasicTranscription.h \
-    interfaces/exmaralda/ExmaraldaTranscriptionBridge.h \
-    interfaces/subtitles/SubtitlesFile.h \
-    interfaces/transcriber/TranscriberAnnotationGraph.h \
-    interfaces/InterfaceTextFile.h \
-    serialisers/xml/XMLAnnotationDatastore.h \
-    serialisers/xml/XMLMetadataDatastore.h \
-    serialisers/xml/XMLSerialiserAnnotation.h \
-    serialisers/xml/XMLSerialiserAnnotationStructure.h \
-    serialisers/xml/XMLSerialiserBase.h \
-    serialisers/xml/XMLSerialiserCorpusBookmark.h \
-    serialisers/xml/XMLSerialiserMetadataStructure.h \
+    QSqlMigrator/Structure/Table.h \
+    query/Dataset.h \
+    query/DatasetDefinition.h \
     query/QueryDefinition.h \
     query/QueryFilterGroup.h \
     query/QueryFilterSequence.h \
     query/QueryOccurrence.h \
-    serialisers/sql/SQLAnnotationDatastore.h \
-    serialisers/sql/SQLMetadataDatastore.h \
+    serialisers/base/SerialiserAnnotation.h \
+    serialisers/base/SerialiserAnnotationStructure.h \
+    serialisers/base/SerialiserMetadata.h \
+    serialisers/base/SerialiserMetadataStructure.h \
+    serialisers/base/SerialiserNameValueList.h \
+    serialisers/json/JSONSerialiserAnnotation.h \
+    serialisers/json/JSONSerialiserAnnotationStructure.h \
+    serialisers/json/JSONSerialiserBase.h \
+    serialisers/json/JSONSerialiserCorpusBookmark.h \
+    serialisers/json/JSONSerialiserDatasetDefinition.h \
+    serialisers/json/JSONSerialiserMetadata.h \
+    serialisers/json/JSONSerialiserMetadataStructure.h \
+    serialisers/json/JSONSerialiserNameValueList.h \
+    serialisers/json/JSONSerialiserQueryDefinition.h \
     serialisers/sql/SQLQueryEngineAnnotation.h \
     serialisers/sql/SQLSchemaProxyBase.h \
     serialisers/sql/SQLSerialiserAnnotation.h \
     serialisers/sql/SQLSerialiserAnnotationStructure.h \
     serialisers/sql/SQLSerialiserBase.h \
-    query/Dataset.h \
-    serialisers/mocadb/MocaDBSerialiserAnnotationStructure.h \
-    serialisers/mocadb/MocaDBSerialiserMetadata.h \
-    serialisers/mocadb/MocaDBSerialiserMetadataStructure.h \
     serialisers/sql/SQLSerialiserMetadata.h \
     serialisers/sql/SQLSerialiserMetadataStructure.h \
-    serialisers/mocadb/MocaDBSerialiserSystem.h \
-    serialisers/sql/SQLSerialiserSystem.h \
-    structure/NameValueList.h \
-    annotation/Relation.h \
-    annotation/Sequence.h \
-    annotation/RelationTier.h \
-    annotation/SequenceTier.h \
     serialisers/sql/SQLSerialiserNameValueList.h \
-    corpus/CorpusObjectInfo.h \
-    datastore/AnnotationDatastore.h \
-    datastore/CorpusDatastore.h \
-    datastore/CorpusRepositoryDefinition.h \
-    datastore/DatastoreFactory.h \
-    datastore/DatastoreInfo.h \
-    datastore/MetadataDatastore.h \
-    datastore/NameValueListDatastore.h \
-    datastore/CorpusRepository.h \
-    datastore/FileDatastore.h \
-    structure/StructureAttributeBase.h \
-    base/IDatastore.h \
-    base/ISaveable.h \
+    serialisers/sql/SQLSerialiserSystem.h \
+    serialisers/xml/XMLSerialiserAnnotation.h \
+    serialisers/xml/XMLSerialiserAnnotationStructure.h \
+    serialisers/xml/XMLSerialiserBase.h \
+    serialisers/xml/XMLSerialiserCorpusBookmark.h \
     serialisers/xml/XMLSerialiserMetadata.h \
-    interfaces/praat/AnnotationInterfacePraat.h \
-    statistics/Measures.h \
-    interfaces/phon/PhonTranscription.h \
-    interfaces/ImportAnnotations.h \
-    statistics/SpeakerTimeline.h \
-    language/Tokeniser.h \
-    language/PhonemeDefinitions.h \
-    language/PhoneticAlphabet.h \
-    annotation/Transcription.h \
-    interfaces/praat/PraatPitchFile.h \
-    statistics/WordAlign.h \
-    serialisers/json/JSONSerialiserCorpusBookmark.h \
-    serialisers/json/JSONSerialiserBase.h \
-    query/DatasetDefinition.h \
-    serialisers/json/JSONSerialiserDatasetDefinition.h \
-    serialisers/json/JSONSerialiserQueryDefinition.h \
-    serialisers/json/JSONSerialiserAnnotationStructure.h \
-    serialisers/json/JSONSerialiserMetadataStructure.h \
-    serialisers/json/JSONSerialiserAnnotation.h \
-    serialisers/json/JSONSerialiserMetadata.h \
-    serialisers/base/SerialiserAnnotationStructure.h \
-    serialisers/base/SerialiserMetadataStructure.h \
+    serialisers/xml/XMLSerialiserMetadataStructure.h \
     serialisers/xml/XMLSerialiserNameValueList.h \
-    serialisers/json/JSONSerialiserNameValueList.h
+    statistics/HistogramCalculator.h \
+    statistics/Measures.h \
+    statistics/SpeakerTimeline.h \
+    statistics/StatisticalMeasureDefinition.h \
+    statistics/StatisticalSummary.h \
+    statistics/WordAlign.h \
+    structure/AnnotationStructure.h \
+    structure/AnnotationStructureAttribute.h \
+    structure/AnnotationStructureLevel.h \
+    structure/MetadataStructure.h \
+    structure/MetadataStructureAttribute.h \
+    structure/MetadataStructureSection.h \
+    structure/NameValueList.h \
+    structure/StructureAttributeBase.h
 
 SOURCES += \
+    annotation/AnnotationDataTable.cpp \
+    annotation/AnnotationElement.cpp \
+    annotation/AnnotationTier.cpp \
+    annotation/AnnotationTierGroup.cpp \
+    annotation/Interval.cpp \
+    annotation/IntervalTier.cpp \
+    annotation/Point.cpp \
+    annotation/PointTier.cpp \
+    annotation/Relation.cpp \
+    annotation/RelationTier.cpp \
+    annotation/Sequence.cpp \
+    annotation/SequenceTier.cpp \
+    annotation/Transcription.cpp \
+    annotation/TreeTier.cpp \
+    base/DataType.cpp \
     base/RealTime.cpp \
-    interfaces/praat/PraatPointTierFile.cpp \
-    interfaces/anvil/AnvilMetadataTranscript.cpp \
     base/RealValueList.cpp \
-    statistics/StatisticalSummary.cpp \
-    statistics/StatisticalMeasureDefinition.cpp \
-    statistics/HistogramCalculator.cpp \
-    QSqlMigrator/Structure/Column.cpp \
-    QSqlMigrator/Structure/Index.cpp \
-    QSqlMigrator/Structure/LocalScheme.cpp \
-    QSqlMigrator/Structure/Table.cpp \
-    QSqlMigrator/Scheme/Database.cpp \
-    QSqlMigrator/Scheme/DbColumn.cpp \
-    QSqlMigrator/Scheme/DbTable.cpp \
-    QSqlMigrator/Helper/HelperRepository.cpp \
-    QSqlMigrator/Commands/AddColumn.cpp \
-    QSqlMigrator/Commands/AlterColumnType.cpp \
-    QSqlMigrator/Commands/BaseCommand.cpp \
-    QSqlMigrator/Commands/CreateIndex.cpp \
-    QSqlMigrator/Commands/CreateTable.cpp \
-    QSqlMigrator/Commands/CustomCommandBase.cpp \
-    QSqlMigrator/Commands/DropColumn.cpp \
-    QSqlMigrator/Commands/DropIndex.cpp \
-    QSqlMigrator/Commands/DropTable.cpp \
-    QSqlMigrator/Commands/RenameColumn.cpp \
-    QSqlMigrator/Commands/RenameTable.cpp \
-    QSqlMigrator/Migrations/Migration.cpp \
-    QSqlMigrator/Migrations/MigrationRepository.cpp \
+    corpus/Corpus.cpp \
+    corpus/CorpusAnnotation.cpp \
+    corpus/CorpusBookmark.cpp \
+    corpus/CorpusCommunication.cpp \
+    corpus/CorpusObject.cpp \
+    corpus/CorpusObjectInfo.cpp \
+    corpus/CorpusParticipation.cpp \
+    corpus/CorpusRecording.cpp \
+    corpus/CorpusSpeaker.cpp \
+    datastore/CorpusDatastore.cpp \
+    datastore/CorpusRepository.cpp \
+    datastore/CorpusRepositoryDefinition.cpp \
+    datastore/DatastoreFactory.cpp \
+    datastore/FileDatastore.cpp \
+    datastore/SQLAnnotationDatastore.cpp \
+    datastore/SQLMetadataDatastore.cpp \
+    datastore/XMLAnnotationDatastore.cpp \
+    datastore/XMLMetadataDatastore.cpp \
+    interfaces/anvil/AnvilMetadataTranscript.cpp \
+    interfaces/csv/CSVFileAnnotation.cpp \
+    interfaces/exmaralda/ExmaraldaBasicTranscription.cpp \
+    interfaces/exmaralda/ExmaraldaTranscriptionBridge.cpp \
+    interfaces/ImportAnnotations.cpp \
+    interfaces/InterfaceTextFile.cpp \
+    interfaces/phon/PhonTranscription.cpp \
+    interfaces/praat/AnnotationInterfacePraat.cpp \
+    interfaces/praat/PraatPitchFile.cpp \
+    interfaces/praat/PraatPointTierFile.cpp \
+    interfaces/praat/PraatTextFile.cpp \
+    interfaces/praat/PraatTextGrid.cpp \
+    interfaces/subtitles/SubtitlesFile.cpp \
+    interfaces/transcriber/TranscriberAnnotationGraph.cpp \
+    language/PhonemeDefinitions.cpp \
+    language/PhoneticAlphabet.cpp \
+    language/Tokeniser.cpp \
     QSqlMigrator/BaseSqlMigrator/CommandExecution/BaseSqlAddColumnService.cpp \
     QSqlMigrator/BaseSqlMigrator/CommandExecution/BaseSqlAlterColumnTypeService.cpp \
     QSqlMigrator/BaseSqlMigrator/CommandExecution/BaseSqlCreateIndexService.cpp \
@@ -280,6 +304,39 @@ SOURCES += \
     QSqlMigrator/CommandExecution/LocalSchemeCommandExecutionContext.cpp \
     QSqlMigrator/CommandExecution/LocalSchemeCommandExecutionService.cpp \
     QSqlMigrator/CommandExecution/LocalSchemeCommandExecutionServiceRepository.cpp \
+    QSqlMigrator/Commands/AddColumn.cpp \
+    QSqlMigrator/Commands/AlterColumnType.cpp \
+    QSqlMigrator/Commands/BaseCommand.cpp \
+    QSqlMigrator/Commands/CreateIndex.cpp \
+    QSqlMigrator/Commands/CreateTable.cpp \
+    QSqlMigrator/Commands/CustomCommandBase.cpp \
+    QSqlMigrator/Commands/DropColumn.cpp \
+    QSqlMigrator/Commands/DropIndex.cpp \
+    QSqlMigrator/Commands/DropTable.cpp \
+    QSqlMigrator/Commands/RenameColumn.cpp \
+    QSqlMigrator/Commands/RenameTable.cpp \
+    QSqlMigrator/Databases/FirebirdMigrator/FirebirdMigrator.cpp \
+    QSqlMigrator/Databases/FirebirdMigrator/Helper/FirebirdSqlStructureService.cpp \
+    QSqlMigrator/Databases/MysqlMigrator/CommandExecution/MysqlAlterColumnTypeService.cpp \
+    QSqlMigrator/Databases/MysqlMigrator/CommandExecution/MysqlRenameColumnService.cpp \
+    QSqlMigrator/Databases/MysqlMigrator/Helper/MysqlColumnService.cpp \
+    QSqlMigrator/Databases/MysqlMigrator/Helper/MysqlStructureService.cpp \
+    QSqlMigrator/Databases/MysqlMigrator/Helper/MysqlTypeMapperService.cpp \
+    QSqlMigrator/Databases/MysqlMigrator/MysqlMigrator.cpp \
+    QSqlMigrator/Databases/PostgresqlMigrator/Helper/PostgresqlColumnService.cpp \
+    QSqlMigrator/Databases/PostgresqlMigrator/Helper/PostgresqlQuoteService.cpp \
+    QSqlMigrator/Databases/PostgresqlMigrator/Helper/PostgresqlStructureService.cpp \
+    QSqlMigrator/Databases/PostgresqlMigrator/Helper/PostgresqlTypeMapperService.cpp \
+    QSqlMigrator/Databases/PostgresqlMigrator/PostgresqlMigrator.cpp \
+    QSqlMigrator/Databases/SqliteMigrator/CommandExecution/SqliteAlterColumnService.cpp \
+    QSqlMigrator/Databases/SqliteMigrator/CommandExecution/SqliteAlterColumnTypeService.cpp \
+    QSqlMigrator/Databases/SqliteMigrator/CommandExecution/SqliteDropColumnService.cpp \
+    QSqlMigrator/Databases/SqliteMigrator/CommandExecution/SqliteRenameColumnService.cpp \
+    QSqlMigrator/Databases/SqliteMigrator/DatabaseLock.cpp \
+    QSqlMigrator/Databases/SqliteMigrator/Helper/SqliteSqlStructureService.cpp \
+    QSqlMigrator/Databases/SqliteMigrator/MigrationTracker/SqliteMigrationTableService.cpp \
+    QSqlMigrator/Databases/SqliteMigrator/SqliteMigrator.cpp \
+    QSqlMigrator/Helper/HelperRepository.cpp \
     QSqlMigrator/LocalSchemeMigrator/CommandExecution/LocalSchemeAddColumnService.cpp \
     QSqlMigrator/LocalSchemeMigrator/CommandExecution/LocalSchemeAlterColumnTypeService.cpp \
     QSqlMigrator/LocalSchemeMigrator/CommandExecution/LocalSchemeCreateIndexService.cpp \
@@ -297,125 +354,68 @@ SOURCES += \
     QSqlMigrator/MigrationExecution/MigrationExecutionConfig.cpp \
     QSqlMigrator/MigrationExecution/MigrationExecutionContext.cpp \
     QSqlMigrator/MigrationExecution/MigrationExecutionService.cpp \
+    QSqlMigrator/Migrations/Migration.cpp \
+    QSqlMigrator/Migrations/MigrationRepository.cpp \
     QSqlMigrator/QSqlMigrator/QSqlMigratorConfig.cpp \
     QSqlMigrator/QSqlMigrator/QSqlMigratorService.cpp \
-    QSqlMigrator/Databases/SqliteMigrator/SqliteMigrator.cpp \
-    QSqlMigrator/Databases/SqliteMigrator/DatabaseLock.cpp \
-    QSqlMigrator/Databases/SqliteMigrator/CommandExecution/SqliteAlterColumnService.cpp \
-    QSqlMigrator/Databases/SqliteMigrator/CommandExecution/SqliteAlterColumnTypeService.cpp \
-    QSqlMigrator/Databases/SqliteMigrator/CommandExecution/SqliteDropColumnService.cpp \
-    QSqlMigrator/Databases/SqliteMigrator/CommandExecution/SqliteRenameColumnService.cpp \
-    QSqlMigrator/Databases/SqliteMigrator/Helper/SqliteSqlStructureService.cpp \
-    QSqlMigrator/Databases/SqliteMigrator/MigrationTracker/SqliteMigrationTableService.cpp \
-    QSqlMigrator/Databases/MysqlMigrator/MysqlMigrator.cpp \
-    QSqlMigrator/Databases/MysqlMigrator/Helper/MysqlColumnService.cpp \
-    QSqlMigrator/Databases/MysqlMigrator/Helper/MysqlStructureService.cpp \
-    QSqlMigrator/Databases/MysqlMigrator/Helper/MysqlTypeMapperService.cpp \
-    QSqlMigrator/Databases/MysqlMigrator/CommandExecution/MysqlAlterColumnTypeService.cpp \
-    QSqlMigrator/Databases/MysqlMigrator/CommandExecution/MysqlRenameColumnService.cpp \
-    QSqlMigrator/Databases/FirebirdMigrator/FirebirdMigrator.cpp \
-    QSqlMigrator/Databases/FirebirdMigrator/Helper/FirebirdSqlStructureService.cpp \
-    QSqlMigrator/Databases/PostgresqlMigrator/PostgresqlMigrator.cpp \
-    QSqlMigrator/Databases/PostgresqlMigrator/Helper/PostgresqlColumnService.cpp \
-    QSqlMigrator/Databases/PostgresqlMigrator/Helper/PostgresqlQuoteService.cpp \
-    QSqlMigrator/Databases/PostgresqlMigrator/Helper/PostgresqlStructureService.cpp \
-    QSqlMigrator/Databases/PostgresqlMigrator/Helper/PostgresqlTypeMapperService.cpp \
-    base/DataType.cpp \
+    QSqlMigrator/Scheme/Database.cpp \
+    QSqlMigrator/Scheme/DbColumn.cpp \
+    QSqlMigrator/Scheme/DbTable.cpp \
+    QSqlMigrator/Structure/Column.cpp \
+    QSqlMigrator/Structure/Index.cpp \
+    QSqlMigrator/Structure/LocalScheme.cpp \
     QSqlMigrator/Structure/SqlType.cpp \
-    structure/AnnotationStructureAttribute.cpp \
-    structure/AnnotationStructureLevel.cpp \
-    structure/AnnotationStructure.cpp \
-    structure/MetadataStructureAttribute.cpp \
-    structure/MetadataStructureSection.cpp \
-    structure/MetadataStructure.cpp \
-    corpus/Corpus.cpp \
-    corpus/CorpusCommunication.cpp \
-    corpus/CorpusParticipation.cpp \
-    corpus/CorpusObject.cpp \
-    corpus/CorpusAnnotation.cpp \
-    corpus/CorpusRecording.cpp \
-    corpus/CorpusSpeaker.cpp \
-    corpus/CorpusBookmark.cpp \
-    annotation/AnnotationDataTable.cpp \
-    annotation/AnnotationElement.cpp \
-    annotation/AnnotationTier.cpp \
-    annotation/AnnotationTierGroup.cpp \
-    annotation/Interval.cpp \
-    annotation/IntervalTier.cpp \
-    annotation/Point.cpp \
-    annotation/PointTier.cpp \
-    annotation/TreeTier.cpp \
-    interfaces/praat/PraatTextFile.cpp \
-    interfaces/praat/PraatTextGrid.cpp \
-    interfaces/exmaralda/ExmaraldaBasicTranscription.cpp \
-    interfaces/exmaralda/ExmaraldaTranscriptionBridge.cpp \
-    interfaces/subtitles/SubtitlesFile.cpp \
-    interfaces/transcriber/TranscriberAnnotationGraph.cpp \
-    interfaces/InterfaceTextFile.cpp \
-    serialisers/xml/XMLAnnotationDatastore.cpp \
-    serialisers/xml/XMLMetadataDatastore.cpp \
-    serialisers/xml/XMLSerialiserAnnotation.cpp \
-    serialisers/xml/XMLSerialiserAnnotationStructure.cpp \
-    serialisers/xml/XMLSerialiserBase.cpp \
-    serialisers/xml/XMLSerialiserCorpusBookmark.cpp \
-    serialisers/xml/XMLSerialiserMetadataStructure.cpp \
+    QSqlMigrator/Structure/Table.cpp \
+    query/Dataset.cpp \
+    query/DatasetDefinition.cpp \
     query/QueryDefinition.cpp \
     query/QueryFilterGroup.cpp \
     query/QueryFilterSequence.cpp \
     query/QueryOccurrence.cpp \
-    serialisers/sql/SQLAnnotationDatastore.cpp \
-    serialisers/sql/SQLMetadataDatastore.cpp \
+    serialisers/base/SerialiserAnnotation.cpp \
+    serialisers/base/SerialiserAnnotationStructure.cpp \
+    serialisers/base/SerialiserMetadata.cpp \
+    serialisers/base/SerialiserMetadataStructure.cpp \
+    serialisers/base/SerialiserNameValueList.cpp \
+    serialisers/json/JSONSerialiserAnnotation.cpp \
+    serialisers/json/JSONSerialiserAnnotationStructure.cpp \
+    serialisers/json/JSONSerialiserBase.cpp \
+    serialisers/json/JSONSerialiserCorpusBookmark.cpp \
+    serialisers/json/JSONSerialiserDatasetDefinition.cpp \
+    serialisers/json/JSONSerialiserMetadata.cpp \
+    serialisers/json/JSONSerialiserMetadataStructure.cpp \
+    serialisers/json/JSONSerialiserNameValueList.cpp \
+    serialisers/json/JSONSerialiserQueryDefinition.cpp \
     serialisers/sql/SQLQueryEngineAnnotation.cpp \
     serialisers/sql/SQLSchemaProxyBase.cpp \
     serialisers/sql/SQLSerialiserAnnotation.cpp \
     serialisers/sql/SQLSerialiserAnnotationStructure.cpp \
     serialisers/sql/SQLSerialiserBase.cpp \
-    serialisers/sql/SQLSerialiserMetadataStructure.cpp \
-    serialisers/mocadb/MocaDBSerialiserMetadataStructure.cpp \
-    serialisers/mocadb/MocaDBSerialiserMetadata.cpp \
-    corpus/CorpusObjectInfo.cpp \
     serialisers/sql/SQLSerialiserMetadata.cpp \
-    serialisers/mocadb/MocaDBSerialiserAnnotationStructure.cpp \
-    query/Dataset.cpp \
-    serialisers/mocadb/MocaDBSerialiserSystem.cpp \
-    serialisers/sql/SQLSerialiserSystem.cpp \
-    structure/NameValueList.cpp \
-    annotation/Relation.cpp \
-    annotation/Sequence.cpp \
-    annotation/RelationTier.cpp \
-    annotation/SequenceTier.cpp \
+    serialisers/sql/SQLSerialiserMetadataStructure.cpp \
     serialisers/sql/SQLSerialiserNameValueList.cpp \
-    datastore/CorpusRepositoryDefinition.cpp \
-    datastore/DatastoreFactory.cpp \
-    datastore/CorpusRepository.cpp \
-    datastore/FileDatastore.cpp \
-    structure/StructureAttributeBase.cpp \
-    datastore/CorpusDatastore.cpp \
+    serialisers/sql/SQLSerialiserSystem.cpp \
+    serialisers/xml/XMLSerialiserAnnotation.cpp \
+    serialisers/xml/XMLSerialiserAnnotationStructure.cpp \
+    serialisers/xml/XMLSerialiserBase.cpp \
+    serialisers/xml/XMLSerialiserCorpusBookmark.cpp \
     serialisers/xml/XMLSerialiserMetadata.cpp \
-    interfaces/praat/AnnotationInterfacePraat.cpp \
-    statistics/Measures.cpp \
-    interfaces/phon/PhonTranscription.cpp \
-    interfaces/ImportAnnotations.cpp \
-    statistics/SpeakerTimeline.cpp \
-    language/Tokeniser.cpp \
-    language/PhonemeDefinitions.cpp \
-    language/PhoneticAlphabet.cpp \
-    annotation/Transcription.cpp \
-    interfaces/praat/PraatPitchFile.cpp \
-    statistics/WordAlign.cpp \
-    serialisers/json/JSONSerialiserCorpusBookmark.cpp \
-    serialisers/json/JSONSerialiserBase.cpp \
-    query/DatasetDefinition.cpp \
-    serialisers/json/JSONSerialiserDatasetDefinition.cpp \
-    serialisers/json/JSONSerialiserQueryDefinition.cpp \
-    serialisers/json/JSONSerialiserAnnotationStructure.cpp \
-    serialisers/json/JSONSerialiserMetadataStructure.cpp \
-    serialisers/json/JSONSerialiserAnnotation.cpp \
-    serialisers/json/JSONSerialiserMetadata.cpp \
-    serialisers/base/SerialiserAnnotationStructure.cpp \
-    serialisers/base/SerialiserMetadataStructure.cpp \
+    serialisers/xml/XMLSerialiserMetadataStructure.cpp \
     serialisers/xml/XMLSerialiserNameValueList.cpp \
-    serialisers/json/JSONSerialiserNameValueList.cpp
+    statistics/HistogramCalculator.cpp \
+    statistics/Measures.cpp \
+    statistics/SpeakerTimeline.cpp \
+    statistics/StatisticalMeasureDefinition.cpp \
+    statistics/StatisticalSummary.cpp \
+    statistics/WordAlign.cpp \
+    structure/AnnotationStructure.cpp \
+    structure/AnnotationStructureAttribute.cpp \
+    structure/AnnotationStructureLevel.cpp \
+    structure/MetadataStructure.cpp \
+    structure/MetadataStructureAttribute.cpp \
+    structure/MetadataStructureSection.cpp \
+    structure/NameValueList.cpp \
+    structure/StructureAttributeBase.cpp
 
 DISTFILES += \
     pncore.qmodel

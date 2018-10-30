@@ -1,5 +1,5 @@
-#ifndef SERIALISERMETADATASTRUCTURE_H
-#define SERIALISERMETADATASTRUCTURE_H
+#ifndef SERIALISERNAMEVALUELIST_H
+#define SERIALISERNAMEVALUELIST_H
 
 /*
     Praaline - Core module - Serialisers
@@ -17,19 +17,18 @@
 
 #include "pncore_global.h"
 #include <QString>
-#include "structure/MetadataStructure.h"
 
 namespace Praaline {
 namespace Core {
 
-class SerialiserMetadataStructure
+class SerialiserNameValueList
 {
 protected:
-    SerialiserMetadataStructure();
-    virtual ~SerialiserMetadataStructure();
+    SerialiserNameValueList();
+    virtual ~SerialiserNameValueList();
 };
 
 } // namespace Core
 } // namespace Praaline
 
-#endif // SERIALISERMETADATASTRUCTURE_H
+#endif // SERIALISERNAMEVALUELIST_H

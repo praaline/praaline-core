@@ -8,9 +8,9 @@
 #include "structure/MetadataStructureAttribute.h"
 #include "datastore/DatastoreInfo.h"
 #include "datastore/CorpusRepository.h"
-#include "SQLSerialiserMetadata.h"
-#include "SQLSerialiserMetadataStructure.h"
-#include "SQLSerialiserNameValueList.h"
+#include "serialisers/sql/SQLSerialiserMetadata.h"
+#include "serialisers/sql/SQLSerialiserMetadataStructure.h"
+#include "serialisers/sql/SQLSerialiserNameValueList.h"
 #include "SQLMetadataDatastore.h"
 
 namespace Praaline {

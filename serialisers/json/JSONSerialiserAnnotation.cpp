@@ -9,14 +9,6 @@
 namespace Praaline {
 namespace Core {
 
-JSONSerialiserAnnotation::JSONSerialiserAnnotation()
-{
-}
-
-JSONSerialiserAnnotation::~JSONSerialiserAnnotation()
-{
-}
-
 // public static
 QJsonObject JSONSerialiserAnnotation::saveTiers(AnnotationTierGroup *tiers, AnnotationStructure *structure)
 {
