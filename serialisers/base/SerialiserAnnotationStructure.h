@@ -24,9 +24,9 @@ namespace Core {
 
 class SerialiserAnnotationStructure
 {
-public:
-    SerialiserAnnotationStructure() {}
-    virtual ~SerialiserAnnotationStructure() {}
+protected:
+    SerialiserAnnotationStructure();
+    virtual ~SerialiserAnnotationStructure();
 
     static QString convertLevelTypeToString(AnnotationStructureLevel::LevelType levelType);
     static AnnotationStructureLevel::LevelType convertStringToLevelType(QString str);
