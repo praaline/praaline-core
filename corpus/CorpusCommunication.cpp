@@ -23,7 +23,7 @@ CorpusCommunication::CorpusCommunication(const QString &ID, CorpusRepository *re
 }
 
 CorpusCommunication::CorpusCommunication(CorpusCommunication *other, QObject *parent) :
-    CorpusObject(0, parent)
+    CorpusObject(nullptr, parent)
 {
     if (!other) return;
     m_ID = other->m_ID;
@@ -73,7 +73,7 @@ void CorpusCommunication::setCorpusID(const QString &corpusID)
 
 QPointer<CorpusRecording> CorpusCommunication::recording(const QString &recordingID) const
 {
-    return m_recordings.value(recordingID, 0);
+    return m_recordings.value(recordingID, nullptr);
 }
 
 int CorpusCommunication::recordingsCount() const
@@ -160,7 +160,7 @@ double CorpusCommunication::durationSec() const
 
 QPointer<CorpusAnnotation> CorpusCommunication::annotation(const QString &annotationID) const
 {
-    return m_annotations.value(annotationID, 0);
+    return m_annotations.value(annotationID, nullptr);
 }
 
 int CorpusCommunication::annotationsCount() const

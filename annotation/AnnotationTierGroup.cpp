@@ -159,95 +159,100 @@ IntervalTier *AnnotationTierGroup::getIntervalTierByName(const QString &name) co
     foreach (AnnotationTier *tier, m_tiers) {
         if (tier->name() == name && ((tier->tierType() == AnnotationTier::TierType_Intervals) ||
                                      (tier->tierType() == AnnotationTier::TierType_Grouping)))
-            return (IntervalTier *)tier;
+            return static_cast<IntervalTier *>(tier);
     }
-    return 0;
+    return nullptr;
 }
 
 IntervalTier *AnnotationTierGroup::getIntervalTierByIndex(int index) const
 {
-    if (index < 0 || index >= m_tiers.count()) return 0;
+    if (index < 0 || index >= m_tiers.count())
+        return nullptr;
     AnnotationTier *tier = m_tiers.at(index);
     if ((tier->tierType() == AnnotationTier::TierType_Intervals) || (tier->tierType() == AnnotationTier::TierType_Grouping))
-        return (IntervalTier *)tier;
+        return static_cast<IntervalTier *>(tier);
     else
-        return 0;
+        return nullptr;
 }
 
 PointTier *AnnotationTierGroup::getPointTierByName(const QString &name) const
 {
     foreach (AnnotationTier *tier, m_tiers) {
         if (tier->name() == name && tier->tierType() == AnnotationTier::TierType_Points)
-            return (PointTier *)tier;
+            return static_cast<PointTier *>(tier);
     }
-    return 0;
+    return nullptr;
 }
 
 PointTier *AnnotationTierGroup::getPointTierByIndex(int index) const
 {
-    if (index < 0 || index >= m_tiers.count()) return 0;
+    if (index < 0 || index >= m_tiers.count())
+        return nullptr;
     AnnotationTier *tier = m_tiers.at(index);
     if (tier->tierType() == AnnotationTier::TierType_Points)
-        return (PointTier *)tier;
+        return static_cast<PointTier *>(tier);
     else
-        return 0;
+        return nullptr;
 }
 
 SequenceTier *AnnotationTierGroup::getSequenceTierByName(const QString &name) const
 {
     foreach (AnnotationTier *tier, m_tiers) {
         if (tier->name() == name && tier->tierType() == AnnotationTier::TierType_Sequences)
-            return (SequenceTier *)tier;
+            return static_cast<SequenceTier *>(tier);
     }
-    return 0;
+    return nullptr;
 }
 
 SequenceTier *AnnotationTierGroup::getSequenceTierByIndex(int index) const
 {
-    if (index < 0 || index >= m_tiers.count()) return 0;
+    if (index < 0 || index >= m_tiers.count())
+        return nullptr;
     AnnotationTier *tier = m_tiers.at(index);
     if (tier->tierType() == AnnotationTier::TierType_Sequences)
-        return (SequenceTier *)tier;
+        return static_cast<SequenceTier *>(tier);
     else
-        return 0;
+        return nullptr;
 }
 
 TreeTier *AnnotationTierGroup::getTreeTierByName(const QString &name) const
 {
     foreach (AnnotationTier *tier, m_tiers) {
         if (tier->name() == name && tier->tierType() == AnnotationTier::TierType_Tree)
-            return (TreeTier *)tier;
+            return static_cast<TreeTier *>(tier);
     }
-    return 0;
+    return nullptr;
 }
 
 TreeTier *AnnotationTierGroup::getTreeTierByIndex(int index) const
 {
-    if (index < 0 || index >= m_tiers.count()) return 0;
+    if (index < 0 || index >= m_tiers.count())
+        return nullptr;
     AnnotationTier *tier = m_tiers.at(index);
     if (tier->tierType() == AnnotationTier::TierType_Tree)
-        return (TreeTier *)tier;
+        return static_cast<TreeTier *>(tier);
     else
-        return 0;
+        return nullptr;
 }
 
 RelationTier *AnnotationTierGroup::getRelationTierByName(const QString &name) const
 {
     foreach (AnnotationTier *tier, m_tiers) {
         if (tier->name() == name && tier->tierType() == AnnotationTier::TierType_Relations)
-            return (RelationTier *)tier;
+            return static_cast<RelationTier *>(tier);
     }
-    return 0;
+    return nullptr;
 }
 
 RelationTier *AnnotationTierGroup::getRelationTierByIndex(int index) const
 {
-    if (index < 0 || index >= m_tiers.count()) return 0;
+    if (index < 0 || index >= m_tiers.count())
+        return nullptr;
     AnnotationTier *tier = m_tiers.at(index);
     if (tier->tierType() == AnnotationTier::TierType_Relations)
-        return (RelationTier *)tier;
+        return static_cast<RelationTier *>(tier);
     else
-        return 0;
+        return nullptr;
 }
 
 QStringList AnnotationTierGroup::tierNames() const
@@ -265,19 +270,19 @@ void AnnotationTierGroup::insertTierClone(int index, const AnnotationTier *tier,
 {
     if (!tier) return;
     if ((tier->tierType() == AnnotationTier::TierType_Intervals) || (tier->tierType() == AnnotationTier::TierType_Grouping)) {
-        IntervalTier *newTier = new IntervalTier((IntervalTier *)tier, newName, true, this);
+        IntervalTier *newTier = new IntervalTier(static_cast<const IntervalTier *>(tier), newName, true, this);
         newTier->setParent(this);
         m_tiers.insert(index, newTier);
         emit tierInserted(newTier);
     }
     else if (tier->tierType() == AnnotationTier::TierType_Points) {
-        PointTier *newTier = new PointTier((PointTier *)tier, newName, true, this);
+        PointTier *newTier = new PointTier(static_cast<const PointTier *>(tier), newName, true, this);
         newTier->setParent(this);
         m_tiers.insert(index, newTier);
         emit tierInserted(newTier);
     }
     else if (tier->tierType() == AnnotationTier::TierType_Sequences) {
-        SequenceTier *newTier = new SequenceTier((SequenceTier *)tier, newName, true, this);
+        SequenceTier *newTier = new SequenceTier(static_cast<const SequenceTier *>(tier), newName, true, this);
         newTier->setParent(this);
         m_tiers.insert(index, newTier);
         emit tierInserted(newTier);
@@ -289,7 +294,7 @@ void AnnotationTierGroup::insertTierClone(int index, const AnnotationTier *tier,
 //        emit tierInserted(newTier);
 //    }
     else if (tier->tierType() == AnnotationTier::TierType_Relations) {
-        RelationTier *newTier = new RelationTier((RelationTier *)tier, newName, true, this);
+        RelationTier *newTier = new RelationTier(static_cast<const RelationTier *>(tier), newName, true, this);
         newTier->setParent(this);
         m_tiers.insert(index, newTier);
         emit tierInserted(newTier);

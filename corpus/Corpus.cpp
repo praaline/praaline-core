@@ -89,7 +89,7 @@ bool Corpus::save() {
 
 QPointer<CorpusCommunication> Corpus::communication(const QString &communicationID) const
 {
-    return m_communications.value(communicationID, 0);
+    return m_communications.value(communicationID, nullptr);
 }
 
 int Corpus::communicationsCount() const
@@ -165,7 +165,7 @@ void Corpus::communicationChangedID(const QString &oldID, const QString &newID)
 
 QPointer<CorpusSpeaker> Corpus::speaker(const QString &speakerID) const
 {
-    return m_speakers.value(speakerID, 0);
+    return m_speakers.value(speakerID, nullptr);
 }
 
 int Corpus::speakersCount() const
@@ -206,7 +206,7 @@ void Corpus::addSpeaker(CorpusSpeaker *speaker)
 
 void Corpus::removeSpeaker(const QString &speakerID)
 {
-    QPointer<CorpusSpeaker> speaker = m_speakers.value(speakerID, 0);
+    QPointer<CorpusSpeaker> speaker = m_speakers.value(speakerID, nullptr);
     if (!speaker) return;
     // remove related participations before removing speaker
     QList<QPointer<CorpusParticipation> > participationsToDelete;
@@ -247,7 +247,7 @@ QPointer<CorpusParticipation> Corpus::participation(const QString &communication
         if (participation && participation->speakerID() == speakerID)
             return participation;
     }
-    return 0;
+    return nullptr;
 }
 
 bool Corpus::hasParticipation(const QString &communicationID, const QString &speakerID)
@@ -278,7 +278,7 @@ QPointer<CorpusParticipation> Corpus::addParticipation(const QString &communicat
 {
     QPointer<CorpusCommunication> com = this->communication(communicationID);
     QPointer<CorpusSpeaker> spk = this->speaker(speakerID);
-    if (!com || !spk) return 0;
+    if (!com || !spk) return nullptr;
     CorpusParticipation *participation = new CorpusParticipation(com, spk, role, this);
     participation->setCorpusID(this->ID());
     m_participationsByCommunication.insert(communicationID, participation);

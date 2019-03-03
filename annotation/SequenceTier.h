@@ -30,10 +30,10 @@ class PRAALINE_CORE_SHARED_EXPORT SequenceTier : public AnnotationTier
     Q_OBJECT
 public:
     // Constructors, destructor
-    SequenceTier(const QString &name = QString(), AnnotationTier *baseTier = 0, QObject *parent = 0);
-    SequenceTier(const QString &name, const QList<Sequence *> &sequences, AnnotationTier *baseTier = 0, QObject *parent = 0);
-    SequenceTier(const SequenceTier *copy, QString name = QString(), bool copyAttributes = true, QObject *parent = 0);
-    virtual ~SequenceTier();
+    SequenceTier(const QString &name = QString(), AnnotationTier *baseTier = nullptr, QObject *parent = nullptr);
+    SequenceTier(const QString &name, const QList<Sequence *> &sequences, AnnotationTier *baseTier = nullptr, QObject *parent = nullptr);
+    SequenceTier(const SequenceTier *copy, QString name = QString(), bool copyAttributes = true, QObject *parent = nullptr);
+    virtual ~SequenceTier() override;
 
     // Implementation of AnnotationTier
     AnnotationTier::TierType tierType() const override

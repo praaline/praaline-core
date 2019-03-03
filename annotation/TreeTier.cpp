@@ -3,7 +3,7 @@
 namespace Praaline {
 namespace Core {
 
-TreeTier::TreeTier(QObject *parent) : QObject(parent)
+TreeTier::TreeTier(QObject *parent) : AnnotationTier(parent)
 {
 
 }

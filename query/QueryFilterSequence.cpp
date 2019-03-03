@@ -52,19 +52,20 @@ QString QueryFilterSequence::conditionString(QString annotationAttributeID, int 
     if (position < 0 || position >= sequenceLength()) return QString();
     if (!m_conditions.contains(annotationAttributeID)) return QString();
     Condition condition = m_conditions.value(annotationAttributeID).at(position);
+    QString ret;
     switch (condition.operand) {
-    case Equals: return QString("%1").arg(condition.value.toString()); break;
-    case DoesNotEqual: return QString("<> %1").arg(condition.value.toString()); break;
-    case GreaterThan: return QString("> %1").arg(condition.value.toString()); break;
-    case GreaterThanOrEqual: return QString(">= %1").arg(condition.value.toString()); break;
-    case LessThan: return QString("< %1").arg(condition.value.toString()); break;
-    case LessThanOrEqual: return QString("<= %1").arg(condition.value.toString()); break;
-    case Contains: return QString("CONTAINS %1").arg(condition.value.toString()); break;
-    case DoesNotContain: return QString("NOT_CONTAINS %1").arg(condition.value.toString()); break;
-    case Like: return QString("LIKE %1").arg(condition.value.toString()); break;
-    case NoCondition: return QString(); break;
+    case Equals:             ret = QString("%1").arg(condition.value.toString());               break;
+    case DoesNotEqual:       ret = QString("<> %1").arg(condition.value.toString());            break;
+    case GreaterThan:        ret = QString("> %1").arg(condition.value.toString());             break;
+    case GreaterThanOrEqual: ret = QString(">= %1").arg(condition.value.toString());            break;
+    case LessThan:           ret = QString("< %1").arg(condition.value.toString());             break;
+    case LessThanOrEqual:    ret = QString("<= %1").arg(condition.value.toString());            break;
+    case Contains:           ret = QString("CONTAINS %1").arg(condition.value.toString());      break;
+    case DoesNotContain:     ret = QString("NOT_CONTAINS %1").arg(condition.value.toString());  break;
+    case Like:               ret = QString("LIKE %1").arg(condition.value.toString());          break;
+    case NoCondition:        ret = QString(); break;
     }
-    return QString();
+    return ret;
 }
 
 void QueryFilterSequence::setConditionString(QString annotationAttributeID, int position, QString whereClause)
@@ -73,10 +74,10 @@ void QueryFilterSequence::setConditionString(QString annotationAttributeID, int 
     if (!m_conditions.contains(annotationAttributeID)) return;
     Condition condition(NoCondition, QVariant());
     if      (whereClause.startsWith("<>")) { condition.operand = DoesNotEqual; condition.value = whereClause.remove(0, 2).trimmed(); }
-    else if (whereClause.startsWith(">")) { condition.operand = GreaterThan; condition.value = whereClause.remove(0, 1).trimmed(); }
-    else if (whereClause.startsWith("<=")) { condition.operand = GreaterThanOrEqual; condition.value = whereClause.remove(0, 2).trimmed(); }
-    else if (whereClause.startsWith("<")) { condition.operand = LessThan; condition.value = whereClause.remove(0, 1).trimmed(); }
+    else if (whereClause.startsWith(">=")) { condition.operand = GreaterThanOrEqual; condition.value = whereClause.remove(0, 2).trimmed(); }
     else if (whereClause.startsWith("<=")) { condition.operand = LessThanOrEqual; condition.value = whereClause.remove(0, 2).trimmed(); }
+    else if (whereClause.startsWith(">"))  { condition.operand = GreaterThan; condition.value = whereClause.remove(0, 1).trimmed(); }
+    else if (whereClause.startsWith("<"))  { condition.operand = LessThan; condition.value = whereClause.remove(0, 1).trimmed(); }
     else if (whereClause.startsWith("CONTAINS ")) { condition.operand = Contains; condition.value = whereClause.remove(0, 9).trimmed(); }
     else if (whereClause.startsWith("NOT_CONTAINS ")) { condition.operand = DoesNotContain; condition.value = whereClause.remove(0, 13).trimmed(); }
     else if (whereClause.startsWith("LIKE ")) { condition.operand = Like; condition.value = whereClause.remove(0, 5).trimmed(); }

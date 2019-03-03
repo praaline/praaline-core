@@ -378,10 +378,10 @@ Interval *IntervalTier::split(RealTime at)
 Interval *IntervalTier::split(int index, RealTime at, bool moveOriginalDataToSecondInterval)
 {
     // Check index
-    if ((index < 0) || (index >= m_intervals.count())) return 0;
+    if ((index < 0) || (index >= m_intervals.count())) return nullptr;
     Interval *intvOrig = m_intervals.at(index);
     // Check that the split point is inside the interval
-    if (!((intvOrig->tMin() < at) && (at < intvOrig->tMax()))) return 0;
+    if (!((intvOrig->tMin() < at) && (at < intvOrig->tMax()))) return nullptr;
     // Create the two new intervals
     Interval *intvNewA = new Interval(intvOrig->tMin(), at, "");
     Interval *intvNewB = new Interval(at, intvOrig->tMax(), "");
@@ -406,7 +406,7 @@ Interval *IntervalTier::addToEnd(RealTime tMax, const QString &text)
 {
     Interval *intv;
     intv = split(count() - 1, tMax);
-    if (intv == 0) return nullptr; // problem with tMax
+    if (intv == nullptr) return nullptr; // problem with tMax
     intv = interval(count() - 2);
     intv->setText(text);
     return intv;
@@ -461,8 +461,8 @@ QList<Interval *> IntervalTier::splitToEqual(int index, int numberOfIntervals)
 Interval *IntervalTier::merge(int indexFrom, int indexTo, const QString &separator)
 {
     // check indices
-    if ((indexFrom < 0) || (indexFrom >= m_intervals.count())) return 0;
-    if ((indexTo < 0) || (indexTo >= m_intervals.count())) return 0;
+    if ((indexFrom < 0) || (indexFrom >= m_intervals.count())) return nullptr;
+    if ((indexTo < 0) || (indexTo >= m_intervals.count())) return nullptr;
     QList<Interval *> list = m_intervals.mid(indexFrom, indexTo - indexFrom + 1);
     Interval *intvNew = new Interval(list, separator);
     for (int i = indexFrom; i <= indexTo; i++)

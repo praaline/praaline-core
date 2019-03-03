@@ -312,6 +312,7 @@ bool PhonTranscription::readSegmentOrthography(QXmlStreamReader &xml, PhonTransc
 // private
 bool PhonTranscription::readSegmentIPATier(QXmlStreamReader &xml, PhonTranscription::Segment &segment)
 {
+    Q_UNUSED(segment)
     if ((xml.tokenType() != QXmlStreamReader::StartElement) || (xml.name() != "ipaTier")) return false;
     xml.readNext();
     return true;
@@ -320,6 +321,7 @@ bool PhonTranscription::readSegmentIPATier(QXmlStreamReader &xml, PhonTranscript
 // private
 bool PhonTranscription::readSegmentAlignment(QXmlStreamReader &xml, PhonTranscription::Segment &segment)
 {
+    Q_UNUSED(segment)
     if ((xml.tokenType() != QXmlStreamReader::StartElement) || (xml.name() != "alignment")) return false;
     xml.readNext();
     return true;

@@ -71,33 +71,35 @@ void CorpusObject::copyPropertiesFrom(CorpusObject *other)
 // static
 QString CorpusObject::typeToFriendlyString(CorpusObject::Type type)
 {
+    QString ret;
     switch (type) {
-    case CorpusObject::Type_Corpus:         return tr("Corpus");        break;
-    case CorpusObject::Type_Communication:  return tr("Communication"); break;
-    case CorpusObject::Type_Speaker:        return tr("Speaker");       break;
-    case CorpusObject::Type_Recording:      return tr("Recording");     break;
-    case CorpusObject::Type_Annotation:     return tr("Annotation");    break;
-    case CorpusObject::Type_Participation:  return tr("Participation"); break;
-    case CorpusObject::Type_Bookmark:       return tr("Bookmark");      break;
-    case CorpusObject::Type_Undefined:      return tr("Corpus Item");   break;
+    case CorpusObject::Type_Corpus:         ret = tr("Corpus");        break;
+    case CorpusObject::Type_Communication:  ret = tr("Communication"); break;
+    case CorpusObject::Type_Speaker:        ret = tr("Speaker");       break;
+    case CorpusObject::Type_Recording:      ret = tr("Recording");     break;
+    case CorpusObject::Type_Annotation:     ret = tr("Annotation");    break;
+    case CorpusObject::Type_Participation:  ret = tr("Participation"); break;
+    case CorpusObject::Type_Bookmark:       ret = tr("Bookmark");      break;
+    case CorpusObject::Type_Undefined:      ret = tr("Corpus Item");   break;
     }
-    return QString();
+    return ret;
 }
 
 // static
 QString CorpusObject::typeToString(CorpusObject::Type type)
 {
+    QString ret("CorpusObject");
     switch (type) {
-    case CorpusObject::Type_Corpus:         return tr("Corpus");        break;
-    case CorpusObject::Type_Communication:  return tr("Communication"); break;
-    case CorpusObject::Type_Speaker:        return tr("Speaker");       break;
-    case CorpusObject::Type_Recording:      return tr("Recording");     break;
-    case CorpusObject::Type_Annotation:     return tr("Annotation");    break;
-    case CorpusObject::Type_Participation:  return tr("Participation"); break;
-    case CorpusObject::Type_Bookmark:       return tr("Bookmark");      break;
-    case CorpusObject::Type_Undefined:      return tr("CorpusObject");  break;
+    case CorpusObject::Type_Corpus:         ret = tr("Corpus");        break;
+    case CorpusObject::Type_Communication:  ret = tr("Communication"); break;
+    case CorpusObject::Type_Speaker:        ret = tr("Speaker");       break;
+    case CorpusObject::Type_Recording:      ret = tr("Recording");     break;
+    case CorpusObject::Type_Annotation:     ret = tr("Annotation");    break;
+    case CorpusObject::Type_Participation:  ret = tr("Participation"); break;
+    case CorpusObject::Type_Bookmark:       ret = tr("Bookmark");      break;
+    case CorpusObject::Type_Undefined:      ret = tr("CorpusObject");  break;
     }
-    return "CorpusObject";
+    return ret;
 }
 
 // static

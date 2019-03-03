@@ -45,7 +45,7 @@ public:
     public:
         enum Type { LeftContext, Target, RightContext };
 
-        ResultInterval() : type(ResultInterval::Target), intervalNo(0), interval(0)
+        ResultInterval() : type(ResultInterval::Target), intervalNo(0), interval(nullptr)
         {}
         ResultInterval(ResultInterval::Type type, const QString &speakerID, int intervalNo, Interval *interval) :
             type(type), speakerID(speakerID), intervalNo(intervalNo), interval(interval)
@@ -59,7 +59,7 @@ public:
 
     explicit QueryOccurrence(const QString &corpusID, const QString &communicationID, const QString &annotationID,
                              const QMap<QString, QList<ResultInterval> > &resultIntervals,
-                             QObject *parent = 0);
+                             QObject *parent = nullptr);
     ~QueryOccurrence();
 
     QString corpusID() const { return m_corpusID; }

@@ -26,7 +26,7 @@ CorpusAnnotation::CorpusAnnotation(const QString ID, CorpusRepository *repositor
 }
 
 CorpusAnnotation::CorpusAnnotation(CorpusAnnotation *other, QObject *parent) :
-    CorpusObject(0, parent)
+    CorpusObject(nullptr, parent)
 {
     if (!other) return;
     m_ID = other->m_ID;
@@ -45,7 +45,7 @@ QPointer<Corpus> CorpusAnnotation::corpus() const
 {
     CorpusCommunication *com = qobject_cast<CorpusCommunication *>(this->parent());
     if (com) return qobject_cast<Corpus *>(com->parent());
-    return 0;
+    return nullptr;
 }
 
 QString CorpusAnnotation::communicationID() const

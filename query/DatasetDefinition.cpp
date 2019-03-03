@@ -8,7 +8,8 @@ struct DatasetDefinitionData {
 
 };
 
-DatasetDefinition::DatasetDefinition()
+DatasetDefinition::DatasetDefinition() :
+    d(new DatasetDefinitionData())
 {
 }
 

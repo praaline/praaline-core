@@ -17,7 +17,7 @@ AnnotationDatastore *DatastoreFactory::getAnnotationDatastore(const DatastoreInf
     if (dsi.type == DatastoreInfo::SQL) {
         return new SQLAnnotationDatastore(structure, repository, repository);
     }
-    return 0;
+    return nullptr;
 }
 
 // static
@@ -26,7 +26,7 @@ MetadataDatastore *DatastoreFactory::getMetadataDatastore(const DatastoreInfo &d
     if (dsi.type == DatastoreInfo::SQL) {
         return new SQLMetadataDatastore(structure, repository, repository);
     }
-    return 0;
+    return nullptr;
 }
 
 } // namespace Core

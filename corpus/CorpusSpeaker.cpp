@@ -23,7 +23,7 @@ CorpusSpeaker::CorpusSpeaker(const QString &ID, CorpusRepository *repository, QO
 }
 
 CorpusSpeaker::CorpusSpeaker(CorpusSpeaker *other, QObject *parent) :
-    CorpusObject(0, parent)
+    CorpusObject(nullptr, parent)
 {
     if (!other) return;
     m_ID = other->m_ID;

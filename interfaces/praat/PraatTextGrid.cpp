@@ -107,7 +107,7 @@ bool PraatTextGrid::readPoint(bool isShortFile, QTextStream &stream, QString &li
 
 bool PraatTextGrid::load(const QString &filename, AnnotationTierGroup *group)
 {
-    if (group == 0) return false; // I can only load into AnnotationTierGroups
+    if (group == nullptr) return false; // I can only load into AnnotationTierGroups
 
     QFile file(filename);
     QString line, text, tierName, new_tierName;
@@ -115,7 +115,7 @@ bool PraatTextGrid::load(const QString &filename, AnnotationTierGroup *group)
     RealTime xMin, xMax, timePoint;
     RealTime tierxMin, tierxMax;
     int tierSize = 0;
-    int tierType = -1, new_tierType = -1;
+    int tierType = -1;
 
     // Open file, create stream, detect encoding
     if (!file.open(QIODevice::ReadOnly)) {
@@ -169,6 +169,7 @@ bool PraatTextGrid::load(const QString &filename, AnnotationTierGroup *group)
             }
         }
     } else {
+        int new_tierType = -1;
         do {
             line = stream.readLine();
             // Reset values
@@ -211,7 +212,7 @@ bool PraatTextGrid::load(const QString &filename, AnnotationTierGroup *group)
 
 bool PraatTextGrid::save(const QString &filename, AnnotationTierGroup *group)
 {
-    if (group == 0) return false; // I can only save AnnotationTierGroups
+    if (group == nullptr) return false; // I can only save AnnotationTierGroups
 
     AnnotationTier *tier;
     IntervalTier *iTier;

@@ -4,19 +4,19 @@
 
 RealValueList::RealValueList()
 {
-    m_mean = 0.0f;
-    m_M2 = 0.0f;
-    m_sum = 0.0f;
+    m_mean = 0.0;
+    m_M2 = 0.0;
+    m_sum = 0.0;
 }
 
 void RealValueList::recalculate()
 {
-    m_mean = 0.0f;
-    m_M2 = 0.0f;
-    m_sum = 0.0f;
+    m_mean = 0.0;
+    m_M2 = 0.0;
+    m_sum = 0.0;
     foreach(double x, *this) {
         double delta = x - m_mean;
-        m_mean += delta / (double)count();
+        m_mean += delta / static_cast<double>(count());
         m_M2 += delta * (x - m_mean);
         m_sum += x;
     }
@@ -26,7 +26,7 @@ void RealValueList::append(const double &x)
 {
     QList<double>::append(x);
     double delta = x - m_mean;
-    m_mean += delta / (double)count();
+    m_mean += delta / static_cast<double>(count());
     m_M2 += delta * (x - m_mean);
     m_sum += x;
 }
@@ -37,7 +37,7 @@ double RealValueList::mean() const
 }
 double RealValueList::variance() const
 {
-    return m_M2 / (double)(count() - 1);
+    return m_M2 / static_cast<double>((count() - 1));
 }
 double RealValueList::stddev() const
 {

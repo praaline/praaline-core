@@ -27,7 +27,7 @@ AnvilMetadataTranscript::AnvilMetadataTranscript()
 AnvilMetadataTranscript::LocationData *
 AnvilMetadataTranscript::readLocation(QXmlStreamReader &xml)
 {
-    if ((xml.tokenType() != QXmlStreamReader::StartElement) || (xml.name() != xmlElementName_Location)) return 0;
+    if ((xml.tokenType() != QXmlStreamReader::StartElement) || (xml.name() != xmlElementName_Location)) return nullptr;
     LocationData *location = new LocationData();
     xml.readNext();
     while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == xmlElementName_Location) && !xml.atEnd()) {
@@ -46,7 +46,7 @@ AnvilMetadataTranscript::readLocation(QXmlStreamReader &xml)
 AnvilMetadataTranscript::ContactData *
 AnvilMetadataTranscript::readContact(QXmlStreamReader &xml)
 {
-    if ((xml.tokenType() != QXmlStreamReader::StartElement) || (xml.name() != xmlElementName_Contact)) return 0;
+    if ((xml.tokenType() != QXmlStreamReader::StartElement) || (xml.name() != xmlElementName_Contact)) return nullptr;
     ContactData *contact = new ContactData();
     xml.readNext();
     while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == xmlElementName_Contact) && !xml.atEnd()) {
@@ -65,7 +65,7 @@ AnvilMetadataTranscript::readContact(QXmlStreamReader &xml)
 AnvilMetadataTranscript::ProjectData *
 AnvilMetadataTranscript::readProject(QXmlStreamReader &xml)
 {
-    if ((xml.tokenType() != QXmlStreamReader::StartElement) || (xml.name() != xmlElementName_Project)) return 0;
+    if ((xml.tokenType() != QXmlStreamReader::StartElement) || (xml.name() != xmlElementName_Project)) return nullptr;
     ProjectData *project = new ProjectData();
     xml.readNext();
     while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == xmlElementName_Project) && !xml.atEnd()) {
@@ -88,7 +88,7 @@ AnvilMetadataTranscript::readProject(QXmlStreamReader &xml)
 AnvilMetadataTranscript::ContentData *
 AnvilMetadataTranscript::readContent(QXmlStreamReader &xml)
 {
-    if ((xml.tokenType() != QXmlStreamReader::StartElement) || (xml.name() != xmlElementName_Content)) return 0;
+    if ((xml.tokenType() != QXmlStreamReader::StartElement) || (xml.name() != xmlElementName_Content)) return nullptr;
     ContentData *content = new ContentData();
     xml.readNext();
     while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == xmlElementName_Content) && !xml.atEnd()) {
@@ -114,7 +114,7 @@ AnvilMetadataTranscript::readContent(QXmlStreamReader &xml)
 AnvilMetadataTranscript::ActorData *
 AnvilMetadataTranscript::readActor(QXmlStreamReader &xml)
 {
-    if ((xml.tokenType() != QXmlStreamReader::StartElement) || (xml.name() != xmlElementName_Actor)) return 0;
+    if ((xml.tokenType() != QXmlStreamReader::StartElement) || (xml.name() != xmlElementName_Actor)) return nullptr;
     ActorData *actor = new ActorData();
     xml.readNext();
     while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == xmlElementName_Actor) && !xml.atEnd()) {
@@ -146,7 +146,7 @@ AnvilMetadataTranscript::MediaFileResourceData *
 AnvilMetadataTranscript::readMediaFileResource(QXmlStreamReader &xml)
 {
     xml.readNext();
-    return 0;
+    return nullptr;
 }
 
 // private static
@@ -154,14 +154,14 @@ AnvilMetadataTranscript::WrittenResourceData *
 AnvilMetadataTranscript::readWrittenResource(QXmlStreamReader &xml)
 {
     xml.readNext();
-    return 0;
+    return nullptr;
 }
 
 // private static
 AnvilMetadataTranscript::SessionData *
 AnvilMetadataTranscript::readSession(QXmlStreamReader &xml)
 {
-    if ((xml.tokenType() != QXmlStreamReader::StartElement) || (xml.name() != xmlElementName_Session)) return 0;
+    if ((xml.tokenType() != QXmlStreamReader::StartElement) || (xml.name() != xmlElementName_Session)) return nullptr;
     SessionData *session = new SessionData();
     xml.readNext();
     while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == xmlElementName_Session) && !xml.atEnd()) {
@@ -220,7 +220,7 @@ AnvilMetadataTranscript::readSession(QXmlStreamReader &xml)
 // static
 bool AnvilMetadataTranscript::load(const QString &filename, Corpus *corpus)
 {
-    SessionData *session = 0;
+    SessionData *session = nullptr;
     QFile file(filename);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) return false;
     QXmlStreamReader xml(&file);

@@ -227,7 +227,9 @@ HEADERS += \
     structure/MetadataStructureAttribute.h \
     structure/MetadataStructureSection.h \
     structure/NameValueList.h \
-    structure/StructureAttributeBase.h
+    structure/StructureAttributeBase.h \
+    interfaces/tei/TEIHeader.h \
+    interfaces/elan/ELANAnnotation.h
 
 SOURCES += \
     annotation/AnnotationDataTable.cpp \
@@ -415,7 +417,9 @@ SOURCES += \
     structure/MetadataStructureAttribute.cpp \
     structure/MetadataStructureSection.cpp \
     structure/NameValueList.cpp \
-    structure/StructureAttributeBase.cpp
+    structure/StructureAttributeBase.cpp \
+    interfaces/tei/TEIHeader.cpp \
+    interfaces/elan/ELANAnnotation.cpp
 
 DISTFILES += \
     pncore.qmodel

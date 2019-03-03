@@ -73,13 +73,13 @@ Point *PointTier::at(int index) const
 
 Point *PointTier::first() const
 {
-    if (isEmpty()) return Q_NULLPTR;
+    if (isEmpty()) return nullptr;
     return m_points.first();
 }
 
 Point *PointTier::last() const
 {
-    if (isEmpty()) return Q_NULLPTR;
+    if (isEmpty()) return nullptr;
     return m_points.last();
 }
 
@@ -147,7 +147,7 @@ Point *PointTier::pointAtTime(RealTime t, RealTime threshold)
 {
     int index = pointIndexAtTime(t, threshold);
     if (index == -1)
-        return 0; // not found
+        return nullptr; // not found
     return m_points.at(index);
 }
 

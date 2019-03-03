@@ -87,7 +87,7 @@ bool XMLMetadataDatastore::retypeMetadataAttribute(CorpusObject::Type type, cons
 NameValueList *XMLMetadataDatastore::getNameValueList(const QString &listID)
 {
     Q_UNUSED(listID)
-    return Q_NULLPTR;
+    return nullptr;
 }
 
 QStringList XMLMetadataDatastore::getAllNameValueListIDs()
@@ -137,7 +137,7 @@ QList<CorpusObjectInfo> XMLMetadataDatastore::getCorpusObjectInfoList(CorpusObje
 Corpus *XMLMetadataDatastore::getCorpus(const QString &corpusID)
 {
     Q_UNUSED(corpusID)
-    return Q_NULLPTR;
+    return nullptr;
 }
 
 QList<QPointer<CorpusCommunication> > XMLMetadataDatastore::getCommunications(const Selection &selection)

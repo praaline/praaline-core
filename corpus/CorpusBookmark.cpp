@@ -4,14 +4,14 @@ namespace Praaline {
 namespace Core {
 
 CorpusBookmark::CorpusBookmark(QObject *parent) :
-    CorpusObject(Q_NULLPTR, parent)
+    CorpusObject(nullptr, parent)
 {
 }
 
 CorpusBookmark::CorpusBookmark(const QString &corpusID, const QString &communicationID, const QString &annotationID,
                                const RealTime &time,
                                const QString &name, const QString &notes, QObject *parent) :
-    CorpusObject(Q_NULLPTR, parent),
+    CorpusObject(nullptr, parent),
     m_communicationID(communicationID), m_annotationID(annotationID),
     m_time(time), m_timeEnd(time), m_name(name), m_notes(notes)
 {
@@ -21,7 +21,7 @@ CorpusBookmark::CorpusBookmark(const QString &corpusID, const QString &communica
 CorpusBookmark::CorpusBookmark(const QString &corpusID, const QString &communicationID, const QString &annotationID,
                                const RealTime &timeStart, const RealTime &timeEnd,
                                const QString &name, const QString &notes, QObject *parent) :
-    CorpusObject(Q_NULLPTR, parent),
+    CorpusObject(nullptr, parent),
     m_communicationID(communicationID), m_annotationID(annotationID),
     m_time(timeStart), m_timeEnd(timeEnd), m_name(name), m_notes(notes)
 {

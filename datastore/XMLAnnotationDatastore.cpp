@@ -106,7 +106,7 @@ bool XMLAnnotationDatastore::retypeAnnotationAttribute(const QString &levelID, c
 NameValueList *XMLAnnotationDatastore::getNameValueList(const QString &listID)
 {
     Q_UNUSED(listID)
-    return Q_NULLPTR;
+    return nullptr;
 }
 
 QStringList XMLAnnotationDatastore::getAllNameValueListIDs()
@@ -149,7 +149,7 @@ AnnotationTier *XMLAnnotationDatastore::getTier(const QString &annotationID, con
     Q_UNUSED(speakerID)
     Q_UNUSED(levelID)
     Q_UNUSED(attributeIDs)
-    return Q_NULLPTR;
+    return nullptr;
 }
 
 AnnotationTierGroup *XMLAnnotationDatastore::getTiers(const QString &annotationID, const QString &speakerID, const QStringList &levelIDs)
@@ -157,7 +157,7 @@ AnnotationTierGroup *XMLAnnotationDatastore::getTiers(const QString &annotationI
     Q_UNUSED(annotationID)
     Q_UNUSED(speakerID)
     Q_UNUSED(levelIDs)
-    return Q_NULLPTR;
+    return nullptr;
 }
 
 QMap<QString, QPointer<AnnotationTierGroup> > XMLAnnotationDatastore::getTiersAllSpeakers(const QString &annotationID, const QStringList &levelIDs)
@@ -293,7 +293,7 @@ IntervalTier *XMLAnnotationDatastore::getSpeakerTimeline(const QString &communic
     Q_UNUSED(annotationID)
     Q_UNUSED(levelID)
     Q_UNUSED(detailed)
-    return Q_NULLPTR;
+    return nullptr;
 }
 
 // ==========================================================================================================================
@@ -311,7 +311,9 @@ QueryOccurrence *XMLAnnotationDatastore::getOccurrence(QueryOccurrencePointer *p
 {
     Q_UNUSED(pointer)
     Q_UNUSED(qdef)
-    return Q_NULLPTR;
+    Q_UNUSED(lengthContextLeft)
+    Q_UNUSED(lengthContextRight)
+    return nullptr;
 }
 
 bool XMLAnnotationDatastore::updateAnnotationsFromQueryOccurrences(const QList<QueryOccurrence *> &occurrences)
@@ -349,6 +351,8 @@ QList<QPair<QList<QVariant>, long long> > XMLAnnotationDatastore::countItems(con
 {
     Q_UNUSED(levelID)
     Q_UNUSED(groupByAttributeIDs)
+    Q_UNUSED(excludeNULL)
+    Q_UNUSED(excludeValues)
     QList<QPair<QList<QVariant>, long long> > ret;
     return ret;
 }

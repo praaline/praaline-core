@@ -58,10 +58,10 @@ Interval::Interval(const RealTime tMin, const RealTime tMax, const Interval *cop
 Interval::Interval(const QList<Interval *> &intervals, const QString &separator)
 {
     // Constructor that concatenates intervals into a new one
-    bool first = true;
     if (intervals.count() > 0) {
         m_tMin = intervals[0]->tMin();
         m_tMax = intervals[intervals.count() - 1]->tMax();
+        bool first = true;
         foreach (Interval *intv, intervals) {
             if (!first) m_text.append(separator);
             m_text.append(intv->text().trimmed());

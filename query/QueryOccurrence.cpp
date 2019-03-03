@@ -7,7 +7,7 @@ QueryOccurrence::QueryOccurrence(const QString &corpusID, const QString &communi
                                  const QMap<QString, QList<ResultInterval> > &resultIntervals,
                                  QObject *parent) :
     QObject(parent), m_corpusID(corpusID), m_communicationID(communicationID), m_annotationID(annotationID),
-    m_resultIntervals(resultIntervals)
+    m_loaded(false), m_resultIntervals(resultIntervals)
 {
 }
 

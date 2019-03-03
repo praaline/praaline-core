@@ -17,15 +17,16 @@
 
 #include "pncore_global.h"
 #include <QObject>
+#include "AnnotationTier.h"
 
 namespace Praaline {
 namespace Core {
 
-class PRAALINE_CORE_SHARED_EXPORT TreeTier : public QObject
+class PRAALINE_CORE_SHARED_EXPORT TreeTier : public AnnotationTier
 {
     Q_OBJECT
 public:
-    explicit TreeTier(QObject *parent = 0);
+    explicit TreeTier(QObject *parent = nullptr);
     ~TreeTier();
 
 signals:

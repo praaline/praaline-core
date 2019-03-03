@@ -21,7 +21,7 @@ TranscriberAnnotationGraph::SpeakerData *TranscriberAnnotationGraph::readSpeaker
 {
     // Check that we're really reading a speaker
     if ((xml.tokenType() != QXmlStreamReader::StartElement) || (xml.name() != xmlElementName_Speaker)) {
-        return 0;
+        return nullptr;
     }
     SpeakerData *spk = new SpeakerData();
     QXmlStreamAttributes xmlAttributes = xml.attributes();
@@ -40,7 +40,7 @@ TranscriberAnnotationGraph::TurnData *TranscriberAnnotationGraph::readTurn(QXmlS
 {
     // Check that we're really reading a turn
     if ((xml.tokenType() != QXmlStreamReader::StartElement) || (xml.name() != xmlElementName_Turn)) {
-        return 0;
+        return nullptr;
     }
     TurnData *turn = new TurnData();
     QXmlStreamAttributes xmlAttributes = xml.attributes();
@@ -134,7 +134,7 @@ TranscriberAnnotationGraph::SectionData *TranscriberAnnotationGraph::readSection
 {
     // Check that we're really reading a section
     if ((xml.tokenType() != QXmlStreamReader::StartElement) || (xml.name() != xmlElementName_Section)) {
-        return 0;
+        return nullptr;
     }
     SectionData *section = new SectionData();
     QXmlStreamAttributes xmlAttributes = xml.attributes();
@@ -162,7 +162,7 @@ TranscriberAnnotationGraph::TransData *TranscriberAnnotationGraph::readTrans(QXm
 {
     // Check that we're really reading a corpus annotation specification
     if ((xml.tokenType() != QXmlStreamReader::StartElement) || (xml.name() == xmlElementName_Trans)) {
-        return 0;
+        return nullptr;
     }
     // Create the new Transcriber transcription
     TransData *trans = new TransData();
@@ -222,7 +222,7 @@ TranscriberAnnotationGraph::TransData *TranscriberAnnotationGraph::readTrans(QXm
 bool TranscriberAnnotationGraph::load(const QString &filename, QList<QPointer<CorpusSpeaker> > &speakers,
                                       QMap<QString, QPointer<AnnotationTierGroup> > &tiersAll)
 {
-    TransData *trans = 0;
+    TransData *trans = nullptr;
     QFile file(filename);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) return false;
     QXmlStreamReader xml(&file);

@@ -102,7 +102,7 @@ bool PraatPitchFile::readHeader(bool isShortFile, QTextStream &stream, QString &
     result = seekPattern(stream, (isShortFile) ? regex_short_x1 : regex_x1);
     pitch.tstart = RealTime::fromSeconds(result.toDouble());
     result = seekPattern(stream, (isShortFile) ? regex_short_ceiling : regex_ceiling);
-    pitch.ceiling = result.toDouble();
+    pitch.ceiling = result.toInt();
     result = seekPattern(stream, (isShortFile) ? regex_short_maxnCandidates : regex_maxnCandidates);
     pitch.maxnCandidates = result.toInt();
     return true;

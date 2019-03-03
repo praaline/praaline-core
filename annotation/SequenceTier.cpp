@@ -27,7 +27,7 @@ SequenceTier::SequenceTier(const QString &name, const QList<Sequence *> &sequenc
 }
 
 SequenceTier::SequenceTier(const SequenceTier *copy, QString name, bool copyAttributes, QObject *parent) :
-    AnnotationTier(parent), m_baseTier(0)
+    AnnotationTier(parent), m_baseTier(nullptr)
 {
     if (!copy) return;
     m_name = (name.isEmpty()) ? copy->name() : name;

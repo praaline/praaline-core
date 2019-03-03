@@ -26,7 +26,7 @@ CorpusRecording::CorpusRecording(const QString ID, CorpusRepository *repository,
 }
 
 CorpusRecording::CorpusRecording(CorpusRecording *other, QObject *parent) :
-    CorpusObject(0, parent)
+    CorpusObject(nullptr, parent)
 {
     if (!other) return;
     m_ID = other->m_ID;
@@ -66,7 +66,7 @@ QPointer<Corpus> CorpusRecording::corpus() const
 {
     CorpusCommunication *com = qobject_cast<CorpusCommunication *>(this->parent());
     if (com) return qobject_cast<Corpus *>(com->parent());
-    return 0;
+    return nullptr;
 }
 
 QString CorpusRecording::filePath() const

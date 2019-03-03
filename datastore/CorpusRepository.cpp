@@ -80,24 +80,24 @@ CorpusRepository *CorpusRepository::open(const CorpusRepositoryDefinition &defin
         if (!repository->annotations()->openDatastore(definition.infoDatastoreAnnotations)) {
             errorMessages.append("Error opening annotation datastore: ").append(repository->lastError()).append("\n");
             repository->clearLastError();
-            return Q_NULLPTR;
+            return nullptr;
         }
         if (!repository->annotations()->loadAnnotationStructure()) {
             errorMessages.append("Error reading annotation structure: ").append(repository->lastError()).append("\n");
             repository->clearLastError();
-            return Q_NULLPTR;
+            return nullptr;
         }
     }
     if (repository->metadata()) {
         if (!repository->metadata()->openDatastore(definition.infoDatastoreMetadata)) {
             errorMessages.append("Error opening metadata datastore: ").append(repository->lastError()).append("\n");
             repository->clearLastError();
-            return Q_NULLPTR;
+            return nullptr;
         }
         if (!repository->metadata()->loadMetadataStructure()) {
             errorMessages.append("Error reading metadata structure: ").append(repository->lastError()).append("\n");
             repository->clearLastError();
-            return Q_NULLPTR;
+            return nullptr;
         }
     }
     if (repository->files()) {
