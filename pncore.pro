@@ -69,6 +69,7 @@ HEADERS += \
     datastore/XMLAnnotationDatastore.h \
     datastore/XMLMetadataDatastore.h \
     interfaces/anvil/AnvilMetadataTranscript.h \
+    interfaces/conll/CoNLLXDocument.h \
     interfaces/csv/CSVFileAnnotation.h \
     interfaces/exmaralda/ExmaraldaBasicTranscription.h \
     interfaces/exmaralda/ExmaraldaTranscriptionBridge.h \
@@ -268,6 +269,7 @@ SOURCES += \
     datastore/XMLAnnotationDatastore.cpp \
     datastore/XMLMetadataDatastore.cpp \
     interfaces/anvil/AnvilMetadataTranscript.cpp \
+    interfaces/conll/CoNLLXDocument.cpp \
     interfaces/csv/CSVFileAnnotation.cpp \
     interfaces/exmaralda/ExmaraldaBasicTranscription.cpp \
     interfaces/exmaralda/ExmaraldaTranscriptionBridge.cpp \

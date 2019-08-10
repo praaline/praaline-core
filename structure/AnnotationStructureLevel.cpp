@@ -50,7 +50,7 @@ QPointer<AnnotationStructureAttribute> AnnotationStructureLevel::attribute(const
         if ((attribute) && (attribute->ID() == ID))
             return attribute;
     }
-    return 0;
+    return nullptr;
 }
 
 int AnnotationStructureLevel::attributeIndexByID(const QString &ID) const
