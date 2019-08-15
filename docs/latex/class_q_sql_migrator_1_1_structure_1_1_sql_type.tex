@@ -1,0 +1,279 @@
+\hypertarget{class_q_sql_migrator_1_1_structure_1_1_sql_type}{}\section{Q\+Sql\+Migrator\+:\+:Structure\+:\+:Sql\+Type Class Reference}
+\label{class_q_sql_migrator_1_1_structure_1_1_sql_type}\index{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type@{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type}}
+
+
+value object that represent any sql type  
+
+
+
+
+{\ttfamily \#include $<$Sql\+Type.\+h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{class_q_sql_migrator_1_1_structure_1_1_sql_type_ac1733fcbed79941acd89bcf3196d9912}{Base} \{ \newline
+{\bfseries Invalid}, 
+\hyperlink{class_q_sql_migrator_1_1_structure_1_1_sql_type_ac1733fcbed79941acd89bcf3196d9912ae91327a717f563c9feb64c108b604125}{Char}, 
+\hyperlink{class_q_sql_migrator_1_1_structure_1_1_sql_type_ac1733fcbed79941acd89bcf3196d9912ac1950c0cfaaf9d2477188fb4579ff556}{Var\+Char}, 
+{\bfseries String} = Var\+Char, 
+\newline
+\hyperlink{class_q_sql_migrator_1_1_structure_1_1_sql_type_ac1733fcbed79941acd89bcf3196d9912a147c76c1e0f54106f7645f8c24bfda59}{Binary}, 
+\hyperlink{class_q_sql_migrator_1_1_structure_1_1_sql_type_ac1733fcbed79941acd89bcf3196d9912a8a89247cd56f1fa15b1ac2ca1aeb5afc}{Var\+Binary}, 
+\hyperlink{class_q_sql_migrator_1_1_structure_1_1_sql_type_ac1733fcbed79941acd89bcf3196d9912a25d565af9a277716086a1dde2f747e68}{Byte\+Array} = Var\+Binary, 
+{\bfseries Boolean}, 
+\newline
+\hyperlink{class_q_sql_migrator_1_1_structure_1_1_sql_type_ac1733fcbed79941acd89bcf3196d9912aa480d2156a66359be51943ad93fd38d8}{Small\+Int}, 
+\hyperlink{class_q_sql_migrator_1_1_structure_1_1_sql_type_ac1733fcbed79941acd89bcf3196d9912a6a971498ee79c54f6261723814e69b70}{Integer}, 
+\hyperlink{class_q_sql_migrator_1_1_structure_1_1_sql_type_ac1733fcbed79941acd89bcf3196d9912aa793daa40d3c070c12099b5d98efec06}{Big\+Int}, 
+\hyperlink{class_q_sql_migrator_1_1_structure_1_1_sql_type_ac1733fcbed79941acd89bcf3196d9912a896e9baedae3faa1a344ef2e3f863f7e}{Decimal}, 
+\newline
+\hyperlink{class_q_sql_migrator_1_1_structure_1_1_sql_type_ac1733fcbed79941acd89bcf3196d9912a73d009657d5271bb1d691bef7f9f9de7}{Numeric} = Decimal, 
+{\bfseries Float}, 
+{\bfseries Double\+Precision}, 
+\hyperlink{class_q_sql_migrator_1_1_structure_1_1_sql_type_ac1733fcbed79941acd89bcf3196d9912a2a16b21e4d26c262293b8ee4d0cab7d9}{Double} = Double\+Precision, 
+\newline
+{\bfseries Date}, 
+{\bfseries Time}, 
+{\bfseries Timestamp}, 
+\hyperlink{class_q_sql_migrator_1_1_structure_1_1_sql_type_ac1733fcbed79941acd89bcf3196d9912aed7011979d98029ae99c6bac277845b7}{Date\+Time} = Timestamp, 
+\newline
+{\bfseries Interval}, 
+{\bfseries Array}, 
+{\bfseries Multiset}, 
+{\bfseries Xml}, 
+\newline
+\hyperlink{class_q_sql_migrator_1_1_structure_1_1_sql_type_ac1733fcbed79941acd89bcf3196d9912a8b7d2fa96c398a5e8c276ac048c06aa8}{Custom} = 100
+ \}\begin{DoxyCompactList}\small\item\em Base Type enum. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_q_sql_migrator_1_1_structure_1_1_sql_type_af83707a053e7fd46ab395d45b78b587d}{Sql\+Type} (const Q\+String \&\hyperlink{class_q_sql_migrator_1_1_structure_1_1_sql_type_a440825279083be8b5f15f2a5ddcf2e30}{string})
+\begin{DoxyCompactList}\small\item\em Construct the type from. \end{DoxyCompactList}\item 
+\hyperlink{class_q_sql_migrator_1_1_structure_1_1_sql_type_aeb468b0e5dd0bd47efe88f4d75ab3029}{Sql\+Type} (const P\+R\+A\+A\+L\+I\+N\+E\+\_\+\+C\+O\+R\+E\+\_\+\+N\+A\+M\+E\+S\+P\+A\+C\+E\+::\+Data\+Type \&datatype)
+\begin{DoxyCompactList}\small\item\em Construct the type from. \end{DoxyCompactList}\item 
+\hyperlink{class_q_sql_migrator_1_1_structure_1_1_sql_type_a025fddf53697e4ae4dc6f01be8d69395}{Sql\+Type} (\hyperlink{class_q_sql_migrator_1_1_structure_1_1_sql_type_ac1733fcbed79941acd89bcf3196d9912}{Base} \hyperlink{class_q_sql_migrator_1_1_structure_1_1_sql_type_ab4a603f82ba6b21fac815758bc2a62ed}{base}, quint64 \hyperlink{class_q_sql_migrator_1_1_structure_1_1_sql_type_a045dc033e0ce8ecaddc394ce6de1ae11}{precision}=0, int \hyperlink{class_q_sql_migrator_1_1_structure_1_1_sql_type_ab4b716a0b8f90bf4ac04d4d01bb087fe}{scale}=0)
+\begin{DoxyCompactList}\small\item\em Constructs the type. \end{DoxyCompactList}\item 
+bool \hyperlink{class_q_sql_migrator_1_1_structure_1_1_sql_type_ac615ae6908ecf48f55486a4746c26ce3}{is\+String} () const
+\item 
+bool \hyperlink{class_q_sql_migrator_1_1_structure_1_1_sql_type_a54c409ad114a2951e4fd11cea266bc66}{is\+Base\+Type} () const
+\item 
+const Q\+String \& \hyperlink{class_q_sql_migrator_1_1_structure_1_1_sql_type_a440825279083be8b5f15f2a5ddcf2e30}{string} () const
+\item 
+\hyperlink{class_q_sql_migrator_1_1_structure_1_1_sql_type_ac1733fcbed79941acd89bcf3196d9912}{Base} \hyperlink{class_q_sql_migrator_1_1_structure_1_1_sql_type_ab4a603f82ba6b21fac815758bc2a62ed}{base} () const
+\item 
+quint64 \hyperlink{class_q_sql_migrator_1_1_structure_1_1_sql_type_a045dc033e0ce8ecaddc394ce6de1ae11}{precision} (quint64 default\+Value=0) const
+\item 
+int \hyperlink{class_q_sql_migrator_1_1_structure_1_1_sql_type_ab4b716a0b8f90bf4ac04d4d01bb087fe}{scale} () const
+\item 
+bool \hyperlink{class_q_sql_migrator_1_1_structure_1_1_sql_type_a51e3974a6b29b47dee30e7597aa3a08b}{is\+Valid} () const
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static const \hyperlink{class_q_sql_migrator_1_1_structure_1_1_sql_type}{Sql\+Type} \& \hyperlink{class_q_sql_migrator_1_1_structure_1_1_sql_type_afa9de070483ba42c6070d80454c3e4ca}{invalid} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+value object that represent any sql type 
+
+\subsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_structure_1_1_sql_type_ac1733fcbed79941acd89bcf3196d9912}\label{class_q_sql_migrator_1_1_structure_1_1_sql_type_ac1733fcbed79941acd89bcf3196d9912}} 
+\index{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type@{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type}!Base@{Base}}
+\index{Base@{Base}!Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type@{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type}}
+\subsubsection{\texorpdfstring{Base}{Base}}
+{\footnotesize\ttfamily enum \hyperlink{class_q_sql_migrator_1_1_structure_1_1_sql_type_ac1733fcbed79941acd89bcf3196d9912}{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type\+::\+Base}}
+
+
+
+Base Type enum. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Char@{Char}!Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type@{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type}}\index{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type@{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type}!Char@{Char}}}\mbox{\Hypertarget{class_q_sql_migrator_1_1_structure_1_1_sql_type_ac1733fcbed79941acd89bcf3196d9912ae91327a717f563c9feb64c108b604125}\label{class_q_sql_migrator_1_1_structure_1_1_sql_type_ac1733fcbed79941acd89bcf3196d9912ae91327a717f563c9feb64c108b604125}} 
+Char&precision is length (defaults to 1) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Var\+Char@{Var\+Char}!Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type@{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type}}\index{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type@{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type}!Var\+Char@{Var\+Char}}}\mbox{\Hypertarget{class_q_sql_migrator_1_1_structure_1_1_sql_type_ac1733fcbed79941acd89bcf3196d9912ac1950c0cfaaf9d2477188fb4579ff556}\label{class_q_sql_migrator_1_1_structure_1_1_sql_type_ac1733fcbed79941acd89bcf3196d9912ac1950c0cfaaf9d2477188fb4579ff556}} 
+Var\+Char&precision is maximum length (defaults to 255) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Binary@{Binary}!Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type@{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type}}\index{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type@{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type}!Binary@{Binary}}}\mbox{\Hypertarget{class_q_sql_migrator_1_1_structure_1_1_sql_type_ac1733fcbed79941acd89bcf3196d9912a147c76c1e0f54106f7645f8c24bfda59}\label{class_q_sql_migrator_1_1_structure_1_1_sql_type_ac1733fcbed79941acd89bcf3196d9912a147c76c1e0f54106f7645f8c24bfda59}} 
+Binary&precision represents length in bytes (required) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Var\+Binary@{Var\+Binary}!Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type@{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type}}\index{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type@{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type}!Var\+Binary@{Var\+Binary}}}\mbox{\Hypertarget{class_q_sql_migrator_1_1_structure_1_1_sql_type_ac1733fcbed79941acd89bcf3196d9912a8a89247cd56f1fa15b1ac2ca1aeb5afc}\label{class_q_sql_migrator_1_1_structure_1_1_sql_type_ac1733fcbed79941acd89bcf3196d9912a8a89247cd56f1fa15b1ac2ca1aeb5afc}} 
+Var\+Binary&precision represents maximum bytes \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Byte\+Array@{Byte\+Array}!Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type@{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type}}\index{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type@{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type}!Byte\+Array@{Byte\+Array}}}\mbox{\Hypertarget{class_q_sql_migrator_1_1_structure_1_1_sql_type_ac1733fcbed79941acd89bcf3196d9912a25d565af9a277716086a1dde2f747e68}\label{class_q_sql_migrator_1_1_structure_1_1_sql_type_ac1733fcbed79941acd89bcf3196d9912a25d565af9a277716086a1dde2f747e68}} 
+Byte\+Array&Alias vor Var\+Binary. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Small\+Int@{Small\+Int}!Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type@{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type}}\index{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type@{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type}!Small\+Int@{Small\+Int}}}\mbox{\Hypertarget{class_q_sql_migrator_1_1_structure_1_1_sql_type_ac1733fcbed79941acd89bcf3196d9912aa480d2156a66359be51943ad93fd38d8}\label{class_q_sql_migrator_1_1_structure_1_1_sql_type_ac1733fcbed79941acd89bcf3196d9912aa480d2156a66359be51943ad93fd38d8}} 
+Small\+Int&precision is 5 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Integer@{Integer}!Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type@{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type}}\index{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type@{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type}!Integer@{Integer}}}\mbox{\Hypertarget{class_q_sql_migrator_1_1_structure_1_1_sql_type_ac1733fcbed79941acd89bcf3196d9912a6a971498ee79c54f6261723814e69b70}\label{class_q_sql_migrator_1_1_structure_1_1_sql_type_ac1733fcbed79941acd89bcf3196d9912a6a971498ee79c54f6261723814e69b70}} 
+Integer&precision defaults to 10 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Big\+Int@{Big\+Int}!Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type@{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type}}\index{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type@{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type}!Big\+Int@{Big\+Int}}}\mbox{\Hypertarget{class_q_sql_migrator_1_1_structure_1_1_sql_type_ac1733fcbed79941acd89bcf3196d9912aa793daa40d3c070c12099b5d98efec06}\label{class_q_sql_migrator_1_1_structure_1_1_sql_type_ac1733fcbed79941acd89bcf3196d9912aa793daa40d3c070c12099b5d98efec06}} 
+Big\+Int&precision is 19 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Decimal@{Decimal}!Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type@{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type}}\index{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type@{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type}!Decimal@{Decimal}}}\mbox{\Hypertarget{class_q_sql_migrator_1_1_structure_1_1_sql_type_ac1733fcbed79941acd89bcf3196d9912a896e9baedae3faa1a344ef2e3f863f7e}\label{class_q_sql_migrator_1_1_structure_1_1_sql_type_ac1733fcbed79941acd89bcf3196d9912a896e9baedae3faa1a344ef2e3f863f7e}} 
+Decimal&precision and scale required (total digits, digits after comma) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Numeric@{Numeric}!Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type@{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type}}\index{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type@{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type}!Numeric@{Numeric}}}\mbox{\Hypertarget{class_q_sql_migrator_1_1_structure_1_1_sql_type_ac1733fcbed79941acd89bcf3196d9912a73d009657d5271bb1d691bef7f9f9de7}\label{class_q_sql_migrator_1_1_structure_1_1_sql_type_ac1733fcbed79941acd89bcf3196d9912a73d009657d5271bb1d691bef7f9f9de7}} 
+Numeric&Alias for Decimal. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Double@{Double}!Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type@{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type}}\index{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type@{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type}!Double@{Double}}}\mbox{\Hypertarget{class_q_sql_migrator_1_1_structure_1_1_sql_type_ac1733fcbed79941acd89bcf3196d9912a2a16b21e4d26c262293b8ee4d0cab7d9}\label{class_q_sql_migrator_1_1_structure_1_1_sql_type_ac1733fcbed79941acd89bcf3196d9912a2a16b21e4d26c262293b8ee4d0cab7d9}} 
+Double&Alias for Double Precision. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Date\+Time@{Date\+Time}!Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type@{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type}}\index{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type@{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type}!Date\+Time@{Date\+Time}}}\mbox{\Hypertarget{class_q_sql_migrator_1_1_structure_1_1_sql_type_ac1733fcbed79941acd89bcf3196d9912aed7011979d98029ae99c6bac277845b7}\label{class_q_sql_migrator_1_1_structure_1_1_sql_type_ac1733fcbed79941acd89bcf3196d9912aed7011979d98029ae99c6bac277845b7}} 
+Date\+Time&Alias for Timestamp. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Custom@{Custom}!Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type@{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type}}\index{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type@{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type}!Custom@{Custom}}}\mbox{\Hypertarget{class_q_sql_migrator_1_1_structure_1_1_sql_type_ac1733fcbed79941acd89bcf3196d9912a8b7d2fa96c398a5e8c276ac048c06aa8}\label{class_q_sql_migrator_1_1_structure_1_1_sql_type_ac1733fcbed79941acd89bcf3196d9912a8b7d2fa96c398a5e8c276ac048c06aa8}} 
+Custom&Custom Types start here (the database adapter has to be able to convert this) \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_structure_1_1_sql_type_af83707a053e7fd46ab395d45b78b587d}\label{class_q_sql_migrator_1_1_structure_1_1_sql_type_af83707a053e7fd46ab395d45b78b587d}} 
+\index{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type@{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type}!Sql\+Type@{Sql\+Type}}
+\index{Sql\+Type@{Sql\+Type}!Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type@{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type}}
+\subsubsection{\texorpdfstring{Sql\+Type()}{SqlType()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type\+::\+Sql\+Type (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{string }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Construct the type from. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & the string representation of an sql type \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_structure_1_1_sql_type_aeb468b0e5dd0bd47efe88f4d75ab3029}\label{class_q_sql_migrator_1_1_structure_1_1_sql_type_aeb468b0e5dd0bd47efe88f4d75ab3029}} 
+\index{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type@{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type}!Sql\+Type@{Sql\+Type}}
+\index{Sql\+Type@{Sql\+Type}!Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type@{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type}}
+\subsubsection{\texorpdfstring{Sql\+Type()}{SqlType()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type\+::\+Sql\+Type (\begin{DoxyParamCaption}\item[{const P\+R\+A\+A\+L\+I\+N\+E\+\_\+\+C\+O\+R\+E\+\_\+\+N\+A\+M\+E\+S\+P\+A\+C\+E\+::\+Data\+Type \&}]{datatype }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Construct the type from. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em datatype} & the Praaline data tyep \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_structure_1_1_sql_type_a025fddf53697e4ae4dc6f01be8d69395}\label{class_q_sql_migrator_1_1_structure_1_1_sql_type_a025fddf53697e4ae4dc6f01be8d69395}} 
+\index{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type@{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type}!Sql\+Type@{Sql\+Type}}
+\index{Sql\+Type@{Sql\+Type}!Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type@{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type}}
+\subsubsection{\texorpdfstring{Sql\+Type()}{SqlType()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type\+::\+Sql\+Type (\begin{DoxyParamCaption}\item[{\hyperlink{class_q_sql_migrator_1_1_structure_1_1_sql_type_ac1733fcbed79941acd89bcf3196d9912}{Sql\+Type\+::\+Base}}]{base,  }\item[{quint64}]{precision = {\ttfamily 0},  }\item[{int}]{scale = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Constructs the type. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em base} & the required base type \\
+\hline
+{\em precision} & if supported or required the precision or length \\
+\hline
+{\em scale} & if supported or required by the base type \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_structure_1_1_sql_type_ab4a603f82ba6b21fac815758bc2a62ed}\label{class_q_sql_migrator_1_1_structure_1_1_sql_type_ab4a603f82ba6b21fac815758bc2a62ed}} 
+\index{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type@{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type}!base@{base}}
+\index{base@{base}!Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type@{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type}}
+\subsubsection{\texorpdfstring{base()}{base()}}
+{\footnotesize\ttfamily \hyperlink{class_q_sql_migrator_1_1_structure_1_1_sql_type_ac1733fcbed79941acd89bcf3196d9912}{Sql\+Type\+::\+Base} Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type\+::base (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+the base type (if base form is used) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_structure_1_1_sql_type_afa9de070483ba42c6070d80454c3e4ca}\label{class_q_sql_migrator_1_1_structure_1_1_sql_type_afa9de070483ba42c6070d80454c3e4ca}} 
+\index{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type@{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type}!invalid@{invalid}}
+\index{invalid@{invalid}!Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type@{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type}}
+\subsubsection{\texorpdfstring{invalid()}{invalid()}}
+{\footnotesize\ttfamily const \hyperlink{class_q_sql_migrator_1_1_structure_1_1_sql_type}{Sql\+Type} \& Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type\+::invalid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\begin{DoxyReturn}{Returns}
+the invalid Type 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_structure_1_1_sql_type_a54c409ad114a2951e4fd11cea266bc66}\label{class_q_sql_migrator_1_1_structure_1_1_sql_type_a54c409ad114a2951e4fd11cea266bc66}} 
+\index{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type@{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type}!is\+Base\+Type@{is\+Base\+Type}}
+\index{is\+Base\+Type@{is\+Base\+Type}!Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type@{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type}}
+\subsubsection{\texorpdfstring{is\+Base\+Type()}{isBaseType()}}
+{\footnotesize\ttfamily bool Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type\+::is\+Base\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+true, if the base type is used 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_structure_1_1_sql_type_ac615ae6908ecf48f55486a4746c26ce3}\label{class_q_sql_migrator_1_1_structure_1_1_sql_type_ac615ae6908ecf48f55486a4746c26ce3}} 
+\index{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type@{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type}!is\+String@{is\+String}}
+\index{is\+String@{is\+String}!Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type@{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type}}
+\subsubsection{\texorpdfstring{is\+String()}{isString()}}
+{\footnotesize\ttfamily bool Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type\+::is\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+true, if the string based type is used 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_structure_1_1_sql_type_a51e3974a6b29b47dee30e7597aa3a08b}\label{class_q_sql_migrator_1_1_structure_1_1_sql_type_a51e3974a6b29b47dee30e7597aa3a08b}} 
+\index{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type@{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type}!is\+Valid@{is\+Valid}}
+\index{is\+Valid@{is\+Valid}!Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type@{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type}}
+\subsubsection{\texorpdfstring{is\+Valid()}{isValid()}}
+{\footnotesize\ttfamily bool Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type\+::is\+Valid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+true if this type is not invalid 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_structure_1_1_sql_type_a045dc033e0ce8ecaddc394ce6de1ae11}\label{class_q_sql_migrator_1_1_structure_1_1_sql_type_a045dc033e0ce8ecaddc394ce6de1ae11}} 
+\index{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type@{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type}!precision@{precision}}
+\index{precision@{precision}!Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type@{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type}}
+\subsubsection{\texorpdfstring{precision()}{precision()}}
+{\footnotesize\ttfamily quint64 Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type\+::precision (\begin{DoxyParamCaption}\item[{quint64}]{default\+Value = {\ttfamily 0} }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+the precision (only used for supported types -\/ numeric and string) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_structure_1_1_sql_type_ab4b716a0b8f90bf4ac04d4d01bb087fe}\label{class_q_sql_migrator_1_1_structure_1_1_sql_type_ab4b716a0b8f90bf4ac04d4d01bb087fe}} 
+\index{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type@{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type}!scale@{scale}}
+\index{scale@{scale}!Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type@{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type}}
+\subsubsection{\texorpdfstring{scale()}{scale()}}
+{\footnotesize\ttfamily int Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type\+::scale (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+the scale of the type (only used for numeric values) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_structure_1_1_sql_type_a440825279083be8b5f15f2a5ddcf2e30}\label{class_q_sql_migrator_1_1_structure_1_1_sql_type_a440825279083be8b5f15f2a5ddcf2e30}} 
+\index{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type@{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type}!string@{string}}
+\index{string@{string}!Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type@{Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type}}
+\subsubsection{\texorpdfstring{string()}{string()}}
+{\footnotesize\ttfamily const Q\+String \& Q\+Sql\+Migrator\+::\+Structure\+::\+Sql\+Type\+::string (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+the string representation of the sql type (if string form is used) 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/\+Q\+Sql\+Migrator/\+Structure/Sql\+Type.\+h\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/\+Q\+Sql\+Migrator/\+Structure/Sql\+Type.\+cpp\end{DoxyCompactItemize}

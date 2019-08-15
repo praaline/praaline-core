@@ -1,0 +1,213 @@
+\hypertarget{class_data_type}{}\section{Data\+Type Class Reference}
+\label{class_data_type}\index{Data\+Type@{Data\+Type}}
+
+
+value object that represent any sql type  
+
+
+
+
+{\ttfamily \#include $<$Data\+Type.\+h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{class_data_type_a8df455d8d3949b604fbb2967dfeff239}{Base} \{ \newline
+{\bfseries Invalid}, 
+\hyperlink{class_data_type_a8df455d8d3949b604fbb2967dfeff239a396f5ae6a2286ec8121a2146207850a5}{Char}, 
+\hyperlink{class_data_type_a8df455d8d3949b604fbb2967dfeff239a160c768176611f2649889e252c756539}{Var\+Char}, 
+\hyperlink{class_data_type_a8df455d8d3949b604fbb2967dfeff239ab4b13294ee3efac7e4831c55caa11022}{Binary}, 
+\newline
+\hyperlink{class_data_type_a8df455d8d3949b604fbb2967dfeff239a89f767813407ed2a706e8e8f69402667}{Var\+Binary}, 
+{\bfseries Boolean}, 
+\hyperlink{class_data_type_a8df455d8d3949b604fbb2967dfeff239a8d0497c1a18d35863fb81315b6d0bf41}{Small\+Int}, 
+\hyperlink{class_data_type_a8df455d8d3949b604fbb2967dfeff239a3749547ad6302148b455bb3c0855689b}{Integer}, 
+\newline
+\hyperlink{class_data_type_a8df455d8d3949b604fbb2967dfeff239a4c9dd8d283c3f139832ae29d868fd79c}{Big\+Int}, 
+\hyperlink{class_data_type_a8df455d8d3949b604fbb2967dfeff239a0e7950ea81022df1b093fd76fc773bcb}{Decimal}, 
+{\bfseries Float}, 
+{\bfseries Double}, 
+\newline
+{\bfseries Date}, 
+{\bfseries Time}, 
+{\bfseries Date\+Time}, 
+{\bfseries Interval}, 
+\newline
+{\bfseries Array}, 
+{\bfseries Multiset}, 
+{\bfseries Xml}, 
+{\bfseries Geometry}
+ \}\begin{DoxyCompactList}\small\item\em Base Type enum. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_data_type_aa777acb36257198ce8db6d396fb94bb6}{Data\+Type} (const Q\+String \&\hyperlink{class_data_type_a61123733098ff8d26bef2a6a6401db83}{string})
+\begin{DoxyCompactList}\small\item\em Construct the type from. \end{DoxyCompactList}\item 
+\hyperlink{class_data_type_afe0f057e4b0556dd17cbefa59b2487dc}{Data\+Type} (\hyperlink{class_data_type_a8df455d8d3949b604fbb2967dfeff239}{Base} \hyperlink{class_data_type_ab74107f47a2a754eaf4b72e7b20e00d3}{base}, quint64 \hyperlink{class_data_type_a14a632d64fb970501b78c7b6f18d3ca7}{precision}=0, int \hyperlink{class_data_type_ad7bd76d9d549701b91bd9ede3dce889a}{scale}=0)
+\begin{DoxyCompactList}\small\item\em Constructs the type. \end{DoxyCompactList}\item 
+const Q\+String \hyperlink{class_data_type_a61123733098ff8d26bef2a6a6401db83}{string} () const
+\item 
+\hyperlink{class_data_type_a8df455d8d3949b604fbb2967dfeff239}{Base} \hyperlink{class_data_type_ab74107f47a2a754eaf4b72e7b20e00d3}{base} () const
+\item 
+quint64 \hyperlink{class_data_type_a14a632d64fb970501b78c7b6f18d3ca7}{precision} (quint64 default\+Value=0) const
+\item 
+int \hyperlink{class_data_type_ad7bd76d9d549701b91bd9ede3dce889a}{scale} () const
+\item 
+bool \hyperlink{class_data_type_ad7629e3562fdd2ad8afea12050dec31b}{is\+Valid} () const
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static const \hyperlink{class_data_type}{Data\+Type} \& \hyperlink{class_data_type_a57b17d24ef05c53131e20dfcd54e219d}{invalid} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+value object that represent any sql type 
+
+\subsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{class_data_type_a8df455d8d3949b604fbb2967dfeff239}\label{class_data_type_a8df455d8d3949b604fbb2967dfeff239}} 
+\index{Data\+Type@{Data\+Type}!Base@{Base}}
+\index{Base@{Base}!Data\+Type@{Data\+Type}}
+\subsubsection{\texorpdfstring{Base}{Base}}
+{\footnotesize\ttfamily enum \hyperlink{class_data_type_a8df455d8d3949b604fbb2967dfeff239}{Data\+Type\+::\+Base}}
+
+
+
+Base Type enum. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Char@{Char}!Data\+Type@{Data\+Type}}\index{Data\+Type@{Data\+Type}!Char@{Char}}}\mbox{\Hypertarget{class_data_type_a8df455d8d3949b604fbb2967dfeff239a396f5ae6a2286ec8121a2146207850a5}\label{class_data_type_a8df455d8d3949b604fbb2967dfeff239a396f5ae6a2286ec8121a2146207850a5}} 
+Char&precision is length (defaults to 1) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Var\+Char@{Var\+Char}!Data\+Type@{Data\+Type}}\index{Data\+Type@{Data\+Type}!Var\+Char@{Var\+Char}}}\mbox{\Hypertarget{class_data_type_a8df455d8d3949b604fbb2967dfeff239a160c768176611f2649889e252c756539}\label{class_data_type_a8df455d8d3949b604fbb2967dfeff239a160c768176611f2649889e252c756539}} 
+Var\+Char&precision is maximum length (defaults to 255) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Binary@{Binary}!Data\+Type@{Data\+Type}}\index{Data\+Type@{Data\+Type}!Binary@{Binary}}}\mbox{\Hypertarget{class_data_type_a8df455d8d3949b604fbb2967dfeff239ab4b13294ee3efac7e4831c55caa11022}\label{class_data_type_a8df455d8d3949b604fbb2967dfeff239ab4b13294ee3efac7e4831c55caa11022}} 
+Binary&precision represents length in bytes (required) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Var\+Binary@{Var\+Binary}!Data\+Type@{Data\+Type}}\index{Data\+Type@{Data\+Type}!Var\+Binary@{Var\+Binary}}}\mbox{\Hypertarget{class_data_type_a8df455d8d3949b604fbb2967dfeff239a89f767813407ed2a706e8e8f69402667}\label{class_data_type_a8df455d8d3949b604fbb2967dfeff239a89f767813407ed2a706e8e8f69402667}} 
+Var\+Binary&precision represents maximum bytes \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Small\+Int@{Small\+Int}!Data\+Type@{Data\+Type}}\index{Data\+Type@{Data\+Type}!Small\+Int@{Small\+Int}}}\mbox{\Hypertarget{class_data_type_a8df455d8d3949b604fbb2967dfeff239a8d0497c1a18d35863fb81315b6d0bf41}\label{class_data_type_a8df455d8d3949b604fbb2967dfeff239a8d0497c1a18d35863fb81315b6d0bf41}} 
+Small\+Int&precision is 5 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Integer@{Integer}!Data\+Type@{Data\+Type}}\index{Data\+Type@{Data\+Type}!Integer@{Integer}}}\mbox{\Hypertarget{class_data_type_a8df455d8d3949b604fbb2967dfeff239a3749547ad6302148b455bb3c0855689b}\label{class_data_type_a8df455d8d3949b604fbb2967dfeff239a3749547ad6302148b455bb3c0855689b}} 
+Integer&precision defaults to 10 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Big\+Int@{Big\+Int}!Data\+Type@{Data\+Type}}\index{Data\+Type@{Data\+Type}!Big\+Int@{Big\+Int}}}\mbox{\Hypertarget{class_data_type_a8df455d8d3949b604fbb2967dfeff239a4c9dd8d283c3f139832ae29d868fd79c}\label{class_data_type_a8df455d8d3949b604fbb2967dfeff239a4c9dd8d283c3f139832ae29d868fd79c}} 
+Big\+Int&precision is 19 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Decimal@{Decimal}!Data\+Type@{Data\+Type}}\index{Data\+Type@{Data\+Type}!Decimal@{Decimal}}}\mbox{\Hypertarget{class_data_type_a8df455d8d3949b604fbb2967dfeff239a0e7950ea81022df1b093fd76fc773bcb}\label{class_data_type_a8df455d8d3949b604fbb2967dfeff239a0e7950ea81022df1b093fd76fc773bcb}} 
+Decimal&precision and scale required (total digits, digits after comma) \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_data_type_aa777acb36257198ce8db6d396fb94bb6}\label{class_data_type_aa777acb36257198ce8db6d396fb94bb6}} 
+\index{Data\+Type@{Data\+Type}!Data\+Type@{Data\+Type}}
+\index{Data\+Type@{Data\+Type}!Data\+Type@{Data\+Type}}
+\subsubsection{\texorpdfstring{Data\+Type()}{DataType()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Data\+Type\+::\+Data\+Type (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{string }\end{DoxyParamCaption})}
+
+
+
+Construct the type from. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & the string representation of an sql type \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_data_type_afe0f057e4b0556dd17cbefa59b2487dc}\label{class_data_type_afe0f057e4b0556dd17cbefa59b2487dc}} 
+\index{Data\+Type@{Data\+Type}!Data\+Type@{Data\+Type}}
+\index{Data\+Type@{Data\+Type}!Data\+Type@{Data\+Type}}
+\subsubsection{\texorpdfstring{Data\+Type()}{DataType()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily P\+R\+A\+A\+L\+I\+N\+E\+\_\+\+C\+O\+R\+E\+\_\+\+B\+E\+G\+I\+N\+\_\+\+N\+A\+M\+E\+S\+P\+A\+CE Data\+Type\+::\+Data\+Type (\begin{DoxyParamCaption}\item[{\hyperlink{class_data_type_a8df455d8d3949b604fbb2967dfeff239}{Data\+Type\+::\+Base}}]{base,  }\item[{quint64}]{precision = {\ttfamily 0},  }\item[{int}]{scale = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Constructs the type. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em base} & the required base type \\
+\hline
+{\em precision} & if supported or required the precision or length \\
+\hline
+{\em scale} & if supported or required by the base type \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_data_type_ab74107f47a2a754eaf4b72e7b20e00d3}\label{class_data_type_ab74107f47a2a754eaf4b72e7b20e00d3}} 
+\index{Data\+Type@{Data\+Type}!base@{base}}
+\index{base@{base}!Data\+Type@{Data\+Type}}
+\subsubsection{\texorpdfstring{base()}{base()}}
+{\footnotesize\ttfamily \hyperlink{class_data_type_a8df455d8d3949b604fbb2967dfeff239}{Data\+Type\+::\+Base} Data\+Type\+::base (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+the base type (if base form is used) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_data_type_a57b17d24ef05c53131e20dfcd54e219d}\label{class_data_type_a57b17d24ef05c53131e20dfcd54e219d}} 
+\index{Data\+Type@{Data\+Type}!invalid@{invalid}}
+\index{invalid@{invalid}!Data\+Type@{Data\+Type}}
+\subsubsection{\texorpdfstring{invalid()}{invalid()}}
+{\footnotesize\ttfamily const \hyperlink{class_data_type}{Data\+Type} \& Data\+Type\+::invalid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\begin{DoxyReturn}{Returns}
+the invalid Type 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_data_type_ad7629e3562fdd2ad8afea12050dec31b}\label{class_data_type_ad7629e3562fdd2ad8afea12050dec31b}} 
+\index{Data\+Type@{Data\+Type}!is\+Valid@{is\+Valid}}
+\index{is\+Valid@{is\+Valid}!Data\+Type@{Data\+Type}}
+\subsubsection{\texorpdfstring{is\+Valid()}{isValid()}}
+{\footnotesize\ttfamily bool Data\+Type\+::is\+Valid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+true if this type is not invalid 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_data_type_a14a632d64fb970501b78c7b6f18d3ca7}\label{class_data_type_a14a632d64fb970501b78c7b6f18d3ca7}} 
+\index{Data\+Type@{Data\+Type}!precision@{precision}}
+\index{precision@{precision}!Data\+Type@{Data\+Type}}
+\subsubsection{\texorpdfstring{precision()}{precision()}}
+{\footnotesize\ttfamily quint64 Data\+Type\+::precision (\begin{DoxyParamCaption}\item[{quint64}]{default\+Value = {\ttfamily 0} }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+the precision (only used for supported types -\/ numeric and string) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_data_type_ad7bd76d9d549701b91bd9ede3dce889a}\label{class_data_type_ad7bd76d9d549701b91bd9ede3dce889a}} 
+\index{Data\+Type@{Data\+Type}!scale@{scale}}
+\index{scale@{scale}!Data\+Type@{Data\+Type}}
+\subsubsection{\texorpdfstring{scale()}{scale()}}
+{\footnotesize\ttfamily int Data\+Type\+::scale (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+the scale of the type (only used for numeric values) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_data_type_a61123733098ff8d26bef2a6a6401db83}\label{class_data_type_a61123733098ff8d26bef2a6a6401db83}} 
+\index{Data\+Type@{Data\+Type}!string@{string}}
+\index{string@{string}!Data\+Type@{Data\+Type}}
+\subsubsection{\texorpdfstring{string()}{string()}}
+{\footnotesize\ttfamily const Q\+String Data\+Type\+::string (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+the string representation of the data type 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/base/Data\+Type.\+h\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/base/Data\+Type.\+cpp\end{DoxyCompactItemize}

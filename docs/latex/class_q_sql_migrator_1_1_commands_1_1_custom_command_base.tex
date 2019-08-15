@@ -1,0 +1,65 @@
+\hypertarget{class_q_sql_migrator_1_1_commands_1_1_custom_command_base}{}\section{Q\+Sql\+Migrator\+:\+:Commands\+:\+:Custom\+Command\+Base Class Reference}
+\label{class_q_sql_migrator_1_1_commands_1_1_custom_command_base}\index{Q\+Sql\+Migrator\+::\+Commands\+::\+Custom\+Command\+Base@{Q\+Sql\+Migrator\+::\+Commands\+::\+Custom\+Command\+Base}}
+
+
+base class for custom commands  
+
+
+
+
+{\ttfamily \#include $<$Custom\+Command\+Base.\+h$>$}
+
+Inheritance diagram for Q\+Sql\+Migrator\+:\+:Commands\+:\+:Custom\+Command\+Base\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_q_sql_migrator_1_1_commands_1_1_custom_command_base}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_commands_1_1_custom_command_base_a235261821273273feae5ae3b07eb75c0}\label{class_q_sql_migrator_1_1_commands_1_1_custom_command_base_a235261821273273feae5ae3b07eb75c0}} 
+{\bfseries Custom\+Command\+Base} (const Q\+String \&command\+Name)
+\item 
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_commands_1_1_custom_command_base_a15954460a6a5ba46757089f2b7ca6e32}\label{class_q_sql_migrator_1_1_commands_1_1_custom_command_base_a15954460a6a5ba46757089f2b7ca6e32}} 
+const Q\+String \& {\bfseries custom\+Name} () const
+\item 
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_commands_1_1_custom_command_base_ac2c8521957562d3e31ca4c95d008b641}\label{class_q_sql_migrator_1_1_commands_1_1_custom_command_base_ac2c8521957562d3e31ca4c95d008b641}} 
+virtual bool {\bfseries up} (const Q\+Sql\+Database \&database) const =0
+\item 
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_commands_1_1_custom_command_base_a76231dc0351ff7f4750a6f2411b30847}\label{class_q_sql_migrator_1_1_commands_1_1_custom_command_base_a76231dc0351ff7f4750a6f2411b30847}} 
+virtual bool {\bfseries down} (const Q\+Sql\+Database \&database) const
+\item 
+Command\+Ptr \hyperlink{class_q_sql_migrator_1_1_commands_1_1_custom_command_base_a40c94f9cd360848f2c1c80b05a86ad08}{reverse} () const Q\+\_\+\+D\+E\+C\+L\+\_\+\+O\+V\+E\+R\+R\+I\+DE
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_commands_1_1_custom_command_base_adf2a577597d5d397ed15c95357aa1459}\label{class_q_sql_migrator_1_1_commands_1_1_custom_command_base_adf2a577597d5d397ed15c95357aa1459}} 
+static const Q\+String \& {\bfseries type\+Name} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+base class for custom commands 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_commands_1_1_custom_command_base_a40c94f9cd360848f2c1c80b05a86ad08}\label{class_q_sql_migrator_1_1_commands_1_1_custom_command_base_a40c94f9cd360848f2c1c80b05a86ad08}} 
+\index{Q\+Sql\+Migrator\+::\+Commands\+::\+Custom\+Command\+Base@{Q\+Sql\+Migrator\+::\+Commands\+::\+Custom\+Command\+Base}!reverse@{reverse}}
+\index{reverse@{reverse}!Q\+Sql\+Migrator\+::\+Commands\+::\+Custom\+Command\+Base@{Q\+Sql\+Migrator\+::\+Commands\+::\+Custom\+Command\+Base}}
+\subsubsection{\texorpdfstring{reverse()}{reverse()}}
+{\footnotesize\ttfamily Command\+Ptr Q\+Sql\+Migrator\+::\+Commands\+::\+Custom\+Command\+Base\+::reverse (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+invalid command (not reversable) 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_q_sql_migrator_1_1_commands_1_1_base_command}{Q\+Sql\+Migrator\+::\+Commands\+::\+Base\+Command}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/\+Q\+Sql\+Migrator/\+Commands/Custom\+Command\+Base.\+h\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/\+Q\+Sql\+Migrator/\+Commands/Custom\+Command\+Base.\+cpp\end{DoxyCompactItemize}

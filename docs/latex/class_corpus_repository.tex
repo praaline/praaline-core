@@ -1,0 +1,101 @@
+\hypertarget{class_corpus_repository}{}\section{Corpus\+Repository Class Reference}
+\label{class_corpus_repository}\index{Corpus\+Repository@{Corpus\+Repository}}
+Inheritance diagram for Corpus\+Repository\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_corpus_repository}
+\end{center}
+\end{figure}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_corpus_repository_a73d1198545d4557409620c1c361691bd}\label{class_corpus_repository_a73d1198545d4557409620c1c361691bd}} 
+void {\bfseries changed\+ID} (const Q\+String \&old\+ID, const Q\+String \&new\+ID)
+\item 
+\mbox{\Hypertarget{class_corpus_repository_a46dca05e48d3b11613add7f8d18896c7}\label{class_corpus_repository_a46dca05e48d3b11613add7f8d18896c7}} 
+void {\bfseries log\+Message} (const Q\+String \&category, const Q\+String \&message)
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_corpus_repository_a9b505f5f200100ea4f2d77f55e7fc845}\label{class_corpus_repository_a9b505f5f200100ea4f2d77f55e7fc845}} 
+void {\bfseries close} ()
+\item 
+\mbox{\Hypertarget{class_corpus_repository_ad2cc4235276a9255ba67685c97d5f051}\label{class_corpus_repository_ad2cc4235276a9255ba67685c97d5f051}} 
+Q\+String {\bfseries ID} () const
+\item 
+\mbox{\Hypertarget{class_corpus_repository_a4039cf6526092b775f517dd297d8027b}\label{class_corpus_repository_a4039cf6526092b775f517dd297d8027b}} 
+void {\bfseries set\+ID} (const Q\+String \&ID)
+\item 
+\mbox{\Hypertarget{class_corpus_repository_a145688e9ad7b25c86f9fc0d8cdd24be8}\label{class_corpus_repository_a145688e9ad7b25c86f9fc0d8cdd24be8}} 
+Q\+String {\bfseries description} () const
+\item 
+\mbox{\Hypertarget{class_corpus_repository_a6c38e725b348fc1b0ff3430c0f20147f}\label{class_corpus_repository_a6c38e725b348fc1b0ff3430c0f20147f}} 
+void {\bfseries set\+Description} (const Q\+String \&description)
+\item 
+\mbox{\Hypertarget{class_corpus_repository_ab0877cb895b6ce09361095cb34634556}\label{class_corpus_repository_ab0877cb895b6ce09361095cb34634556}} 
+void {\bfseries set\+Base\+Path\+Media} (const Q\+String \&path)
+\item 
+\mbox{\Hypertarget{class_corpus_repository_a048c24879c8a9737ea5e863446016f03}\label{class_corpus_repository_a048c24879c8a9737ea5e863446016f03}} 
+\hyperlink{class_corpus_repository_definition}{Corpus\+Repository\+Definition} {\bfseries definition} () const
+\item 
+\mbox{\Hypertarget{class_corpus_repository_a9a0a2c78a9bb86f4144d0a10ef6d3423}\label{class_corpus_repository_a9a0a2c78a9bb86f4144d0a10ef6d3423}} 
+Q\+Pointer$<$ \hyperlink{class_annotation_datastore}{Annotation\+Datastore} $>$ {\bfseries annotations} () const
+\item 
+\mbox{\Hypertarget{class_corpus_repository_a58278c1281f30f1b7c94cacb21b9222a}\label{class_corpus_repository_a58278c1281f30f1b7c94cacb21b9222a}} 
+Q\+Pointer$<$ \hyperlink{class_metadata_datastore}{Metadata\+Datastore} $>$ {\bfseries metadata} () const
+\item 
+\mbox{\Hypertarget{class_corpus_repository_af6cb68593edf8602a6f7beaa7809cad8}\label{class_corpus_repository_af6cb68593edf8602a6f7beaa7809cad8}} 
+Q\+Pointer$<$ \hyperlink{class_file_datastore}{File\+Datastore} $>$ {\bfseries files} () const
+\item 
+\mbox{\Hypertarget{class_corpus_repository_a29b9720969815b8becd5f0febede876c}\label{class_corpus_repository_a29b9720969815b8becd5f0febede876c}} 
+Q\+List$<$ \hyperlink{class_corpus_object_info}{Corpus\+Object\+Info} $>$ {\bfseries list\+Corpora\+Info} () const
+\item 
+\mbox{\Hypertarget{class_corpus_repository_abf2613f6bba1e93209523db15a258d9f}\label{class_corpus_repository_abf2613f6bba1e93209523db15a258d9f}} 
+Q\+String\+List {\bfseries list\+Corpora\+I\+Ds} () const
+\item 
+\mbox{\Hypertarget{class_corpus_repository_a009752d30d8ab46a45b6936a7942aeb6}\label{class_corpus_repository_a009752d30d8ab46a45b6936a7942aeb6}} 
+Q\+Pointer$<$ \hyperlink{class_metadata_structure}{Metadata\+Structure} $>$ {\bfseries metadata\+Structure} () const
+\item 
+\mbox{\Hypertarget{class_corpus_repository_a4036acd92e1c4c231fc6d14af0ab6efc}\label{class_corpus_repository_a4036acd92e1c4c231fc6d14af0ab6efc}} 
+Q\+Pointer$<$ \hyperlink{class_annotation_structure}{Annotation\+Structure} $>$ {\bfseries annotation\+Structure} () const
+\item 
+\mbox{\Hypertarget{class_corpus_repository_a5b72d1398004a43d71609a8f7e03a9c2}\label{class_corpus_repository_a5b72d1398004a43d71609a8f7e03a9c2}} 
+void {\bfseries import\+Metadata\+Structure} (\hyperlink{class_metadata_structure}{Metadata\+Structure} $\ast$other\+Structure)
+\item 
+\mbox{\Hypertarget{class_corpus_repository_ac087172e31a069907539d762fec9d830}\label{class_corpus_repository_ac087172e31a069907539d762fec9d830}} 
+void {\bfseries import\+Annotation\+Structure} (\hyperlink{class_annotation_structure}{Annotation\+Structure} $\ast$other\+Structure)
+\item 
+\mbox{\Hypertarget{class_corpus_repository_a135593a4adab48ef03bc4106116020a2}\label{class_corpus_repository_a135593a4adab48ef03bc4106116020a2}} 
+bool {\bfseries create\+Metadata\+Attribute} (Corpus\+Object\+::\+Type type, const Q\+String \&section\+ID, const Q\+String \&ID, const Q\+String \&name=Q\+String(), const Q\+String \&description=Q\+String(), const \hyperlink{class_data_type}{Data\+Type} \&datatype=\hyperlink{class_data_type}{Data\+Type}(\hyperlink{class_data_type_a8df455d8d3949b604fbb2967dfeff239a160c768176611f2649889e252c756539}{Data\+Type\+::\+Var\+Char}, 256), int order=0, bool indexed=false, const Q\+String \&name\+Value\+List=Q\+String())
+\item 
+\mbox{\Hypertarget{class_corpus_repository_a715e6a5c85b900be84f44b77763d9688}\label{class_corpus_repository_a715e6a5c85b900be84f44b77763d9688}} 
+bool {\bfseries create\+Annotation\+Attribute} (const Q\+String \&annotation\+Level\+ID, const Q\+String \&ID, const Q\+String \&name=Q\+String(), const Q\+String \&description=Q\+String(), const \hyperlink{class_data_type}{Data\+Type} \&datatype=\hyperlink{class_data_type}{Data\+Type}(\hyperlink{class_data_type_a8df455d8d3949b604fbb2967dfeff239a160c768176611f2649889e252c756539}{Data\+Type\+::\+Var\+Char}, 256), int order=0, bool indexed=false, const Q\+String \&name\+Value\+List=Q\+String())
+\item 
+\mbox{\Hypertarget{class_corpus_repository_ae5455da3eed599d6a36dc1f4b082e141}\label{class_corpus_repository_ae5455da3eed599d6a36dc1f4b082e141}} 
+Q\+String {\bfseries last\+Error} () const
+\item 
+\mbox{\Hypertarget{class_corpus_repository_a60314b693ebcf37904be5d5b911dcdcf}\label{class_corpus_repository_a60314b693ebcf37904be5d5b911dcdcf}} 
+void {\bfseries set\+Last\+Error} (const Q\+String \&error\+Message)
+\item 
+\mbox{\Hypertarget{class_corpus_repository_a05b094b05a99c5b9360a8a4e36b465e7}\label{class_corpus_repository_a05b094b05a99c5b9360a8a4e36b465e7}} 
+void {\bfseries clear\+Last\+Error} ()
+\item 
+\mbox{\Hypertarget{class_corpus_repository_a58ad4e9c09d31f9bfddcdaa833ffde6a}\label{class_corpus_repository_a58ad4e9c09d31f9bfddcdaa833ffde6a}} 
+void {\bfseries send\+Log\+Message} (const Q\+String \&category, const Q\+String \&message)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_corpus_repository_a4306ac088c265f3d59f68c5357fcb078}\label{class_corpus_repository_a4306ac088c265f3d59f68c5357fcb078}} 
+static \hyperlink{class_corpus_repository}{Corpus\+Repository} $\ast$ {\bfseries create} (const \hyperlink{class_corpus_repository_definition}{Corpus\+Repository\+Definition} \&definition, Q\+String \&error\+Messages, Q\+Object $\ast$parent=nullptr)
+\item 
+\mbox{\Hypertarget{class_corpus_repository_affb2746157b21a8ef2cd1de89e762814}\label{class_corpus_repository_affb2746157b21a8ef2cd1de89e762814}} 
+static \hyperlink{class_corpus_repository}{Corpus\+Repository} $\ast$ {\bfseries open} (const \hyperlink{class_corpus_repository_definition}{Corpus\+Repository\+Definition} \&definition, Q\+String \&error\+Messages, Q\+Object $\ast$parent=nullptr)
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/datastore/Corpus\+Repository.\+h\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/datastore/Corpus\+Repository.\+cpp\end{DoxyCompactItemize}

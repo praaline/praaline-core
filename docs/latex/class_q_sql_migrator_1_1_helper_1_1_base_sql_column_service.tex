@@ -1,0 +1,50 @@
+\hypertarget{class_q_sql_migrator_1_1_helper_1_1_base_sql_column_service}{}\section{Q\+Sql\+Migrator\+:\+:Helper\+:\+:Base\+Sql\+Column\+Service Class Reference}
+\label{class_q_sql_migrator_1_1_helper_1_1_base_sql_column_service}\index{Q\+Sql\+Migrator\+::\+Helper\+::\+Base\+Sql\+Column\+Service@{Q\+Sql\+Migrator\+::\+Helper\+::\+Base\+Sql\+Column\+Service}}
+Inheritance diagram for Q\+Sql\+Migrator\+:\+:Helper\+:\+:Base\+Sql\+Column\+Service\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.906574cm]{class_q_sql_migrator_1_1_helper_1_1_base_sql_column_service}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_helper_1_1_base_sql_column_service_a9ef1b6bd6c0eaeb2ed998fc1313e07cc}\label{class_q_sql_migrator_1_1_helper_1_1_base_sql_column_service_a9ef1b6bd6c0eaeb2ed998fc1313e07cc}} 
+typedef std\+::function$<$ void(const Q\+String \&type) $>$ {\bfseries String\+Output\+Function}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_helper_1_1_base_sql_column_service_a2a7e948e520d3da4eaf308d2574675f7}\label{class_q_sql_migrator_1_1_helper_1_1_base_sql_column_service_a2a7e948e520d3da4eaf308d2574675f7}} 
+{\bfseries Base\+Sql\+Column\+Service} (const \hyperlink{class_q_sql_migrator_1_1_helper_1_1_type_mapper_service}{Type\+Mapper\+Service} \&type\+Mapper\+Service)
+\item 
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_helper_1_1_base_sql_column_service_ac27cec78ddb481482c811ab5535b6da6}\label{class_q_sql_migrator_1_1_helper_1_1_base_sql_column_service_ac27cec78ddb481482c811ab5535b6da6}} 
+virtual Q\+String {\bfseries build\+Column\+Type\+Sql} (const \hyperlink{class_q_sql_migrator_1_1_structure_1_1_column}{Structure\+::\+Column} \&column) const
+\item 
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_helper_1_1_base_sql_column_service_ac4654897bbc706f81e458e4e134ae36d}\label{class_q_sql_migrator_1_1_helper_1_1_base_sql_column_service_ac4654897bbc706f81e458e4e134ae36d}} 
+virtual void {\bfseries build\+Column\+Options\+Sql} (const \hyperlink{class_q_sql_migrator_1_1_structure_1_1_column}{Structure\+::\+Column} \&column, const String\+Output\+Function \&add\+Option) const
+\item 
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_helper_1_1_base_sql_column_service_a46b338ad94cebfb2b408ec0a5977eedb}\label{class_q_sql_migrator_1_1_helper_1_1_base_sql_column_service_a46b338ad94cebfb2b408ec0a5977eedb}} 
+Q\+String {\bfseries generate\+Column\+Definition\+Sql} (const \hyperlink{class_q_sql_migrator_1_1_structure_1_1_column}{Structure\+::\+Column} \&column) const Q\+\_\+\+D\+E\+C\+L\+\_\+\+O\+V\+E\+R\+R\+I\+DE
+\item 
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_helper_1_1_base_sql_column_service_a1df2e7645c44a6a80d8aab242d55ceac}\label{class_q_sql_migrator_1_1_helper_1_1_base_sql_column_service_a1df2e7645c44a6a80d8aab242d55ceac}} 
+Q\+String {\bfseries generate\+Columns\+Definition\+Sql} (const Q\+List$<$ \hyperlink{class_q_sql_migrator_1_1_structure_1_1_column}{Structure\+::\+Column} $>$ \&column\+List) const Q\+\_\+\+D\+E\+C\+L\+\_\+\+O\+V\+E\+R\+R\+I\+DE
+\item 
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_helper_1_1_base_sql_column_service_acf93e8a83e2e23b8ccd83de0ea83bfdb}\label{class_q_sql_migrator_1_1_helper_1_1_base_sql_column_service_acf93e8a83e2e23b8ccd83de0ea83bfdb}} 
+Q\+String {\bfseries generate\+Index\+Column\+Definition\+Sql} (const \hyperlink{class_q_sql_migrator_1_1_structure_1_1_index_1_1_column}{Structure\+::\+Index\+::\+Column} \&column) const Q\+\_\+\+D\+E\+C\+L\+\_\+\+O\+V\+E\+R\+R\+I\+DE
+\item 
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_helper_1_1_base_sql_column_service_a650745d0a11d04226c11103bcbcba2ce}\label{class_q_sql_migrator_1_1_helper_1_1_base_sql_column_service_a650745d0a11d04226c11103bcbcba2ce}} 
+Q\+String {\bfseries generate\+Index\+Columns\+Definition\+Sql} (const Structure\+::\+Index\+::\+Column\+List \&columns) const Q\+\_\+\+D\+E\+C\+L\+\_\+\+O\+V\+E\+R\+R\+I\+DE
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_helper_1_1_base_sql_column_service_a4181f6442b4a6109fb7ab4c651df5343}\label{class_q_sql_migrator_1_1_helper_1_1_base_sql_column_service_a4181f6442b4a6109fb7ab4c651df5343}} 
+const \hyperlink{class_q_sql_migrator_1_1_helper_1_1_type_mapper_service}{Type\+Mapper\+Service} \& {\bfseries m\+\_\+type\+Mapper\+Service}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/\+Q\+Sql\+Migrator/\+Base\+Sql\+Migrator/\+Helper/Base\+Sql\+Column\+Service.\+h\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/\+Q\+Sql\+Migrator/\+Base\+Sql\+Migrator/\+Helper/Base\+Sql\+Column\+Service.\+cpp\end{DoxyCompactItemize}

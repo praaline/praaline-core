@@ -1,0 +1,93 @@
+\hypertarget{class_corpus_annotation}{}\section{Corpus\+Annotation Class Reference}
+\label{class_corpus_annotation}\index{Corpus\+Annotation@{Corpus\+Annotation}}
+Inheritance diagram for Corpus\+Annotation\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_corpus_annotation}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_corpus_annotation_aeaf4554895df52730ab8c6939b070421}\label{class_corpus_annotation_aeaf4554895df52730ab8c6939b070421}} 
+{\bfseries Corpus\+Annotation} (\hyperlink{class_corpus_repository}{Corpus\+Repository} $\ast$repository=nullptr, Q\+Object $\ast$parent=nullptr)
+\item 
+\mbox{\Hypertarget{class_corpus_annotation_a23014f51ce94c4b90ac04ec2fce29938}\label{class_corpus_annotation_a23014f51ce94c4b90ac04ec2fce29938}} 
+{\bfseries Corpus\+Annotation} (const Q\+String ID, \hyperlink{class_corpus_repository}{Corpus\+Repository} $\ast$repository=nullptr, Q\+Object $\ast$parent=nullptr)
+\item 
+\mbox{\Hypertarget{class_corpus_annotation_ad79f5199315b78ffa0da1ef06a687a93}\label{class_corpus_annotation_ad79f5199315b78ffa0da1ef06a687a93}} 
+{\bfseries Corpus\+Annotation} (\hyperlink{class_corpus_annotation}{Corpus\+Annotation} $\ast$other, Q\+Object $\ast$parent=nullptr)
+\item 
+\mbox{\Hypertarget{class_corpus_annotation_adc7b62e91d01e00c9754aa8819841587}\label{class_corpus_annotation_adc7b62e91d01e00c9754aa8819841587}} 
+Corpus\+Object\+::\+Type {\bfseries type} () const override
+\item 
+\mbox{\Hypertarget{class_corpus_annotation_ab6e98b3fc0d449b2e76b32ca25a27102}\label{class_corpus_annotation_ab6e98b3fc0d449b2e76b32ca25a27102}} 
+bool {\bfseries save} () override
+\item 
+\mbox{\Hypertarget{class_corpus_annotation_af9a18d51ebb2e4db26bb66a831ea4c57}\label{class_corpus_annotation_af9a18d51ebb2e4db26bb66a831ea4c57}} 
+Q\+String {\bfseries communication\+ID} () const
+\item 
+\mbox{\Hypertarget{class_corpus_annotation_a71af0d158027529d821a9fc41ddd888a}\label{class_corpus_annotation_a71af0d158027529d821a9fc41ddd888a}} 
+Q\+Pointer$<$ \hyperlink{class_corpus}{Corpus} $>$ {\bfseries corpus} () const
+\item 
+\mbox{\Hypertarget{class_corpus_annotation_a3d96da8cc79294ad900ea8869ab040b4}\label{class_corpus_annotation_a3d96da8cc79294ad900ea8869ab040b4}} 
+Q\+String {\bfseries name} () const
+\item 
+\mbox{\Hypertarget{class_corpus_annotation_a3cdc3692368c60cdde4bedcd22db525f}\label{class_corpus_annotation_a3cdc3692368c60cdde4bedcd22db525f}} 
+void {\bfseries set\+Name} (const Q\+String \&name)
+\item 
+\mbox{\Hypertarget{class_corpus_annotation_ae64f1c514ad722bb7a8abe5052f22ace}\label{class_corpus_annotation_ae64f1c514ad722bb7a8abe5052f22ace}} 
+Q\+String {\bfseries recording\+ID} () const
+\item 
+\mbox{\Hypertarget{class_corpus_annotation_a9955b82391b40b6c8c39c26b9036bd1b}\label{class_corpus_annotation_a9955b82391b40b6c8c39c26b9036bd1b}} 
+void {\bfseries set\+Recording\+ID} (const Q\+String \&recording\+ID)
+\item 
+\mbox{\Hypertarget{class_corpus_annotation_af0a0a7c4128d6fa9b010e027571c195e}\label{class_corpus_annotation_af0a0a7c4128d6fa9b010e027571c195e}} 
+Q\+String {\bfseries filename} () const
+\item 
+\mbox{\Hypertarget{class_corpus_annotation_aaa35e7b750a3735f8aa29fe2d2a79497}\label{class_corpus_annotation_aaa35e7b750a3735f8aa29fe2d2a79497}} 
+void {\bfseries set\+Filename} (const Q\+String \&filename)
+\item 
+\mbox{\Hypertarget{class_corpus_annotation_ae058e5a667a46dd0faaba1268e589e0b}\label{class_corpus_annotation_ae058e5a667a46dd0faaba1268e589e0b}} 
+Q\+String {\bfseries format} () const
+\item 
+\mbox{\Hypertarget{class_corpus_annotation_a09849335dcca310cd05cd92a19517ab0}\label{class_corpus_annotation_a09849335dcca310cd05cd92a19517ab0}} 
+void {\bfseries set\+Format} (const Q\+String \&format)
+\item 
+\mbox{\Hypertarget{class_corpus_annotation_a3c8175817f0272d5d3fee3842b467190}\label{class_corpus_annotation_a3c8175817f0272d5d3fee3842b467190}} 
+bool {\bfseries is\+Multi\+Language} () const
+\item 
+\mbox{\Hypertarget{class_corpus_annotation_a1e4de8bf7fee8f722898de91eca5f43c}\label{class_corpus_annotation_a1e4de8bf7fee8f722898de91eca5f43c}} 
+Q\+String\+List {\bfseries languages} () const
+\item 
+\mbox{\Hypertarget{class_corpus_annotation_af0cf8b8b30fb75de053c300eea662df1}\label{class_corpus_annotation_af0cf8b8b30fb75de053c300eea662df1}} 
+void {\bfseries add\+Language} (const Q\+String \&language\+ID)
+\item 
+\mbox{\Hypertarget{class_corpus_annotation_a0bfc429fa745f304b507b5a80568e12b}\label{class_corpus_annotation_a0bfc429fa745f304b507b5a80568e12b}} 
+void {\bfseries remove\+Language} (const Q\+String \&language\+ID)
+\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_corpus_annotation_a445c4bbf129abd28b244699ac6fa0c83}\label{class_corpus_annotation_a445c4bbf129abd28b244699ac6fa0c83}} 
+Q\+String {\bfseries name}
+\item 
+\mbox{\Hypertarget{class_corpus_annotation_a2f719c17ffb4ddc3e5877b1120971eb6}\label{class_corpus_annotation_a2f719c17ffb4ddc3e5877b1120971eb6}} 
+Q\+String {\bfseries filename}
+\item 
+\mbox{\Hypertarget{class_corpus_annotation_a3ac440c36ef040cb9e20173eb85f571b}\label{class_corpus_annotation_a3ac440c36ef040cb9e20173eb85f571b}} 
+Q\+String {\bfseries format}
+\item 
+\mbox{\Hypertarget{class_corpus_annotation_ad9cabcfae5f6ea6aba1b66f9e5e92ab9}\label{class_corpus_annotation_ad9cabcfae5f6ea6aba1b66f9e5e92ab9}} 
+Q\+String\+List {\bfseries languages}
+\item 
+\mbox{\Hypertarget{class_corpus_annotation_a10eea3344873ffd772f7cb43639a6678}\label{class_corpus_annotation_a10eea3344873ffd772f7cb43639a6678}} 
+Q\+String {\bfseries communication\+ID}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/corpus/Corpus\+Annotation.\+h\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/corpus/Corpus\+Annotation.\+cpp\end{DoxyCompactItemize}

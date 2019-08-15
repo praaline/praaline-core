@@ -1,0 +1,85 @@
+\hypertarget{class_query_occurrence}{}\section{Query\+Occurrence Class Reference}
+\label{class_query_occurrence}\index{Query\+Occurrence@{Query\+Occurrence}}
+Inheritance diagram for Query\+Occurrence\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_query_occurrence}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_query_occurrence_1_1_result_interval}{Result\+Interval}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_query_occurrence_a5bd6db4a53e9beababb1474586b5e0a9}\label{class_query_occurrence_a5bd6db4a53e9beababb1474586b5e0a9}} 
+{\bfseries Query\+Occurrence} (const Q\+String \&corpus\+ID, const Q\+String \&communication\+ID, const Q\+String \&annotation\+ID, const Q\+Map$<$ Q\+String, Q\+List$<$ \hyperlink{class_query_occurrence_1_1_result_interval}{Result\+Interval} $>$ $>$ \&result\+Intervals, Q\+Object $\ast$parent=nullptr)
+\item 
+\mbox{\Hypertarget{class_query_occurrence_a7125781585344e22da921fa5b60d058e}\label{class_query_occurrence_a7125781585344e22da921fa5b60d058e}} 
+Q\+String {\bfseries corpus\+ID} () const
+\item 
+\mbox{\Hypertarget{class_query_occurrence_a5dff74ee1417eb35c8e8717d4bb0212b}\label{class_query_occurrence_a5dff74ee1417eb35c8e8717d4bb0212b}} 
+Q\+String {\bfseries communication\+ID} () const
+\item 
+\mbox{\Hypertarget{class_query_occurrence_a50f742ab08b343132face0d2a6e03100}\label{class_query_occurrence_a50f742ab08b343132face0d2a6e03100}} 
+Q\+String {\bfseries annotation\+ID} () const
+\item 
+\mbox{\Hypertarget{class_query_occurrence_a901aacc920fd3eaf0b183cc1393d001a}\label{class_query_occurrence_a901aacc920fd3eaf0b183cc1393d001a}} 
+\hyperlink{struct_real_time}{Real\+Time} {\bfseries t\+Min} () const
+\item 
+\mbox{\Hypertarget{class_query_occurrence_a6482d468dec6f825b4b7dc3102b8116a}\label{class_query_occurrence_a6482d468dec6f825b4b7dc3102b8116a}} 
+\hyperlink{struct_real_time}{Real\+Time} {\bfseries t\+Max} () const
+\item 
+\mbox{\Hypertarget{class_query_occurrence_a3f648d01cb9b42545a26f641d69ff6a8}\label{class_query_occurrence_a3f648d01cb9b42545a26f641d69ff6a8}} 
+Q\+String\+List {\bfseries annotation\+Level\+I\+Ds} () const
+\item 
+\mbox{\Hypertarget{class_query_occurrence_af3ff918021b120d961278729e157ea26}\label{class_query_occurrence_af3ff918021b120d961278729e157ea26}} 
+Q\+String\+List {\bfseries speaker\+I\+Ds} () const
+\item 
+\mbox{\Hypertarget{class_query_occurrence_a9af9185d36e9124f19d73df8ec813970}\label{class_query_occurrence_a9af9185d36e9124f19d73df8ec813970}} 
+int {\bfseries interval\+No\+Target} () const
+\item 
+\mbox{\Hypertarget{class_query_occurrence_a86ff5cc1419ffb56901b2ea0e4d15219}\label{class_query_occurrence_a86ff5cc1419ffb56901b2ea0e4d15219}} 
+bool {\bfseries loaded} () const
+\item 
+\mbox{\Hypertarget{class_query_occurrence_ae058ce31eead338635809fdf7a025cce}\label{class_query_occurrence_ae058ce31eead338635809fdf7a025cce}} 
+Q\+List$<$ \hyperlink{class_query_occurrence_1_1_result_interval}{Result\+Interval} $>$ {\bfseries result\+Intervals} (const Q\+String \&annotation\+Level\+ID)
+\item 
+\mbox{\Hypertarget{class_query_occurrence_a4944f887bcdf0649637e93092e7c1218}\label{class_query_occurrence_a4944f887bcdf0649637e93092e7c1218}} 
+int {\bfseries result\+Intervals\+Count} (const Q\+String \&annotation\+Level\+ID) const
+\item 
+\mbox{\Hypertarget{class_query_occurrence_a0dac33426c9a5ebbf4a3006529f5b7a2}\label{class_query_occurrence_a0dac33426c9a5ebbf4a3006529f5b7a2}} 
+Q\+List$<$ \hyperlink{class_query_occurrence_1_1_result_interval}{Result\+Interval} $>$ {\bfseries left\+Context} (const Q\+String \&annotation\+Level\+ID)
+\item 
+\mbox{\Hypertarget{class_query_occurrence_a2844d34ee3361a95f5ddc2d7e9628c21}\label{class_query_occurrence_a2844d34ee3361a95f5ddc2d7e9628c21}} 
+Q\+List$<$ \hyperlink{class_query_occurrence_1_1_result_interval}{Result\+Interval} $>$ {\bfseries target} (const Q\+String \&annotation\+Level\+ID)
+\item 
+\mbox{\Hypertarget{class_query_occurrence_a2c3b5e1051d408646cc43429d795eb8d}\label{class_query_occurrence_a2c3b5e1051d408646cc43429d795eb8d}} 
+Q\+List$<$ \hyperlink{class_query_occurrence_1_1_result_interval}{Result\+Interval} $>$ {\bfseries right\+Context} (const Q\+String \&annotation\+Level\+ID)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_query_occurrence_af93b8ec641ce59b172614a6564cf3337}\label{class_query_occurrence_af93b8ec641ce59b172614a6564cf3337}} 
+Q\+String {\bfseries m\+\_\+corpus\+ID}
+\item 
+\mbox{\Hypertarget{class_query_occurrence_ae883ca1ddd18373126fd25b6d919cde3}\label{class_query_occurrence_ae883ca1ddd18373126fd25b6d919cde3}} 
+Q\+String {\bfseries m\+\_\+communication\+ID}
+\item 
+\mbox{\Hypertarget{class_query_occurrence_a01aa9fa9264f8eab1810f7c5208584ee}\label{class_query_occurrence_a01aa9fa9264f8eab1810f7c5208584ee}} 
+Q\+String {\bfseries m\+\_\+annotation\+ID}
+\item 
+\mbox{\Hypertarget{class_query_occurrence_adced025014faae95d9d4b790767a30c3}\label{class_query_occurrence_adced025014faae95d9d4b790767a30c3}} 
+bool {\bfseries m\+\_\+loaded}
+\item 
+\mbox{\Hypertarget{class_query_occurrence_a0ea76d2bf9c34e8c68ac88a178bf6376}\label{class_query_occurrence_a0ea76d2bf9c34e8c68ac88a178bf6376}} 
+Q\+Map$<$ Q\+String, Q\+List$<$ \hyperlink{class_query_occurrence_1_1_result_interval}{Result\+Interval} $>$ $>$ {\bfseries m\+\_\+result\+Intervals}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/query/Query\+Occurrence.\+h\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/query/Query\+Occurrence.\+cpp\end{DoxyCompactItemize}

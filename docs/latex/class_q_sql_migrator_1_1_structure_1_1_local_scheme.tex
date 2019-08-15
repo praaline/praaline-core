@@ -1,0 +1,57 @@
+\hypertarget{class_q_sql_migrator_1_1_structure_1_1_local_scheme}{}\section{Q\+Sql\+Migrator\+:\+:Structure\+:\+:Local\+Scheme Class Reference}
+\label{class_q_sql_migrator_1_1_structure_1_1_local_scheme}\index{Q\+Sql\+Migrator\+::\+Structure\+::\+Local\+Scheme@{Q\+Sql\+Migrator\+::\+Structure\+::\+Local\+Scheme}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_q_sql_migrator_1_1_structure_1_1_local_scheme_1_1_index}{Index}
+\begin{DoxyCompactList}\small\item\em internal Assignable version of \hyperlink{class_q_sql_migrator_1_1_structure_1_1_local_scheme_1_1_index}{Index} \end{DoxyCompactList}\item 
+class \hyperlink{class_q_sql_migrator_1_1_structure_1_1_local_scheme_1_1_table}{Table}
+\begin{DoxyCompactList}\small\item\em internal Assignable version of \hyperlink{class_q_sql_migrator_1_1_structure_1_1_local_scheme_1_1_table}{Table} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_structure_1_1_local_scheme_aa7518476ea01d040a4a1169b905e1e54}\label{class_q_sql_migrator_1_1_structure_1_1_local_scheme_aa7518476ea01d040a4a1169b905e1e54}} 
+typedef Q\+Map$<$ Q\+String, \hyperlink{class_q_sql_migrator_1_1_structure_1_1_local_scheme_1_1_table}{Table} $>$ {\bfseries Table\+Map}
+\item 
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_structure_1_1_local_scheme_a9f310a48cf0d9c54ce28c0f3a4fe6acb}\label{class_q_sql_migrator_1_1_structure_1_1_local_scheme_a9f310a48cf0d9c54ce28c0f3a4fe6acb}} 
+typedef Q\+Map$<$ Q\+String, \hyperlink{class_q_sql_migrator_1_1_structure_1_1_local_scheme_1_1_index}{Index} $>$ {\bfseries Index\+Map}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_structure_1_1_local_scheme_a088d5c348190ad9cbf14606eea72f882}\label{class_q_sql_migrator_1_1_structure_1_1_local_scheme_a088d5c348190ad9cbf14606eea72f882}} 
+Table\+Map \& {\bfseries tables} ()
+\item 
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_structure_1_1_local_scheme_afe14c69418ca742f628e9ae19368a4ab}\label{class_q_sql_migrator_1_1_structure_1_1_local_scheme_afe14c69418ca742f628e9ae19368a4ab}} 
+Index\+Map \& {\bfseries indices} ()
+\item 
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_structure_1_1_local_scheme_a7aeb2535dffe3584479f6967e095394b}\label{class_q_sql_migrator_1_1_structure_1_1_local_scheme_a7aeb2535dffe3584479f6967e095394b}} 
+const \hyperlink{class_q_sql_migrator_1_1_structure_1_1_table}{Structure\+::\+Table} $\ast$ {\bfseries table} (const Q\+String \&name) const
+\item 
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_structure_1_1_local_scheme_a263fc2e170d14a4d9b71ce98e90e07ac}\label{class_q_sql_migrator_1_1_structure_1_1_local_scheme_a263fc2e170d14a4d9b71ce98e90e07ac}} 
+const \hyperlink{class_q_sql_migrator_1_1_structure_1_1_index}{Structure\+::\+Index} $\ast$ {\bfseries index} (const Q\+String \&name) const
+\item 
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_structure_1_1_local_scheme_a32af2254a39bc4925c9bde83cfa1aec7}\label{class_q_sql_migrator_1_1_structure_1_1_local_scheme_a32af2254a39bc4925c9bde83cfa1aec7}} 
+void {\bfseries create\+Table} (const \hyperlink{class_q_sql_migrator_1_1_structure_1_1_table}{Structure\+::\+Table} \&table)
+\item 
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_structure_1_1_local_scheme_a8a6d2b8212a4067ff57ea9baa97ca442}\label{class_q_sql_migrator_1_1_structure_1_1_local_scheme_a8a6d2b8212a4067ff57ea9baa97ca442}} 
+void {\bfseries alter\+Table} (const \hyperlink{class_q_sql_migrator_1_1_structure_1_1_table}{Structure\+::\+Table} \&table)
+\item 
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_structure_1_1_local_scheme_ad0b258551e65f6d6abde3d81a11ecc73}\label{class_q_sql_migrator_1_1_structure_1_1_local_scheme_ad0b258551e65f6d6abde3d81a11ecc73}} 
+void {\bfseries drop\+Table} (const Q\+String \&table\+Name)
+\item 
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_structure_1_1_local_scheme_a47fe31b2dfc44a067e564404b13c78bf}\label{class_q_sql_migrator_1_1_structure_1_1_local_scheme_a47fe31b2dfc44a067e564404b13c78bf}} 
+void {\bfseries create\+Index} (const \hyperlink{class_q_sql_migrator_1_1_structure_1_1_index}{Structure\+::\+Index} \&index)
+\item 
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_structure_1_1_local_scheme_a9199a3d15e5b2a84b8ebee48eb4d90ee}\label{class_q_sql_migrator_1_1_structure_1_1_local_scheme_a9199a3d15e5b2a84b8ebee48eb4d90ee}} 
+void {\bfseries alter\+Index} (const \hyperlink{class_q_sql_migrator_1_1_structure_1_1_index}{Structure\+::\+Index} \&index)
+\item 
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_structure_1_1_local_scheme_ae9acd7d0ff78128fef8c1dbec69935b4}\label{class_q_sql_migrator_1_1_structure_1_1_local_scheme_ae9acd7d0ff78128fef8c1dbec69935b4}} 
+void {\bfseries drop\+Index} (const Q\+String \&index\+Name)
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/\+Q\+Sql\+Migrator/\+Structure/Local\+Scheme.\+h\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/\+Q\+Sql\+Migrator/\+Structure/Local\+Scheme.\+cpp\end{DoxyCompactItemize}

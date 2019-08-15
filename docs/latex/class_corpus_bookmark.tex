@@ -1,0 +1,117 @@
+\hypertarget{class_corpus_bookmark}{}\section{Corpus\+Bookmark Class Reference}
+\label{class_corpus_bookmark}\index{Corpus\+Bookmark@{Corpus\+Bookmark}}
+Inheritance diagram for Corpus\+Bookmark\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_corpus_bookmark}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_corpus_bookmark_a122599342d6bb2f6b6beae0d7a8ffece}\label{class_corpus_bookmark_a122599342d6bb2f6b6beae0d7a8ffece}} 
+{\bfseries Corpus\+Bookmark} (Q\+Object $\ast$parent=nullptr)
+\item 
+\mbox{\Hypertarget{class_corpus_bookmark_afe16569951bdaeefd4aa0e1ca0da54c4}\label{class_corpus_bookmark_afe16569951bdaeefd4aa0e1ca0da54c4}} 
+{\bfseries Corpus\+Bookmark} (const Q\+String \&corpus\+ID, const Q\+String \&communication\+ID, const Q\+String \&annotation\+ID, const \hyperlink{struct_real_time}{Real\+Time} \&time, const Q\+String \&name, const Q\+String \&notes=Q\+String(), Q\+Object $\ast$parent=nullptr)
+\item 
+\mbox{\Hypertarget{class_corpus_bookmark_af8bb4f7d5570f674626644a8e90d4384}\label{class_corpus_bookmark_af8bb4f7d5570f674626644a8e90d4384}} 
+{\bfseries Corpus\+Bookmark} (const Q\+String \&corpus\+ID, const Q\+String \&communication\+ID, const Q\+String \&annotation\+ID, const \hyperlink{struct_real_time}{Real\+Time} \&time\+Start, const \hyperlink{struct_real_time}{Real\+Time} \&time\+End, const Q\+String \&name, const Q\+String \&notes=Q\+String(), Q\+Object $\ast$parent=nullptr)
+\item 
+\mbox{\Hypertarget{class_corpus_bookmark_a10899c6bdab48f5b6b1237cd61b4a726}\label{class_corpus_bookmark_a10899c6bdab48f5b6b1237cd61b4a726}} 
+Q\+String {\bfseries ID} () const override
+\item 
+\mbox{\Hypertarget{class_corpus_bookmark_aed714ed4ef3f9a94eb408e4bc025dc37}\label{class_corpus_bookmark_aed714ed4ef3f9a94eb408e4bc025dc37}} 
+void {\bfseries set\+ID} (const Q\+String \&ID) override
+\item 
+\mbox{\Hypertarget{class_corpus_bookmark_ababfd655298586a3d621a882ee416f99}\label{class_corpus_bookmark_ababfd655298586a3d621a882ee416f99}} 
+Corpus\+Object\+::\+Type {\bfseries type} () const override
+\item 
+\mbox{\Hypertarget{class_corpus_bookmark_addc15dc499b80a28492005f9d6f5247e}\label{class_corpus_bookmark_addc15dc499b80a28492005f9d6f5247e}} 
+bool {\bfseries save} () override
+\item 
+\mbox{\Hypertarget{class_corpus_bookmark_ac4d85da7d148a605745d688698d38e2d}\label{class_corpus_bookmark_ac4d85da7d148a605745d688698d38e2d}} 
+Q\+String {\bfseries communication\+ID} () const
+\item 
+\mbox{\Hypertarget{class_corpus_bookmark_ac10293f4e2033746d695c6349805fcba}\label{class_corpus_bookmark_ac10293f4e2033746d695c6349805fcba}} 
+Q\+String {\bfseries annotation\+ID} () const
+\item 
+\mbox{\Hypertarget{class_corpus_bookmark_a4567b01babc1074c21fd81fa4cf6b5bc}\label{class_corpus_bookmark_a4567b01babc1074c21fd81fa4cf6b5bc}} 
+\hyperlink{struct_real_time}{Real\+Time} {\bfseries time} () const
+\item 
+\mbox{\Hypertarget{class_corpus_bookmark_a5954ecddfa90b9083ebca82ebf103d33}\label{class_corpus_bookmark_a5954ecddfa90b9083ebca82ebf103d33}} 
+\hyperlink{struct_real_time}{Real\+Time} {\bfseries time\+Start} () const
+\item 
+\mbox{\Hypertarget{class_corpus_bookmark_ad4a33b45958e1a28eba0f659a94257f5}\label{class_corpus_bookmark_ad4a33b45958e1a28eba0f659a94257f5}} 
+\hyperlink{struct_real_time}{Real\+Time} {\bfseries time\+End} () const
+\item 
+\mbox{\Hypertarget{class_corpus_bookmark_aecef3174b630fceda67dc4137f5ddcc4}\label{class_corpus_bookmark_aecef3174b630fceda67dc4137f5ddcc4}} 
+\hyperlink{struct_real_time}{Real\+Time} {\bfseries duration} () const
+\item 
+\mbox{\Hypertarget{class_corpus_bookmark_a754ad425a41da641362b34452777c530}\label{class_corpus_bookmark_a754ad425a41da641362b34452777c530}} 
+Q\+String {\bfseries name} () const
+\item 
+\mbox{\Hypertarget{class_corpus_bookmark_a08b19a694d6d4238342e09554eeb5735}\label{class_corpus_bookmark_a08b19a694d6d4238342e09554eeb5735}} 
+Q\+String {\bfseries notes} () const
+\item 
+\mbox{\Hypertarget{class_corpus_bookmark_a3ad4e2e8fa63501f87b2f181bb125ddc}\label{class_corpus_bookmark_a3ad4e2e8fa63501f87b2f181bb125ddc}} 
+void {\bfseries set} (const Q\+String \&corpus\+ID=Q\+String(), const Q\+String \&communication\+ID=Q\+String(), const Q\+String \&annotation\+ID=Q\+String(), const \hyperlink{struct_real_time}{Real\+Time} \&time=\hyperlink{struct_real_time}{Real\+Time}(-\/1, 0), const Q\+String \&name=Q\+String(), const Q\+String \&notes=Q\+String())
+\item 
+\mbox{\Hypertarget{class_corpus_bookmark_af45e5143ac43cd79bec171d240d8ab88}\label{class_corpus_bookmark_af45e5143ac43cd79bec171d240d8ab88}} 
+void {\bfseries set} (const Q\+String \&corpus\+ID=Q\+String(), const Q\+String \&communication\+ID=Q\+String(), const Q\+String \&annotation\+ID=Q\+String(), const \hyperlink{struct_real_time}{Real\+Time} \&time\+Start=\hyperlink{struct_real_time}{Real\+Time}(-\/1, 0), const \hyperlink{struct_real_time}{Real\+Time} \&time\+End=\hyperlink{struct_real_time}{Real\+Time}(-\/1, 0), const Q\+String \&name=Q\+String(), const Q\+String \&notes=Q\+String())
+\item 
+\mbox{\Hypertarget{class_corpus_bookmark_ac9764093eb21f8e313cb045fea780f34}\label{class_corpus_bookmark_ac9764093eb21f8e313cb045fea780f34}} 
+void {\bfseries set\+Communication\+ID} (const Q\+String \&communication\+ID)
+\item 
+\mbox{\Hypertarget{class_corpus_bookmark_aab4088d18eba6a84819de85782191ae9}\label{class_corpus_bookmark_aab4088d18eba6a84819de85782191ae9}} 
+void {\bfseries set\+Annotation\+ID} (const Q\+String \&annotation\+ID)
+\item 
+\mbox{\Hypertarget{class_corpus_bookmark_a2dd7eda8d14ba802a6d72a1a576697c8}\label{class_corpus_bookmark_a2dd7eda8d14ba802a6d72a1a576697c8}} 
+void {\bfseries set\+Time} (const \hyperlink{struct_real_time}{Real\+Time} \&time)
+\item 
+\mbox{\Hypertarget{class_corpus_bookmark_aadac021e43a7fa7fafcf3c2755262515}\label{class_corpus_bookmark_aadac021e43a7fa7fafcf3c2755262515}} 
+void {\bfseries set\+Time\+Start} (const \hyperlink{struct_real_time}{Real\+Time} \&time)
+\item 
+\mbox{\Hypertarget{class_corpus_bookmark_a9ee7cf32bd88144ad59b4292f77e8f62}\label{class_corpus_bookmark_a9ee7cf32bd88144ad59b4292f77e8f62}} 
+void {\bfseries set\+Time\+End} (const \hyperlink{struct_real_time}{Real\+Time} \&time)
+\item 
+\mbox{\Hypertarget{class_corpus_bookmark_a5cd2426e1e4ee516b1bc80f2f156b2b4}\label{class_corpus_bookmark_a5cd2426e1e4ee516b1bc80f2f156b2b4}} 
+void {\bfseries set\+Name} (const Q\+String \&name)
+\item 
+\mbox{\Hypertarget{class_corpus_bookmark_aeca7505dd6c54733ac12aaeb9a373871}\label{class_corpus_bookmark_aeca7505dd6c54733ac12aaeb9a373871}} 
+void {\bfseries set\+Notes} (const Q\+String \&notes)
+\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_corpus_bookmark_abcd77d7fb97ddd29000918432704e12a}\label{class_corpus_bookmark_abcd77d7fb97ddd29000918432704e12a}} 
+Q\+String {\bfseries communication\+ID}
+\item 
+\mbox{\Hypertarget{class_corpus_bookmark_a7c73ec0ea43dc8ede1cab7b6ec4c66fd}\label{class_corpus_bookmark_a7c73ec0ea43dc8ede1cab7b6ec4c66fd}} 
+Q\+String {\bfseries annotation\+ID}
+\item 
+\mbox{\Hypertarget{class_corpus_bookmark_afdd695b8d2efd769c3812bc6536067a1}\label{class_corpus_bookmark_afdd695b8d2efd769c3812bc6536067a1}} 
+\hyperlink{struct_real_time}{Real\+Time} {\bfseries time}
+\item 
+\mbox{\Hypertarget{class_corpus_bookmark_a720543df1f873fc01f3f00ae17372492}\label{class_corpus_bookmark_a720543df1f873fc01f3f00ae17372492}} 
+\hyperlink{struct_real_time}{Real\+Time} {\bfseries time\+Start}
+\item 
+\mbox{\Hypertarget{class_corpus_bookmark_a9a32bab6289a02166c462a0214157eab}\label{class_corpus_bookmark_a9a32bab6289a02166c462a0214157eab}} 
+\hyperlink{struct_real_time}{Real\+Time} {\bfseries time\+End}
+\item 
+\mbox{\Hypertarget{class_corpus_bookmark_a48d35b110db04b3fc9a159cf3006bae6}\label{class_corpus_bookmark_a48d35b110db04b3fc9a159cf3006bae6}} 
+\hyperlink{struct_real_time}{Real\+Time} {\bfseries duration}
+\item 
+\mbox{\Hypertarget{class_corpus_bookmark_a795f95dddc1b620a8bbd15a6b5fd2aae}\label{class_corpus_bookmark_a795f95dddc1b620a8bbd15a6b5fd2aae}} 
+Q\+String {\bfseries name}
+\item 
+\mbox{\Hypertarget{class_corpus_bookmark_ab12b3c805c9bf84978a3a3584e126732}\label{class_corpus_bookmark_ab12b3c805c9bf84978a3a3584e126732}} 
+Q\+String {\bfseries notes}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/corpus/Corpus\+Bookmark.\+h\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/corpus/Corpus\+Bookmark.\+cpp\end{DoxyCompactItemize}

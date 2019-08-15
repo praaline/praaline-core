@@ -1,0 +1,123 @@
+\hypertarget{class_point}{}\section{Point Class Reference}
+\label{class_point}\index{Point@{Point}}
+Inheritance diagram for Point\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_point}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_point_a24182d30ef5a2ef1d58e4550a9dfa76f}\label{class_point_a24182d30ef5a2ef1d58e4550a9dfa76f}} 
+{\bfseries Point} (const \hyperlink{struct_real_time}{Real\+Time} time, const Q\+String \&\hyperlink{class_annotation_element_aa59bd98501e3882990681f6aff2ee863}{text}=Q\+String(), const Q\+Hash$<$ Q\+String, Q\+Variant $>$ \&\hyperlink{class_annotation_element_a58082d92f50c4fde2d18ce24ef3fd283}{attributes}=Q\+Hash$<$ Q\+String, Q\+Variant $>$())
+\item 
+\mbox{\Hypertarget{class_point_a418ee46266f3561c7d31019faffb0910}\label{class_point_a418ee46266f3561c7d31019faffb0910}} 
+{\bfseries Point} (const \hyperlink{class_point}{Point} \&copy)
+\item 
+\mbox{\Hypertarget{class_point_aa88bc0753bbb9a1478c2e01564c0c6c5}\label{class_point_aa88bc0753bbb9a1478c2e01564c0c6c5}} 
+\hyperlink{struct_real_time}{Real\+Time} {\bfseries time} () const
+\item 
+\mbox{\Hypertarget{class_point_af2368edb1ff2cbdef2bb857c2436c578}\label{class_point_af2368edb1ff2cbdef2bb857c2436c578}} 
+double {\bfseries test} (\hyperlink{struct_real_time}{Real\+Time} a) const
+\item 
+virtual Q\+Variant \hyperlink{class_point_a0ff561e393cdf7475126b96de6106d12}{attribute} (const Q\+String \&name) const override
+\begin{DoxyCompactList}\small\item\em attribute \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_point_a997cc0d524866e257f58ef9a3e82a432}{set\+Attribute} (const Q\+String \&name, Q\+Variant value) override
+\begin{DoxyCompactList}\small\item\em set\+Attribute \end{DoxyCompactList}\item 
+virtual \hyperlink{class_annotation_element_af5282990ffbe25eeea8ab02037e344b0}{Element\+Type} \hyperlink{class_point_ac576e4660a79cf5bbffa4591a22d2a28}{element\+Type} () const override
+\begin{DoxyCompactList}\small\item\em element\+Type \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_point_ab995552c7336b829ca40b643db4d8a93}\label{class_point_ab995552c7336b829ca40b643db4d8a93}} 
+\hyperlink{class_point}{Point} $\ast$ {\bfseries clone} () const
+\item 
+\mbox{\Hypertarget{class_point_ac8380c96fc7773722ba5c0a72f37dc2e}\label{class_point_ac8380c96fc7773722ba5c0a72f37dc2e}} 
+\hyperlink{class_point}{Point} $\ast$ {\bfseries clone\+Without\+Attributes} () const
+\item 
+\mbox{\Hypertarget{class_point_ab7c6bf82493b4ee70e06b560d73ed657}\label{class_point_ab7c6bf82493b4ee70e06b560d73ed657}} 
+\hyperlink{class_point}{Point} $\ast$ {\bfseries clone\+Reposition} (const \hyperlink{struct_real_time}{Real\+Time} time) const
+\item 
+\mbox{\Hypertarget{class_point_a9d5ac0c075f574479e55a85eb43dc000}\label{class_point_a9d5ac0c075f574479e55a85eb43dc000}} 
+\hyperlink{class_point}{Point} $\ast$ {\bfseries clone\+Reposition\+Without\+Attributes} (const \hyperlink{struct_real_time}{Real\+Time} time) const
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_point_a0027325f1602de4d38e32128ee684d69}\label{class_point_a0027325f1602de4d38e32128ee684d69}} 
+\hyperlink{struct_real_time}{Real\+Time} {\bfseries m\+\_\+time}
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_point_ab5946b25071f4dabec3b8555acc279f5}\label{class_point_ab5946b25071f4dabec3b8555acc279f5}} 
+class {\bfseries Point\+Tier}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_point_a0ff561e393cdf7475126b96de6106d12}\label{class_point_a0ff561e393cdf7475126b96de6106d12}} 
+\index{Point@{Point}!attribute@{attribute}}
+\index{attribute@{attribute}!Point@{Point}}
+\subsubsection{\texorpdfstring{attribute()}{attribute()}}
+{\footnotesize\ttfamily Q\+Variant Point\+::attribute (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{name }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+attribute 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{class_annotation_element_a55f85fb15ed52122653b0769c857899c}{Annotation\+Element}.
+
+\mbox{\Hypertarget{class_point_ac576e4660a79cf5bbffa4591a22d2a28}\label{class_point_ac576e4660a79cf5bbffa4591a22d2a28}} 
+\index{Point@{Point}!element\+Type@{element\+Type}}
+\index{element\+Type@{element\+Type}!Point@{Point}}
+\subsubsection{\texorpdfstring{element\+Type()}{elementType()}}
+{\footnotesize\ttfamily virtual \hyperlink{class_annotation_element_af5282990ffbe25eeea8ab02037e344b0}{Element\+Type} Point\+::element\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+element\+Type 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{class_annotation_element_a9b2d5cf05a2f81d9b2103a5c736dfb2d}{Annotation\+Element}.
+
+\mbox{\Hypertarget{class_point_a997cc0d524866e257f58ef9a3e82a432}\label{class_point_a997cc0d524866e257f58ef9a3e82a432}} 
+\index{Point@{Point}!set\+Attribute@{set\+Attribute}}
+\index{set\+Attribute@{set\+Attribute}!Point@{Point}}
+\subsubsection{\texorpdfstring{set\+Attribute()}{setAttribute()}}
+{\footnotesize\ttfamily void Point\+::set\+Attribute (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{name,  }\item[{Q\+Variant}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+set\+Attribute 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+{\em value} & \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{class_annotation_element_a206d8790fe92a7c8e6b703d026836584}{Annotation\+Element}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/annotation/Point.\+h\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/annotation/Point.\+cpp\end{DoxyCompactItemize}

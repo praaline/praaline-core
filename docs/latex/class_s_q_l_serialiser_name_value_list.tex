@@ -1,0 +1,53 @@
+\hypertarget{class_s_q_l_serialiser_name_value_list}{}\section{S\+Q\+L\+Serialiser\+Name\+Value\+List Class Reference}
+\label{class_s_q_l_serialiser_name_value_list}\index{S\+Q\+L\+Serialiser\+Name\+Value\+List@{S\+Q\+L\+Serialiser\+Name\+Value\+List}}
+Inheritance diagram for S\+Q\+L\+Serialiser\+Name\+Value\+List\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_s_q_l_serialiser_name_value_list}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_s_q_l_serialiser_name_value_list_a5e130df5ddd5714cf86b47b06387c2d5}\label{class_s_q_l_serialiser_name_value_list_a5e130df5ddd5714cf86b47b06387c2d5}} 
+enum {\bfseries Name\+Value\+List\+Type} \{ {\bfseries Metadata} = 10, 
+{\bfseries Annotation} = 20
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_s_q_l_serialiser_name_value_list_af49c92af7146659732ca36760902bc36}\label{class_s_q_l_serialiser_name_value_list_af49c92af7146659732ca36760902bc36}} 
+static bool {\bfseries initialise\+Name\+Value\+List\+Schema} (Q\+Sql\+Database \&db)
+\item 
+\mbox{\Hypertarget{class_s_q_l_serialiser_name_value_list_a6c3ee987a9d0dbad4a5e4ded45212313}\label{class_s_q_l_serialiser_name_value_list_a6c3ee987a9d0dbad4a5e4ded45212313}} 
+static bool {\bfseries upgrade\+Name\+Value\+List\+Schema} (Q\+Sql\+Database \&db)
+\item 
+\mbox{\Hypertarget{class_s_q_l_serialiser_name_value_list_a89477bc1c966edd619b27726c69a4bc8}\label{class_s_q_l_serialiser_name_value_list_a89477bc1c966edd619b27726c69a4bc8}} 
+static \hyperlink{class_name_value_list}{Name\+Value\+List} $\ast$ {\bfseries get\+Name\+Value\+List} (const Q\+String \&list\+ID, Name\+Value\+List\+Type list\+Type, Q\+Sql\+Database \&db)
+\item 
+\mbox{\Hypertarget{class_s_q_l_serialiser_name_value_list_a07a30a314bbad023679e25e1b4573a51}\label{class_s_q_l_serialiser_name_value_list_a07a30a314bbad023679e25e1b4573a51}} 
+static Q\+String\+List {\bfseries get\+All\+Name\+Value\+List\+I\+Ds} (Name\+Value\+List\+Type list\+Type, Q\+Sql\+Database \&db)
+\item 
+\mbox{\Hypertarget{class_s_q_l_serialiser_name_value_list_abf16ff393123fb053300530133b4d4a4}\label{class_s_q_l_serialiser_name_value_list_abf16ff393123fb053300530133b4d4a4}} 
+static Q\+Map$<$ Q\+String, Q\+Pointer$<$ \hyperlink{class_name_value_list}{Name\+Value\+List} $>$ $>$ {\bfseries get\+All\+Name\+Value\+Lists} (Name\+Value\+List\+Type list\+Type, Q\+Sql\+Database \&db)
+\item 
+\mbox{\Hypertarget{class_s_q_l_serialiser_name_value_list_a736c88ebfd8fbefe9c9c08b9d65e575c}\label{class_s_q_l_serialiser_name_value_list_a736c88ebfd8fbefe9c9c08b9d65e575c}} 
+static bool {\bfseries create\+Name\+Value\+List} (\hyperlink{class_name_value_list}{Name\+Value\+List} $\ast$new\+List, Name\+Value\+List\+Type list\+Type, Q\+Sql\+Database \&db)
+\item 
+\mbox{\Hypertarget{class_s_q_l_serialiser_name_value_list_ab6cb69091e451a65d67862f37ee4da41}\label{class_s_q_l_serialiser_name_value_list_ab6cb69091e451a65d67862f37ee4da41}} 
+static bool {\bfseries update\+Name\+Value\+List} (\hyperlink{class_name_value_list}{Name\+Value\+List} $\ast$list, Name\+Value\+List\+Type list\+Type, Q\+Sql\+Database \&db)
+\item 
+\mbox{\Hypertarget{class_s_q_l_serialiser_name_value_list_af0fdf285d6ee05cfa650d7b3633e2ad9}\label{class_s_q_l_serialiser_name_value_list_af0fdf285d6ee05cfa650d7b3633e2ad9}} 
+static bool {\bfseries delete\+Name\+Value\+List} (const Q\+String \&list\+ID, Name\+Value\+List\+Type list\+Type, Q\+Sql\+Database \&db)
+\item 
+\mbox{\Hypertarget{class_s_q_l_serialiser_name_value_list_a71b425260adab163e7372e458946d378}\label{class_s_q_l_serialiser_name_value_list_a71b425260adab163e7372e458946d378}} 
+static bool {\bfseries check\+Name\+Value\+List\+Exists} (const Q\+String \&list\+ID, Name\+Value\+List\+Type list\+Type, Q\+Sql\+Database \&db)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/serialisers/sql/S\+Q\+L\+Serialiser\+Name\+Value\+List.\+h\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/serialisers/sql/S\+Q\+L\+Serialiser\+Name\+Value\+List.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,114 @@
+\hypertarget{class_point_tier}{}\section{Point\+Tier Class Reference}
+\label{class_point_tier}\index{Point\+Tier@{Point\+Tier}}
+Inheritance diagram for Point\+Tier\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_point_tier}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_point_tier_a2a5fcd9bb2cc7cf21215a70802a720bc}\label{class_point_tier_a2a5fcd9bb2cc7cf21215a70802a720bc}} 
+{\bfseries Point\+Tier} (const Q\+String \&name=Q\+String(), const \hyperlink{struct_real_time}{Real\+Time} t\+Min=\hyperlink{struct_real_time}{Real\+Time}(0, 0), const \hyperlink{struct_real_time}{Real\+Time} t\+Max=\hyperlink{struct_real_time}{Real\+Time}(0, 0), Q\+Object $\ast$parent=nullptr)
+\item 
+\mbox{\Hypertarget{class_point_tier_a5be98fe18e1751c7fabd086cd659e1a2}\label{class_point_tier_a5be98fe18e1751c7fabd086cd659e1a2}} 
+{\bfseries Point\+Tier} (const Q\+String \&name, const Q\+List$<$ \hyperlink{class_point}{Point} $\ast$$>$ \&points, const \hyperlink{struct_real_time}{Real\+Time} t\+Min=\hyperlink{struct_real_time}{Real\+Time}(0, 0), const \hyperlink{struct_real_time}{Real\+Time} t\+Max=\hyperlink{struct_real_time}{Real\+Time}(0, 0), Q\+Object $\ast$parent=nullptr)
+\item 
+\mbox{\Hypertarget{class_point_tier_aa46f07c3a6b7a6851159b8290cb81a51}\label{class_point_tier_aa46f07c3a6b7a6851159b8290cb81a51}} 
+Annotation\+Tier\+::\+Tier\+Type {\bfseries tier\+Type} () const override
+\item 
+\mbox{\Hypertarget{class_point_tier_ae8d72c0f6966e7de09194dc538da8ef0}\label{class_point_tier_ae8d72c0f6966e7de09194dc538da8ef0}} 
+int {\bfseries count} () const override
+\item 
+\mbox{\Hypertarget{class_point_tier_aaabbbf13d3385239102b542254dca6d1}\label{class_point_tier_aaabbbf13d3385239102b542254dca6d1}} 
+bool {\bfseries is\+Empty} () const override
+\item 
+\mbox{\Hypertarget{class_point_tier_afd9bd02536f35383ea29535a0bd46320}\label{class_point_tier_afd9bd02536f35383ea29535a0bd46320}} 
+void {\bfseries clear} () override
+\item 
+\mbox{\Hypertarget{class_point_tier_aeca1fe0759e5c71015d07dfc73f772e0}\label{class_point_tier_aeca1fe0759e5c71015d07dfc73f772e0}} 
+\hyperlink{class_point}{Point} $\ast$ {\bfseries at} (int index) const override
+\item 
+\mbox{\Hypertarget{class_point_tier_a9ee1a1a7484c3b703003a3ac803b9f31}\label{class_point_tier_a9ee1a1a7484c3b703003a3ac803b9f31}} 
+\hyperlink{class_point}{Point} $\ast$ {\bfseries first} () const override
+\item 
+\mbox{\Hypertarget{class_point_tier_ac6ca78d7b7490ada92c570f1ba287d40}\label{class_point_tier_ac6ca78d7b7490ada92c570f1ba287d40}} 
+\hyperlink{class_point}{Point} $\ast$ {\bfseries last} () const override
+\item 
+\mbox{\Hypertarget{class_point_tier_ad3ba04b87e25be43482e647cd3116e09}\label{class_point_tier_ad3ba04b87e25be43482e647cd3116e09}} 
+Q\+String\+List {\bfseries get\+Distinct\+Labels} () const override
+\item 
+\mbox{\Hypertarget{class_point_tier_af9b84b7d39ed546a71be04ffd6f2a52b}\label{class_point_tier_af9b84b7d39ed546a71be04ffd6f2a52b}} 
+Q\+List$<$ Q\+Variant $>$ {\bfseries get\+Distinct\+Values} (const Q\+String \&attribute\+ID) const override
+\item 
+\mbox{\Hypertarget{class_point_tier_a7175fc19bdb372da7411dcc3ee3508c0}\label{class_point_tier_a7175fc19bdb372da7411dcc3ee3508c0}} 
+void {\bfseries replace} (const Q\+String \&attribute\+ID, const Q\+String \&before, const Q\+String \&after, Qt\+::\+Case\+Sensitivity cs=Qt\+::\+Case\+Sensitive) override
+\item 
+\mbox{\Hypertarget{class_point_tier_a7096158f743c0842daad2e761e461700}\label{class_point_tier_a7096158f743c0842daad2e761e461700}} 
+void {\bfseries fill\+Empty\+With} (const Q\+String \&attribute\+ID, const Q\+String \&filler) override
+\item 
+\mbox{\Hypertarget{class_point_tier_a2f4e6d62b78e13be49747540a0c638e2}\label{class_point_tier_a2f4e6d62b78e13be49747540a0c638e2}} 
+\hyperlink{class_point}{Point} $\ast$ {\bfseries point} (int index) const
+\item 
+\mbox{\Hypertarget{class_point_tier_a2955fec15b83ef5768dcbcad6674019a}\label{class_point_tier_a2955fec15b83ef5768dcbcad6674019a}} 
+Q\+List$<$ \hyperlink{class_point}{Point} $\ast$ $>$ {\bfseries points} () const
+\item 
+\mbox{\Hypertarget{class_point_tier_a92075412a397380eafbd9a2b295b47a9}\label{class_point_tier_a92075412a397380eafbd9a2b295b47a9}} 
+\hyperlink{class_point}{Point} $\ast$ {\bfseries point\+At\+Time} (\hyperlink{struct_real_time}{Real\+Time} t, \hyperlink{struct_real_time}{Real\+Time} threshold=\hyperlink{struct_real_time}{Real\+Time}(0, 0))
+\item 
+\mbox{\Hypertarget{class_point_tier_adbaafb2fd760818827fa8987acbd4bd4}\label{class_point_tier_adbaafb2fd760818827fa8987acbd4bd4}} 
+int {\bfseries point\+Index\+At\+Time} (\hyperlink{struct_real_time}{Real\+Time} t, \hyperlink{struct_real_time}{Real\+Time} threshold=\hyperlink{struct_real_time}{Real\+Time}(0, 0)) const
+\item 
+\mbox{\Hypertarget{class_point_tier_aad70c86e79ee304fcb5c09e5c1075a8b}\label{class_point_tier_aad70c86e79ee304fcb5c09e5c1075a8b}} 
+void {\bfseries add\+Point} (\hyperlink{class_point}{Point} $\ast$point)
+\item 
+\mbox{\Hypertarget{class_point_tier_a0cb6d05663186bce6839480192abe467}\label{class_point_tier_a0cb6d05663186bce6839480192abe467}} 
+void {\bfseries add\+Points} (Q\+List$<$ \hyperlink{class_point}{Point} $\ast$$>$ points)
+\item 
+\mbox{\Hypertarget{class_point_tier_a30f43af14d75fe8dd373eaad402ddcdd}\label{class_point_tier_a30f43af14d75fe8dd373eaad402ddcdd}} 
+void {\bfseries remove\+Point\+At} (int i)
+\item 
+\mbox{\Hypertarget{class_point_tier_a8f1760bdd0c47301133c0232e49af667}\label{class_point_tier_a8f1760bdd0c47301133c0232e49af667}} 
+Q\+List$<$ \hyperlink{struct_real_time}{Real\+Time} $>$ {\bfseries times} () const
+\item 
+\mbox{\Hypertarget{class_point_tier_aee84fe16c30c10c2427bb1bd70c35fbc}\label{class_point_tier_aee84fe16c30c10c2427bb1bd70c35fbc}} 
+void {\bfseries time\+Shift} (const \hyperlink{struct_real_time}{Real\+Time} delta)
+\item 
+\mbox{\Hypertarget{class_point_tier_a2f95ff6f55a4ef3268948804df4a9f4a}\label{class_point_tier_a2f95ff6f55a4ef3268948804df4a9f4a}} 
+void {\bfseries fix\+Boundaries\+Based\+On\+Tier} (const \hyperlink{class_interval_tier}{Interval\+Tier} $\ast$correct\+Boundaries\+Tier, \hyperlink{struct_real_time}{Real\+Time} threshold=\hyperlink{struct_real_time}{Real\+Time}(0, 100000000))
+\item 
+\mbox{\Hypertarget{class_point_tier_ae7fbfa89d89605e846edd6c5f568cd55}\label{class_point_tier_ae7fbfa89d89605e846edd6c5f568cd55}} 
+Q\+List$<$ \hyperlink{class_point}{Point} $\ast$ $>$ {\bfseries get\+Points\+Contained\+In} (const \hyperlink{class_interval}{Interval} $\ast$container) const
+\item 
+\mbox{\Hypertarget{class_point_tier_ac4047fb4018be9bc1effa7eaa11e217a}\label{class_point_tier_ac4047fb4018be9bc1effa7eaa11e217a}} 
+Q\+List$<$ \hyperlink{class_point}{Point} $\ast$ $>$ {\bfseries get\+Points\+Contained\+In} (\hyperlink{struct_real_time}{Real\+Time} t\+Min, \hyperlink{struct_real_time}{Real\+Time} t\+Max) const
+\item 
+\mbox{\Hypertarget{class_point_tier_a3807f5c99ab22e2da90314463745200b}\label{class_point_tier_a3807f5c99ab22e2da90314463745200b}} 
+\hyperlink{class_interval_tier}{Interval\+Tier} $\ast$ {\bfseries get\+Intervals\+Min} (const Q\+String \&name, Q\+Object $\ast$parent=nullptr)
+\item 
+\mbox{\Hypertarget{class_point_tier_ac4d4bb5e268e247d29c2241d438a9e8b}\label{class_point_tier_ac4d4bb5e268e247d29c2241d438a9e8b}} 
+\hyperlink{class_interval_tier}{Interval\+Tier} $\ast$ {\bfseries get\+Intervals\+Max} (const Q\+String \&name, Q\+Object $\ast$parent=nullptr)
+\item 
+\mbox{\Hypertarget{class_point_tier_aaa29377ffa96a4fb100d56ff6d4257d8}\label{class_point_tier_aaa29377ffa96a4fb100d56ff6d4257d8}} 
+Q\+List$<$ \hyperlink{class_point}{Point} $\ast$ $>$ {\bfseries find\+Local\+Maxima} (const \hyperlink{struct_real_time}{Real\+Time} \&local\+Max\+Threshold, const Q\+String \&compare\+Attribute\+ID) const
+\item 
+\mbox{\Hypertarget{class_point_tier_a8d27fdc79cb1347e422470b6c1272cbc}\label{class_point_tier_a8d27fdc79cb1347e422470b6c1272cbc}} 
+\hyperlink{class_point_tier}{Point\+Tier} $\ast$ {\bfseries clone} (const Q\+String \&name=Q\+String(), Q\+Object $\ast$parent=nullptr) const
+\item 
+\mbox{\Hypertarget{class_point_tier_af1a0ab3f4643f048ca87273b02ae4fba}\label{class_point_tier_af1a0ab3f4643f048ca87273b02ae4fba}} 
+\hyperlink{class_point_tier}{Point\+Tier} $\ast$ {\bfseries clone\+Without\+Attributes} (const Q\+String \&name=Q\+String(), Q\+Object $\ast$parent=nullptr) const
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_point_tier_a9482b0862c09afaecdec17e129560291}\label{class_point_tier_a9482b0862c09afaecdec17e129560291}} 
+Q\+List$<$ \hyperlink{class_point}{Point} $\ast$ $>$ {\bfseries m\+\_\+points}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/annotation/Point\+Tier.\+h\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/annotation/Point\+Tier.\+cpp\end{DoxyCompactItemize}

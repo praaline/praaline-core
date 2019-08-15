@@ -1,0 +1,83 @@
+\hypertarget{class_annotation_structure}{}\section{Annotation\+Structure Class Reference}
+\label{class_annotation_structure}\index{Annotation\+Structure@{Annotation\+Structure}}
+Inheritance diagram for Annotation\+Structure\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_annotation_structure}
+\end{center}
+\end{figure}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_annotation_structure_a9839dc18e16b3a817e4cb3fffdfd351f}\label{class_annotation_structure_a9839dc18e16b3a817e4cb3fffdfd351f}} 
+void {\bfseries Annotation\+Structure\+Changed} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_annotation_structure_a699e5000e1bebadabe29a190061cbab1}\label{class_annotation_structure_a699e5000e1bebadabe29a190061cbab1}} 
+{\bfseries Annotation\+Structure} (Q\+Object $\ast$parent=nullptr)
+\item 
+\mbox{\Hypertarget{class_annotation_structure_adee363d0ab8c4a24faac0baae7ce1255}\label{class_annotation_structure_adee363d0ab8c4a24faac0baae7ce1255}} 
+Q\+String {\bfseries ID} () const
+\item 
+\mbox{\Hypertarget{class_annotation_structure_aa8ca4d1a4561d59ea547e6bb0affd13e}\label{class_annotation_structure_aa8ca4d1a4561d59ea547e6bb0affd13e}} 
+void {\bfseries set\+ID} (const Q\+String \&ID)
+\item 
+\mbox{\Hypertarget{class_annotation_structure_a01e3f5cd86558b0bee1b9ffe417179e8}\label{class_annotation_structure_a01e3f5cd86558b0bee1b9ffe417179e8}} 
+void {\bfseries clear} ()
+\item 
+\mbox{\Hypertarget{class_annotation_structure_a73f138540af019a68e2c0f09b9b7222a}\label{class_annotation_structure_a73f138540af019a68e2c0f09b9b7222a}} 
+\hyperlink{class_annotation_structure_level}{Annotation\+Structure\+Level} $\ast$ {\bfseries level} (int index) const
+\item 
+\mbox{\Hypertarget{class_annotation_structure_a39c00c91a24f2fd1a3ec2b431fc0e72c}\label{class_annotation_structure_a39c00c91a24f2fd1a3ec2b431fc0e72c}} 
+\hyperlink{class_annotation_structure_level}{Annotation\+Structure\+Level} $\ast$ {\bfseries level} (const Q\+String \&ID) const
+\item 
+\mbox{\Hypertarget{class_annotation_structure_a84aad44d6c79068731a74cf9b2378297}\label{class_annotation_structure_a84aad44d6c79068731a74cf9b2378297}} 
+int {\bfseries get\+Level\+Index\+By\+ID} (const Q\+String \&ID) const
+\item 
+\mbox{\Hypertarget{class_annotation_structure_a6d13b4ea9594708a38493f7a84378568}\label{class_annotation_structure_a6d13b4ea9594708a38493f7a84378568}} 
+int {\bfseries levels\+Count} () const
+\item 
+\mbox{\Hypertarget{class_annotation_structure_a8cf4b14407a39d34b5b7eb790a991183}\label{class_annotation_structure_a8cf4b14407a39d34b5b7eb790a991183}} 
+bool {\bfseries has\+Levels} () const
+\item 
+\mbox{\Hypertarget{class_annotation_structure_a65ea5f1619dec1374f304056f395b27c}\label{class_annotation_structure_a65ea5f1619dec1374f304056f395b27c}} 
+bool {\bfseries has\+Level} (const Q\+String \&ID) const
+\item 
+\mbox{\Hypertarget{class_annotation_structure_ac38032fb6239f0c5eb5681acc1beae86}\label{class_annotation_structure_ac38032fb6239f0c5eb5681acc1beae86}} 
+Q\+String\+List {\bfseries level\+I\+Ds} () const
+\item 
+\mbox{\Hypertarget{class_annotation_structure_a36d4b96578373292bacd3ee2ff0439a4}\label{class_annotation_structure_a36d4b96578373292bacd3ee2ff0439a4}} 
+Q\+List$<$ \hyperlink{class_annotation_structure_level}{Annotation\+Structure\+Level} $\ast$ $>$ {\bfseries levels} () const
+\item 
+\mbox{\Hypertarget{class_annotation_structure_af7849d2348a1da8dd5cab4f3e28bb879}\label{class_annotation_structure_af7849d2348a1da8dd5cab4f3e28bb879}} 
+void {\bfseries insert\+Level} (int index, \hyperlink{class_annotation_structure_level}{Annotation\+Structure\+Level} $\ast$level)
+\item 
+\mbox{\Hypertarget{class_annotation_structure_a7bb81c52071dd4e2f0c3dd225e428a71}\label{class_annotation_structure_a7bb81c52071dd4e2f0c3dd225e428a71}} 
+void {\bfseries add\+Level} (\hyperlink{class_annotation_structure_level}{Annotation\+Structure\+Level} $\ast$level)
+\item 
+\mbox{\Hypertarget{class_annotation_structure_a492abcaf2c4cc847392f06b21679245f}\label{class_annotation_structure_a492abcaf2c4cc847392f06b21679245f}} 
+void {\bfseries swap\+Levels} (int old\+Index, int new\+Index)
+\item 
+\mbox{\Hypertarget{class_annotation_structure_a54aaa46ab41650f23e07085ecf40b850}\label{class_annotation_structure_a54aaa46ab41650f23e07085ecf40b850}} 
+void {\bfseries remove\+Level\+At} (int i)
+\item 
+\mbox{\Hypertarget{class_annotation_structure_a3d9356bad78e1cb2d2cbb6efd16b2d6b}\label{class_annotation_structure_a3d9356bad78e1cb2d2cbb6efd16b2d6b}} 
+void {\bfseries remove\+Level\+By\+ID} (const Q\+String \&ID)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_annotation_structure_a6c555bdec5573e2ca3f78bb16513ab96}\label{class_annotation_structure_a6c555bdec5573e2ca3f78bb16513ab96}} 
+Q\+String {\bfseries m\+\_\+\+ID}
+\item 
+\mbox{\Hypertarget{class_annotation_structure_a0885a62d090c26bd9f60bdb6c14f9350}\label{class_annotation_structure_a0885a62d090c26bd9f60bdb6c14f9350}} 
+Q\+List$<$ \hyperlink{class_annotation_structure_level}{Annotation\+Structure\+Level} $\ast$ $>$ {\bfseries m\+\_\+levels}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/structure/Annotation\+Structure.\+h\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/structure/Annotation\+Structure.\+cpp\end{DoxyCompactItemize}

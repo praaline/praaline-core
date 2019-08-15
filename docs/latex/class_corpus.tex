@@ -1,0 +1,183 @@
+\hypertarget{class_corpus}{}\section{Corpus Class Reference}
+\label{class_corpus}\index{Corpus@{Corpus}}
+Inheritance diagram for Corpus\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_corpus}
+\end{center}
+\end{figure}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_corpus_af27c09a3d9a2cdd3307f133331e8af81}\label{class_corpus_af27c09a3d9a2cdd3307f133331e8af81}} 
+void {\bfseries communication\+Added} (Q\+Pointer$<$ P\+R\+A\+A\+L\+I\+N\+E\+\_\+\+C\+O\+R\+E\+\_\+\+N\+A\+M\+E\+S\+P\+A\+C\+E\+::\+Corpus\+Communication $>$ communication)
+\item 
+\mbox{\Hypertarget{class_corpus_a0ae2650c2acc7495ed72d4501ef43df7}\label{class_corpus_a0ae2650c2acc7495ed72d4501ef43df7}} 
+void {\bfseries communication\+Deleted} (Q\+String ID)
+\item 
+\mbox{\Hypertarget{class_corpus_a6a2a743b27ef679643e316df3d5c06a6}\label{class_corpus_a6a2a743b27ef679643e316df3d5c06a6}} 
+void {\bfseries speaker\+Added} (Q\+Pointer$<$ P\+R\+A\+A\+L\+I\+N\+E\+\_\+\+C\+O\+R\+E\+\_\+\+N\+A\+M\+E\+S\+P\+A\+C\+E\+::\+Corpus\+Speaker $>$ speaker)
+\item 
+\mbox{\Hypertarget{class_corpus_a4701e900ef2d20093c31e81ab23f32db}\label{class_corpus_a4701e900ef2d20093c31e81ab23f32db}} 
+void {\bfseries speaker\+Deleted} (Q\+String ID)
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_corpus_a425510e7043059892721f9e277f67e21}\label{class_corpus_a425510e7043059892721f9e277f67e21}} 
+{\bfseries Corpus} (\hyperlink{class_corpus_repository}{Corpus\+Repository} $\ast$repository=nullptr, Q\+Object $\ast$parent=nullptr)
+\item 
+\mbox{\Hypertarget{class_corpus_acd2fb05316e98fe719db3e393155168c}\label{class_corpus_acd2fb05316e98fe719db3e393155168c}} 
+{\bfseries Corpus} (const Q\+String \&ID, \hyperlink{class_corpus_repository}{Corpus\+Repository} $\ast$repository=nullptr, Q\+Object $\ast$parent=nullptr)
+\item 
+\mbox{\Hypertarget{class_corpus_a4ca235852ae565699aa6f94574c6ed08}\label{class_corpus_a4ca235852ae565699aa6f94574c6ed08}} 
+Corpus\+Object\+::\+Type {\bfseries type} () const override
+\item 
+\mbox{\Hypertarget{class_corpus_ac1a90bbf167ae15bb9e60f763b7613c4}\label{class_corpus_ac1a90bbf167ae15bb9e60f763b7613c4}} 
+bool {\bfseries save} () override
+\item 
+\mbox{\Hypertarget{class_corpus_aace59ec0a90b8e0dc38baf8503403ea8}\label{class_corpus_aace59ec0a90b8e0dc38baf8503403ea8}} 
+Q\+String {\bfseries name} () const
+\item 
+\mbox{\Hypertarget{class_corpus_a7ec330802b109beac27c3563d36d20b6}\label{class_corpus_a7ec330802b109beac27c3563d36d20b6}} 
+void {\bfseries set\+Name} (const Q\+String \&name)
+\item 
+\mbox{\Hypertarget{class_corpus_a56289ebc4858576a1f61718b1682c020}\label{class_corpus_a56289ebc4858576a1f61718b1682c020}} 
+Q\+String {\bfseries description} () const
+\item 
+\mbox{\Hypertarget{class_corpus_a450f7f3e3ce0437d250d3f68bbd49878}\label{class_corpus_a450f7f3e3ce0437d250d3f68bbd49878}} 
+void {\bfseries set\+Description} (const Q\+String \&description)
+\item 
+\mbox{\Hypertarget{class_corpus_a4bac5617957f76e1c621292ad4de507e}\label{class_corpus_a4bac5617957f76e1c621292ad4de507e}} 
+Q\+String {\bfseries corpus\+ID} () const override
+\item 
+\mbox{\Hypertarget{class_corpus_a6683210f37ceae87bd37515e8cdcf996}\label{class_corpus_a6683210f37ceae87bd37515e8cdcf996}} 
+void {\bfseries set\+Corpus\+ID} (const Q\+String \&corpus\+ID) override
+\item 
+\mbox{\Hypertarget{class_corpus_a84087660b16d31d547ea3e7dc1b45088}\label{class_corpus_a84087660b16d31d547ea3e7dc1b45088}} 
+void {\bfseries clear} ()
+\item 
+\mbox{\Hypertarget{class_corpus_a5f63f21382d9a9c0de14d31df01c8bab}\label{class_corpus_a5f63f21382d9a9c0de14d31df01c8bab}} 
+Q\+Pointer$<$ \hyperlink{class_corpus_communication}{Corpus\+Communication} $>$ {\bfseries communication} (const Q\+String \&communication\+ID) const
+\item 
+\mbox{\Hypertarget{class_corpus_aa5a929a8e3d10b5851a7ba6ad064c12a}\label{class_corpus_aa5a929a8e3d10b5851a7ba6ad064c12a}} 
+int {\bfseries communications\+Count} () const
+\item 
+\mbox{\Hypertarget{class_corpus_aae5348f25de705df3cb6e7ddbb1cf186}\label{class_corpus_aae5348f25de705df3cb6e7ddbb1cf186}} 
+bool {\bfseries has\+Communications} () const
+\item 
+\mbox{\Hypertarget{class_corpus_a52ba6fa1f3c0ecad726d8426d209800a}\label{class_corpus_a52ba6fa1f3c0ecad726d8426d209800a}} 
+bool {\bfseries has\+Communication} (const Q\+String \&communication\+ID) const
+\item 
+\mbox{\Hypertarget{class_corpus_aef989baa3a11224defcd318e9aa32d1f}\label{class_corpus_aef989baa3a11224defcd318e9aa32d1f}} 
+Q\+String\+List {\bfseries communication\+I\+Ds} () const
+\item 
+\mbox{\Hypertarget{class_corpus_a69e0227e1b170f27ae30fdddf858427f}\label{class_corpus_a69e0227e1b170f27ae30fdddf858427f}} 
+const Q\+Map$<$ Q\+String, Q\+Pointer$<$ \hyperlink{class_corpus_communication}{Corpus\+Communication} $>$ $>$ \& {\bfseries communications} () const
+\item 
+\mbox{\Hypertarget{class_corpus_a26f495a4c45cb80de5ca8260caf1253e}\label{class_corpus_a26f495a4c45cb80de5ca8260caf1253e}} 
+void {\bfseries add\+Communication} (\hyperlink{class_corpus_communication}{Corpus\+Communication} $\ast$communication)
+\item 
+\mbox{\Hypertarget{class_corpus_a1a30199fd871a0a5508dc8fd836cbc15}\label{class_corpus_a1a30199fd871a0a5508dc8fd836cbc15}} 
+void {\bfseries remove\+Communication} (const Q\+String \&communication\+ID)
+\item 
+\mbox{\Hypertarget{class_corpus_ad8bf012af653dc02f0a2704f52d3c098}\label{class_corpus_ad8bf012af653dc02f0a2704f52d3c098}} 
+Q\+Pointer$<$ \hyperlink{class_corpus_speaker}{Corpus\+Speaker} $>$ {\bfseries speaker} (const Q\+String \&speaker\+ID) const
+\item 
+\mbox{\Hypertarget{class_corpus_aad27cde20185492a31efaa395aa7d207}\label{class_corpus_aad27cde20185492a31efaa395aa7d207}} 
+int {\bfseries speakers\+Count} () const
+\item 
+\mbox{\Hypertarget{class_corpus_a6245c2836161c1f53122ec7ff1664676}\label{class_corpus_a6245c2836161c1f53122ec7ff1664676}} 
+bool {\bfseries has\+Speakers} () const
+\item 
+\mbox{\Hypertarget{class_corpus_ad0b26394149fd83fab56d33c5e8fd066}\label{class_corpus_ad0b26394149fd83fab56d33c5e8fd066}} 
+bool {\bfseries has\+Speaker} (const Q\+String \&speaker\+ID) const
+\item 
+\mbox{\Hypertarget{class_corpus_a4056b10d0459bf42642662edd6ef2cac}\label{class_corpus_a4056b10d0459bf42642662edd6ef2cac}} 
+Q\+String\+List {\bfseries speaker\+I\+Ds} () const
+\item 
+\mbox{\Hypertarget{class_corpus_aeaefdb0df0474809ebb6175474a25300}\label{class_corpus_aeaefdb0df0474809ebb6175474a25300}} 
+const Q\+Map$<$ Q\+String, Q\+Pointer$<$ \hyperlink{class_corpus_speaker}{Corpus\+Speaker} $>$ $>$ \& {\bfseries speakers} () const
+\item 
+\mbox{\Hypertarget{class_corpus_a1617afc5ac5f265cd16a1b964056da23}\label{class_corpus_a1617afc5ac5f265cd16a1b964056da23}} 
+void {\bfseries add\+Speaker} (\hyperlink{class_corpus_speaker}{Corpus\+Speaker} $\ast$speaker)
+\item 
+\mbox{\Hypertarget{class_corpus_af6fbce091bf2a5d9199a82d3318ccd27}\label{class_corpus_af6fbce091bf2a5d9199a82d3318ccd27}} 
+void {\bfseries remove\+Speaker} (const Q\+String \&speaker\+ID)
+\item 
+\mbox{\Hypertarget{class_corpus_aae0f04111009345b6fccd7acdd3e256d}\label{class_corpus_aae0f04111009345b6fccd7acdd3e256d}} 
+Q\+Pointer$<$ \hyperlink{class_corpus_participation}{Corpus\+Participation} $>$ {\bfseries participation} (const Q\+String \&communication\+ID, const Q\+String \&speaker\+ID)
+\item 
+\mbox{\Hypertarget{class_corpus_af0268bc3c38da2fc5aef539f9f51ce74}\label{class_corpus_af0268bc3c38da2fc5aef539f9f51ce74}} 
+bool {\bfseries has\+Participation} (const Q\+String \&communication\+ID, const Q\+String \&speaker\+ID)
+\item 
+\mbox{\Hypertarget{class_corpus_a69e657d9da48943dcbce81925a705569}\label{class_corpus_a69e657d9da48943dcbce81925a705569}} 
+Q\+List$<$ Q\+Pointer$<$ \hyperlink{class_corpus_participation}{Corpus\+Participation} $>$ $>$ {\bfseries participations} ()
+\item 
+\mbox{\Hypertarget{class_corpus_a7b96f1346c6cc6394b6f2c88ef226767}\label{class_corpus_a7b96f1346c6cc6394b6f2c88ef226767}} 
+Q\+List$<$ Q\+Pointer$<$ \hyperlink{class_corpus_participation}{Corpus\+Participation} $>$ $>$ {\bfseries participations\+For\+Communication} (const Q\+String \&communication\+ID)
+\item 
+\mbox{\Hypertarget{class_corpus_adb290afffa993f7232932e9e7a6fe10e}\label{class_corpus_adb290afffa993f7232932e9e7a6fe10e}} 
+Q\+List$<$ Q\+Pointer$<$ \hyperlink{class_corpus_participation}{Corpus\+Participation} $>$ $>$ {\bfseries participations\+For\+Speaker} (const Q\+String \&speaker\+ID)
+\item 
+\mbox{\Hypertarget{class_corpus_a1fdd32d24c55b4f9a477efdb68df52ad}\label{class_corpus_a1fdd32d24c55b4f9a477efdb68df52ad}} 
+Q\+Pointer$<$ \hyperlink{class_corpus_participation}{Corpus\+Participation} $>$ {\bfseries add\+Participation} (const Q\+String \&communication\+ID, const Q\+String \&speaker\+ID, const Q\+String \&role=Q\+String())
+\item 
+\mbox{\Hypertarget{class_corpus_ac1c54f5078d3eb9de6063c38e6fbb6e0}\label{class_corpus_ac1c54f5078d3eb9de6063c38e6fbb6e0}} 
+void {\bfseries remove\+Participation} (const Q\+String \&communication\+ID, const Q\+String \&speaker\+ID)
+\item 
+\mbox{\Hypertarget{class_corpus_aa1169b1871f4b115d012c7f2d6e703ce}\label{class_corpus_aa1169b1871f4b115d012c7f2d6e703ce}} 
+Q\+String\+List {\bfseries recording\+I\+Ds} () const
+\item 
+\mbox{\Hypertarget{class_corpus_a11fb88253c81a672bc12a1fe11de1dc4}\label{class_corpus_a11fb88253c81a672bc12a1fe11de1dc4}} 
+Q\+String\+List {\bfseries annotation\+I\+Ds} () const
+\item 
+\mbox{\Hypertarget{class_corpus_aea431975c8d338bb216ff5d47b114f10}\label{class_corpus_aea431975c8d338bb216ff5d47b114f10}} 
+Q\+List$<$ Q\+Pointer$<$ \hyperlink{class_corpus_communication}{Corpus\+Communication} $>$ $>$ {\bfseries communications\+List} () const
+\item 
+\mbox{\Hypertarget{class_corpus_af334c719b11e7de4ec00acc8d68ff895}\label{class_corpus_af334c719b11e7de4ec00acc8d68ff895}} 
+Q\+List$<$ Q\+Pointer$<$ \hyperlink{class_corpus_speaker}{Corpus\+Speaker} $>$ $>$ {\bfseries speakers\+List} () const
+\item 
+\mbox{\Hypertarget{class_corpus_ac46407c550be94dee0483190d1c5dd08}\label{class_corpus_ac46407c550be94dee0483190d1c5dd08}} 
+Q\+List$<$ Q\+Pointer$<$ \hyperlink{class_corpus_recording}{Corpus\+Recording} $>$ $>$ {\bfseries recordings\+List} () const
+\item 
+\mbox{\Hypertarget{class_corpus_ad4f2b0f294d0bc936cfe0fdeb01df384}\label{class_corpus_ad4f2b0f294d0bc936cfe0fdeb01df384}} 
+Q\+List$<$ Q\+Pointer$<$ \hyperlink{class_corpus_annotation}{Corpus\+Annotation} $>$ $>$ {\bfseries annotations\+List} () const
+\item 
+\mbox{\Hypertarget{class_corpus_abd5174294912f577ba912c7d7fe3990f}\label{class_corpus_abd5174294912f577ba912c7d7fe3990f}} 
+Q\+Map$<$ Q\+String, Q\+Pair$<$ Q\+Pointer$<$ \hyperlink{class_corpus_recording}{Corpus\+Recording} $>$, Q\+Pointer$<$ \hyperlink{class_corpus_annotation}{Corpus\+Annotation} $>$ $>$ $>$ {\bfseries get\+Recordings\+\_\+x\+\_\+\+Annotations} () const
+\item 
+\mbox{\Hypertarget{class_corpus_a44b6483e0cea2f124272ce79905ba05f}\label{class_corpus_a44b6483e0cea2f124272ce79905ba05f}} 
+Q\+Map$<$ Q\+String, Q\+Pair$<$ Q\+Pointer$<$ \hyperlink{class_corpus_annotation}{Corpus\+Annotation} $>$, Q\+Pointer$<$ \hyperlink{class_corpus_recording}{Corpus\+Recording} $>$ $>$ $>$ {\bfseries get\+Annotations\+\_\+x\+\_\+\+Recordings} () const
+\item 
+\mbox{\Hypertarget{class_corpus_aeb1454b56f0e11cf8ae5f91f8d6f4c1e}\label{class_corpus_aeb1454b56f0e11cf8ae5f91f8d6f4c1e}} 
+Q\+List$<$ Q\+Pair$<$ Q\+String, Q\+String $>$ $>$ {\bfseries get\+Communications\+Annotations\+I\+Ds} () const
+\item 
+\mbox{\Hypertarget{class_corpus_ae84db3aaf9ad1b0cae5fac3196b77088}\label{class_corpus_ae84db3aaf9ad1b0cae5fac3196b77088}} 
+Q\+List$<$ Q\+Pair$<$ Q\+String, Q\+String $>$ $>$ {\bfseries get\+Communications\+Recordings\+I\+Ds} () const
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_corpus_a55599dacff53f4ea699a1758f3a2aaeb}\label{class_corpus_a55599dacff53f4ea699a1758f3a2aaeb}} 
+Q\+List$<$ Q\+String $>$ {\bfseries deleted\+Communication\+I\+Ds}
+\item 
+\mbox{\Hypertarget{class_corpus_adf9500d71cba6f1179681acbe17ca7af}\label{class_corpus_adf9500d71cba6f1179681acbe17ca7af}} 
+Q\+List$<$ Q\+String $>$ {\bfseries deleted\+Speaker\+I\+Ds}
+\item 
+\mbox{\Hypertarget{class_corpus_a09ad0d669adf1007f31ea1786b6be918}\label{class_corpus_a09ad0d669adf1007f31ea1786b6be918}} 
+Q\+List$<$ Q\+Pair$<$ Q\+String, Q\+String $>$ $>$ {\bfseries deleted\+Participation\+I\+Ds}
+\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_corpus_a90e1ba1705b04ad6d58810afbf08d9cd}\label{class_corpus_a90e1ba1705b04ad6d58810afbf08d9cd}} 
+Q\+String {\bfseries name}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/corpus/Corpus.\+h\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/corpus/Corpus.\+cpp\end{DoxyCompactItemize}

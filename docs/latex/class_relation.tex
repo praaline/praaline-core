@@ -1,0 +1,123 @@
+\hypertarget{class_relation}{}\section{Relation Class Reference}
+\label{class_relation}\index{Relation@{Relation}}
+Inheritance diagram for Relation\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_relation}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_relation_a9fac1afe32c8b1cfde60e7abc72db83d}\label{class_relation_a9fac1afe32c8b1cfde60e7abc72db83d}} 
+{\bfseries Relation} (int index\+From, int index\+To, const Q\+String \&\hyperlink{class_annotation_element_aa59bd98501e3882990681f6aff2ee863}{text}=Q\+String(), const Q\+Hash$<$ Q\+String, Q\+Variant $>$ \&\hyperlink{class_annotation_element_a58082d92f50c4fde2d18ce24ef3fd283}{attributes}=Q\+Hash$<$ Q\+String, Q\+Variant $>$())
+\item 
+\mbox{\Hypertarget{class_relation_ae2ea82b1be4d9b41287566266cbba3c1}\label{class_relation_ae2ea82b1be4d9b41287566266cbba3c1}} 
+{\bfseries Relation} (const \hyperlink{class_relation}{Relation} \&copy)
+\item 
+\mbox{\Hypertarget{class_relation_a380c5c9467c2532448e63a0308027e14}\label{class_relation_a380c5c9467c2532448e63a0308027e14}} 
+\hyperlink{class_relation}{Relation} $\ast$ {\bfseries clone} ()
+\item 
+\mbox{\Hypertarget{class_relation_a9223f410412b4b396b37d5e2e497e5fa}\label{class_relation_a9223f410412b4b396b37d5e2e497e5fa}} 
+\hyperlink{class_relation}{Relation} $\ast$ {\bfseries clone\+Without\+Attributes} ()
+\item 
+\mbox{\Hypertarget{class_relation_a8adb9981a4eee2e0bdef72d960ff5ce9}\label{class_relation_a8adb9981a4eee2e0bdef72d960ff5ce9}} 
+int {\bfseries index\+From} () const
+\item 
+\mbox{\Hypertarget{class_relation_ac88e95a051161a85f30de6b0c890607c}\label{class_relation_ac88e95a051161a85f30de6b0c890607c}} 
+int {\bfseries index\+To} () const
+\item 
+virtual Q\+Variant \hyperlink{class_relation_a424ac3f46c1a62f2f72592dcf10d1f1e}{attribute} (const Q\+String \&name) const override
+\begin{DoxyCompactList}\small\item\em attribute \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_relation_ae669645f5fc531a6118d68b51a4d64df}{set\+Attribute} (const Q\+String \&name, Q\+Variant value) override
+\begin{DoxyCompactList}\small\item\em set\+Attribute \end{DoxyCompactList}\item 
+virtual \hyperlink{class_annotation_element_af5282990ffbe25eeea8ab02037e344b0}{Element\+Type} \hyperlink{class_relation_a31e74e5707090aedfa225289b06683f4}{element\+Type} () const override
+\begin{DoxyCompactList}\small\item\em element\+Type \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_relation_a3beae786b907afb5ef709e63eecc8b6b}\label{class_relation_a3beae786b907afb5ef709e63eecc8b6b}} 
+int {\bfseries compare} (const \hyperlink{class_relation}{Relation} \&other) const
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_relation_a64f89fd00e28838b22d126c9329fa348}\label{class_relation_a64f89fd00e28838b22d126c9329fa348}} 
+int {\bfseries m\+\_\+index\+From}
+\item 
+\mbox{\Hypertarget{class_relation_a97e8c4d1e08944a1332b84e18e73a395}\label{class_relation_a97e8c4d1e08944a1332b84e18e73a395}} 
+int {\bfseries m\+\_\+index\+To}
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_relation_a73055847496439d12dc28c39451725d5}\label{class_relation_a73055847496439d12dc28c39451725d5}} 
+class {\bfseries Relations\+Tier}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_relation_a424ac3f46c1a62f2f72592dcf10d1f1e}\label{class_relation_a424ac3f46c1a62f2f72592dcf10d1f1e}} 
+\index{Relation@{Relation}!attribute@{attribute}}
+\index{attribute@{attribute}!Relation@{Relation}}
+\subsubsection{\texorpdfstring{attribute()}{attribute()}}
+{\footnotesize\ttfamily Q\+Variant Relation\+::attribute (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{name }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+attribute 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{class_annotation_element_a55f85fb15ed52122653b0769c857899c}{Annotation\+Element}.
+
+\mbox{\Hypertarget{class_relation_a31e74e5707090aedfa225289b06683f4}\label{class_relation_a31e74e5707090aedfa225289b06683f4}} 
+\index{Relation@{Relation}!element\+Type@{element\+Type}}
+\index{element\+Type@{element\+Type}!Relation@{Relation}}
+\subsubsection{\texorpdfstring{element\+Type()}{elementType()}}
+{\footnotesize\ttfamily virtual \hyperlink{class_annotation_element_af5282990ffbe25eeea8ab02037e344b0}{Element\+Type} Relation\+::element\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+element\+Type 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{class_annotation_element_a9b2d5cf05a2f81d9b2103a5c736dfb2d}{Annotation\+Element}.
+
+\mbox{\Hypertarget{class_relation_ae669645f5fc531a6118d68b51a4d64df}\label{class_relation_ae669645f5fc531a6118d68b51a4d64df}} 
+\index{Relation@{Relation}!set\+Attribute@{set\+Attribute}}
+\index{set\+Attribute@{set\+Attribute}!Relation@{Relation}}
+\subsubsection{\texorpdfstring{set\+Attribute()}{setAttribute()}}
+{\footnotesize\ttfamily void Relation\+::set\+Attribute (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{name,  }\item[{Q\+Variant}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+set\+Attribute 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+{\em value} & \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{class_annotation_element_a206d8790fe92a7c8e6b703d026836584}{Annotation\+Element}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/annotation/Relation.\+h\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/annotation/Relation.\+cpp\end{DoxyCompactItemize}

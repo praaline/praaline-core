@@ -1,0 +1,194 @@
+\hypertarget{struct_real_time}{}\section{Real\+Time Struct Reference}
+\label{struct_real_time}\index{Real\+Time@{Real\+Time}}
+
+
+{\ttfamily \#include $<$Real\+Time.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{struct_real_time_a326b7e7bf06d9aa4bac192a15d92a8bd}\label{struct_real_time_a326b7e7bf06d9aa4bac192a15d92a8bd}} 
+int {\bfseries usec} () const
+\item 
+\mbox{\Hypertarget{struct_real_time_a82d58867cd3c682af9882abb4407645c}\label{struct_real_time_a82d58867cd3c682af9882abb4407645c}} 
+int {\bfseries msec} () const
+\item 
+\mbox{\Hypertarget{struct_real_time_a4638502d757c95df8b16bd004640b0cd}\label{struct_real_time_a4638502d757c95df8b16bd004640b0cd}} 
+long long {\bfseries to\+Nanoseconds} () const
+\item 
+\mbox{\Hypertarget{struct_real_time_aa6a279c933aaaa966279befaef4bc52a}\label{struct_real_time_aa6a279c933aaaa966279befaef4bc52a}} 
+{\bfseries Real\+Time} (int s, int n)
+\item 
+\mbox{\Hypertarget{struct_real_time_a6d0310b29c3cd34413a36a34c3100184}\label{struct_real_time_a6d0310b29c3cd34413a36a34c3100184}} 
+{\bfseries Real\+Time} (const \hyperlink{struct_real_time}{Real\+Time} \&r)
+\item 
+\mbox{\Hypertarget{struct_real_time_ae521066471d17cd93ee03e3e32bed6d6}\label{struct_real_time_ae521066471d17cd93ee03e3e32bed6d6}} 
+double {\bfseries to\+Double} () const
+\item 
+\mbox{\Hypertarget{struct_real_time_a74a68864f6f6425e6a327f5e67160b2a}\label{struct_real_time_a74a68864f6f6425e6a327f5e67160b2a}} 
+\hyperlink{struct_real_time}{Real\+Time} \& {\bfseries operator=} (const \hyperlink{struct_real_time}{Real\+Time} \&r)
+\item 
+\mbox{\Hypertarget{struct_real_time_af0a434cdbd5132e478dfe1c5c6098cca}\label{struct_real_time_af0a434cdbd5132e478dfe1c5c6098cca}} 
+\hyperlink{struct_real_time}{Real\+Time} {\bfseries operator+} (const \hyperlink{struct_real_time}{Real\+Time} \&r) const
+\item 
+\mbox{\Hypertarget{struct_real_time_a19b1c175c2af08368668ec6201602061}\label{struct_real_time_a19b1c175c2af08368668ec6201602061}} 
+\hyperlink{struct_real_time}{Real\+Time} {\bfseries operator-\/} (const \hyperlink{struct_real_time}{Real\+Time} \&r) const
+\item 
+\mbox{\Hypertarget{struct_real_time_a756e79337e0edf2ab09f4ef239d2f720}\label{struct_real_time_a756e79337e0edf2ab09f4ef239d2f720}} 
+\hyperlink{struct_real_time}{Real\+Time} {\bfseries operator-\/} () const
+\item 
+\mbox{\Hypertarget{struct_real_time_a17a1d844697f865c6d78411ec6c18b49}\label{struct_real_time_a17a1d844697f865c6d78411ec6c18b49}} 
+bool {\bfseries operator$<$} (const \hyperlink{struct_real_time}{Real\+Time} \&r) const
+\item 
+\mbox{\Hypertarget{struct_real_time_a556893067c447dfb34cc412db374bd4d}\label{struct_real_time_a556893067c447dfb34cc412db374bd4d}} 
+bool {\bfseries operator$>$} (const \hyperlink{struct_real_time}{Real\+Time} \&r) const
+\item 
+\mbox{\Hypertarget{struct_real_time_a35f187f0ebcb16abf0b0dbb7c42f0d1d}\label{struct_real_time_a35f187f0ebcb16abf0b0dbb7c42f0d1d}} 
+bool {\bfseries operator==} (const \hyperlink{struct_real_time}{Real\+Time} \&r) const
+\item 
+\mbox{\Hypertarget{struct_real_time_a1e1255b850e57a6e76830023ffdb0bf5}\label{struct_real_time_a1e1255b850e57a6e76830023ffdb0bf5}} 
+bool {\bfseries operator!=} (const \hyperlink{struct_real_time}{Real\+Time} \&r) const
+\item 
+\mbox{\Hypertarget{struct_real_time_a0deff1c477866608ffdac167bb53a95c}\label{struct_real_time_a0deff1c477866608ffdac167bb53a95c}} 
+bool {\bfseries operator$>$=} (const \hyperlink{struct_real_time}{Real\+Time} \&r) const
+\item 
+\mbox{\Hypertarget{struct_real_time_a21d87b72bfb94ff8ed0799e9d5702540}\label{struct_real_time_a21d87b72bfb94ff8ed0799e9d5702540}} 
+bool {\bfseries operator$<$=} (const \hyperlink{struct_real_time}{Real\+Time} \&r) const
+\item 
+\mbox{\Hypertarget{struct_real_time_a86bcfab40456f6e950f9126dd35e2957}\label{struct_real_time_a86bcfab40456f6e950f9126dd35e2957}} 
+\hyperlink{struct_real_time}{Real\+Time} {\bfseries operator$\ast$} (int m) const
+\item 
+\mbox{\Hypertarget{struct_real_time_a81891a4c613a3a03f20508b0a9a3b28c}\label{struct_real_time_a81891a4c613a3a03f20508b0a9a3b28c}} 
+\hyperlink{struct_real_time}{Real\+Time} {\bfseries operator/} (int d) const
+\item 
+\mbox{\Hypertarget{struct_real_time_a7bc5c98d7174433ff1a53d0d9379e6aa}\label{struct_real_time_a7bc5c98d7174433ff1a53d0d9379e6aa}} 
+\hyperlink{struct_real_time}{Real\+Time} {\bfseries operator$\ast$} (double m) const
+\item 
+\mbox{\Hypertarget{struct_real_time_affc41ebd1db6d629bc5d4b8f851d3352}\label{struct_real_time_affc41ebd1db6d629bc5d4b8f851d3352}} 
+\hyperlink{struct_real_time}{Real\+Time} {\bfseries operator/} (double d) const
+\item 
+double \hyperlink{struct_real_time_a0490b364a90dc60f3ad43f7d03787bd9}{operator/} (const \hyperlink{struct_real_time}{Real\+Time} \&r) const
+\item 
+std\+::string \hyperlink{struct_real_time_a14de8a0e61b2c5fdca62cd0c7c69130f}{to\+String} (bool align=false) const
+\item 
+std\+::string \hyperlink{struct_real_time_a5696e68ee181c45d25620e51c134d283}{to\+Text} (bool fixed\+Dp=false) const
+\item 
+std\+::string \hyperlink{struct_real_time_a0e6101f57c3255646ad653726ee54b10}{to\+Frame\+Text} (int fps) const
+\item 
+std\+::string \hyperlink{struct_real_time_a439bc705afe0dc850a05a251c8b72401}{to\+Sec\+Text} () const
+\item 
+std\+::string \hyperlink{struct_real_time_ab21fab249ec4d6264dcc18cbe1f1e343}{to\+Xsd\+Duration} () const
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{struct_real_time_af77338efa3ad12743a8055dbe18b0db9}\label{struct_real_time_af77338efa3ad12743a8055dbe18b0db9}} 
+static \hyperlink{struct_real_time}{Real\+Time} {\bfseries from\+Seconds} (double sec)
+\item 
+\mbox{\Hypertarget{struct_real_time_ad531941c58f834ba5b44c3a8861a35c8}\label{struct_real_time_ad531941c58f834ba5b44c3a8861a35c8}} 
+static \hyperlink{struct_real_time}{Real\+Time} {\bfseries from\+Milliseconds} (int msec)
+\item 
+\mbox{\Hypertarget{struct_real_time_ad2f1ce9ce7804dac70776c2f5379e041}\label{struct_real_time_ad2f1ce9ce7804dac70776c2f5379e041}} 
+static \hyperlink{struct_real_time}{Real\+Time} {\bfseries from\+Nanoseconds} (long long nsec)
+\item 
+\mbox{\Hypertarget{struct_real_time_acf6e534f92fe820e1c9bf724296189be}\label{struct_real_time_acf6e534f92fe820e1c9bf724296189be}} 
+static \hyperlink{struct_real_time}{Real\+Time} {\bfseries from\+Timeval} (const struct timeval \&)
+\item 
+\mbox{\Hypertarget{struct_real_time_a077463b388e2d951aaffbf521731db25}\label{struct_real_time_a077463b388e2d951aaffbf521731db25}} 
+static \hyperlink{struct_real_time}{Real\+Time} {\bfseries from\+Xsd\+Duration} (std\+::string xsdd)
+\item 
+static \hyperlink{struct_real_time}{Real\+Time} \hyperlink{struct_real_time_a1de34971af5a8f2f5c7e54566f4e42f4}{from\+String} (std\+::string)
+\item 
+static sv\+\_\+frame\+\_\+t \hyperlink{struct_real_time_a3a99b7b0da96694a868e8fc211c41375}{real\+Time2\+Frame} (const \hyperlink{struct_real_time}{Real\+Time} \&r, sv\+\_\+samplerate\+\_\+t sample\+Rate)
+\item 
+static \hyperlink{struct_real_time}{Real\+Time} \hyperlink{struct_real_time_a4d53e4b8dc9693d158f5ad9165def079}{frame2\+Real\+Time} (sv\+\_\+frame\+\_\+t frame, sv\+\_\+samplerate\+\_\+t sample\+Rate)
+\item 
+static \hyperlink{struct_real_time}{Real\+Time} \hyperlink{struct_real_time_af5b87bca9dc8905e27f5b9c2669dcdb8}{abs} (const \hyperlink{struct_real_time}{Real\+Time} x)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{struct_real_time_aca93b4035af61149b499f351325fe8e9}\label{struct_real_time_aca93b4035af61149b499f351325fe8e9}} 
+int {\bfseries sec}
+\item 
+\mbox{\Hypertarget{struct_real_time_a732efd367da7017840b39e8e00124270}\label{struct_real_time_a732efd367da7017840b39e8e00124270}} 
+int {\bfseries nsec}
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{struct_real_time_a6866fde5d2cf8023eb54a2d4d91a7046}\label{struct_real_time_a6866fde5d2cf8023eb54a2d4d91a7046}} 
+static const \hyperlink{struct_real_time}{Real\+Time} {\bfseries zero\+Time}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{struct_real_time}{Real\+Time} represents time values to nanosecond precision with accurate arithmetic and frame-\/rate conversion functions. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_real_time_af5b87bca9dc8905e27f5b9c2669dcdb8}\label{struct_real_time_af5b87bca9dc8905e27f5b9c2669dcdb8}} 
+\index{Real\+Time@{Real\+Time}!abs@{abs}}
+\index{abs@{abs}!Real\+Time@{Real\+Time}}
+\subsubsection{\texorpdfstring{abs()}{abs()}}
+{\footnotesize\ttfamily \hyperlink{struct_real_time}{Real\+Time} Real\+Time\+::abs (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_real_time}{Real\+Time}}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Absolute value of a real time. \mbox{\Hypertarget{struct_real_time_a4d53e4b8dc9693d158f5ad9165def079}\label{struct_real_time_a4d53e4b8dc9693d158f5ad9165def079}} 
+\index{Real\+Time@{Real\+Time}!frame2\+Real\+Time@{frame2\+Real\+Time}}
+\index{frame2\+Real\+Time@{frame2\+Real\+Time}!Real\+Time@{Real\+Time}}
+\subsubsection{\texorpdfstring{frame2\+Real\+Time()}{frame2RealTime()}}
+{\footnotesize\ttfamily \hyperlink{struct_real_time}{Real\+Time} Real\+Time\+::frame2\+Real\+Time (\begin{DoxyParamCaption}\item[{sv\+\_\+frame\+\_\+t}]{frame,  }\item[{sv\+\_\+samplerate\+\_\+t}]{sample\+Rate }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Convert a sample frame at the given sample rate into a \hyperlink{struct_real_time}{Real\+Time}. \mbox{\Hypertarget{struct_real_time_a1de34971af5a8f2f5c7e54566f4e42f4}\label{struct_real_time_a1de34971af5a8f2f5c7e54566f4e42f4}} 
+\index{Real\+Time@{Real\+Time}!from\+String@{from\+String}}
+\index{from\+String@{from\+String}!Real\+Time@{Real\+Time}}
+\subsubsection{\texorpdfstring{from\+String()}{fromString()}}
+{\footnotesize\ttfamily \hyperlink{struct_real_time}{Real\+Time} Real\+Time\+::from\+String (\begin{DoxyParamCaption}\item[{std\+::string}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Convert a string as obtained from to\+String back to a \hyperlink{struct_real_time}{Real\+Time} object. \mbox{\Hypertarget{struct_real_time_a0490b364a90dc60f3ad43f7d03787bd9}\label{struct_real_time_a0490b364a90dc60f3ad43f7d03787bd9}} 
+\index{Real\+Time@{Real\+Time}!operator/@{operator/}}
+\index{operator/@{operator/}!Real\+Time@{Real\+Time}}
+\subsubsection{\texorpdfstring{operator/()}{operator/()}}
+{\footnotesize\ttfamily double Real\+Time\+::operator/ (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_real_time}{Real\+Time} \&}]{r }\end{DoxyParamCaption}) const}
+
+Return the ratio of two times. \mbox{\Hypertarget{struct_real_time_a3a99b7b0da96694a868e8fc211c41375}\label{struct_real_time_a3a99b7b0da96694a868e8fc211c41375}} 
+\index{Real\+Time@{Real\+Time}!real\+Time2\+Frame@{real\+Time2\+Frame}}
+\index{real\+Time2\+Frame@{real\+Time2\+Frame}!Real\+Time@{Real\+Time}}
+\subsubsection{\texorpdfstring{real\+Time2\+Frame()}{realTime2Frame()}}
+{\footnotesize\ttfamily sv\+\_\+frame\+\_\+t Real\+Time\+::real\+Time2\+Frame (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_real_time}{Real\+Time} \&}]{r,  }\item[{sv\+\_\+samplerate\+\_\+t}]{sample\+Rate }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Convert a \hyperlink{struct_real_time}{Real\+Time} into a sample frame at the given sample rate. \mbox{\Hypertarget{struct_real_time_a0e6101f57c3255646ad653726ee54b10}\label{struct_real_time_a0e6101f57c3255646ad653726ee54b10}} 
+\index{Real\+Time@{Real\+Time}!to\+Frame\+Text@{to\+Frame\+Text}}
+\index{to\+Frame\+Text@{to\+Frame\+Text}!Real\+Time@{Real\+Time}}
+\subsubsection{\texorpdfstring{to\+Frame\+Text()}{toFrameText()}}
+{\footnotesize\ttfamily std\+::string Real\+Time\+::to\+Frame\+Text (\begin{DoxyParamCaption}\item[{int}]{fps }\end{DoxyParamCaption}) const}
+
+Return a user-\/readable string in which seconds are divided into frames (presumably at a lower frame rate than audio rate, e.\+g. 24 or 25 video frames), in a form like H\+H\+:\+M\+M\+:\+SS\+:FF. fps gives the number of frames per second, and must be integral (29.\+97 not supported). \mbox{\Hypertarget{struct_real_time_a439bc705afe0dc850a05a251c8b72401}\label{struct_real_time_a439bc705afe0dc850a05a251c8b72401}} 
+\index{Real\+Time@{Real\+Time}!to\+Sec\+Text@{to\+Sec\+Text}}
+\index{to\+Sec\+Text@{to\+Sec\+Text}!Real\+Time@{Real\+Time}}
+\subsubsection{\texorpdfstring{to\+Sec\+Text()}{toSecText()}}
+{\footnotesize\ttfamily std\+::string Real\+Time\+::to\+Sec\+Text (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Return a user-\/readable string to the nearest second, in a form like \char`\"{}6s\char`\"{} (for less than a minute) or \char`\"{}2\+:21\char`\"{} (for more). \mbox{\Hypertarget{struct_real_time_a14de8a0e61b2c5fdca62cd0c7c69130f}\label{struct_real_time_a14de8a0e61b2c5fdca62cd0c7c69130f}} 
+\index{Real\+Time@{Real\+Time}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Real\+Time@{Real\+Time}}
+\subsubsection{\texorpdfstring{to\+String()}{toString()}}
+{\footnotesize\ttfamily std\+::string Real\+Time\+::to\+String (\begin{DoxyParamCaption}\item[{bool}]{align = {\ttfamily false} }\end{DoxyParamCaption}) const}
+
+Return a human-\/readable debug-\/type string to full precision (probably not a format to show to a user directly). If align is true, prepend \char`\"{} \char`\"{} to the start of positive values so that they line up with negative ones (which start with \char`\"{}-\/\char`\"{}). \mbox{\Hypertarget{struct_real_time_a5696e68ee181c45d25620e51c134d283}\label{struct_real_time_a5696e68ee181c45d25620e51c134d283}} 
+\index{Real\+Time@{Real\+Time}!to\+Text@{to\+Text}}
+\index{to\+Text@{to\+Text}!Real\+Time@{Real\+Time}}
+\subsubsection{\texorpdfstring{to\+Text()}{toText()}}
+{\footnotesize\ttfamily std\+::string Real\+Time\+::to\+Text (\begin{DoxyParamCaption}\item[{bool}]{fixed\+Dp = {\ttfamily false} }\end{DoxyParamCaption}) const}
+
+Return a user-\/readable string to the nearest millisecond, in a form like H\+H\+:\+MM\+:S\+S.\+mmm \mbox{\Hypertarget{struct_real_time_ab21fab249ec4d6264dcc18cbe1f1e343}\label{struct_real_time_ab21fab249ec4d6264dcc18cbe1f1e343}} 
+\index{Real\+Time@{Real\+Time}!to\+Xsd\+Duration@{to\+Xsd\+Duration}}
+\index{to\+Xsd\+Duration@{to\+Xsd\+Duration}!Real\+Time@{Real\+Time}}
+\subsubsection{\texorpdfstring{to\+Xsd\+Duration()}{toXsdDuration()}}
+{\footnotesize\ttfamily std\+::string Real\+Time\+::to\+Xsd\+Duration (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Return a string in xsd\+:duration format. 
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/base/Real\+Time.\+h\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/base/Real\+Time.\+cpp\end{DoxyCompactItemize}

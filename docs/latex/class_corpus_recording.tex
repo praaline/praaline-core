@@ -1,0 +1,162 @@
+\hypertarget{class_corpus_recording}{}\section{Corpus\+Recording Class Reference}
+\label{class_corpus_recording}\index{Corpus\+Recording@{Corpus\+Recording}}
+Inheritance diagram for Corpus\+Recording\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_corpus_recording}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_corpus_recording_a98f422ade47706ab47ed27ee6c31fbac}\label{class_corpus_recording_a98f422ade47706ab47ed27ee6c31fbac}} 
+{\bfseries Corpus\+Recording} (\hyperlink{class_corpus_repository}{Corpus\+Repository} $\ast$repository=nullptr, Q\+Object $\ast$parent=nullptr)
+\item 
+\mbox{\Hypertarget{class_corpus_recording_a3e3502c3e982a42c8e60a15594b569c2}\label{class_corpus_recording_a3e3502c3e982a42c8e60a15594b569c2}} 
+{\bfseries Corpus\+Recording} (const Q\+String ID, \hyperlink{class_corpus_repository}{Corpus\+Repository} $\ast$repository=nullptr, Q\+Object $\ast$parent=nullptr)
+\item 
+\mbox{\Hypertarget{class_corpus_recording_ad1364e9a6f224e418644bbacd9b1b36b}\label{class_corpus_recording_ad1364e9a6f224e418644bbacd9b1b36b}} 
+{\bfseries Corpus\+Recording} (\hyperlink{class_corpus_recording}{Corpus\+Recording} $\ast$other, Q\+Object $\ast$parent=nullptr)
+\item 
+\mbox{\Hypertarget{class_corpus_recording_ac9a6a1406274c3dd36f0f562b531c522}\label{class_corpus_recording_ac9a6a1406274c3dd36f0f562b531c522}} 
+Corpus\+Object\+::\+Type {\bfseries type} () const override
+\item 
+\mbox{\Hypertarget{class_corpus_recording_a9ce3f0e38c3a75e8ca229cf2df81ccb2}\label{class_corpus_recording_a9ce3f0e38c3a75e8ca229cf2df81ccb2}} 
+bool {\bfseries save} () override
+\item 
+\mbox{\Hypertarget{class_corpus_recording_a443e8b8066600c9e6f0ed8a16a42e07e}\label{class_corpus_recording_a443e8b8066600c9e6f0ed8a16a42e07e}} 
+Q\+String {\bfseries communication\+ID} () const
+\item 
+\mbox{\Hypertarget{class_corpus_recording_a256617f005a6bc4360b13b552f8dd642}\label{class_corpus_recording_a256617f005a6bc4360b13b552f8dd642}} 
+Q\+Pointer$<$ \hyperlink{class_corpus}{Corpus} $>$ {\bfseries corpus} () const
+\item 
+\mbox{\Hypertarget{class_corpus_recording_a4336b3b38d50cc436e6bf5e434c14d08}\label{class_corpus_recording_a4336b3b38d50cc436e6bf5e434c14d08}} 
+Q\+String {\bfseries base\+Path} () const
+\item 
+\mbox{\Hypertarget{class_corpus_recording_aa7d7f7139097301dd35e199e2ac3b505}\label{class_corpus_recording_aa7d7f7139097301dd35e199e2ac3b505}} 
+Q\+String {\bfseries file\+Path} () const
+\item 
+\mbox{\Hypertarget{class_corpus_recording_a777e53057b4efeb5f193762519da9587}\label{class_corpus_recording_a777e53057b4efeb5f193762519da9587}} 
+Q\+String {\bfseries name} () const
+\item 
+\mbox{\Hypertarget{class_corpus_recording_a67037b91f6f3c4b3b0364bc018c4a2a5}\label{class_corpus_recording_a67037b91f6f3c4b3b0364bc018c4a2a5}} 
+void {\bfseries set\+Name} (const Q\+String \&name)
+\item 
+\mbox{\Hypertarget{class_corpus_recording_a4c569c78ba233dc501edd3b791805c5e}\label{class_corpus_recording_a4c569c78ba233dc501edd3b791805c5e}} 
+Q\+String {\bfseries filename} () const
+\item 
+\mbox{\Hypertarget{class_corpus_recording_aa626693ea446a6d7a7f9534165e852e0}\label{class_corpus_recording_aa626693ea446a6d7a7f9534165e852e0}} 
+void {\bfseries set\+Filename} (const Q\+String \&filename)
+\item 
+\mbox{\Hypertarget{class_corpus_recording_aa05f360593b3ea17024750a720cb3785}\label{class_corpus_recording_aa05f360593b3ea17024750a720cb3785}} 
+Q\+String {\bfseries format} () const
+\item 
+\mbox{\Hypertarget{class_corpus_recording_a875f5a696ef8e90f3772010f584f58f2}\label{class_corpus_recording_a875f5a696ef8e90f3772010f584f58f2}} 
+void {\bfseries set\+Format} (const Q\+String \&format)
+\item 
+\mbox{\Hypertarget{class_corpus_recording_acab3d304e1da2ad678def1a19bb33da1}\label{class_corpus_recording_acab3d304e1da2ad678def1a19bb33da1}} 
+\hyperlink{struct_real_time}{Real\+Time} {\bfseries duration} () const
+\item 
+\mbox{\Hypertarget{class_corpus_recording_ac5b130acf20352407a2bf21a9ae9df77}\label{class_corpus_recording_ac5b130acf20352407a2bf21a9ae9df77}} 
+void {\bfseries set\+Duration} (const \hyperlink{struct_real_time}{Real\+Time} \&duration)
+\item 
+\mbox{\Hypertarget{class_corpus_recording_a843221a0ccdc2960b4fc9e6c22cae7fd}\label{class_corpus_recording_a843221a0ccdc2960b4fc9e6c22cae7fd}} 
+double {\bfseries duration\+Sec} () const
+\item 
+\mbox{\Hypertarget{class_corpus_recording_a9d7f07e7da9878b09dec5ed8a6bd5de9}\label{class_corpus_recording_a9d7f07e7da9878b09dec5ed8a6bd5de9}} 
+void {\bfseries set\+Duration\+Sec} (double duration)
+\item 
+\mbox{\Hypertarget{class_corpus_recording_a3a5adeef9c4207f6d361a05ccf422954}\label{class_corpus_recording_a3a5adeef9c4207f6d361a05ccf422954}} 
+int {\bfseries channels} () const
+\item 
+\mbox{\Hypertarget{class_corpus_recording_ae6d357b09f72910ba14b8ed42f364cba}\label{class_corpus_recording_ae6d357b09f72910ba14b8ed42f364cba}} 
+void {\bfseries set\+Channels} (int channels)
+\item 
+\mbox{\Hypertarget{class_corpus_recording_a2eb1a4954a0cdf996a6a5c003d90af17}\label{class_corpus_recording_a2eb1a4954a0cdf996a6a5c003d90af17}} 
+int {\bfseries sample\+Rate} () const
+\item 
+\mbox{\Hypertarget{class_corpus_recording_a3f88508e17242b42253ef283c34de558}\label{class_corpus_recording_a3f88508e17242b42253ef283c34de558}} 
+void {\bfseries set\+Sample\+Rate} (int sample\+Rate)
+\item 
+\mbox{\Hypertarget{class_corpus_recording_acd4b8a16d8383ab6e9fc3955657b1e4d}\label{class_corpus_recording_acd4b8a16d8383ab6e9fc3955657b1e4d}} 
+int {\bfseries precision\+Bits} () const
+\item 
+\mbox{\Hypertarget{class_corpus_recording_a8d414dc7f3175fb239cb53a9db1e6bc4}\label{class_corpus_recording_a8d414dc7f3175fb239cb53a9db1e6bc4}} 
+void {\bfseries set\+Precision\+Bits} (int precision\+Bits)
+\item 
+\mbox{\Hypertarget{class_corpus_recording_a098e056795c73ef7e2e55b6ad423c8a1}\label{class_corpus_recording_a098e056795c73ef7e2e55b6ad423c8a1}} 
+int {\bfseries bit\+Rate} () const
+\item 
+\mbox{\Hypertarget{class_corpus_recording_a0bce882cf34131dac826edf97177398d}\label{class_corpus_recording_a0bce882cf34131dac826edf97177398d}} 
+void {\bfseries set\+Bit\+Rate} (int bit\+Rate)
+\item 
+\mbox{\Hypertarget{class_corpus_recording_a217854a9ac94194163275ae59395d9f5}\label{class_corpus_recording_a217854a9ac94194163275ae59395d9f5}} 
+Q\+String {\bfseries encoding} () const
+\item 
+\mbox{\Hypertarget{class_corpus_recording_a4d785a2a267e2ccbd78d3a7fcf263343}\label{class_corpus_recording_a4d785a2a267e2ccbd78d3a7fcf263343}} 
+void {\bfseries set\+Encoding} (const Q\+String \&encoding)
+\item 
+\mbox{\Hypertarget{class_corpus_recording_a072ad6cde836c102c0c3fce45b9edfa3}\label{class_corpus_recording_a072ad6cde836c102c0c3fce45b9edfa3}} 
+long long {\bfseries file\+Size} () const
+\item 
+\mbox{\Hypertarget{class_corpus_recording_a4cb620a0f52f09719377a3443d27c000}\label{class_corpus_recording_a4cb620a0f52f09719377a3443d27c000}} 
+void {\bfseries set\+File\+Size} (long long file\+Size)
+\item 
+\mbox{\Hypertarget{class_corpus_recording_ad35668b7ececf5593011ce786968ff47}\label{class_corpus_recording_ad35668b7ececf5593011ce786968ff47}} 
+Q\+String {\bfseries checksum\+M\+D5} () const
+\item 
+\mbox{\Hypertarget{class_corpus_recording_ad08087038cfd7ed827a3bb8690c6d3dd}\label{class_corpus_recording_ad08087038cfd7ed827a3bb8690c6d3dd}} 
+void {\bfseries set\+Checksum\+M\+D5} (const Q\+String \&checksum\+M\+D5)
+\item 
+\mbox{\Hypertarget{class_corpus_recording_af9df43d7255a8941658a34cdd3cc2133}\label{class_corpus_recording_af9df43d7255a8941658a34cdd3cc2133}} 
+bool {\bfseries is\+File\+Available} () const
+\item 
+\mbox{\Hypertarget{class_corpus_recording_ad776aea49f4e694bb5c9c115d8176b58}\label{class_corpus_recording_ad776aea49f4e694bb5c9c115d8176b58}} 
+Q\+Url {\bfseries media\+Url} () const
+\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_corpus_recording_ac959e8535c7ec0656f3143c5dea8670c}\label{class_corpus_recording_ac959e8535c7ec0656f3143c5dea8670c}} 
+Q\+String {\bfseries name}
+\item 
+\mbox{\Hypertarget{class_corpus_recording_a4b72515fb02737cd103d61da65e4315e}\label{class_corpus_recording_a4b72515fb02737cd103d61da65e4315e}} 
+Q\+String {\bfseries filename}
+\item 
+\mbox{\Hypertarget{class_corpus_recording_a363517b572acd35fd7ff1c34a4e0b429}\label{class_corpus_recording_a363517b572acd35fd7ff1c34a4e0b429}} 
+Q\+String {\bfseries format}
+\item 
+\mbox{\Hypertarget{class_corpus_recording_a9ced2cbd8e40e10adfcbfaaf79545d20}\label{class_corpus_recording_a9ced2cbd8e40e10adfcbfaaf79545d20}} 
+double {\bfseries duration\+Sec}
+\item 
+\mbox{\Hypertarget{class_corpus_recording_ac69fe890614c9418db720b10c8b9af95}\label{class_corpus_recording_ac69fe890614c9418db720b10c8b9af95}} 
+int {\bfseries channels}
+\item 
+\mbox{\Hypertarget{class_corpus_recording_a4cb468c16ad0d70f6c79157663b1fded}\label{class_corpus_recording_a4cb468c16ad0d70f6c79157663b1fded}} 
+int {\bfseries sample\+Rate}
+\item 
+\mbox{\Hypertarget{class_corpus_recording_afbc0d8e7effb843f311b4fbdaf0bc26d}\label{class_corpus_recording_afbc0d8e7effb843f311b4fbdaf0bc26d}} 
+int {\bfseries precision\+Bits}
+\item 
+\mbox{\Hypertarget{class_corpus_recording_a52e766751c464b546bc8cbd86fa0964d}\label{class_corpus_recording_a52e766751c464b546bc8cbd86fa0964d}} 
+int {\bfseries bit\+Rate}
+\item 
+\mbox{\Hypertarget{class_corpus_recording_a37aee8b6a33abbdb0333373626bcf865}\label{class_corpus_recording_a37aee8b6a33abbdb0333373626bcf865}} 
+Q\+String {\bfseries encoding}
+\item 
+\mbox{\Hypertarget{class_corpus_recording_a702ff000a0a9e291d2c8e602aee6e7a1}\label{class_corpus_recording_a702ff000a0a9e291d2c8e602aee6e7a1}} 
+long long file\+Size {\bfseries R\+E\+AD}
+\item 
+\mbox{\Hypertarget{class_corpus_recording_a0e303f3e3ccc6f3c50f52459b0137e6d}\label{class_corpus_recording_a0e303f3e3ccc6f3c50f52459b0137e6d}} 
+Q\+String {\bfseries checksum\+M\+D5}
+\item 
+\mbox{\Hypertarget{class_corpus_recording_a496a821357d804e9905d70aa8eed0ba5}\label{class_corpus_recording_a496a821357d804e9905d70aa8eed0ba5}} 
+Q\+String {\bfseries communication\+ID}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/corpus/Corpus\+Recording.\+h\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/corpus/Corpus\+Recording.\+cpp\end{DoxyCompactItemize}

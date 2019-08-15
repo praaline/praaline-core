@@ -1,0 +1,78 @@
+\hypertarget{class_s_q_l_serialiser_annotation}{}\section{S\+Q\+L\+Serialiser\+Annotation Class Reference}
+\label{class_s_q_l_serialiser_annotation}\index{S\+Q\+L\+Serialiser\+Annotation@{S\+Q\+L\+Serialiser\+Annotation}}
+Inheritance diagram for S\+Q\+L\+Serialiser\+Annotation\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_s_q_l_serialiser_annotation}
+\end{center}
+\end{figure}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_s_q_l_serialiser_annotation_a1d0541c8492166d680515169183662bd}\label{class_s_q_l_serialiser_annotation_a1d0541c8492166d680515169183662bd}} 
+static Q\+List$<$ \hyperlink{class_annotation_element}{Annotation\+Element} $\ast$ $>$ {\bfseries get\+Annotation\+Elements} (const \hyperlink{class_annotation_datastore_1_1_selection}{Annotation\+Datastore\+::\+Selection} \&selection, \hyperlink{class_annotation_structure}{Annotation\+Structure} $\ast$structure, Q\+Sql\+Database \&db)
+\item 
+\mbox{\Hypertarget{class_s_q_l_serialiser_annotation_ae874653ef486e25efe18bd8a46ababd5}\label{class_s_q_l_serialiser_annotation_ae874653ef486e25efe18bd8a46ababd5}} 
+static Q\+List$<$ \hyperlink{class_point}{Point} $\ast$ $>$ {\bfseries get\+Points} (const \hyperlink{class_annotation_datastore_1_1_selection}{Annotation\+Datastore\+::\+Selection} \&selection, \hyperlink{class_annotation_structure}{Annotation\+Structure} $\ast$structure, Q\+Sql\+Database \&db)
+\item 
+\mbox{\Hypertarget{class_s_q_l_serialiser_annotation_aaf0ba6570e4c3a985a068383a2a220fa}\label{class_s_q_l_serialiser_annotation_aaf0ba6570e4c3a985a068383a2a220fa}} 
+static Q\+List$<$ \hyperlink{class_interval}{Interval} $\ast$ $>$ {\bfseries get\+Intervals} (const \hyperlink{class_annotation_datastore_1_1_selection}{Annotation\+Datastore\+::\+Selection} \&selection, \hyperlink{class_annotation_structure}{Annotation\+Structure} $\ast$structure, Q\+Sql\+Database \&db)
+\item 
+\mbox{\Hypertarget{class_s_q_l_serialiser_annotation_a714f82a0f9550cf9949e32afaddad288}\label{class_s_q_l_serialiser_annotation_a714f82a0f9550cf9949e32afaddad288}} 
+static Q\+List$<$ \hyperlink{class_sequence}{Sequence} $\ast$ $>$ {\bfseries get\+Sequences} (const \hyperlink{class_annotation_datastore_1_1_selection}{Annotation\+Datastore\+::\+Selection} \&selection, \hyperlink{class_annotation_structure}{Annotation\+Structure} $\ast$structure, Q\+Sql\+Database \&db)
+\item 
+\mbox{\Hypertarget{class_s_q_l_serialiser_annotation_a5f46dbfcefff115593b3334ab8a282e1}\label{class_s_q_l_serialiser_annotation_a5f46dbfcefff115593b3334ab8a282e1}} 
+static bool {\bfseries save\+Annotation\+Elements} (const Q\+List$<$ \hyperlink{class_annotation_element}{Annotation\+Element} $\ast$$>$ \&elements, const Q\+String \&level\+ID, const Q\+String\+List \&attribute\+I\+Ds, \hyperlink{class_annotation_structure}{Annotation\+Structure} $\ast$structure, Q\+Sql\+Database \&db)
+\item 
+\mbox{\Hypertarget{class_s_q_l_serialiser_annotation_aeb4189ec4ad403821f53e897b5709a3d}\label{class_s_q_l_serialiser_annotation_aeb4189ec4ad403821f53e897b5709a3d}} 
+static \hyperlink{class_annotation_tier}{Annotation\+Tier} $\ast$ {\bfseries get\+Tier} (const Q\+String \&annotation\+ID, const Q\+String \&speaker\+ID, const Q\+String \&level\+ID, const Q\+String\+List \&attribute\+I\+Ds, \hyperlink{class_annotation_structure}{Annotation\+Structure} $\ast$structure, Q\+Sql\+Database \&db)
+\item 
+\mbox{\Hypertarget{class_s_q_l_serialiser_annotation_a576b876ee8707870355a83852d63939e}\label{class_s_q_l_serialiser_annotation_a576b876ee8707870355a83852d63939e}} 
+static \hyperlink{class_annotation_tier_group}{Annotation\+Tier\+Group} $\ast$ {\bfseries get\+Tiers} (const Q\+String \&annotation\+ID, const Q\+String \&speaker\+ID, const Q\+String\+List \&level\+I\+Ds, \hyperlink{class_annotation_structure}{Annotation\+Structure} $\ast$structure, Q\+Sql\+Database \&db)
+\item 
+\mbox{\Hypertarget{class_s_q_l_serialiser_annotation_a0f8fe73ad39ba0f2cf5814a8e18c4202}\label{class_s_q_l_serialiser_annotation_a0f8fe73ad39ba0f2cf5814a8e18c4202}} 
+static Q\+Map$<$ Q\+String, Q\+Pointer$<$ \hyperlink{class_annotation_tier_group}{Annotation\+Tier\+Group} $>$ $>$ {\bfseries get\+Tiers\+All\+Speakers} (const Q\+String \&annotation\+ID, const Q\+String\+List \&level\+I\+Ds, \hyperlink{class_annotation_structure}{Annotation\+Structure} $\ast$structure, Q\+Sql\+Database \&db)
+\item 
+\mbox{\Hypertarget{class_s_q_l_serialiser_annotation_aa0cef191568c2525ae6232ea54d0d8de}\label{class_s_q_l_serialiser_annotation_aa0cef191568c2525ae6232ea54d0d8de}} 
+static bool {\bfseries save\+Tier} (const Q\+String \&annotation\+ID, const Q\+String \&speaker\+ID, \hyperlink{class_annotation_tier}{Annotation\+Tier} $\ast$tier, \hyperlink{class_annotation_structure}{Annotation\+Structure} $\ast$structure, Q\+Sql\+Database \&db)
+\item 
+\mbox{\Hypertarget{class_s_q_l_serialiser_annotation_ad0f5c319fe1598f5334e794118c6a52d}\label{class_s_q_l_serialiser_annotation_ad0f5c319fe1598f5334e794118c6a52d}} 
+static bool {\bfseries save\+Tiers} (const Q\+String \&annotation\+ID, const Q\+String \&speaker\+ID, \hyperlink{class_annotation_tier_group}{Annotation\+Tier\+Group} $\ast$tiers, \hyperlink{class_annotation_structure}{Annotation\+Structure} $\ast$structure, Q\+Sql\+Database \&db)
+\item 
+\mbox{\Hypertarget{class_s_q_l_serialiser_annotation_a0a3170c2241b7606b681ef206f143bcf}\label{class_s_q_l_serialiser_annotation_a0a3170c2241b7606b681ef206f143bcf}} 
+static bool {\bfseries delete\+Tier} (const Q\+String \&annotation\+ID, const Q\+String \&speaker\+ID, const Q\+String \&level\+ID, \hyperlink{class_annotation_structure}{Annotation\+Structure} $\ast$structure, Q\+Sql\+Database \&db)
+\item 
+\mbox{\Hypertarget{class_s_q_l_serialiser_annotation_a884a44bf0c094095b7a7b7fa2558c64c}\label{class_s_q_l_serialiser_annotation_a884a44bf0c094095b7a7b7fa2558c64c}} 
+static bool {\bfseries delete\+All\+Tiers\+All\+Speakers} (const Q\+String \&annotation\+ID, \hyperlink{class_annotation_structure}{Annotation\+Structure} $\ast$structure, Q\+Sql\+Database \&db)
+\item 
+\mbox{\Hypertarget{class_s_q_l_serialiser_annotation_a95e1332ad6fd6f3d22c9ca659b19f3af}\label{class_s_q_l_serialiser_annotation_a95e1332ad6fd6f3d22c9ca659b19f3af}} 
+static Q\+List$<$ Q\+String $>$ {\bfseries get\+Speakers\+In\+Level} (const Q\+String \&annotation\+ID, const Q\+String \&level\+ID, \hyperlink{class_annotation_structure}{Annotation\+Structure} $\ast$structure, Q\+Sql\+Database \&db, bool filter=false)
+\item 
+\mbox{\Hypertarget{class_s_q_l_serialiser_annotation_a531afc1191d12e6cd9c7eac69a4361db}\label{class_s_q_l_serialiser_annotation_a531afc1191d12e6cd9c7eac69a4361db}} 
+static Q\+List$<$ Q\+String $>$ {\bfseries get\+Speakers\+Active\+In\+Level} (const Q\+String \&annotation\+ID, const Q\+String \&level\+ID, \hyperlink{class_annotation_structure}{Annotation\+Structure} $\ast$structure, Q\+Sql\+Database \&db)
+\item 
+\mbox{\Hypertarget{class_s_q_l_serialiser_annotation_a25c6e72e93d57fe25a5899fabfde7df9}\label{class_s_q_l_serialiser_annotation_a25c6e72e93d57fe25a5899fabfde7df9}} 
+static Q\+List$<$ Q\+String $>$ {\bfseries get\+Speakers\+In\+Annotation} (const Q\+String \&annotation\+ID, \hyperlink{class_annotation_structure}{Annotation\+Structure} $\ast$structure, Q\+Sql\+Database \&db)
+\item 
+\mbox{\Hypertarget{class_s_q_l_serialiser_annotation_a098757923678082792b678a9ba1c3605}\label{class_s_q_l_serialiser_annotation_a098757923678082792b678a9ba1c3605}} 
+static Q\+List$<$ Q\+String $>$ {\bfseries get\+Speakers\+Active\+In\+Annotation} (const Q\+String \&annotation\+ID, \hyperlink{class_annotation_structure}{Annotation\+Structure} $\ast$structure, Q\+Sql\+Database \&db)
+\item 
+\mbox{\Hypertarget{class_s_q_l_serialiser_annotation_a05069a5e0fe95a465bad053ef65ecf32}\label{class_s_q_l_serialiser_annotation_a05069a5e0fe95a465bad053ef65ecf32}} 
+static \hyperlink{class_interval_tier}{Interval\+Tier} $\ast$ {\bfseries get\+Speaker\+Timeline} (const Q\+String \&communication\+ID, const Q\+String \&annotation\+ID, const Q\+String \&level\+ID, bool detailed, \hyperlink{class_annotation_structure}{Annotation\+Structure} $\ast$structure, Q\+Sql\+Database \&db)
+\item 
+\mbox{\Hypertarget{class_s_q_l_serialiser_annotation_ab02390ee786ceb854471737457adc63e}\label{class_s_q_l_serialiser_annotation_ab02390ee786ceb854471737457adc63e}} 
+static Q\+List$<$ Q\+Pair$<$ Q\+List$<$ Q\+Variant $>$, long $>$ $>$ {\bfseries get\+Distinct\+Labels} (const Q\+String \&level\+ID, const Q\+String\+List \&attribute\+I\+Ds, \hyperlink{class_annotation_structure}{Annotation\+Structure} $\ast$structure, Q\+Sql\+Database \&db)
+\item 
+\mbox{\Hypertarget{class_s_q_l_serialiser_annotation_a001bb577538fdf554d448b36a97bf76c}\label{class_s_q_l_serialiser_annotation_a001bb577538fdf554d448b36a97bf76c}} 
+static bool {\bfseries batch\+Update} (const Q\+String \&level\+ID, const Q\+String \&attribute\+ID, const Q\+Variant \&new\+Value, const Q\+List$<$ Q\+Pair$<$ Q\+String, Q\+Variant $>$ $>$ \&criteria, \hyperlink{class_annotation_structure}{Annotation\+Structure} $\ast$structure, Q\+Sql\+Database \&db)
+\item 
+\mbox{\Hypertarget{class_s_q_l_serialiser_annotation_a50513260b96ec7e3d1afbeb1854edf91}\label{class_s_q_l_serialiser_annotation_a50513260b96ec7e3d1afbeb1854edf91}} 
+static Q\+List$<$ Q\+Pair$<$ Q\+List$<$ Q\+Variant $>$, long long $>$ $>$ {\bfseries count\+Items} (const Q\+String \&level\+ID, const Q\+String\+List \&group\+By\+Attribute\+I\+Ds, bool exclude\+N\+U\+LL, Q\+String\+List exclude\+Values, \hyperlink{class_annotation_structure}{Annotation\+Structure} $\ast$structure, Q\+Sql\+Database \&db)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/serialisers/sql/S\+Q\+L\+Serialiser\+Annotation.\+h\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/serialisers/sql/S\+Q\+L\+Serialiser\+Annotation.\+cpp\end{DoxyCompactItemize}

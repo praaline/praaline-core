@@ -1,0 +1,65 @@
+\hypertarget{class_annotation_interface_praat}{}\section{Annotation\+Interface\+Praat Class Reference}
+\label{class_annotation_interface_praat}\index{Annotation\+Interface\+Praat@{Annotation\+Interface\+Praat}}
+Inheritance diagram for Annotation\+Interface\+Praat\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_annotation_interface_praat}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_annotation_interface_praat_1_1_correspondance}{Correspondance}
+\end{DoxyCompactItemize}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_annotation_interface_praat_a273453400af61ae2fcc5a7b9c1159ed3}\label{class_annotation_interface_praat_a273453400af61ae2fcc5a7b9c1159ed3}} 
+enum {\bfseries Speaker\+Policy} \{ {\bfseries Speaker\+Policy\+\_\+\+Single\+Per\+File}, 
+{\bfseries Speaker\+Policy\+\_\+\+Prefix\+Tier\+Names}, 
+{\bfseries Speaker\+Policy\+\_\+\+Speaker\+Intervals}, 
+{\bfseries Speaker\+Policy\+\_\+\+Primary\+And\+Secondary}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_annotation_interface_praat_a742fd0b5a46159d7d9ccde87729ba878}\label{class_annotation_interface_praat_a742fd0b5a46159d7d9ccde87729ba878}} 
+{\bfseries Annotation\+Interface\+Praat} (Q\+Object $\ast$parent=nullptr)
+\item 
+\mbox{\Hypertarget{class_annotation_interface_praat_a6d487efc89a9d444c6a11852c4e68243}\label{class_annotation_interface_praat_a6d487efc89a9d444c6a11852c4e68243}} 
+const Q\+List$<$ \hyperlink{class_annotation_interface_praat_1_1_correspondance}{Correspondance} $>$ \& {\bfseries correpondances} ()
+\item 
+\mbox{\Hypertarget{class_annotation_interface_praat_a3929379280fe84709cee5e85e63ab5dc}\label{class_annotation_interface_praat_a3929379280fe84709cee5e85e63ab5dc}} 
+void {\bfseries add\+Correpondance} (const Q\+String \&level\+ID, const Q\+String \&attribute\+ID, const Q\+String \&tier\+Name)
+\item 
+\mbox{\Hypertarget{class_annotation_interface_praat_a1fcd0aa76675e6a6cbd5f0ae434755d8}\label{class_annotation_interface_praat_a1fcd0aa76675e6a6cbd5f0ae434755d8}} 
+void {\bfseries remove\+Correpondance} (const Q\+String \&level\+ID, const Q\+String \&annotation\+ID)
+\item 
+\mbox{\Hypertarget{class_annotation_interface_praat_a31e83b4a9cd6ab92a63509473e07346e}\label{class_annotation_interface_praat_a31e83b4a9cd6ab92a63509473e07346e}} 
+Speaker\+Policy {\bfseries speaker\+Policy} () const
+\item 
+\mbox{\Hypertarget{class_annotation_interface_praat_a0ae5a22c03e93422d87741b64d672677}\label{class_annotation_interface_praat_a0ae5a22c03e93422d87741b64d672677}} 
+void {\bfseries set\+Speaker\+Policy} (Speaker\+Policy policy)
+\item 
+\mbox{\Hypertarget{class_annotation_interface_praat_a00e9784212e59a965ba03984c7691ac8}\label{class_annotation_interface_praat_a00e9784212e59a965ba03984c7691ac8}} 
+Q\+String {\bfseries export\+Path} () const
+\item 
+\mbox{\Hypertarget{class_annotation_interface_praat_a1a7ff3de2f1b501e237dcec2a33b47f8}\label{class_annotation_interface_praat_a1a7ff3de2f1b501e237dcec2a33b47f8}} 
+void {\bfseries set\+Export\+Path} (const Q\+String \&path)
+\item 
+\mbox{\Hypertarget{class_annotation_interface_praat_a6b1918a75fc7b312c0ad63e60124375e}\label{class_annotation_interface_praat_a6b1918a75fc7b312c0ad63e60124375e}} 
+Q\+String {\bfseries export\+Filename\+Template} () const
+\item 
+\mbox{\Hypertarget{class_annotation_interface_praat_a9cf89ed08c8f4264147509259e93dce4}\label{class_annotation_interface_praat_a9cf89ed08c8f4264147509259e93dce4}} 
+void {\bfseries set\+Export\+Filename\+Template} (const Q\+String export\+Filename\+Template)
+\item 
+\mbox{\Hypertarget{class_annotation_interface_praat_a6c6c5347e661546f386fc437e7d46c6d}\label{class_annotation_interface_praat_a6c6c5347e661546f386fc437e7d46c6d}} 
+bool {\bfseries export\+Annotation} (\hyperlink{class_corpus_repository}{Corpus\+Repository} $\ast$repository, const Q\+String \&annotation\+ID)
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/interfaces/praat/Annotation\+Interface\+Praat.\+h\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/interfaces/praat/Annotation\+Interface\+Praat.\+cpp\end{DoxyCompactItemize}

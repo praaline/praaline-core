@@ -1,0 +1,290 @@
+\hypertarget{class_interval}{}\section{Interval Class Reference}
+\label{class_interval}\index{Interval@{Interval}}
+
+
+The \hyperlink{class_interval}{Interval} class represents an annotation element that spans an interval on the timeline, i.\+e. has a start time and an end time, as well as a label and attributes. An \hyperlink{class_interval_tier}{Interval\+Tier} contains Intervals.  
+
+
+
+
+{\ttfamily \#include $<$Interval.\+h$>$}
+
+Inheritance diagram for Interval\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_interval}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_interval_a115ec019acb96b75bd872cbb871f54e5}\label{class_interval_a115ec019acb96b75bd872cbb871f54e5}} 
+\hyperlink{class_interval_a115ec019acb96b75bd872cbb871f54e5}{Interval} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\hyperlink{class_interval_a2a823516ca46649463bb83f046093ba1}{Interval} (const \hyperlink{struct_real_time}{Real\+Time} \hyperlink{class_interval_aba4daaa96ab1085b72cf19c896401593}{t\+Min}, const \hyperlink{struct_real_time}{Real\+Time} \hyperlink{class_interval_ab9efa1b25d5e4997d99ad0f360c7b2d7}{t\+Max}, const Q\+String \&\hyperlink{class_annotation_element_aa59bd98501e3882990681f6aff2ee863}{text}=Q\+String(), const Q\+Hash$<$ Q\+String, Q\+Variant $>$ \&\hyperlink{class_annotation_element_a58082d92f50c4fde2d18ce24ef3fd283}{attributes}=Q\+Hash$<$ Q\+String, Q\+Variant $>$())
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\hyperlink{class_interval_a41ac30b52ead595e870fde9c8c18e0e3}{Interval} (const \hyperlink{class_interval}{Interval} \&copy)
+\begin{DoxyCompactList}\small\item\em Copy constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_interval_addc606ef4606aaee647b3b68086017fa}\label{class_interval_addc606ef4606aaee647b3b68086017fa}} 
+virtual \hyperlink{class_interval_addc606ef4606aaee647b3b68086017fa}{$\sim$\+Interval} () override
+\begin{DoxyCompactList}\small\item\em Destructor (virtual). \end{DoxyCompactList}\item 
+\hyperlink{struct_real_time}{Real\+Time} \hyperlink{class_interval_aba4daaa96ab1085b72cf19c896401593}{t\+Min} () const
+\begin{DoxyCompactList}\small\item\em t\+Min property \end{DoxyCompactList}\item 
+\hyperlink{struct_real_time}{Real\+Time} \hyperlink{class_interval_ab9efa1b25d5e4997d99ad0f360c7b2d7}{t\+Max} () const
+\begin{DoxyCompactList}\small\item\em t\+Max property \end{DoxyCompactList}\item 
+\hyperlink{struct_real_time}{Real\+Time} \hyperlink{class_interval_aa2f9a9cd972d33c1eb3af5e760e759b0}{t\+Center} () const
+\begin{DoxyCompactList}\small\item\em t\+Center property \end{DoxyCompactList}\item 
+\hyperlink{struct_real_time}{Real\+Time} \hyperlink{class_interval_a1b35d8374a045798f2cdc19d365855de}{duration} () const
+\begin{DoxyCompactList}\small\item\em duration property \end{DoxyCompactList}\item 
+virtual Q\+Variant \hyperlink{class_interval_aebcaee36c1adf49669d8a0faa16a335f}{attribute} (const Q\+String \&name) const override
+\begin{DoxyCompactList}\small\item\em attribute \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_interval_a0895204effc21e1f4ead9b78b4b9726f}{set\+Attribute} (const Q\+String \&name, Q\+Variant value) override
+\begin{DoxyCompactList}\small\item\em set\+Attribute \end{DoxyCompactList}\item 
+virtual \hyperlink{class_annotation_element_af5282990ffbe25eeea8ab02037e344b0}{Element\+Type} \hyperlink{class_interval_a3ea5342504df09262d59cd2ab1658804}{element\+Type} () const override
+\begin{DoxyCompactList}\small\item\em element\+Type \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_interval_a06203012d1dd561adb205db6d578e433}\label{class_interval_a06203012d1dd561adb205db6d578e433}} 
+bool {\bfseries overlaps} (const \hyperlink{class_interval}{Interval} \&other, const \hyperlink{struct_real_time}{Real\+Time} threshold=\hyperlink{struct_real_time}{Real\+Time}(0, 0)) const
+\item 
+\mbox{\Hypertarget{class_interval_a5f7771aff890c149e17a3d42e64cf28f}\label{class_interval_a5f7771aff890c149e17a3d42e64cf28f}} 
+bool {\bfseries covers} (const \hyperlink{class_interval}{Interval} \&other, const \hyperlink{struct_real_time}{Real\+Time} threshold=\hyperlink{struct_real_time}{Real\+Time}(0, 0)) const
+\item 
+\mbox{\Hypertarget{class_interval_ab964b1cb7f889b01324e09469c52f8cc}\label{class_interval_ab964b1cb7f889b01324e09469c52f8cc}} 
+bool {\bfseries is\+Covered} (const \hyperlink{class_interval}{Interval} \&other, const \hyperlink{struct_real_time}{Real\+Time} threshold=\hyperlink{struct_real_time}{Real\+Time}(0, 0)) const
+\item 
+\mbox{\Hypertarget{class_interval_a39f8e2edd008936f87cb9918bc4028bc}\label{class_interval_a39f8e2edd008936f87cb9918bc4028bc}} 
+bool {\bfseries contains} (const \hyperlink{struct_real_time}{Real\+Time} time\+Point) const
+\item 
+\mbox{\Hypertarget{class_interval_a8c30cc5304863265519a1bf8888e0b40}\label{class_interval_a8c30cc5304863265519a1bf8888e0b40}} 
+bool {\bfseries is\+Pause\+Silent} () const
+\item 
+\mbox{\Hypertarget{class_interval_a41d11f2d133b984b9f24cedc359f5763}\label{class_interval_a41d11f2d133b984b9f24cedc359f5763}} 
+int {\bfseries compare} (const \hyperlink{class_interval}{Interval} \&other) const
+\item 
+\hyperlink{class_interval}{Interval} $\ast$ \hyperlink{class_interval_a19000e776f0533de156ce3ab9a6313dc}{clone} ()
+\begin{DoxyCompactList}\small\item\em clone \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_interval_a295b9712732a7b209a0c32d5e4d1795b}\label{class_interval_a295b9712732a7b209a0c32d5e4d1795b}} 
+\hyperlink{class_interval}{Interval} $\ast$ {\bfseries clone\+Without\+Attributes} ()
+\item 
+\hyperlink{class_interval}{Interval} $\ast$ \hyperlink{class_interval_afa26f985839fcb819f9fec30fc22afb8}{clone\+Reposition} (const \hyperlink{struct_real_time}{Real\+Time} \hyperlink{class_interval_aba4daaa96ab1085b72cf19c896401593}{t\+Min}, const \hyperlink{struct_real_time}{Real\+Time} \hyperlink{class_interval_ab9efa1b25d5e4997d99ad0f360c7b2d7}{t\+Max})
+\begin{DoxyCompactList}\small\item\em clone\+Reposition test \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_interval_a4635bc58c9f393f4ff0288b7a777f6e9}\label{class_interval_a4635bc58c9f393f4ff0288b7a777f6e9}} 
+\hyperlink{class_interval}{Interval} $\ast$ {\bfseries clone\+Reposition\+Without\+Attributes} (const \hyperlink{struct_real_time}{Real\+Time} \hyperlink{class_interval_aba4daaa96ab1085b72cf19c896401593}{t\+Min}, const \hyperlink{struct_real_time}{Real\+Time} \hyperlink{class_interval_ab9efa1b25d5e4997d99ad0f360c7b2d7}{t\+Max})
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_interval_a1f9174b8fa600da6a3b3959d91d4a65a}\label{class_interval_a1f9174b8fa600da6a3b3959d91d4a65a}} 
+static \hyperlink{class_interval}{Interval} $\ast$ {\bfseries from\+List} (const Q\+List$<$ \hyperlink{class_interval}{Interval} $\ast$$>$ \&intervals, const Q\+String \&separator=Q\+String())
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_interval_a83562012d99254b155d89029235c79ba}\label{class_interval_a83562012d99254b155d89029235c79ba}} 
+\hyperlink{struct_real_time}{Real\+Time} {\bfseries m\+\_\+t\+Min}
+\item 
+\mbox{\Hypertarget{class_interval_abc7a5e25e29c3ff9ea7133e06935f920}\label{class_interval_abc7a5e25e29c3ff9ea7133e06935f920}} 
+\hyperlink{struct_real_time}{Real\+Time} {\bfseries m\+\_\+t\+Max}
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_interval_aee81cd0812997641a48f7be74a170117}\label{class_interval_aee81cd0812997641a48f7be74a170117}} 
+class {\bfseries Interval\+Tier}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+The \hyperlink{class_interval}{Interval} class represents an annotation element that spans an interval on the timeline, i.\+e. has a start time and an end time, as well as a label and attributes. An \hyperlink{class_interval_tier}{Interval\+Tier} contains Intervals. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_interval_a2a823516ca46649463bb83f046093ba1}\label{class_interval_a2a823516ca46649463bb83f046093ba1}} 
+\index{Interval@{Interval}!Interval@{Interval}}
+\index{Interval@{Interval}!Interval@{Interval}}
+\subsubsection{\texorpdfstring{Interval()}{Interval()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Interval\+::\+Interval (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_real_time}{Real\+Time}}]{t\+Min,  }\item[{const \hyperlink{struct_real_time}{Real\+Time}}]{t\+Max,  }\item[{const Q\+String \&}]{text = {\ttfamily QString()},  }\item[{const Q\+Hash$<$ Q\+String, Q\+Variant $>$ \&}]{attributes = {\ttfamily QHash$<$QString,~QVariant$>$()} }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t\+Min} & The start of the interval (\hyperlink{struct_real_time}{Real\+Time} value). \\
+\hline
+{\em t\+Max} & The end of the interval (\hyperlink{struct_real_time}{Real\+Time} value). Must be t\+Max $>$ t\+Min. \\
+\hline
+{\em text} & The initial label of the interval. Empty by default. \\
+\hline
+{\em attributes} & A Q\+Variant\+Hash of initial values for the interval attributes. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_interval_a41ac30b52ead595e870fde9c8c18e0e3}\label{class_interval_a41ac30b52ead595e870fde9c8c18e0e3}} 
+\index{Interval@{Interval}!Interval@{Interval}}
+\index{Interval@{Interval}!Interval@{Interval}}
+\subsubsection{\texorpdfstring{Interval()}{Interval()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Interval\+::\+Interval (\begin{DoxyParamCaption}\item[{const \hyperlink{class_interval}{Interval} \&}]{copy }\end{DoxyParamCaption})}
+
+
+
+Copy constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em copy} & The interval to copy. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_interval_aebcaee36c1adf49669d8a0faa16a335f}\label{class_interval_aebcaee36c1adf49669d8a0faa16a335f}} 
+\index{Interval@{Interval}!attribute@{attribute}}
+\index{attribute@{attribute}!Interval@{Interval}}
+\subsubsection{\texorpdfstring{attribute()}{attribute()}}
+{\footnotesize\ttfamily Q\+Variant Interval\+::attribute (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{name }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+attribute 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{class_annotation_element_a55f85fb15ed52122653b0769c857899c}{Annotation\+Element}.
+
+\mbox{\Hypertarget{class_interval_a19000e776f0533de156ce3ab9a6313dc}\label{class_interval_a19000e776f0533de156ce3ab9a6313dc}} 
+\index{Interval@{Interval}!clone@{clone}}
+\index{clone@{clone}!Interval@{Interval}}
+\subsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \hyperlink{class_interval}{Interval} $\ast$ Interval\+::clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+clone 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_interval_afa26f985839fcb819f9fec30fc22afb8}\label{class_interval_afa26f985839fcb819f9fec30fc22afb8}} 
+\index{Interval@{Interval}!clone\+Reposition@{clone\+Reposition}}
+\index{clone\+Reposition@{clone\+Reposition}!Interval@{Interval}}
+\subsubsection{\texorpdfstring{clone\+Reposition()}{cloneReposition()}}
+{\footnotesize\ttfamily \hyperlink{class_interval}{Interval} $\ast$ Interval\+::clone\+Reposition (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_real_time}{Real\+Time}}]{t\+Min,  }\item[{const \hyperlink{struct_real_time}{Real\+Time}}]{t\+Max }\end{DoxyParamCaption})}
+
+
+
+clone\+Reposition test 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t\+Min} & test test \\
+\hline
+{\em t\+Max} & test \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_interval_a1b35d8374a045798f2cdc19d365855de}\label{class_interval_a1b35d8374a045798f2cdc19d365855de}} 
+\index{Interval@{Interval}!duration@{duration}}
+\index{duration@{duration}!Interval@{Interval}}
+\subsubsection{\texorpdfstring{duration()}{duration()}}
+{\footnotesize\ttfamily \hyperlink{struct_real_time}{Real\+Time} Interval\+::duration (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+duration property 
+
+\begin{DoxyReturn}{Returns}
+The duration of the interval, i.\+e. t\+Max -\/ t\+Min (\hyperlink{struct_real_time}{Real\+Time} value). 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_interval_a3ea5342504df09262d59cd2ab1658804}\label{class_interval_a3ea5342504df09262d59cd2ab1658804}} 
+\index{Interval@{Interval}!element\+Type@{element\+Type}}
+\index{element\+Type@{element\+Type}!Interval@{Interval}}
+\subsubsection{\texorpdfstring{element\+Type()}{elementType()}}
+{\footnotesize\ttfamily virtual \hyperlink{class_annotation_element_af5282990ffbe25eeea8ab02037e344b0}{Element\+Type} Interval\+::element\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+element\+Type 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{class_annotation_element_a9b2d5cf05a2f81d9b2103a5c736dfb2d}{Annotation\+Element}.
+
+\mbox{\Hypertarget{class_interval_a0895204effc21e1f4ead9b78b4b9726f}\label{class_interval_a0895204effc21e1f4ead9b78b4b9726f}} 
+\index{Interval@{Interval}!set\+Attribute@{set\+Attribute}}
+\index{set\+Attribute@{set\+Attribute}!Interval@{Interval}}
+\subsubsection{\texorpdfstring{set\+Attribute()}{setAttribute()}}
+{\footnotesize\ttfamily void Interval\+::set\+Attribute (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{name,  }\item[{Q\+Variant}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+set\+Attribute 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+{\em value} & \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{class_annotation_element_a206d8790fe92a7c8e6b703d026836584}{Annotation\+Element}.
+
+\mbox{\Hypertarget{class_interval_aa2f9a9cd972d33c1eb3af5e760e759b0}\label{class_interval_aa2f9a9cd972d33c1eb3af5e760e759b0}} 
+\index{Interval@{Interval}!t\+Center@{t\+Center}}
+\index{t\+Center@{t\+Center}!Interval@{Interval}}
+\subsubsection{\texorpdfstring{t\+Center()}{tCenter()}}
+{\footnotesize\ttfamily \hyperlink{struct_real_time}{Real\+Time} Interval\+::t\+Center (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+t\+Center property 
+
+\begin{DoxyReturn}{Returns}
+The middle (center) point of the interval, i.\+e. (t\+Min + Max) / 2 (\hyperlink{struct_real_time}{Real\+Time} value). 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_interval_ab9efa1b25d5e4997d99ad0f360c7b2d7}\label{class_interval_ab9efa1b25d5e4997d99ad0f360c7b2d7}} 
+\index{Interval@{Interval}!t\+Max@{t\+Max}}
+\index{t\+Max@{t\+Max}!Interval@{Interval}}
+\subsubsection{\texorpdfstring{t\+Max()}{tMax()}}
+{\footnotesize\ttfamily \hyperlink{struct_real_time}{Real\+Time} Interval\+::t\+Max (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+t\+Max property 
+
+\begin{DoxyReturn}{Returns}
+The end of the interval (\hyperlink{struct_real_time}{Real\+Time} value). 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_interval_aba4daaa96ab1085b72cf19c896401593}\label{class_interval_aba4daaa96ab1085b72cf19c896401593}} 
+\index{Interval@{Interval}!t\+Min@{t\+Min}}
+\index{t\+Min@{t\+Min}!Interval@{Interval}}
+\subsubsection{\texorpdfstring{t\+Min()}{tMin()}}
+{\footnotesize\ttfamily \hyperlink{struct_real_time}{Real\+Time} Interval\+::t\+Min (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+t\+Min property 
+
+\begin{DoxyReturn}{Returns}
+The start of the interval (\hyperlink{struct_real_time}{Real\+Time} value). 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/annotation/Interval.\+h\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/annotation/Interval.\+cpp\end{DoxyCompactItemize}

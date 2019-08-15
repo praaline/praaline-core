@@ -1,0 +1,109 @@
+\hypertarget{class_statistical_summary}{}\section{Statistical\+Summary Class Reference}
+\label{class_statistical_summary}\index{Statistical\+Summary@{Statistical\+Summary}}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_statistical_summary_a697c6b65e71f9854eddb7ed401523149}\label{class_statistical_summary_a697c6b65e71f9854eddb7ed401523149}} 
+enum {\bfseries Statistic} \{ \newline
+{\bfseries Count} = 1, 
+{\bfseries Sum} = 2, 
+{\bfseries Mean} = 4, 
+{\bfseries Median} = 8, 
+\newline
+{\bfseries St\+Dev} = 16, 
+{\bfseries St\+Dev\+Sample} = 32, 
+{\bfseries Min} = 64, 
+{\bfseries Max} = 128, 
+\newline
+{\bfseries Range} = 256, 
+{\bfseries Minority} = 512, 
+{\bfseries Majority} = 1024, 
+{\bfseries Variety} = 2048, 
+\newline
+{\bfseries First\+Quartile} = 4096, 
+{\bfseries Third\+Quartile} = 8192, 
+{\bfseries Inter\+Quartile\+Range} = 16384, 
+{\bfseries All} = Count $\vert$ Sum $\vert$ Mean $\vert$ Median $\vert$ St\+Dev $\vert$ Max $\vert$ Min $\vert$ Range $\vert$ Minority $\vert$ Majority $\vert$ Variety $\vert$ First\+Quartile $\vert$ Third\+Quartile $\vert$ Inter\+Quartile\+Range
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_statistical_summary_a14e3f33275031fad39d9a258815f7759}\label{class_statistical_summary_a14e3f33275031fad39d9a258815f7759}} 
+{\bfseries Statistical\+Summary} (const Statistical\+Summary\+::\+Statistics \&stats=All)
+\item 
+\mbox{\Hypertarget{class_statistical_summary_ae5ab60497b614665fbf1b0b57993b230}\label{class_statistical_summary_ae5ab60497b614665fbf1b0b57993b230}} 
+{\bfseries Statistical\+Summary} (const Q\+List$<$ double $>$ \&values, const Statistical\+Summary\+::\+Statistics \&stats=All)
+\item 
+\mbox{\Hypertarget{class_statistical_summary_a385bc8ddcdb300e3b5f0c0e5cc4fd5e9}\label{class_statistical_summary_a385bc8ddcdb300e3b5f0c0e5cc4fd5e9}} 
+Statistics {\bfseries statistics} () const
+\item 
+\mbox{\Hypertarget{class_statistical_summary_af7936b507d0d296e1597503f8b27731d}\label{class_statistical_summary_af7936b507d0d296e1597503f8b27731d}} 
+void {\bfseries set\+Statistics} (const Statistics \&stats)
+\item 
+\mbox{\Hypertarget{class_statistical_summary_a2a4457007a12a12f7318dc5b35928c77}\label{class_statistical_summary_a2a4457007a12a12f7318dc5b35928c77}} 
+void {\bfseries reset} ()
+\item 
+\mbox{\Hypertarget{class_statistical_summary_a0ac5fd745175537658e413a0c5420300}\label{class_statistical_summary_a0ac5fd745175537658e413a0c5420300}} 
+void {\bfseries calculate} (const Q\+List$<$ double $>$ \&values)
+\item 
+\mbox{\Hypertarget{class_statistical_summary_ab8efeae31c1f8746717a9e04052b9061}\label{class_statistical_summary_ab8efeae31c1f8746717a9e04052b9061}} 
+double {\bfseries statistic} (Statistic stat) const
+\item 
+\mbox{\Hypertarget{class_statistical_summary_a4c9db57d63440381803c0c3217d0f83c}\label{class_statistical_summary_a4c9db57d63440381803c0c3217d0f83c}} 
+int {\bfseries count} () const
+\item 
+\mbox{\Hypertarget{class_statistical_summary_a5577efb25ec3e33290481df860da54c1}\label{class_statistical_summary_a5577efb25ec3e33290481df860da54c1}} 
+double {\bfseries sum} () const
+\item 
+\mbox{\Hypertarget{class_statistical_summary_ad573299f744b29d01ceb5fd0703d4a4a}\label{class_statistical_summary_ad573299f744b29d01ceb5fd0703d4a4a}} 
+double {\bfseries mean} () const
+\item 
+\mbox{\Hypertarget{class_statistical_summary_aaf47bf830fae0b3bbd6ac27acbede0ad}\label{class_statistical_summary_aaf47bf830fae0b3bbd6ac27acbede0ad}} 
+double {\bfseries median} () const
+\item 
+\mbox{\Hypertarget{class_statistical_summary_a1a4f2e962c187712fc8f92baed2075e7}\label{class_statistical_summary_a1a4f2e962c187712fc8f92baed2075e7}} 
+double {\bfseries min} () const
+\item 
+\mbox{\Hypertarget{class_statistical_summary_a8751661939ba294a362d00097afb594e}\label{class_statistical_summary_a8751661939ba294a362d00097afb594e}} 
+double {\bfseries max} () const
+\item 
+\mbox{\Hypertarget{class_statistical_summary_a4149370d745c8cc4acb866ddd1b888f7}\label{class_statistical_summary_a4149370d745c8cc4acb866ddd1b888f7}} 
+double {\bfseries range} () const
+\item 
+\mbox{\Hypertarget{class_statistical_summary_a26f2f1c06ec0bc11630033fbca76819a}\label{class_statistical_summary_a26f2f1c06ec0bc11630033fbca76819a}} 
+double {\bfseries st\+Dev} () const
+\item 
+\mbox{\Hypertarget{class_statistical_summary_a57f8ad84a4eb9d8ea14bb1e374b38209}\label{class_statistical_summary_a57f8ad84a4eb9d8ea14bb1e374b38209}} 
+double {\bfseries sample\+St\+Dev} () const
+\item 
+\mbox{\Hypertarget{class_statistical_summary_adb789fac1929cd006491bc9dab94340d}\label{class_statistical_summary_adb789fac1929cd006491bc9dab94340d}} 
+int {\bfseries variety} () const
+\item 
+\mbox{\Hypertarget{class_statistical_summary_a4d629db233d544faa38240f026b37e37}\label{class_statistical_summary_a4d629db233d544faa38240f026b37e37}} 
+double {\bfseries minority} () const
+\item 
+\mbox{\Hypertarget{class_statistical_summary_a5bc025f2d20401c58ca969fba907d7d6}\label{class_statistical_summary_a5bc025f2d20401c58ca969fba907d7d6}} 
+double {\bfseries majority} () const
+\item 
+\mbox{\Hypertarget{class_statistical_summary_a39a1508f1cb4afa6559c8fa1c13673bf}\label{class_statistical_summary_a39a1508f1cb4afa6559c8fa1c13673bf}} 
+double {\bfseries first\+Quartile} () const
+\item 
+\mbox{\Hypertarget{class_statistical_summary_add9964d9d1bf0e825d6599f958d85c68}\label{class_statistical_summary_add9964d9d1bf0e825d6599f958d85c68}} 
+double {\bfseries third\+Quartile} () const
+\item 
+\mbox{\Hypertarget{class_statistical_summary_ac225678eec5e930cd03a34a01a602319}\label{class_statistical_summary_ac225678eec5e930cd03a34a01a602319}} 
+double {\bfseries inter\+Quartile\+Range} () const
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_statistical_summary_aab859ef9a90bbea7f1a0c2936136ee37}\label{class_statistical_summary_aab859ef9a90bbea7f1a0c2936136ee37}} 
+static Q\+String {\bfseries display\+Name} (Statistic statistic)
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/statistics/Statistical\+Summary.\+h\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/statistics/Statistical\+Summary.\+cpp\end{DoxyCompactItemize}

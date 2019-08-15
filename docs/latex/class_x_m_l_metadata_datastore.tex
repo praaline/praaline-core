@@ -1,0 +1,129 @@
+\hypertarget{class_x_m_l_metadata_datastore}{}\section{X\+M\+L\+Metadata\+Datastore Class Reference}
+\label{class_x_m_l_metadata_datastore}\index{X\+M\+L\+Metadata\+Datastore@{X\+M\+L\+Metadata\+Datastore}}
+Inheritance diagram for X\+M\+L\+Metadata\+Datastore\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_x_m_l_metadata_datastore}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_x_m_l_metadata_datastore_a1f990239b086258a4dbd5f70a4e66daf}\label{class_x_m_l_metadata_datastore_a1f990239b086258a4dbd5f70a4e66daf}} 
+{\bfseries X\+M\+L\+Metadata\+Datastore} (\hyperlink{class_metadata_structure}{Metadata\+Structure} $\ast$structure, \hyperlink{class_corpus_repository}{Corpus\+Repository} $\ast$repository, Q\+Object $\ast$parent=nullptr)
+\item 
+\mbox{\Hypertarget{class_x_m_l_metadata_datastore_aa6400d415ec4967ec83e2fca309143a3}\label{class_x_m_l_metadata_datastore_aa6400d415ec4967ec83e2fca309143a3}} 
+bool {\bfseries create\+Datastore} (const \hyperlink{class_datastore_info}{Datastore\+Info} \&info) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_metadata_datastore_aadeabc52b42f14af20fccd66e2cebb0e}\label{class_x_m_l_metadata_datastore_aadeabc52b42f14af20fccd66e2cebb0e}} 
+bool {\bfseries open\+Datastore} (const \hyperlink{class_datastore_info}{Datastore\+Info} \&info) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_metadata_datastore_ae0a7e5222115f773f4b56cfe80a381a2}\label{class_x_m_l_metadata_datastore_ae0a7e5222115f773f4b56cfe80a381a2}} 
+bool {\bfseries close\+Datastore} () override
+\item 
+\mbox{\Hypertarget{class_x_m_l_metadata_datastore_ac09c925e904379d14fafe1c8f561ceab}\label{class_x_m_l_metadata_datastore_ac09c925e904379d14fafe1c8f561ceab}} 
+bool {\bfseries load\+Metadata\+Structure} () override
+\item 
+\mbox{\Hypertarget{class_x_m_l_metadata_datastore_a5b8a6ff4209e730979bee09dc485e699}\label{class_x_m_l_metadata_datastore_a5b8a6ff4209e730979bee09dc485e699}} 
+bool {\bfseries save\+Metadata\+Structure} () override
+\item 
+\mbox{\Hypertarget{class_x_m_l_metadata_datastore_ab16bc09234b78eb54566d61b4eb45f10}\label{class_x_m_l_metadata_datastore_ab16bc09234b78eb54566d61b4eb45f10}} 
+bool {\bfseries create\+Metadata\+Attribute} (Corpus\+Object\+::\+Type type, Q\+Pointer$<$ \hyperlink{class_metadata_structure_attribute}{Metadata\+Structure\+Attribute} $>$ new\+Attribute) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_metadata_datastore_aeea6d7f4e2a2335310baaebb10fced95}\label{class_x_m_l_metadata_datastore_aeea6d7f4e2a2335310baaebb10fced95}} 
+bool {\bfseries rename\+Metadata\+Attribute} (Corpus\+Object\+::\+Type type, const Q\+String \&attribute\+ID, const Q\+String \&new\+Attribute\+ID) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_metadata_datastore_a878c2a1e64de8e35f09893e004c43c05}\label{class_x_m_l_metadata_datastore_a878c2a1e64de8e35f09893e004c43c05}} 
+bool {\bfseries delete\+Metadata\+Attribute} (Corpus\+Object\+::\+Type type, const Q\+String \&attribute\+ID) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_metadata_datastore_ac3474342ea8fdf13ec0c3847f4c1dd54}\label{class_x_m_l_metadata_datastore_ac3474342ea8fdf13ec0c3847f4c1dd54}} 
+bool {\bfseries retype\+Metadata\+Attribute} (Corpus\+Object\+::\+Type type, const Q\+String \&attribute\+ID, const \hyperlink{class_data_type}{Data\+Type} \&new\+Datatype) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_metadata_datastore_a365d65f22d0b3c61aeb9c0c3fc9f3ced}\label{class_x_m_l_metadata_datastore_a365d65f22d0b3c61aeb9c0c3fc9f3ced}} 
+\hyperlink{class_name_value_list}{Name\+Value\+List} $\ast$ {\bfseries get\+Name\+Value\+List} (const Q\+String \&list\+ID) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_metadata_datastore_a9009225eb3818379122aa5ff984887ac}\label{class_x_m_l_metadata_datastore_a9009225eb3818379122aa5ff984887ac}} 
+Q\+String\+List {\bfseries get\+All\+Name\+Value\+List\+I\+Ds} () override
+\item 
+\mbox{\Hypertarget{class_x_m_l_metadata_datastore_a3e9c9f066303703a284583122ed680cc}\label{class_x_m_l_metadata_datastore_a3e9c9f066303703a284583122ed680cc}} 
+Q\+Map$<$ Q\+String, Q\+Pointer$<$ \hyperlink{class_name_value_list}{Name\+Value\+List} $>$ $>$ {\bfseries get\+All\+Name\+Value\+Lists} () override
+\item 
+\mbox{\Hypertarget{class_x_m_l_metadata_datastore_a8f7162d6357b82d8b41e27a452695142}\label{class_x_m_l_metadata_datastore_a8f7162d6357b82d8b41e27a452695142}} 
+bool {\bfseries create\+Name\+Value\+List} (\hyperlink{class_name_value_list}{Name\+Value\+List} $\ast$list) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_metadata_datastore_af276388acdfff0aa6923ad89c8eb0469}\label{class_x_m_l_metadata_datastore_af276388acdfff0aa6923ad89c8eb0469}} 
+bool {\bfseries update\+Name\+Value\+List} (\hyperlink{class_name_value_list}{Name\+Value\+List} $\ast$list) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_metadata_datastore_aa249725510e6c454986e84abbe3c9af2}\label{class_x_m_l_metadata_datastore_aa249725510e6c454986e84abbe3c9af2}} 
+bool {\bfseries delete\+Name\+Value\+List} (const Q\+String \&list\+ID) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_metadata_datastore_a2ea63d5aec3ef934e58ee03227a62824}\label{class_x_m_l_metadata_datastore_a2ea63d5aec3ef934e58ee03227a62824}} 
+Q\+List$<$ \hyperlink{class_corpus_object_info}{Corpus\+Object\+Info} $>$ {\bfseries get\+Corpus\+Object\+Info\+List} (Corpus\+Object\+::\+Type type, const \hyperlink{class_metadata_datastore_1_1_selection}{Selection} \&selection) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_metadata_datastore_a9df1555c30923da9101414d907d9a4cf}\label{class_x_m_l_metadata_datastore_a9df1555c30923da9101414d907d9a4cf}} 
+\hyperlink{class_corpus}{Corpus} $\ast$ {\bfseries get\+Corpus} (const Q\+String \&corpus\+ID) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_metadata_datastore_a953dcc2448d3b627941f2dc2299f0755}\label{class_x_m_l_metadata_datastore_a953dcc2448d3b627941f2dc2299f0755}} 
+Q\+List$<$ Q\+Pointer$<$ \hyperlink{class_corpus_communication}{Corpus\+Communication} $>$ $>$ {\bfseries get\+Communications} (const \hyperlink{class_metadata_datastore_1_1_selection}{Selection} \&selection) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_metadata_datastore_aca20d23ccb832f4608f2d77e31596729}\label{class_x_m_l_metadata_datastore_aca20d23ccb832f4608f2d77e31596729}} 
+Q\+List$<$ Q\+Pointer$<$ \hyperlink{class_corpus_speaker}{Corpus\+Speaker} $>$ $>$ {\bfseries get\+Speakers} (const \hyperlink{class_metadata_datastore_1_1_selection}{Selection} \&selection) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_metadata_datastore_a570f859b96574bd9cefb1d25553f2d61}\label{class_x_m_l_metadata_datastore_a570f859b96574bd9cefb1d25553f2d61}} 
+Q\+List$<$ Q\+Pointer$<$ \hyperlink{class_corpus_recording}{Corpus\+Recording} $>$ $>$ {\bfseries get\+Recordings} (const \hyperlink{class_metadata_datastore_1_1_selection}{Selection} \&selection) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_metadata_datastore_ad8d096fdf3a062884684b465120e2aa4}\label{class_x_m_l_metadata_datastore_ad8d096fdf3a062884684b465120e2aa4}} 
+Q\+List$<$ Q\+Pointer$<$ \hyperlink{class_corpus_annotation}{Corpus\+Annotation} $>$ $>$ {\bfseries get\+Annotations} (const \hyperlink{class_metadata_datastore_1_1_selection}{Selection} \&selection) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_metadata_datastore_a160dde5b83c9e17b0721c41b5a049ca0}\label{class_x_m_l_metadata_datastore_a160dde5b83c9e17b0721c41b5a049ca0}} 
+Q\+List$<$ Q\+Pointer$<$ \hyperlink{class_corpus_participation}{Corpus\+Participation} $>$ $>$ {\bfseries get\+Participations} (const \hyperlink{class_metadata_datastore_1_1_selection}{Selection} \&selection) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_metadata_datastore_a035d1c9c9e0793348ec53fa7e23d4f17}\label{class_x_m_l_metadata_datastore_a035d1c9c9e0793348ec53fa7e23d4f17}} 
+bool {\bfseries save\+Corpus} (\hyperlink{class_corpus}{Corpus} $\ast$corpus) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_metadata_datastore_a0f79a008d35a8fedbb56762bae11054a}\label{class_x_m_l_metadata_datastore_a0f79a008d35a8fedbb56762bae11054a}} 
+bool {\bfseries save\+Communication} (\hyperlink{class_corpus_communication}{Corpus\+Communication} $\ast$communication) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_metadata_datastore_aeef1a460d5df729353a37430745fc039}\label{class_x_m_l_metadata_datastore_aeef1a460d5df729353a37430745fc039}} 
+bool {\bfseries save\+Communications} (Q\+List$<$ Q\+Pointer$<$ \hyperlink{class_corpus_communication}{Corpus\+Communication} $>$ $>$ \&communications) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_metadata_datastore_ad1561c54f37ad22cf24cedc06700660a}\label{class_x_m_l_metadata_datastore_ad1561c54f37ad22cf24cedc06700660a}} 
+bool {\bfseries save\+Speaker} (\hyperlink{class_corpus_speaker}{Corpus\+Speaker} $\ast$speaker) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_metadata_datastore_a07bd430e4e8869f38bd9e116e3905ac5}\label{class_x_m_l_metadata_datastore_a07bd430e4e8869f38bd9e116e3905ac5}} 
+bool {\bfseries save\+Speakers} (Q\+List$<$ Q\+Pointer$<$ \hyperlink{class_corpus_speaker}{Corpus\+Speaker} $>$ $>$ \&speakers) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_metadata_datastore_a9a11d6ad6f585d233061ae018549eb2b}\label{class_x_m_l_metadata_datastore_a9a11d6ad6f585d233061ae018549eb2b}} 
+bool {\bfseries save\+Recordings} (Q\+List$<$ Q\+Pointer$<$ \hyperlink{class_corpus_recording}{Corpus\+Recording} $>$ $>$ \&recordings) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_metadata_datastore_a2cb7e3866eeb05a471ef8c4838ae580c}\label{class_x_m_l_metadata_datastore_a2cb7e3866eeb05a471ef8c4838ae580c}} 
+bool {\bfseries save\+Annotations} (Q\+List$<$ Q\+Pointer$<$ \hyperlink{class_corpus_annotation}{Corpus\+Annotation} $>$ $>$ \&annotations) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_metadata_datastore_acaa676e9c2a2e3c2b329a56ef0def274}\label{class_x_m_l_metadata_datastore_acaa676e9c2a2e3c2b329a56ef0def274}} 
+bool {\bfseries save\+Participations} (Q\+List$<$ Q\+Pointer$<$ \hyperlink{class_corpus_participation}{Corpus\+Participation} $>$ $>$ \&participations) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_metadata_datastore_a9e70a9894d5d1314465d355a6a621773}\label{class_x_m_l_metadata_datastore_a9e70a9894d5d1314465d355a6a621773}} 
+bool {\bfseries delete\+Corpus} (const Q\+String \&corpus\+ID) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_metadata_datastore_ab9431a649e6dad9a79c10e071a9d0bc9}\label{class_x_m_l_metadata_datastore_ab9431a649e6dad9a79c10e071a9d0bc9}} 
+bool {\bfseries delete\+Communication} (const Q\+String \&communication\+ID) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_metadata_datastore_a6a93a3b80501e9810cc4adf5aa4e13d3}\label{class_x_m_l_metadata_datastore_a6a93a3b80501e9810cc4adf5aa4e13d3}} 
+bool {\bfseries delete\+Speaker} (const Q\+String \&speaker\+ID) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_metadata_datastore_aa276e0ff1c91ff02d4a0257c02182fbe}\label{class_x_m_l_metadata_datastore_aa276e0ff1c91ff02d4a0257c02182fbe}} 
+bool {\bfseries delete\+Recording} (const Q\+String \&recording\+ID) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_metadata_datastore_ac02458ce94d40914eab4b2958bcdc5d8}\label{class_x_m_l_metadata_datastore_ac02458ce94d40914eab4b2958bcdc5d8}} 
+bool {\bfseries delete\+Annotation} (const Q\+String \&annotation\+ID) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_metadata_datastore_a0abd67013246c7c0f4351b0ee41e7345}\label{class_x_m_l_metadata_datastore_a0abd67013246c7c0f4351b0ee41e7345}} 
+bool {\bfseries delete\+Participation} (const Q\+String \&communication\+ID, const Q\+String \&speaker\+ID) override
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/datastore/X\+M\+L\+Metadata\+Datastore.\+h\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/datastore/X\+M\+L\+Metadata\+Datastore.\+cpp\end{DoxyCompactItemize}

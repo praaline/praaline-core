@@ -1,0 +1,49 @@
+\hypertarget{class_q_sql_migrator_1_1_command_execution_1_1_command_execution_context}{}\section{Q\+Sql\+Migrator\+:\+:Command\+Execution\+:\+:Command\+Execution\+Context Class Reference}
+\label{class_q_sql_migrator_1_1_command_execution_1_1_command_execution_context}\index{Q\+Sql\+Migrator\+::\+Command\+Execution\+::\+Command\+Execution\+Context@{Q\+Sql\+Migrator\+::\+Command\+Execution\+::\+Command\+Execution\+Context}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_command_execution_1_1_command_execution_context_a9833f37d1f355e9acf705c17c7a24a8a}\label{class_q_sql_migrator_1_1_command_execution_1_1_command_execution_context_a9833f37d1f355e9acf705c17c7a24a8a}} 
+{\bfseries Command\+Execution\+Context} (const Q\+Sql\+Database database, const \hyperlink{struct_q_sql_migrator_1_1_migration_execution_1_1_migration_execution_config}{Migration\+Execution\+::\+Migration\+Execution\+Config} \&migration\+Config, const \hyperlink{class_q_sql_migrator_1_1_helper_1_1_helper_repository}{Helper\+::\+Helper\+Repository} \&helper\+Repository)
+\item 
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_command_execution_1_1_command_execution_context_ada9b80a7a767c3bb756a7a7c18c4e88d}\label{class_q_sql_migrator_1_1_command_execution_1_1_command_execution_context_ada9b80a7a767c3bb756a7a7c18c4e88d}} 
+Q\+Sql\+Database {\bfseries database} () const
+\item 
+bool \hyperlink{class_q_sql_migrator_1_1_command_execution_1_1_command_execution_context_a48821a3965e12db6d06cfefcb103df2e}{is\+Undo\+Used} () const
+\item 
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_command_execution_1_1_command_execution_context_af52d5b954891e5b255de55986d8ced0a}\label{class_q_sql_migrator_1_1_command_execution_1_1_command_execution_context_af52d5b954891e5b255de55986d8ced0a}} 
+Commands\+::\+Command\+Ptr {\bfseries current\+Undo\+Command} () const
+\item 
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_command_execution_1_1_command_execution_context_a3d53a72137b6684d3210e4c4983b2b45}\label{class_q_sql_migrator_1_1_command_execution_1_1_command_execution_context_a3d53a72137b6684d3210e4c4983b2b45}} 
+const \hyperlink{struct_q_sql_migrator_1_1_migration_execution_1_1_migration_execution_config}{Migration\+Execution\+::\+Migration\+Execution\+Config} \& {\bfseries migration\+Config} () const
+\item 
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_command_execution_1_1_command_execution_context_adaa22f2bad3aa78cf897c9ca6b30539d}\label{class_q_sql_migrator_1_1_command_execution_1_1_command_execution_context_adaa22f2bad3aa78cf897c9ca6b30539d}} 
+const \hyperlink{class_q_sql_migrator_1_1_helper_1_1_helper_repository}{Helper\+::\+Helper\+Repository} \& {\bfseries helper\+Repository} () const
+\item 
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_command_execution_1_1_command_execution_context_aa4999861869b7796ff6fc4bd7830f505}\label{class_q_sql_migrator_1_1_command_execution_1_1_command_execution_context_aa4999861869b7796ff6fc4bd7830f505}} 
+void {\bfseries set\+Is\+Undo\+Used} (bool \hyperlink{class_q_sql_migrator_1_1_command_execution_1_1_command_execution_context_a48821a3965e12db6d06cfefcb103df2e}{is\+Undo\+Used})
+\item 
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_command_execution_1_1_command_execution_context_a061187172723022ba4cd19c45a7a3838}\label{class_q_sql_migrator_1_1_command_execution_1_1_command_execution_context_a061187172723022ba4cd19c45a7a3838}} 
+void {\bfseries set\+Undo\+Command} (Commands\+::\+Command\+Ptr command)
+\item 
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_command_execution_1_1_command_execution_context_a2045c234885e2e9e3a475eb9e2a0a6f5}\label{class_q_sql_migrator_1_1_command_execution_1_1_command_execution_context_a2045c234885e2e9e3a475eb9e2a0a6f5}} 
+void {\bfseries reset\+Undo\+Command} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_command_execution_1_1_command_execution_context_a48821a3965e12db6d06cfefcb103df2e}\label{class_q_sql_migrator_1_1_command_execution_1_1_command_execution_context_a48821a3965e12db6d06cfefcb103df2e}} 
+\index{Q\+Sql\+Migrator\+::\+Command\+Execution\+::\+Command\+Execution\+Context@{Q\+Sql\+Migrator\+::\+Command\+Execution\+::\+Command\+Execution\+Context}!is\+Undo\+Used@{is\+Undo\+Used}}
+\index{is\+Undo\+Used@{is\+Undo\+Used}!Q\+Sql\+Migrator\+::\+Command\+Execution\+::\+Command\+Execution\+Context@{Q\+Sql\+Migrator\+::\+Command\+Execution\+::\+Command\+Execution\+Context}}
+\subsubsection{\texorpdfstring{is\+Undo\+Used()}{isUndoUsed()}}
+{\footnotesize\ttfamily bool Q\+Sql\+Migrator\+::\+Command\+Execution\+::\+Command\+Execution\+Context\+::is\+Undo\+Used (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+true, when undo command will be used 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/\+Q\+Sql\+Migrator/\+Command\+Execution/Command\+Execution\+Context.\+h\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/\+Q\+Sql\+Migrator/\+Command\+Execution/Command\+Execution\+Context.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,97 @@
+\hypertarget{class_q_sql_migrator_1_1_q_sql_migrator_service}{}\section{Q\+Sql\+Migrator\+:\+:Q\+Sql\+Migrator\+Service Class Reference}
+\label{class_q_sql_migrator_1_1_q_sql_migrator_service}\index{Q\+Sql\+Migrator\+::\+Q\+Sql\+Migrator\+Service@{Q\+Sql\+Migrator\+::\+Q\+Sql\+Migrator\+Service}}
+
+
+The \hyperlink{class_q_sql_migrator_1_1_q_sql_migrator_service}{Q\+Sql\+Migrator\+Service} class is used to control all relevant features of the Q\+Sql\+Migrator. The User should use this service within it\textquotesingle{}s own applications.  
+
+
+
+
+{\ttfamily \#include $<$Q\+Sql\+Migrator\+Service.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Q\+String\+List \hyperlink{class_q_sql_migrator_1_1_q_sql_migrator_service_afb783f872cf79f4264031d202d262465}{applied\+Migrations} (const \hyperlink{class_q_sql_migrator_1_1_migration_execution_1_1_migration_execution_context}{Migration\+Execution\+::\+Migration\+Execution\+Context} \&context) const
+\item 
+Q\+String\+List \hyperlink{class_q_sql_migrator_1_1_q_sql_migrator_service_a95540ad297027ab2d746d5d67a42f51a}{defined\+Migrations} (const \hyperlink{class_q_sql_migrator_1_1_migration_execution_1_1_migration_execution_context}{Migration\+Execution\+::\+Migration\+Execution\+Context} \&context) const
+\item 
+Q\+String \hyperlink{class_q_sql_migrator_1_1_q_sql_migrator_service_ab260bfc218f0a6c58eae3c261c6ea462}{last\+Applied\+Migration} (const \hyperlink{class_q_sql_migrator_1_1_migration_execution_1_1_migration_execution_context}{Migration\+Execution\+::\+Migration\+Execution\+Context} \&context) const
+\item 
+Q\+String\+List \hyperlink{class_q_sql_migrator_1_1_q_sql_migrator_service_a9d643749c3e565e02532854c2ff35971}{missing\+Migrations} (const \hyperlink{class_q_sql_migrator_1_1_migration_execution_1_1_migration_execution_context}{Migration\+Execution\+::\+Migration\+Execution\+Context} \&context) const
+\item 
+Q\+String\+List \hyperlink{class_q_sql_migrator_1_1_q_sql_migrator_service_a438604359cb3fca6636b395976eb2f3c}{unapplied\+Migrations} (const \hyperlink{class_q_sql_migrator_1_1_migration_execution_1_1_migration_execution_context}{Migration\+Execution\+::\+Migration\+Execution\+Context} \&context) const
+\item 
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_q_sql_migrator_service_a446c653987b60f8091314064b7cc1f5e}\label{class_q_sql_migrator_1_1_q_sql_migrator_service_a446c653987b60f8091314064b7cc1f5e}} 
+bool {\bfseries apply\+All} (const \hyperlink{class_q_sql_migrator_1_1_migration_execution_1_1_migration_execution_context}{Migration\+Execution\+::\+Migration\+Execution\+Context} \&context) const
+\item 
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_q_sql_migrator_service_a969ccc646b9b930ac9ca59f29e12c18f}\label{class_q_sql_migrator_1_1_q_sql_migrator_service_a969ccc646b9b930ac9ca59f29e12c18f}} 
+bool {\bfseries apply\+Migration} (const Q\+String \&migration\+Name, const \hyperlink{class_q_sql_migrator_1_1_migration_execution_1_1_migration_execution_context}{Migration\+Execution\+::\+Migration\+Execution\+Context} \&context) const
+\item 
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_q_sql_migrator_service_ad0b7c6d1bf5af860fa626a9b49dbd8b2}\label{class_q_sql_migrator_1_1_q_sql_migrator_service_ad0b7c6d1bf5af860fa626a9b49dbd8b2}} 
+bool {\bfseries migrate\+To} (const Q\+String \&migration\+Name, const \hyperlink{class_q_sql_migrator_1_1_migration_execution_1_1_migration_execution_context}{Migration\+Execution\+::\+Migration\+Execution\+Context} \&context) const
+\item 
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_q_sql_migrator_service_a530fde5ddff2bd94fd6a4c6445af4efb}\label{class_q_sql_migrator_1_1_q_sql_migrator_service_a530fde5ddff2bd94fd6a4c6445af4efb}} 
+bool {\bfseries revert\+Migration} (const Q\+String \&migration\+Name, const \hyperlink{class_q_sql_migrator_1_1_migration_execution_1_1_migration_execution_context}{Migration\+Execution\+::\+Migration\+Execution\+Context} \&context) const
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{class_q_sql_migrator_1_1_q_sql_migrator_service}{Q\+Sql\+Migrator\+Service} class is used to control all relevant features of the Q\+Sql\+Migrator. The User should use this service within it\textquotesingle{}s own applications. 
+
+context c; if( ! missing\+Migrations(c).empty() ) exit(1); if( ! unapplied\+Migrations(c).empty() ) \{ Database\+Lock lock(c); if(lock) apply\+All(c);
+
+// or exit(1); \} // here all migrations are applied 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_q_sql_migrator_service_afb783f872cf79f4264031d202d262465}\label{class_q_sql_migrator_1_1_q_sql_migrator_service_afb783f872cf79f4264031d202d262465}} 
+\index{Q\+Sql\+Migrator\+::\+Q\+Sql\+Migrator\+Service@{Q\+Sql\+Migrator\+::\+Q\+Sql\+Migrator\+Service}!applied\+Migrations@{applied\+Migrations}}
+\index{applied\+Migrations@{applied\+Migrations}!Q\+Sql\+Migrator\+::\+Q\+Sql\+Migrator\+Service@{Q\+Sql\+Migrator\+::\+Q\+Sql\+Migrator\+Service}}
+\subsubsection{\texorpdfstring{applied\+Migrations()}{appliedMigrations()}}
+{\footnotesize\ttfamily Q\+String\+List Q\+Sql\+Migrator\+::\+Q\+Sql\+Migrator\+Service\+::applied\+Migrations (\begin{DoxyParamCaption}\item[{const \hyperlink{class_q_sql_migrator_1_1_migration_execution_1_1_migration_execution_context}{Migration\+Execution\+::\+Migration\+Execution\+Context} \&}]{context }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+names of all migrations that have been applied 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_q_sql_migrator_service_a95540ad297027ab2d746d5d67a42f51a}\label{class_q_sql_migrator_1_1_q_sql_migrator_service_a95540ad297027ab2d746d5d67a42f51a}} 
+\index{Q\+Sql\+Migrator\+::\+Q\+Sql\+Migrator\+Service@{Q\+Sql\+Migrator\+::\+Q\+Sql\+Migrator\+Service}!defined\+Migrations@{defined\+Migrations}}
+\index{defined\+Migrations@{defined\+Migrations}!Q\+Sql\+Migrator\+::\+Q\+Sql\+Migrator\+Service@{Q\+Sql\+Migrator\+::\+Q\+Sql\+Migrator\+Service}}
+\subsubsection{\texorpdfstring{defined\+Migrations()}{definedMigrations()}}
+{\footnotesize\ttfamily Q\+String\+List Q\+Sql\+Migrator\+::\+Q\+Sql\+Migrator\+Service\+::defined\+Migrations (\begin{DoxyParamCaption}\item[{const \hyperlink{class_q_sql_migrator_1_1_migration_execution_1_1_migration_execution_context}{Migration\+Execution\+::\+Migration\+Execution\+Context} \&}]{context }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+names of all defined and registered migrations 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_q_sql_migrator_service_ab260bfc218f0a6c58eae3c261c6ea462}\label{class_q_sql_migrator_1_1_q_sql_migrator_service_ab260bfc218f0a6c58eae3c261c6ea462}} 
+\index{Q\+Sql\+Migrator\+::\+Q\+Sql\+Migrator\+Service@{Q\+Sql\+Migrator\+::\+Q\+Sql\+Migrator\+Service}!last\+Applied\+Migration@{last\+Applied\+Migration}}
+\index{last\+Applied\+Migration@{last\+Applied\+Migration}!Q\+Sql\+Migrator\+::\+Q\+Sql\+Migrator\+Service@{Q\+Sql\+Migrator\+::\+Q\+Sql\+Migrator\+Service}}
+\subsubsection{\texorpdfstring{last\+Applied\+Migration()}{lastAppliedMigration()}}
+{\footnotesize\ttfamily Q\+String Q\+Sql\+Migrator\+::\+Q\+Sql\+Migrator\+Service\+::last\+Applied\+Migration (\begin{DoxyParamCaption}\item[{const \hyperlink{class_q_sql_migrator_1_1_migration_execution_1_1_migration_execution_context}{Migration\+Execution\+::\+Migration\+Execution\+Context} \&}]{context }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+name the last migration that was applied 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_q_sql_migrator_service_a9d643749c3e565e02532854c2ff35971}\label{class_q_sql_migrator_1_1_q_sql_migrator_service_a9d643749c3e565e02532854c2ff35971}} 
+\index{Q\+Sql\+Migrator\+::\+Q\+Sql\+Migrator\+Service@{Q\+Sql\+Migrator\+::\+Q\+Sql\+Migrator\+Service}!missing\+Migrations@{missing\+Migrations}}
+\index{missing\+Migrations@{missing\+Migrations}!Q\+Sql\+Migrator\+::\+Q\+Sql\+Migrator\+Service@{Q\+Sql\+Migrator\+::\+Q\+Sql\+Migrator\+Service}}
+\subsubsection{\texorpdfstring{missing\+Migrations()}{missingMigrations()}}
+{\footnotesize\ttfamily Q\+String\+List Q\+Sql\+Migrator\+::\+Q\+Sql\+Migrator\+Service\+::missing\+Migrations (\begin{DoxyParamCaption}\item[{const \hyperlink{class_q_sql_migrator_1_1_migration_execution_1_1_migration_execution_context}{Migration\+Execution\+::\+Migration\+Execution\+Context} \&}]{context }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+names of all migrations that are applied but are not registered 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_q_sql_migrator_service_a438604359cb3fca6636b395976eb2f3c}\label{class_q_sql_migrator_1_1_q_sql_migrator_service_a438604359cb3fca6636b395976eb2f3c}} 
+\index{Q\+Sql\+Migrator\+::\+Q\+Sql\+Migrator\+Service@{Q\+Sql\+Migrator\+::\+Q\+Sql\+Migrator\+Service}!unapplied\+Migrations@{unapplied\+Migrations}}
+\index{unapplied\+Migrations@{unapplied\+Migrations}!Q\+Sql\+Migrator\+::\+Q\+Sql\+Migrator\+Service@{Q\+Sql\+Migrator\+::\+Q\+Sql\+Migrator\+Service}}
+\subsubsection{\texorpdfstring{unapplied\+Migrations()}{unappliedMigrations()}}
+{\footnotesize\ttfamily Q\+String\+List Q\+Sql\+Migrator\+::\+Q\+Sql\+Migrator\+Service\+::unapplied\+Migrations (\begin{DoxyParamCaption}\item[{const \hyperlink{class_q_sql_migrator_1_1_migration_execution_1_1_migration_execution_context}{Migration\+Execution\+::\+Migration\+Execution\+Context} \&}]{context }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+names of all migrations that need to be applied 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/\+Q\+Sql\+Migrator/\+Q\+Sql\+Migrator/Q\+Sql\+Migrator\+Service.\+h\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/\+Q\+Sql\+Migrator/\+Q\+Sql\+Migrator/Q\+Sql\+Migrator\+Service.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,38 @@
+\hypertarget{class_s_q_l_serialiser_base}{}\section{S\+Q\+L\+Serialiser\+Base Class Reference}
+\label{class_s_q_l_serialiser_base}\index{S\+Q\+L\+Serialiser\+Base@{S\+Q\+L\+Serialiser\+Base}}
+Inheritance diagram for S\+Q\+L\+Serialiser\+Base\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.839080cm]{class_s_q_l_serialiser_base}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_s_q_l_serialiser_base_ad4ddb3b9334ffd7cb8c2fa9f76f0d09e}\label{class_s_q_l_serialiser_base_ad4ddb3b9334ffd7cb8c2fa9f76f0d09e}} 
+enum {\bfseries Database\+System} \{ {\bfseries Sqlite}, 
+{\bfseries My\+S\+QL}, 
+{\bfseries Postgres}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_s_q_l_serialiser_base_a99d4d4ad4ff76c0816018514292f4c69}\label{class_s_q_l_serialiser_base_a99d4d4ad4ff76c0816018514292f4c69}} 
+static bool {\bfseries apply\+Migration} (const Q\+String \&migration\+Name, const \hyperlink{class_q_sql_migrator_1_1_migrations_1_1_migration}{Q\+Sql\+Migrator\+::\+Migrations\+::\+Migration} $\ast$migration, Q\+Sql\+Database \&db)
+\item 
+\mbox{\Hypertarget{class_s_q_l_serialiser_base_af8c4d09460e55732b8b1e40f2760be14}\label{class_s_q_l_serialiser_base_af8c4d09460e55732b8b1e40f2760be14}} 
+static int {\bfseries get\+Praaline\+Schema\+Version} (Q\+Sql\+Database \&db)
+\item 
+\mbox{\Hypertarget{class_s_q_l_serialiser_base_a7fb5700abf78e0347f853ec7237e6bd4}\label{class_s_q_l_serialiser_base_a7fb5700abf78e0347f853ec7237e6bd4}} 
+static bool {\bfseries set\+Praaline\+Schema\+Version} (int version, Q\+Sql\+Database \&db)
+\item 
+\mbox{\Hypertarget{class_s_q_l_serialiser_base_aff20acb1af8173f415a6774e58e2dd1a}\label{class_s_q_l_serialiser_base_aff20acb1af8173f415a6774e58e2dd1a}} 
+static bool {\bfseries upgrade\+Schema} (Q\+Sql\+Database \&db)
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/serialisers/sql/S\+Q\+L\+Serialiser\+Base.\+h\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/serialisers/sql/S\+Q\+L\+Serialiser\+Base.\+cpp\end{DoxyCompactItemize}

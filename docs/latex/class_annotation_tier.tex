@@ -1,0 +1,115 @@
+\hypertarget{class_annotation_tier}{}\section{Annotation\+Tier Class Reference}
+\label{class_annotation_tier}\index{Annotation\+Tier@{Annotation\+Tier}}
+Inheritance diagram for Annotation\+Tier\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_annotation_tier}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_annotation_tier_aad0b7862687212adcd3b2851fd62ba5d}\label{class_annotation_tier_aad0b7862687212adcd3b2851fd62ba5d}} 
+enum {\bfseries Tier\+Type} \{ \newline
+{\bfseries Tier\+Type\+\_\+\+Points}, 
+{\bfseries Tier\+Type\+\_\+\+Intervals}, 
+{\bfseries Tier\+Type\+\_\+\+Grouping}, 
+{\bfseries Tier\+Type\+\_\+\+Sequences}, 
+\newline
+{\bfseries Tier\+Type\+\_\+\+Tree}, 
+{\bfseries Tier\+Type\+\_\+\+Relations}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_annotation_tier_a26b44c87723f7e537a952a3342dfa784}\label{class_annotation_tier_a26b44c87723f7e537a952a3342dfa784}} 
+void {\bfseries name\+Changed} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_annotation_tier_af59a01566de15fb6f767d14da6e34a94}\label{class_annotation_tier_af59a01566de15fb6f767d14da6e34a94}} 
+{\bfseries Annotation\+Tier} (const Q\+String \&name=Q\+String(), Q\+Object $\ast$parent=nullptr)
+\item 
+\mbox{\Hypertarget{class_annotation_tier_abde1704c32f26e05f946c4eb79cf2948}\label{class_annotation_tier_abde1704c32f26e05f946c4eb79cf2948}} 
+virtual Tier\+Type {\bfseries tier\+Type} () const =0
+\item 
+\mbox{\Hypertarget{class_annotation_tier_a6588948ba81099274eb55e8813fbbd88}\label{class_annotation_tier_a6588948ba81099274eb55e8813fbbd88}} 
+virtual Q\+String {\bfseries name} () const
+\item 
+\mbox{\Hypertarget{class_annotation_tier_ada164999ed11f552b9ed196743f30c43}\label{class_annotation_tier_ada164999ed11f552b9ed196743f30c43}} 
+virtual void {\bfseries set\+Name} (const Q\+String \&name)
+\item 
+\mbox{\Hypertarget{class_annotation_tier_afaf3e5815e8c21678abaf1766a317de4}\label{class_annotation_tier_afaf3e5815e8c21678abaf1766a317de4}} 
+virtual \hyperlink{struct_real_time}{Real\+Time} {\bfseries t\+Min} () const
+\item 
+\mbox{\Hypertarget{class_annotation_tier_a4df732bb51ad92f493900e0d1d822dcf}\label{class_annotation_tier_a4df732bb51ad92f493900e0d1d822dcf}} 
+virtual \hyperlink{struct_real_time}{Real\+Time} {\bfseries t\+Max} () const
+\item 
+\mbox{\Hypertarget{class_annotation_tier_a2afaa711c02f66e632f9841218836233}\label{class_annotation_tier_a2afaa711c02f66e632f9841218836233}} 
+virtual \hyperlink{struct_real_time}{Real\+Time} {\bfseries duration} () const
+\item 
+\mbox{\Hypertarget{class_annotation_tier_a53d2439519ccda4962ba2c35c76cab53}\label{class_annotation_tier_a53d2439519ccda4962ba2c35c76cab53}} 
+virtual int {\bfseries count} () const =0
+\item 
+\mbox{\Hypertarget{class_annotation_tier_a0f545d0930ead88cb4e9fb01a5ed5097}\label{class_annotation_tier_a0f545d0930ead88cb4e9fb01a5ed5097}} 
+virtual bool {\bfseries is\+Empty} () const =0
+\item 
+\mbox{\Hypertarget{class_annotation_tier_ae83ced90eff441f3392837b310cfa07d}\label{class_annotation_tier_ae83ced90eff441f3392837b310cfa07d}} 
+virtual void {\bfseries clear} ()=0
+\item 
+\mbox{\Hypertarget{class_annotation_tier_ae8c2d7407cb31ec6917aa2e2c711a58c}\label{class_annotation_tier_ae8c2d7407cb31ec6917aa2e2c711a58c}} 
+virtual \hyperlink{class_annotation_element}{Annotation\+Element} $\ast$ {\bfseries at} (int index) const =0
+\item 
+\mbox{\Hypertarget{class_annotation_tier_a7501382f881d2956ad172e25a13f4c71}\label{class_annotation_tier_a7501382f881d2956ad172e25a13f4c71}} 
+virtual \hyperlink{class_annotation_element}{Annotation\+Element} $\ast$ {\bfseries first} () const =0
+\item 
+\mbox{\Hypertarget{class_annotation_tier_aee3de82bbe9757962887068e5e2e10dd}\label{class_annotation_tier_aee3de82bbe9757962887068e5e2e10dd}} 
+virtual \hyperlink{class_annotation_element}{Annotation\+Element} $\ast$ {\bfseries last} () const =0
+\item 
+\mbox{\Hypertarget{class_annotation_tier_a057f6668e07be7e6230955b2c241df1c}\label{class_annotation_tier_a057f6668e07be7e6230955b2c241df1c}} 
+virtual Q\+String\+List {\bfseries get\+Distinct\+Labels} () const =0
+\item 
+\mbox{\Hypertarget{class_annotation_tier_a1f03d603d941c958c4cf5d0f809305b4}\label{class_annotation_tier_a1f03d603d941c958c4cf5d0f809305b4}} 
+virtual Q\+List$<$ Q\+Variant $>$ {\bfseries get\+Distinct\+Values} (const Q\+String \&attribute\+ID) const =0
+\item 
+\mbox{\Hypertarget{class_annotation_tier_a97599d1c53b5ce0b73d5a96cf4fbe872}\label{class_annotation_tier_a97599d1c53b5ce0b73d5a96cf4fbe872}} 
+virtual void {\bfseries replace} (const Q\+String \&attribute\+ID, const Q\+String \&before, const Q\+String \&after, Qt\+::\+Case\+Sensitivity cs=Qt\+::\+Case\+Sensitive)=0
+\item 
+\mbox{\Hypertarget{class_annotation_tier_aa0c5186b64e95e2c54070f9e7dc73cae}\label{class_annotation_tier_aa0c5186b64e95e2c54070f9e7dc73cae}} 
+virtual void {\bfseries fill\+Empty\+With} (const Q\+String \&attribute\+ID, const Q\+String \&filler)=0
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_annotation_tier_a24cca2a0647ac26993600fc1340f542d}\label{class_annotation_tier_a24cca2a0647ac26993600fc1340f542d}} 
+Q\+String {\bfseries m\+\_\+name}
+\item 
+\mbox{\Hypertarget{class_annotation_tier_afcca9fbd63e626e84490f7c95d71e09b}\label{class_annotation_tier_afcca9fbd63e626e84490f7c95d71e09b}} 
+\hyperlink{struct_real_time}{Real\+Time} {\bfseries m\+\_\+t\+Min}
+\item 
+\mbox{\Hypertarget{class_annotation_tier_a05d59926099e9a3d45d18a84934b745c}\label{class_annotation_tier_a05d59926099e9a3d45d18a84934b745c}} 
+\hyperlink{struct_real_time}{Real\+Time} {\bfseries m\+\_\+t\+Max}
+\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_annotation_tier_a421ef99d21e002f1a5724c25ca016aa4}\label{class_annotation_tier_a421ef99d21e002f1a5724c25ca016aa4}} 
+Q\+String {\bfseries name}
+\item 
+\mbox{\Hypertarget{class_annotation_tier_a20b9f0514d945098b014dafe7217cece}\label{class_annotation_tier_a20b9f0514d945098b014dafe7217cece}} 
+\hyperlink{struct_real_time}{Real\+Time} {\bfseries t\+Min}
+\item 
+\mbox{\Hypertarget{class_annotation_tier_a719a756eb98dfebebc0fb5fae78e45b6}\label{class_annotation_tier_a719a756eb98dfebebc0fb5fae78e45b6}} 
+\hyperlink{struct_real_time}{Real\+Time} {\bfseries t\+Max}
+\item 
+\mbox{\Hypertarget{class_annotation_tier_a67d00a5e50a49acc3dc43bb1d3652c7a}\label{class_annotation_tier_a67d00a5e50a49acc3dc43bb1d3652c7a}} 
+\hyperlink{struct_real_time}{Real\+Time} {\bfseries duration}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/annotation/Annotation\+Tier.\+h\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/annotation/Annotation\+Tier.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,87 @@
+\hypertarget{class_s_q_l_serialiser_metadata}{}\section{S\+Q\+L\+Serialiser\+Metadata Class Reference}
+\label{class_s_q_l_serialiser_metadata}\index{S\+Q\+L\+Serialiser\+Metadata@{S\+Q\+L\+Serialiser\+Metadata}}
+Inheritance diagram for S\+Q\+L\+Serialiser\+Metadata\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_s_q_l_serialiser_metadata}
+\end{center}
+\end{figure}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_s_q_l_serialiser_metadata_a63cab3a921a0c89c397aa7b731cc998e}\label{class_s_q_l_serialiser_metadata_a63cab3a921a0c89c397aa7b731cc998e}} 
+static Q\+List$<$ \hyperlink{class_corpus_object_info}{Corpus\+Object\+Info} $>$ {\bfseries get\+Corpus\+Object\+Info\+List} (Corpus\+Object\+::\+Type type, const \hyperlink{class_metadata_datastore_1_1_selection}{Metadata\+Datastore\+::\+Selection} \&selection, Q\+Sql\+Database \&db, \hyperlink{class_metadata_structure}{Metadata\+Structure} $\ast$structure, \hyperlink{class_corpus_datastore}{Corpus\+Datastore} $\ast$datastore)
+\item 
+\mbox{\Hypertarget{class_s_q_l_serialiser_metadata_a73b009f2398ec45bbc5fff635717f5df}\label{class_s_q_l_serialiser_metadata_a73b009f2398ec45bbc5fff635717f5df}} 
+static bool {\bfseries save\+Corpus\+Object\+Info} (Corpus\+Object\+::\+Type type, const Q\+List$<$ \hyperlink{class_corpus_object_info}{Corpus\+Object\+Info} $>$ \&list, Q\+Sql\+Database \&db, \hyperlink{class_metadata_structure}{Metadata\+Structure} $\ast$structure, \hyperlink{class_corpus_datastore}{Corpus\+Datastore} $\ast$datastore)
+\item 
+\mbox{\Hypertarget{class_s_q_l_serialiser_metadata_a261432658ebd6b68866694e878f18a77}\label{class_s_q_l_serialiser_metadata_a261432658ebd6b68866694e878f18a77}} 
+static \hyperlink{class_corpus}{Corpus} $\ast$ {\bfseries get\+Corpus} (const Q\+String \&corpus\+ID, Q\+Sql\+Database \&db, \hyperlink{class_metadata_structure}{Metadata\+Structure} $\ast$structure, \hyperlink{class_corpus_datastore}{Corpus\+Datastore} $\ast$datastore)
+\item 
+\mbox{\Hypertarget{class_s_q_l_serialiser_metadata_af245b54246a2749fe18f50d937acf6cd}\label{class_s_q_l_serialiser_metadata_af245b54246a2749fe18f50d937acf6cd}} 
+static Q\+List$<$ Q\+Pointer$<$ \hyperlink{class_corpus_communication}{Corpus\+Communication} $>$ $>$ {\bfseries get\+Communications} (const \hyperlink{class_metadata_datastore_1_1_selection}{Metadata\+Datastore\+::\+Selection} \&selection, Q\+Sql\+Database \&db, \hyperlink{class_metadata_structure}{Metadata\+Structure} $\ast$structure, \hyperlink{class_corpus_datastore}{Corpus\+Datastore} $\ast$datastore)
+\item 
+\mbox{\Hypertarget{class_s_q_l_serialiser_metadata_a4a93f9535c5a9641bb157238155a2f52}\label{class_s_q_l_serialiser_metadata_a4a93f9535c5a9641bb157238155a2f52}} 
+static Q\+List$<$ Q\+Pointer$<$ \hyperlink{class_corpus_speaker}{Corpus\+Speaker} $>$ $>$ {\bfseries get\+Speakers} (const \hyperlink{class_metadata_datastore_1_1_selection}{Metadata\+Datastore\+::\+Selection} \&selection, Q\+Sql\+Database \&db, \hyperlink{class_metadata_structure}{Metadata\+Structure} $\ast$structure, \hyperlink{class_corpus_datastore}{Corpus\+Datastore} $\ast$datastore)
+\item 
+\mbox{\Hypertarget{class_s_q_l_serialiser_metadata_ae464ccda9d76aa99f87cce3093eb8a94}\label{class_s_q_l_serialiser_metadata_ae464ccda9d76aa99f87cce3093eb8a94}} 
+static Q\+List$<$ Q\+Pointer$<$ \hyperlink{class_corpus_recording}{Corpus\+Recording} $>$ $>$ {\bfseries get\+Recordings} (const \hyperlink{class_metadata_datastore_1_1_selection}{Metadata\+Datastore\+::\+Selection} \&selection, Q\+Sql\+Database \&db, \hyperlink{class_metadata_structure}{Metadata\+Structure} $\ast$structure, \hyperlink{class_corpus_datastore}{Corpus\+Datastore} $\ast$datastore)
+\item 
+\mbox{\Hypertarget{class_s_q_l_serialiser_metadata_a0e8db7d09a7a9d97b9acaddeb6fc0fa3}\label{class_s_q_l_serialiser_metadata_a0e8db7d09a7a9d97b9acaddeb6fc0fa3}} 
+static Q\+List$<$ Q\+Pointer$<$ \hyperlink{class_corpus_annotation}{Corpus\+Annotation} $>$ $>$ {\bfseries get\+Annotations} (const \hyperlink{class_metadata_datastore_1_1_selection}{Metadata\+Datastore\+::\+Selection} \&selection, Q\+Sql\+Database \&db, \hyperlink{class_metadata_structure}{Metadata\+Structure} $\ast$structure, \hyperlink{class_corpus_datastore}{Corpus\+Datastore} $\ast$datastore)
+\item 
+\mbox{\Hypertarget{class_s_q_l_serialiser_metadata_a9e1a4d41b744f7f38eb8bdad557964bb}\label{class_s_q_l_serialiser_metadata_a9e1a4d41b744f7f38eb8bdad557964bb}} 
+static Q\+Multi\+Map$<$ Q\+String, Q\+Pointer$<$ \hyperlink{class_corpus_recording}{Corpus\+Recording} $>$ $>$ {\bfseries get\+Recordings\+By\+Communication} (const \hyperlink{class_metadata_datastore_1_1_selection}{Metadata\+Datastore\+::\+Selection} \&selection, Q\+Sql\+Database \&db, \hyperlink{class_metadata_structure}{Metadata\+Structure} $\ast$structure, \hyperlink{class_corpus_datastore}{Corpus\+Datastore} $\ast$datastore)
+\item 
+\mbox{\Hypertarget{class_s_q_l_serialiser_metadata_ada8b26dacecb2246bcd13b2caf82c004}\label{class_s_q_l_serialiser_metadata_ada8b26dacecb2246bcd13b2caf82c004}} 
+static Q\+Multi\+Map$<$ Q\+String, Q\+Pointer$<$ \hyperlink{class_corpus_annotation}{Corpus\+Annotation} $>$ $>$ {\bfseries get\+Annotations\+By\+Communication} (const \hyperlink{class_metadata_datastore_1_1_selection}{Metadata\+Datastore\+::\+Selection} \&selection, Q\+Sql\+Database \&db, \hyperlink{class_metadata_structure}{Metadata\+Structure} $\ast$structure, \hyperlink{class_corpus_datastore}{Corpus\+Datastore} $\ast$datastore)
+\item 
+\mbox{\Hypertarget{class_s_q_l_serialiser_metadata_ae6610d954df5662c5a744fff0c8caa03}\label{class_s_q_l_serialiser_metadata_ae6610d954df5662c5a744fff0c8caa03}} 
+static Q\+List$<$ Q\+Pointer$<$ \hyperlink{class_corpus_participation}{Corpus\+Participation} $>$ $>$ {\bfseries get\+Participations} (const \hyperlink{class_metadata_datastore_1_1_selection}{Metadata\+Datastore\+::\+Selection} \&selection, Q\+Sql\+Database \&db, \hyperlink{class_metadata_structure}{Metadata\+Structure} $\ast$structure, \hyperlink{class_corpus_datastore}{Corpus\+Datastore} $\ast$datastore)
+\item 
+\mbox{\Hypertarget{class_s_q_l_serialiser_metadata_ad305511975f3962022a40a3ff97071b4}\label{class_s_q_l_serialiser_metadata_ad305511975f3962022a40a3ff97071b4}} 
+static bool {\bfseries save\+Corpus} (\hyperlink{class_corpus}{Corpus} $\ast$corpus, Q\+Sql\+Database \&db, \hyperlink{class_metadata_structure}{Metadata\+Structure} $\ast$structure, \hyperlink{class_corpus_datastore}{Corpus\+Datastore} $\ast$datastore)
+\item 
+\mbox{\Hypertarget{class_s_q_l_serialiser_metadata_a0f91835aadcca527554d2ec655d4e9b4}\label{class_s_q_l_serialiser_metadata_a0f91835aadcca527554d2ec655d4e9b4}} 
+static bool {\bfseries save\+Communication} (\hyperlink{class_corpus_communication}{Corpus\+Communication} $\ast$communication, Q\+Sql\+Database \&db, \hyperlink{class_metadata_structure}{Metadata\+Structure} $\ast$structure, \hyperlink{class_corpus_datastore}{Corpus\+Datastore} $\ast$datastore)
+\item 
+\mbox{\Hypertarget{class_s_q_l_serialiser_metadata_a9b73dd06279fe543c001e4ebfd453800}\label{class_s_q_l_serialiser_metadata_a9b73dd06279fe543c001e4ebfd453800}} 
+static bool {\bfseries save\+Speaker} (\hyperlink{class_corpus_speaker}{Corpus\+Speaker} $\ast$speaker, Q\+Sql\+Database \&db, \hyperlink{class_metadata_structure}{Metadata\+Structure} $\ast$structure, \hyperlink{class_corpus_datastore}{Corpus\+Datastore} $\ast$datastore)
+\item 
+\mbox{\Hypertarget{class_s_q_l_serialiser_metadata_aedb35a0a6600ea4dde5383f754fc0a43}\label{class_s_q_l_serialiser_metadata_aedb35a0a6600ea4dde5383f754fc0a43}} 
+static bool {\bfseries save\+Recording} (\hyperlink{class_corpus_recording}{Corpus\+Recording} $\ast$recording, Q\+Sql\+Database \&db, \hyperlink{class_metadata_structure}{Metadata\+Structure} $\ast$structure, \hyperlink{class_corpus_datastore}{Corpus\+Datastore} $\ast$datastore)
+\item 
+\mbox{\Hypertarget{class_s_q_l_serialiser_metadata_a28d62999ba67544d84558ed022046e8d}\label{class_s_q_l_serialiser_metadata_a28d62999ba67544d84558ed022046e8d}} 
+static bool {\bfseries save\+Annotation} (\hyperlink{class_corpus_annotation}{Corpus\+Annotation} $\ast$annotation, Q\+Sql\+Database \&db, \hyperlink{class_metadata_structure}{Metadata\+Structure} $\ast$structure, \hyperlink{class_corpus_datastore}{Corpus\+Datastore} $\ast$datastore)
+\item 
+\mbox{\Hypertarget{class_s_q_l_serialiser_metadata_aeae5c09e017c488e6c4f54b176ccde22}\label{class_s_q_l_serialiser_metadata_aeae5c09e017c488e6c4f54b176ccde22}} 
+static bool {\bfseries save\+Participation} (\hyperlink{class_corpus_participation}{Corpus\+Participation} $\ast$participation, Q\+Sql\+Database \&db, \hyperlink{class_metadata_structure}{Metadata\+Structure} $\ast$structure, \hyperlink{class_corpus_datastore}{Corpus\+Datastore} $\ast$datastore)
+\item 
+\mbox{\Hypertarget{class_s_q_l_serialiser_metadata_a19540391a708e492a41d623749f4c628}\label{class_s_q_l_serialiser_metadata_a19540391a708e492a41d623749f4c628}} 
+static bool {\bfseries delete\+Corpus} (const Q\+String \&corpus\+ID, Q\+Sql\+Database \&db, \hyperlink{class_metadata_structure}{Metadata\+Structure} $\ast$structure, \hyperlink{class_corpus_datastore}{Corpus\+Datastore} $\ast$datastore)
+\item 
+\mbox{\Hypertarget{class_s_q_l_serialiser_metadata_aa5b0dff4d0a695565405a96d8f7cd0cb}\label{class_s_q_l_serialiser_metadata_aa5b0dff4d0a695565405a96d8f7cd0cb}} 
+static bool {\bfseries delete\+Communication} (const Q\+String \&communication\+ID, Q\+Sql\+Database \&db, \hyperlink{class_metadata_structure}{Metadata\+Structure} $\ast$structure, \hyperlink{class_corpus_datastore}{Corpus\+Datastore} $\ast$datastore)
+\item 
+\mbox{\Hypertarget{class_s_q_l_serialiser_metadata_a53d6dada48d7def980ed3905ba392967}\label{class_s_q_l_serialiser_metadata_a53d6dada48d7def980ed3905ba392967}} 
+static bool {\bfseries delete\+Speaker} (const Q\+String \&speaker\+ID, Q\+Sql\+Database \&db, \hyperlink{class_metadata_structure}{Metadata\+Structure} $\ast$structure, \hyperlink{class_corpus_datastore}{Corpus\+Datastore} $\ast$datastore)
+\item 
+\mbox{\Hypertarget{class_s_q_l_serialiser_metadata_acaabf1b81c23009d0821d01b222a014f}\label{class_s_q_l_serialiser_metadata_acaabf1b81c23009d0821d01b222a014f}} 
+static bool {\bfseries delete\+Recording} (const Q\+String \&recording\+ID, Q\+Sql\+Database \&db, \hyperlink{class_metadata_structure}{Metadata\+Structure} $\ast$structure, \hyperlink{class_corpus_datastore}{Corpus\+Datastore} $\ast$datastore)
+\item 
+\mbox{\Hypertarget{class_s_q_l_serialiser_metadata_a0c82f04a58aba205b2fd687b267711a4}\label{class_s_q_l_serialiser_metadata_a0c82f04a58aba205b2fd687b267711a4}} 
+static bool {\bfseries delete\+Annotation} (const Q\+String \&annotation\+ID, Q\+Sql\+Database \&db, \hyperlink{class_metadata_structure}{Metadata\+Structure} $\ast$structure, \hyperlink{class_corpus_datastore}{Corpus\+Datastore} $\ast$datastore)
+\item 
+\mbox{\Hypertarget{class_s_q_l_serialiser_metadata_a3ba470a537680373b8330e6262492d92}\label{class_s_q_l_serialiser_metadata_a3ba470a537680373b8330e6262492d92}} 
+static bool {\bfseries delete\+Participation} (const Q\+String \&communication\+ID, const Q\+String \&speaker\+ID, Q\+Sql\+Database \&db, \hyperlink{class_metadata_structure}{Metadata\+Structure} $\ast$structure, \hyperlink{class_corpus_datastore}{Corpus\+Datastore} $\ast$datastore)
+\item 
+\mbox{\Hypertarget{class_s_q_l_serialiser_metadata_a80ca02357239be6f8ee21f0f9ca86861}\label{class_s_q_l_serialiser_metadata_a80ca02357239be6f8ee21f0f9ca86861}} 
+static Q\+List$<$ Q\+Pair$<$ Q\+List$<$ Q\+Variant $>$, long $>$ $>$ {\bfseries get\+Distinct\+Values} (Corpus\+Object\+::\+Type type, const Q\+String\+List \&attribute\+I\+Ds, Q\+Sql\+Database \&db, \hyperlink{class_metadata_structure}{Metadata\+Structure} $\ast$structure)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/serialisers/sql/S\+Q\+L\+Serialiser\+Metadata.\+h\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/serialisers/sql/S\+Q\+L\+Serialiser\+Metadata.\+cpp\end{DoxyCompactItemize}

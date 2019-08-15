@@ -1,0 +1,102 @@
+\hypertarget{class_relation_tier}{}\section{Relation\+Tier Class Reference}
+\label{class_relation_tier}\index{Relation\+Tier@{Relation\+Tier}}
+Inheritance diagram for Relation\+Tier\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_relation_tier}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_relation_tier_a48952d4b70da53ae0c18483bc39e98a9}\label{class_relation_tier_a48952d4b70da53ae0c18483bc39e98a9}} 
+{\bfseries Relation\+Tier} (const Q\+String \&name=Q\+String(), \hyperlink{class_annotation_tier}{Annotation\+Tier} $\ast$base\+Tier=nullptr, Q\+Object $\ast$parent=nullptr)
+\item 
+\mbox{\Hypertarget{class_relation_tier_a07101451d03ec098f8d222f8e9542555}\label{class_relation_tier_a07101451d03ec098f8d222f8e9542555}} 
+{\bfseries Relation\+Tier} (const Q\+String \&name, const Q\+List$<$ \hyperlink{class_relation}{Relation} $\ast$$>$ \&relations, \hyperlink{class_annotation_tier}{Annotation\+Tier} $\ast$base\+Tier=nullptr, Q\+Object $\ast$parent=nullptr)
+\item 
+\mbox{\Hypertarget{class_relation_tier_ac3d960aeab0859bd95d92feb34978ad4}\label{class_relation_tier_ac3d960aeab0859bd95d92feb34978ad4}} 
+Annotation\+Tier\+::\+Tier\+Type {\bfseries tier\+Type} () const override
+\item 
+\mbox{\Hypertarget{class_relation_tier_a2dff1610758628ca20e7e60242532e8c}\label{class_relation_tier_a2dff1610758628ca20e7e60242532e8c}} 
+int {\bfseries count} () const override
+\item 
+\mbox{\Hypertarget{class_relation_tier_a41c493332699f630909fe97a0863fd9b}\label{class_relation_tier_a41c493332699f630909fe97a0863fd9b}} 
+\hyperlink{struct_real_time}{Real\+Time} {\bfseries t\+Min} () const override
+\item 
+\mbox{\Hypertarget{class_relation_tier_a98cc66e9b521e5c29786c54c4bbd758f}\label{class_relation_tier_a98cc66e9b521e5c29786c54c4bbd758f}} 
+\hyperlink{struct_real_time}{Real\+Time} {\bfseries t\+Max} () const override
+\item 
+\mbox{\Hypertarget{class_relation_tier_a7de8fefbbf496d6c17211c594be6c790}\label{class_relation_tier_a7de8fefbbf496d6c17211c594be6c790}} 
+bool {\bfseries is\+Empty} () const override
+\item 
+\mbox{\Hypertarget{class_relation_tier_a40f3f48e1939af0ff9343ead3128756e}\label{class_relation_tier_a40f3f48e1939af0ff9343ead3128756e}} 
+void {\bfseries clear} () override
+\item 
+\mbox{\Hypertarget{class_relation_tier_ad0a3d689c1e77a9f115bb142e95274c4}\label{class_relation_tier_ad0a3d689c1e77a9f115bb142e95274c4}} 
+\hyperlink{class_relation}{Relation} $\ast$ {\bfseries at} (int index) const override
+\item 
+\mbox{\Hypertarget{class_relation_tier_a6c4c893ce95a018c3915df08db4c0dd5}\label{class_relation_tier_a6c4c893ce95a018c3915df08db4c0dd5}} 
+\hyperlink{class_relation}{Relation} $\ast$ {\bfseries first} () const override
+\item 
+\mbox{\Hypertarget{class_relation_tier_a454111c92e16b5f27a27280c7257dc92}\label{class_relation_tier_a454111c92e16b5f27a27280c7257dc92}} 
+\hyperlink{class_relation}{Relation} $\ast$ {\bfseries last} () const override
+\item 
+\mbox{\Hypertarget{class_relation_tier_acc9d67bc4da298488d84542c677f8ce1}\label{class_relation_tier_acc9d67bc4da298488d84542c677f8ce1}} 
+Q\+String\+List {\bfseries get\+Distinct\+Labels} () const override
+\item 
+\mbox{\Hypertarget{class_relation_tier_a0801017c7f64f878c788bf14bb795f2f}\label{class_relation_tier_a0801017c7f64f878c788bf14bb795f2f}} 
+Q\+List$<$ Q\+Variant $>$ {\bfseries get\+Distinct\+Values} (const Q\+String \&attribute\+ID) const override
+\item 
+\mbox{\Hypertarget{class_relation_tier_aa708f59139582080c85150b2bbd86a91}\label{class_relation_tier_aa708f59139582080c85150b2bbd86a91}} 
+void {\bfseries replace} (const Q\+String \&attribute\+ID, const Q\+String \&before, const Q\+String \&after, Qt\+::\+Case\+Sensitivity cs=Qt\+::\+Case\+Sensitive) override
+\item 
+\mbox{\Hypertarget{class_relation_tier_a60e4cacfda59a5ba51d6839b4ad3c7a2}\label{class_relation_tier_a60e4cacfda59a5ba51d6839b4ad3c7a2}} 
+void {\bfseries fill\+Empty\+With} (const Q\+String \&attribute\+ID, const Q\+String \&filler) override
+\item 
+\mbox{\Hypertarget{class_relation_tier_a0244f8064b55f8c9cd94083c76c8aab1}\label{class_relation_tier_a0244f8064b55f8c9cd94083c76c8aab1}} 
+\hyperlink{class_annotation_tier}{Annotation\+Tier} $\ast$ {\bfseries base\+Tier} () const
+\item 
+\mbox{\Hypertarget{class_relation_tier_a288e9ae22d55a5591b48026f3029aec2}\label{class_relation_tier_a288e9ae22d55a5591b48026f3029aec2}} 
+void {\bfseries set\+Base\+Tier} (\hyperlink{class_annotation_tier}{Annotation\+Tier} $\ast$tier)
+\item 
+\mbox{\Hypertarget{class_relation_tier_a7c7c3c0dbae8c631aa2d8e8fef008bfc}\label{class_relation_tier_a7c7c3c0dbae8c631aa2d8e8fef008bfc}} 
+\hyperlink{class_relation}{Relation} $\ast$ {\bfseries relation} (int index) const
+\item 
+\mbox{\Hypertarget{class_relation_tier_ab68dfe6008c50390b8a09661ecf1aae1}\label{class_relation_tier_ab68dfe6008c50390b8a09661ecf1aae1}} 
+Q\+List$<$ \hyperlink{class_relation}{Relation} $\ast$ $>$ {\bfseries relations} () const
+\item 
+\mbox{\Hypertarget{class_relation_tier_a9ae11323c892d9981fb4353b9cbb02b2}\label{class_relation_tier_a9ae11323c892d9981fb4353b9cbb02b2}} 
+void {\bfseries add\+Relation} (\hyperlink{class_relation}{Relation} $\ast$relation)
+\item 
+\mbox{\Hypertarget{class_relation_tier_ac85e40deed993277c3be2060db325114}\label{class_relation_tier_ac85e40deed993277c3be2060db325114}} 
+void {\bfseries add\+Relations} (Q\+List$<$ \hyperlink{class_relation}{Relation} $\ast$$>$ relations)
+\item 
+\mbox{\Hypertarget{class_relation_tier_aa1c84949ba3d795761662294d2f81617}\label{class_relation_tier_aa1c84949ba3d795761662294d2f81617}} 
+void {\bfseries remove\+Relation\+At} (int i)
+\item 
+\mbox{\Hypertarget{class_relation_tier_a5468d9504a9912fb070fb1b6afc27f67}\label{class_relation_tier_a5468d9504a9912fb070fb1b6afc27f67}} 
+Q\+Pair$<$ \hyperlink{class_annotation_element}{Annotation\+Element} $\ast$, \hyperlink{class_annotation_element}{Annotation\+Element} $\ast$ $>$ {\bfseries relation\+Elements} (int relation\+Index) const
+\item 
+\mbox{\Hypertarget{class_relation_tier_a2b69fff899eb5af293b9d4d49246c4e6}\label{class_relation_tier_a2b69fff899eb5af293b9d4d49246c4e6}} 
+\hyperlink{class_relation_tier}{Relation\+Tier} $\ast$ {\bfseries clone} (const Q\+String \&name=Q\+String(), Q\+Object $\ast$parent=nullptr) const
+\item 
+\mbox{\Hypertarget{class_relation_tier_a3bb057ff181fd139d9ec57310fc1fde6}\label{class_relation_tier_a3bb057ff181fd139d9ec57310fc1fde6}} 
+\hyperlink{class_relation_tier}{Relation\+Tier} $\ast$ {\bfseries clone\+Without\+Attributes} (const Q\+String \&name=Q\+String(), Q\+Object $\ast$parent=nullptr) const
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_relation_tier_abfc5ffe04a2069c8495bcc7831fc1ac8}\label{class_relation_tier_abfc5ffe04a2069c8495bcc7831fc1ac8}} 
+\hyperlink{class_annotation_tier}{Annotation\+Tier} $\ast$ {\bfseries m\+\_\+base\+Tier}
+\item 
+\mbox{\Hypertarget{class_relation_tier_acbf3d4013f6da663d35b1680c9096954}\label{class_relation_tier_acbf3d4013f6da663d35b1680c9096954}} 
+Q\+List$<$ \hyperlink{class_relation}{Relation} $\ast$ $>$ {\bfseries m\+\_\+relations}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/annotation/Relation\+Tier.\+h\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/annotation/Relation\+Tier.\+cpp\end{DoxyCompactItemize}

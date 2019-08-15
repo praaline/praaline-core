@@ -1,0 +1,150 @@
+\hypertarget{class_x_m_l_annotation_datastore}{}\section{X\+M\+L\+Annotation\+Datastore Class Reference}
+\label{class_x_m_l_annotation_datastore}\index{X\+M\+L\+Annotation\+Datastore@{X\+M\+L\+Annotation\+Datastore}}
+Inheritance diagram for X\+M\+L\+Annotation\+Datastore\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_x_m_l_annotation_datastore}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_x_m_l_annotation_datastore_ad1d87eb00fb79e010a09c6c9ff3eb937}\label{class_x_m_l_annotation_datastore_ad1d87eb00fb79e010a09c6c9ff3eb937}} 
+{\bfseries X\+M\+L\+Annotation\+Datastore} (\hyperlink{class_annotation_structure}{Annotation\+Structure} $\ast$structure, \hyperlink{class_corpus_repository}{Corpus\+Repository} $\ast$repository, Q\+Object $\ast$parent=nullptr)
+\item 
+\mbox{\Hypertarget{class_x_m_l_annotation_datastore_ac6c7fcd97426e1d8672ff3dcda40111b}\label{class_x_m_l_annotation_datastore_ac6c7fcd97426e1d8672ff3dcda40111b}} 
+bool {\bfseries create\+Datastore} (const \hyperlink{class_datastore_info}{Datastore\+Info} \&info) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_annotation_datastore_acd45f19e95c9734edf4959cb63b75e19}\label{class_x_m_l_annotation_datastore_acd45f19e95c9734edf4959cb63b75e19}} 
+bool {\bfseries open\+Datastore} (const \hyperlink{class_datastore_info}{Datastore\+Info} \&info) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_annotation_datastore_a4ebdff9ce09ca8324c034c68d0cb7cf3}\label{class_x_m_l_annotation_datastore_a4ebdff9ce09ca8324c034c68d0cb7cf3}} 
+bool {\bfseries close\+Datastore} () override
+\item 
+\mbox{\Hypertarget{class_x_m_l_annotation_datastore_af74b6aef2d7beab046b84b2a75d82d63}\label{class_x_m_l_annotation_datastore_af74b6aef2d7beab046b84b2a75d82d63}} 
+bool {\bfseries load\+Annotation\+Structure} () override
+\item 
+\mbox{\Hypertarget{class_x_m_l_annotation_datastore_a77b46341e21abdae4d0498ce8b3cc3d8}\label{class_x_m_l_annotation_datastore_a77b46341e21abdae4d0498ce8b3cc3d8}} 
+bool {\bfseries save\+Annotation\+Structure} () override
+\item 
+\mbox{\Hypertarget{class_x_m_l_annotation_datastore_a5d376909b32f1101a51579b3ca9ecc27}\label{class_x_m_l_annotation_datastore_a5d376909b32f1101a51579b3ca9ecc27}} 
+bool {\bfseries create\+Annotation\+Level} (\hyperlink{class_annotation_structure_level}{Annotation\+Structure\+Level} $\ast$new\+Level) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_annotation_datastore_ab28ae984da7be6743274baae24ff00da}\label{class_x_m_l_annotation_datastore_ab28ae984da7be6743274baae24ff00da}} 
+bool {\bfseries rename\+Annotation\+Level} (const Q\+String \&level\+ID, const Q\+String \&new\+Level\+ID) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_annotation_datastore_a60355c10568bedd1e5e4bf84bb261b17}\label{class_x_m_l_annotation_datastore_a60355c10568bedd1e5e4bf84bb261b17}} 
+bool {\bfseries delete\+Annotation\+Level} (const Q\+String \&level\+ID) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_annotation_datastore_af5071be39e7843e792120bc35dc382de}\label{class_x_m_l_annotation_datastore_af5071be39e7843e792120bc35dc382de}} 
+bool {\bfseries create\+Annotation\+Attribute} (const Q\+String \&level\+ID, \hyperlink{class_annotation_structure_attribute}{Annotation\+Structure\+Attribute} $\ast$new\+Attribute) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_annotation_datastore_a3def381ab4aeabaab20b3d5f2d1bef49}\label{class_x_m_l_annotation_datastore_a3def381ab4aeabaab20b3d5f2d1bef49}} 
+bool {\bfseries rename\+Annotation\+Attribute} (const Q\+String \&level\+ID, const Q\+String \&attribute\+ID, const Q\+String \&new\+Attribute\+ID) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_annotation_datastore_accb40cff86565935d79f78ca3796fb3d}\label{class_x_m_l_annotation_datastore_accb40cff86565935d79f78ca3796fb3d}} 
+bool {\bfseries delete\+Annotation\+Attribute} (const Q\+String \&level\+ID, const Q\+String \&attribute\+ID) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_annotation_datastore_aaabfb69a5dcfe9c8908505b7c1107622}\label{class_x_m_l_annotation_datastore_aaabfb69a5dcfe9c8908505b7c1107622}} 
+bool {\bfseries retype\+Annotation\+Attribute} (const Q\+String \&level\+ID, const Q\+String \&attribute\+ID, const \hyperlink{class_data_type}{Data\+Type} \&new\+Datatype) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_annotation_datastore_a02fb5e5faceb95f36af8c7868cb58692}\label{class_x_m_l_annotation_datastore_a02fb5e5faceb95f36af8c7868cb58692}} 
+\hyperlink{class_name_value_list}{Name\+Value\+List} $\ast$ {\bfseries get\+Name\+Value\+List} (const Q\+String \&list\+ID) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_annotation_datastore_a41a82e92412edf6b9d3cb827e6ce430c}\label{class_x_m_l_annotation_datastore_a41a82e92412edf6b9d3cb827e6ce430c}} 
+Q\+String\+List {\bfseries get\+All\+Name\+Value\+List\+I\+Ds} () override
+\item 
+\mbox{\Hypertarget{class_x_m_l_annotation_datastore_ab7b2331626ac68b10af99d244bb5aa7f}\label{class_x_m_l_annotation_datastore_ab7b2331626ac68b10af99d244bb5aa7f}} 
+Q\+Map$<$ Q\+String, Q\+Pointer$<$ \hyperlink{class_name_value_list}{Name\+Value\+List} $>$ $>$ {\bfseries get\+All\+Name\+Value\+Lists} () override
+\item 
+\mbox{\Hypertarget{class_x_m_l_annotation_datastore_a6ca59ff632a19d51a5cc500aa7e7d5eb}\label{class_x_m_l_annotation_datastore_a6ca59ff632a19d51a5cc500aa7e7d5eb}} 
+bool {\bfseries create\+Name\+Value\+List} (\hyperlink{class_name_value_list}{Name\+Value\+List} $\ast$list) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_annotation_datastore_a58a58bf3aab906bbe3545a58e3f535cd}\label{class_x_m_l_annotation_datastore_a58a58bf3aab906bbe3545a58e3f535cd}} 
+bool {\bfseries update\+Name\+Value\+List} (\hyperlink{class_name_value_list}{Name\+Value\+List} $\ast$list) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_annotation_datastore_a88f52c2742b7c3a9c0fdb0196b367371}\label{class_x_m_l_annotation_datastore_a88f52c2742b7c3a9c0fdb0196b367371}} 
+bool {\bfseries delete\+Name\+Value\+List} (const Q\+String \&list\+ID) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_annotation_datastore_aa8aa4d73a7051d5540211500db6ec5ff}\label{class_x_m_l_annotation_datastore_aa8aa4d73a7051d5540211500db6ec5ff}} 
+\hyperlink{class_annotation_tier}{Annotation\+Tier} $\ast$ {\bfseries get\+Tier} (const Q\+String \&annotation\+ID, const Q\+String \&speaker\+ID, const Q\+String \&level\+ID, const Q\+String\+List \&attribute\+I\+Ds=Q\+String\+List()) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_annotation_datastore_a8b7c1b9afeffa7362bc4e866f9573cea}\label{class_x_m_l_annotation_datastore_a8b7c1b9afeffa7362bc4e866f9573cea}} 
+\hyperlink{class_annotation_tier_group}{Annotation\+Tier\+Group} $\ast$ {\bfseries get\+Tiers} (const Q\+String \&annotation\+ID, const Q\+String \&speaker\+ID, const Q\+String\+List \&level\+I\+Ds=Q\+String\+List()) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_annotation_datastore_a3231129778892d3cdf1a258e3bfc8aa9}\label{class_x_m_l_annotation_datastore_a3231129778892d3cdf1a258e3bfc8aa9}} 
+Q\+Map$<$ Q\+String, Q\+Pointer$<$ \hyperlink{class_annotation_tier_group}{Annotation\+Tier\+Group} $>$ $>$ {\bfseries get\+Tiers\+All\+Speakers} (const Q\+String \&annotation\+ID, const Q\+String\+List \&level\+I\+Ds=Q\+String\+List()) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_annotation_datastore_a96f6c3b21a3f5e3508273217e20660c2}\label{class_x_m_l_annotation_datastore_a96f6c3b21a3f5e3508273217e20660c2}} 
+bool {\bfseries save\+Tier} (const Q\+String \&annotation\+ID, const Q\+String \&speaker\+ID, \hyperlink{class_annotation_tier}{Annotation\+Tier} $\ast$tier) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_annotation_datastore_a08ae8140907028db310bfcb181822b78}\label{class_x_m_l_annotation_datastore_a08ae8140907028db310bfcb181822b78}} 
+bool {\bfseries save\+Tiers} (const Q\+String \&annotation\+ID, const Q\+String \&speaker\+ID, \hyperlink{class_annotation_tier_group}{Annotation\+Tier\+Group} $\ast$tiers) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_annotation_datastore_ac6c686bd194c6ade6d15293d61046325}\label{class_x_m_l_annotation_datastore_ac6c686bd194c6ade6d15293d61046325}} 
+bool {\bfseries save\+Tiers\+All\+Speakers} (const Q\+String \&annotation\+ID, Q\+Map$<$ Q\+String, Q\+Pointer$<$ \hyperlink{class_annotation_tier_group}{Annotation\+Tier\+Group} $>$ $>$ \&tiers\+All\+Speakers) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_annotation_datastore_acfecfd5881f2253669d1b0ebe55268c2}\label{class_x_m_l_annotation_datastore_acfecfd5881f2253669d1b0ebe55268c2}} 
+bool {\bfseries delete\+Tier} (const Q\+String \&annotation\+ID, const Q\+String \&speaker\+ID, const Q\+String \&level\+ID) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_annotation_datastore_a1fdbfe756107e2c2167e5a5a5389f45b}\label{class_x_m_l_annotation_datastore_a1fdbfe756107e2c2167e5a5a5389f45b}} 
+bool {\bfseries delete\+Tiers} (const Q\+String \&annotation\+ID, const Q\+String \&speaker\+ID, const Q\+String\+List \&level\+I\+Ds=Q\+String\+List()) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_annotation_datastore_a4ed247001864f9f0b8cb74ca236e0123}\label{class_x_m_l_annotation_datastore_a4ed247001864f9f0b8cb74ca236e0123}} 
+bool {\bfseries delete\+All\+Tiers\+All\+Speakers} (const Q\+String \&annotation\+ID) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_annotation_datastore_aa9d913427340f0f1c658a79668d754a5}\label{class_x_m_l_annotation_datastore_aa9d913427340f0f1c658a79668d754a5}} 
+Q\+List$<$ \hyperlink{class_annotation_element}{Annotation\+Element} $\ast$ $>$ {\bfseries get\+Annotation\+Elements} (const \hyperlink{class_annotation_datastore_1_1_selection}{Selection} \&selection) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_annotation_datastore_ac1523131e510ea156be93be626a5defb}\label{class_x_m_l_annotation_datastore_ac1523131e510ea156be93be626a5defb}} 
+Q\+List$<$ \hyperlink{class_point}{Point} $\ast$ $>$ {\bfseries get\+Points} (const \hyperlink{class_annotation_datastore_1_1_selection}{Selection} \&selection) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_annotation_datastore_a051863d3bc30a1103bbedd185e42a977}\label{class_x_m_l_annotation_datastore_a051863d3bc30a1103bbedd185e42a977}} 
+Q\+List$<$ \hyperlink{class_interval}{Interval} $\ast$ $>$ {\bfseries get\+Intervals} (const \hyperlink{class_annotation_datastore_1_1_selection}{Selection} \&selection) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_annotation_datastore_a0d69736278a890a5372021c91b4dfd60}\label{class_x_m_l_annotation_datastore_a0d69736278a890a5372021c91b4dfd60}} 
+Q\+List$<$ \hyperlink{class_sequence}{Sequence} $\ast$ $>$ {\bfseries get\+Sequences} (const \hyperlink{class_annotation_datastore_1_1_selection}{Selection} \&selection) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_annotation_datastore_ae5c6f6ba83411754b0264dbb9d775b5d}\label{class_x_m_l_annotation_datastore_ae5c6f6ba83411754b0264dbb9d775b5d}} 
+bool {\bfseries save\+Annotation\+Elements} (const Q\+List$<$ \hyperlink{class_annotation_element}{Annotation\+Element} $\ast$$>$ \&elements, const Q\+String \&level\+ID, const Q\+String\+List \&attribute\+I\+Ds) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_annotation_datastore_a224c092563c68225d0734f3b43e82a96}\label{class_x_m_l_annotation_datastore_a224c092563c68225d0734f3b43e82a96}} 
+Q\+String\+List {\bfseries get\+Speakers\+In\+Level} (const Q\+String \&annotation\+ID, const Q\+String \&level\+ID) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_annotation_datastore_a8cde286c187e6c84434e727ffd6b413f}\label{class_x_m_l_annotation_datastore_a8cde286c187e6c84434e727ffd6b413f}} 
+Q\+String\+List {\bfseries get\+Speakers\+Active\+In\+Level} (const Q\+String \&annotation\+ID, const Q\+String \&level\+ID) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_annotation_datastore_a673882db6895f878fc08346fa4aa2146}\label{class_x_m_l_annotation_datastore_a673882db6895f878fc08346fa4aa2146}} 
+Q\+String\+List {\bfseries get\+Speakers\+In\+Annotation} (const Q\+String \&annotation\+ID) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_annotation_datastore_a9ac590569317317a705dbc1448504d27}\label{class_x_m_l_annotation_datastore_a9ac590569317317a705dbc1448504d27}} 
+Q\+String\+List {\bfseries get\+Speakers\+Active\+In\+Annotation} (const Q\+String \&annotation\+ID) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_annotation_datastore_a978ad1dd7ee7addfe9cc5c3b281459e7}\label{class_x_m_l_annotation_datastore_a978ad1dd7ee7addfe9cc5c3b281459e7}} 
+\hyperlink{class_interval_tier}{Interval\+Tier} $\ast$ {\bfseries get\+Speaker\+Timeline} (const Q\+String \&communication\+ID, const Q\+String \&annotation\+ID, const Q\+String \&level\+ID, bool detailed=false) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_annotation_datastore_ac2654eb9d128810e08677c92848759ca}\label{class_x_m_l_annotation_datastore_ac2654eb9d128810e08677c92848759ca}} 
+Q\+List$<$ \hyperlink{struct_query_occurrence_pointer}{Query\+Occurrence\+Pointer} $\ast$ $>$ {\bfseries run\+Query} (\hyperlink{class_query_definition}{Query\+Definition} $\ast$qdef) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_annotation_datastore_aa39e33b57bd6cf424869f10c37634163}\label{class_x_m_l_annotation_datastore_aa39e33b57bd6cf424869f10c37634163}} 
+\hyperlink{class_query_occurrence}{Query\+Occurrence} $\ast$ {\bfseries get\+Occurrence} (\hyperlink{struct_query_occurrence_pointer}{Query\+Occurrence\+Pointer} $\ast$pointer, \hyperlink{class_query_definition}{Query\+Definition} $\ast$qdef, int length\+Context\+Left=10, int length\+Context\+Right=10) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_annotation_datastore_a973d600411e80c2bdcf69f01c08beb6d}\label{class_x_m_l_annotation_datastore_a973d600411e80c2bdcf69f01c08beb6d}} 
+bool {\bfseries update\+Annotations\+From\+Query\+Occurrences} (const Q\+List$<$ \hyperlink{class_query_occurrence}{Query\+Occurrence} $\ast$$>$ \&occurrences) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_annotation_datastore_ac1238120be071c11d170483334885021}\label{class_x_m_l_annotation_datastore_ac1238120be071c11d170483334885021}} 
+Q\+List$<$ Q\+Pair$<$ Q\+List$<$ Q\+Variant $>$, long $>$ $>$ {\bfseries get\+Distinct\+Labels} (const Q\+String \&level\+ID, const Q\+String\+List \&attribute\+I\+Ds) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_annotation_datastore_a843ca11955ec56621fb83899fefb2441}\label{class_x_m_l_annotation_datastore_a843ca11955ec56621fb83899fefb2441}} 
+bool {\bfseries batch\+Update} (const Q\+String \&level\+ID, const Q\+String \&attribute\+ID, const Q\+Variant \&new\+Value, const Q\+List$<$ Q\+Pair$<$ Q\+String, Q\+Variant $>$ $>$ \&criteria) override
+\item 
+\mbox{\Hypertarget{class_x_m_l_annotation_datastore_aae5fa74678e9720d7c4ad91e7d099dfd}\label{class_x_m_l_annotation_datastore_aae5fa74678e9720d7c4ad91e7d099dfd}} 
+Q\+List$<$ Q\+Pair$<$ Q\+List$<$ Q\+Variant $>$, long long $>$ $>$ {\bfseries count\+Items} (const Q\+String \&level\+ID, const Q\+String\+List \&group\+By\+Attribute\+I\+Ds, bool exclude\+N\+U\+LL, Q\+String\+List exclude\+Values) override
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/datastore/X\+M\+L\+Annotation\+Datastore.\+h\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/datastore/X\+M\+L\+Annotation\+Datastore.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,38 @@
+\hypertarget{class_praat_text_grid}{}\section{Praat\+Text\+Grid Class Reference}
+\label{class_praat_text_grid}\index{Praat\+Text\+Grid@{Praat\+Text\+Grid}}
+Inheritance diagram for Praat\+Text\+Grid\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_praat_text_grid}
+\end{center}
+\end{figure}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_praat_text_grid_a3b0776ed225ea4dd9dbf98a3361f6c7e}\label{class_praat_text_grid_a3b0776ed225ea4dd9dbf98a3361f6c7e}} 
+static bool {\bfseries load} (const Q\+String \&filename, \hyperlink{class_annotation_tier_group}{Annotation\+Tier\+Group} $\ast$data)
+\item 
+\mbox{\Hypertarget{class_praat_text_grid_ae90ba93cd1089020d2e171ac8bc0c0b6}\label{class_praat_text_grid_ae90ba93cd1089020d2e171ac8bc0c0b6}} 
+static bool {\bfseries save} (const Q\+String \&filename, \hyperlink{class_annotation_tier_group}{Annotation\+Tier\+Group} $\ast$data)
+\item 
+\mbox{\Hypertarget{class_praat_text_grid_a7df516e2b7462ad72ab5c67aa42941df}\label{class_praat_text_grid_a7df516e2b7462ad72ab5c67aa42941df}} 
+static Q\+List$<$ \hyperlink{class_praat_tier_data}{Praat\+Tier\+Data} $>$ {\bfseries get\+Tier\+Data} (const Q\+String \&filename)
+\end{DoxyCompactItemize}
+\subsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_praat_text_grid_a3b4abd1ddff03a614cb68712db5930f3}\label{class_praat_text_grid_a3b4abd1ddff03a614cb68712db5930f3}} 
+static bool {\bfseries read\+Tier\+Header} (bool is\+Short\+File, Q\+Text\+Stream \&stream, Q\+String \&line, int \&tier\+Type, int \&tier\+Size, Q\+String \&name, double \&x\+Min, double \&x\+Max)
+\item 
+\mbox{\Hypertarget{class_praat_text_grid_a620e2d9fba158f0efa4278224fa7b475}\label{class_praat_text_grid_a620e2d9fba158f0efa4278224fa7b475}} 
+static bool {\bfseries read\+Interval} (bool is\+Short\+File, Q\+Text\+Stream \&stream, Q\+String \&line, double \&x\+Min, double \&x\+Max, Q\+String \&text)
+\item 
+\mbox{\Hypertarget{class_praat_text_grid_afc99f8526fd70cee2e4c15f899d3e68c}\label{class_praat_text_grid_afc99f8526fd70cee2e4c15f899d3e68c}} 
+static bool {\bfseries read\+Point} (bool is\+Short\+File, Q\+Text\+Stream \&stream, Q\+String \&line, double \&time\+Point, Q\+String \&text)
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/interfaces/praat/Praat\+Text\+Grid.\+h\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/interfaces/praat/Praat\+Text\+Grid.\+cpp\end{DoxyCompactItemize}

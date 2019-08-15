@@ -1,0 +1,66 @@
+\hypertarget{class_q_sql_migrator_1_1_structure_1_1_index}{}\section{Q\+Sql\+Migrator\+:\+:Structure\+:\+:Index Class Reference}
+\label{class_q_sql_migrator_1_1_structure_1_1_index}\index{Q\+Sql\+Migrator\+::\+Structure\+::\+Index@{Q\+Sql\+Migrator\+::\+Structure\+::\+Index}}
+
+
+value object representing the structure of an sql index.  
+
+
+
+
+{\ttfamily \#include $<$Index.\+h$>$}
+
+Inheritance diagram for Q\+Sql\+Migrator\+:\+:Structure\+:\+:Index\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_q_sql_migrator_1_1_structure_1_1_index}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_q_sql_migrator_1_1_structure_1_1_index_1_1_builder}{Builder}
+\begin{DoxyCompactList}\small\item\em helper to build \hyperlink{class_q_sql_migrator_1_1_structure_1_1_index}{Index} classes \end{DoxyCompactList}\item 
+class \hyperlink{class_q_sql_migrator_1_1_structure_1_1_index_1_1_column}{Column}
+\begin{DoxyCompactList}\small\item\em index column reference \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_structure_1_1_index_a237ef125893ca00672374a7fb3cff687}\label{class_q_sql_migrator_1_1_structure_1_1_index_a237ef125893ca00672374a7fb3cff687}} 
+enum \hyperlink{class_q_sql_migrator_1_1_structure_1_1_index_a237ef125893ca00672374a7fb3cff687}{Sort\+Order} \{ {\bfseries Default} = 0, 
+{\bfseries Ascending} = 0, 
+{\bfseries Descending} = 1
+ \}\begin{DoxyCompactList}\small\item\em index sorting order \end{DoxyCompactList}
+\item 
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_structure_1_1_index_ac59382bc63333d2b40bfeb2bb072478b}\label{class_q_sql_migrator_1_1_structure_1_1_index_ac59382bc63333d2b40bfeb2bb072478b}} 
+typedef Q\+List$<$ \hyperlink{class_q_sql_migrator_1_1_structure_1_1_index_1_1_column}{Column} $>$ {\bfseries Column\+List}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_structure_1_1_index_a2d1e61abc66626d3a400a927b1cfa8c8}\label{class_q_sql_migrator_1_1_structure_1_1_index_a2d1e61abc66626d3a400a927b1cfa8c8}} 
+{\bfseries Index} (const Q\+String \&name, const Q\+String \&table\+Name, const Column\+List \&columns)
+\item 
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_structure_1_1_index_a5af05609bc675d9a505605b4f087d59b}\label{class_q_sql_migrator_1_1_structure_1_1_index_a5af05609bc675d9a505605b4f087d59b}} 
+{\bfseries Index} (const Q\+String \&name, const Column\+List \&columns)
+\item 
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_structure_1_1_index_a8ca6ee617199a08408036a146231e01b}\label{class_q_sql_migrator_1_1_structure_1_1_index_a8ca6ee617199a08408036a146231e01b}} 
+const Q\+String \& {\bfseries name} () const
+\item 
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_structure_1_1_index_a6bb6792e5cdb715f2dfd5280868d8544}\label{class_q_sql_migrator_1_1_structure_1_1_index_a6bb6792e5cdb715f2dfd5280868d8544}} 
+const Q\+String \& {\bfseries table\+Name} () const
+\item 
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_structure_1_1_index_aaf0d3dd89cfd92d87970b80611c16797}\label{class_q_sql_migrator_1_1_structure_1_1_index_aaf0d3dd89cfd92d87970b80611c16797}} 
+const Column\+List \& {\bfseries columns} () const
+\item 
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_structure_1_1_index_af8faac85c9b7b1838da51c2585726ff2}\label{class_q_sql_migrator_1_1_structure_1_1_index_af8faac85c9b7b1838da51c2585726ff2}} 
+bool {\bfseries is\+Valid} () const
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+value object representing the structure of an sql index. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/\+Q\+Sql\+Migrator/\+Structure/Index.\+h\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/\+Q\+Sql\+Migrator/\+Structure/Index.\+cpp\end{DoxyCompactItemize}

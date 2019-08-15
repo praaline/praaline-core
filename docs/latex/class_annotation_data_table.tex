@@ -1,0 +1,86 @@
+\hypertarget{class_annotation_data_table}{}\section{Annotation\+Data\+Table Class Reference}
+\label{class_annotation_data_table}\index{Annotation\+Data\+Table@{Annotation\+Data\+Table}}
+Inheritance diagram for Annotation\+Data\+Table\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_annotation_data_table}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_annotation_data_table_a9cd8dbd5517223faf88738861592e1b2}\label{class_annotation_data_table_a9cd8dbd5517223faf88738861592e1b2}} 
+{\bfseries Annotation\+Data\+Table} (Q\+Object $\ast$parent=nullptr)
+\item 
+\mbox{\Hypertarget{class_annotation_data_table_a3bb5fef5eb61006cc1def988971dd1a7}\label{class_annotation_data_table_a3bb5fef5eb61006cc1def988971dd1a7}} 
+Q\+String {\bfseries ID} () const
+\item 
+\mbox{\Hypertarget{class_annotation_data_table_a0c3caeb053de8a836591e2fb1d44276e}\label{class_annotation_data_table_a0c3caeb053de8a836591e2fb1d44276e}} 
+void {\bfseries set\+ID} (const Q\+String \&ID)
+\item 
+\mbox{\Hypertarget{class_annotation_data_table_aa83585d8e9a0f46217cef54e6edf34c8}\label{class_annotation_data_table_aa83585d8e9a0f46217cef54e6edf34c8}} 
+virtual int {\bfseries get\+Row\+Count} () const
+\item 
+\mbox{\Hypertarget{class_annotation_data_table_ae615477727944e802d7c6a31a5b20fa3}\label{class_annotation_data_table_ae615477727944e802d7c6a31a5b20fa3}} 
+virtual int {\bfseries get\+Column\+Count} () const
+\item 
+\mbox{\Hypertarget{class_annotation_data_table_affff74ce59813fc25d3bacdfd7fca8a7}\label{class_annotation_data_table_affff74ce59813fc25d3bacdfd7fca8a7}} 
+virtual void {\bfseries clear} ()
+\item 
+\mbox{\Hypertarget{class_annotation_data_table_a83c2f39fe283c1a24143aa6081782c82}\label{class_annotation_data_table_a83c2f39fe283c1a24143aa6081782c82}} 
+virtual Q\+String\+List {\bfseries get\+Field\+Names} () const
+\item 
+\mbox{\Hypertarget{class_annotation_data_table_ab5034b1e2e4ac003256e16c23f3c8ef4}\label{class_annotation_data_table_ab5034b1e2e4ac003256e16c23f3c8ef4}} 
+virtual Q\+String\+List {\bfseries get\+Field\+Types} () const
+\item 
+\mbox{\Hypertarget{class_annotation_data_table_a61bfa44a0812926cfd0dfd8fcbf212aa}\label{class_annotation_data_table_a61bfa44a0812926cfd0dfd8fcbf212aa}} 
+virtual Q\+String {\bfseries get\+Field\+Type} (const Q\+String \&fieldname) const
+\item 
+\mbox{\Hypertarget{class_annotation_data_table_ad1288d2aa7fe792846ff8ad3aa82e330}\label{class_annotation_data_table_ad1288d2aa7fe792846ff8ad3aa82e330}} 
+virtual Q\+String\+List {\bfseries get\+Field\+Descriptions} () const
+\item 
+\mbox{\Hypertarget{class_annotation_data_table_a60a351378304306138282bf0abeaae49}\label{class_annotation_data_table_a60a351378304306138282bf0abeaae49}} 
+virtual Q\+String {\bfseries get\+Field\+Description} (const Q\+String \&fieldname) const
+\item 
+\mbox{\Hypertarget{class_annotation_data_table_aca3b008ac804aa4161d535f8e156666e}\label{class_annotation_data_table_aca3b008ac804aa4161d535f8e156666e}} 
+virtual Q\+Variant {\bfseries get\+Data} (int row, int column)
+\item 
+\mbox{\Hypertarget{class_annotation_data_table_a1668a4b81487d426455ae4991c98ee76}\label{class_annotation_data_table_a1668a4b81487d426455ae4991c98ee76}} 
+virtual Q\+Variant {\bfseries get\+Data} (int row, const Q\+String \&fieldname)
+\item 
+\mbox{\Hypertarget{class_annotation_data_table_a21098ca0767b4271c09067a71a7816ad}\label{class_annotation_data_table_a21098ca0767b4271c09067a71a7816ad}} 
+virtual \hyperlink{struct_real_time}{Real\+Time} {\bfseries get\+Seconds} (int row, const Q\+String \&fieldname)
+\item 
+\mbox{\Hypertarget{class_annotation_data_table_a8eabd054b682733828d77063c689c873}\label{class_annotation_data_table_a8eabd054b682733828d77063c689c873}} 
+virtual bool {\bfseries read\+From\+File} (const Q\+String \&filename)
+\item 
+\mbox{\Hypertarget{class_annotation_data_table_a406d1a6f7cebcbd390a975bf06c61636}\label{class_annotation_data_table_a406d1a6f7cebcbd390a975bf06c61636}} 
+virtual bool {\bfseries save\+To\+File} (const Q\+String \&filename)
+\item 
+\mbox{\Hypertarget{class_annotation_data_table_aa85289b28a3d6e5d9def64f899f95fc9}\label{class_annotation_data_table_aa85289b28a3d6e5d9def64f899f95fc9}} 
+virtual \hyperlink{class_real_value_list}{Real\+Value\+List} {\bfseries get\+Value\+List} (const Q\+String \&fieldname)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_annotation_data_table_a37114464f331a0b7e5b6563efd1d00d1}\label{class_annotation_data_table_a37114464f331a0b7e5b6563efd1d00d1}} 
+Q\+String {\bfseries m\+\_\+\+ID}
+\item 
+\mbox{\Hypertarget{class_annotation_data_table_acd1274d7181c721cb2fa6be4b3d479dc}\label{class_annotation_data_table_acd1274d7181c721cb2fa6be4b3d479dc}} 
+Q\+Hash$<$ Q\+String, int $>$ {\bfseries m\+\_\+field\+Names}
+\item 
+\mbox{\Hypertarget{class_annotation_data_table_a6d9245d23b68a6f3f8caa32a8d29acf3}\label{class_annotation_data_table_a6d9245d23b68a6f3f8caa32a8d29acf3}} 
+Q\+Hash$<$ Q\+String, Q\+String $>$ {\bfseries m\+\_\+field\+Types}
+\item 
+\mbox{\Hypertarget{class_annotation_data_table_a984a95fc42d98a02f272404676105b2f}\label{class_annotation_data_table_a984a95fc42d98a02f272404676105b2f}} 
+Q\+Hash$<$ Q\+String, Q\+String $>$ {\bfseries m\+\_\+field\+Descriptions}
+\item 
+\mbox{\Hypertarget{class_annotation_data_table_aa69e33213d49a794b875c56e6335e5bd}\label{class_annotation_data_table_aa69e33213d49a794b875c56e6335e5bd}} 
+Q\+List$<$ Q\+List$<$ Q\+Variant $>$ $>$ {\bfseries m\+\_\+data}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/annotation/Annotation\+Data\+Table.\+h\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/annotation/Annotation\+Data\+Table.\+cpp\end{DoxyCompactItemize}

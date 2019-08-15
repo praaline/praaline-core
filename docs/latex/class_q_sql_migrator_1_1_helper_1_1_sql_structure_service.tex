@@ -1,0 +1,61 @@
+\hypertarget{class_q_sql_migrator_1_1_helper_1_1_sql_structure_service}{}\section{Q\+Sql\+Migrator\+:\+:Helper\+:\+:Sql\+Structure\+Service Class Reference}
+\label{class_q_sql_migrator_1_1_helper_1_1_sql_structure_service}\index{Q\+Sql\+Migrator\+::\+Helper\+::\+Sql\+Structure\+Service@{Q\+Sql\+Migrator\+::\+Helper\+::\+Sql\+Structure\+Service}}
+
+
+interface for a service that extracts existing structures from a sql database  
+
+
+
+
+{\ttfamily \#include $<$Sql\+Structure\+Service.\+h$>$}
+
+Inheritance diagram for Q\+Sql\+Migrator\+:\+:Helper\+:\+:Sql\+Structure\+Service\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=0.924092cm]{class_q_sql_migrator_1_1_helper_1_1_sql_structure_service}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \hyperlink{class_q_sql_migrator_1_1_structure_1_1_table}{Structure\+::\+Table} \hyperlink{class_q_sql_migrator_1_1_helper_1_1_sql_structure_service_abb2f11402700c1a1e52d596431255e8a}{get\+Table\+Definition} (const Q\+String \&table\+Name, Q\+Sql\+Database database) const =0
+\item 
+virtual \hyperlink{class_q_sql_migrator_1_1_structure_1_1_index}{Structure\+::\+Index} \hyperlink{class_q_sql_migrator_1_1_helper_1_1_sql_structure_service_ab62049f95710fc0965097f08b410e790}{get\+Index\+Definition} (const Q\+String \&index\+Name, const Q\+String \&table\+Name, Q\+Sql\+Database database) const =0
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+interface for a service that extracts existing structures from a sql database 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_helper_1_1_sql_structure_service_ab62049f95710fc0965097f08b410e790}\label{class_q_sql_migrator_1_1_helper_1_1_sql_structure_service_ab62049f95710fc0965097f08b410e790}} 
+\index{Q\+Sql\+Migrator\+::\+Helper\+::\+Sql\+Structure\+Service@{Q\+Sql\+Migrator\+::\+Helper\+::\+Sql\+Structure\+Service}!get\+Index\+Definition@{get\+Index\+Definition}}
+\index{get\+Index\+Definition@{get\+Index\+Definition}!Q\+Sql\+Migrator\+::\+Helper\+::\+Sql\+Structure\+Service@{Q\+Sql\+Migrator\+::\+Helper\+::\+Sql\+Structure\+Service}}
+\subsubsection{\texorpdfstring{get\+Index\+Definition()}{getIndexDefinition()}}
+{\footnotesize\ttfamily virtual \hyperlink{class_q_sql_migrator_1_1_structure_1_1_index}{Structure\+::\+Index} Q\+Sql\+Migrator\+::\+Helper\+::\+Sql\+Structure\+Service\+::get\+Index\+Definition (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{index\+Name,  }\item[{const Q\+String \&}]{table\+Name,  }\item[{Q\+Sql\+Database}]{database }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\begin{DoxyReturn}{Returns}
+the definition of an existing index in the database for a table 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{class_q_sql_migrator_1_1_helper_1_1_mysql_structure_service_a726f1171c0cc1eb76638725b0a06ba78}{Q\+Sql\+Migrator\+::\+Helper\+::\+Mysql\+Structure\+Service}, \hyperlink{class_q_sql_migrator_1_1_helper_1_1_firebird_sql_structure_service_ae11053be8caa809aae7724741dc68c2b}{Q\+Sql\+Migrator\+::\+Helper\+::\+Firebird\+Sql\+Structure\+Service}, \hyperlink{class_q_sql_migrator_1_1_helper_1_1_postgresql_structure_service_ae2e7c6b4e341b0613817fe62c6de4b2d}{Q\+Sql\+Migrator\+::\+Helper\+::\+Postgresql\+Structure\+Service}, and \hyperlink{class_q_sql_migrator_1_1_helper_1_1_sqlite_sql_structure_service_a89a0b25add0eba4af541a4950889c305}{Q\+Sql\+Migrator\+::\+Helper\+::\+Sqlite\+Sql\+Structure\+Service}.
+
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_helper_1_1_sql_structure_service_abb2f11402700c1a1e52d596431255e8a}\label{class_q_sql_migrator_1_1_helper_1_1_sql_structure_service_abb2f11402700c1a1e52d596431255e8a}} 
+\index{Q\+Sql\+Migrator\+::\+Helper\+::\+Sql\+Structure\+Service@{Q\+Sql\+Migrator\+::\+Helper\+::\+Sql\+Structure\+Service}!get\+Table\+Definition@{get\+Table\+Definition}}
+\index{get\+Table\+Definition@{get\+Table\+Definition}!Q\+Sql\+Migrator\+::\+Helper\+::\+Sql\+Structure\+Service@{Q\+Sql\+Migrator\+::\+Helper\+::\+Sql\+Structure\+Service}}
+\subsubsection{\texorpdfstring{get\+Table\+Definition()}{getTableDefinition()}}
+{\footnotesize\ttfamily virtual \hyperlink{class_q_sql_migrator_1_1_structure_1_1_table}{Structure\+::\+Table} Q\+Sql\+Migrator\+::\+Helper\+::\+Sql\+Structure\+Service\+::get\+Table\+Definition (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{table\+Name,  }\item[{Q\+Sql\+Database}]{database }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\begin{DoxyReturn}{Returns}
+the definition of an existing table in the databse 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{class_q_sql_migrator_1_1_helper_1_1_mysql_structure_service_a67d203e233e158e2a57bfe1b417c549f}{Q\+Sql\+Migrator\+::\+Helper\+::\+Mysql\+Structure\+Service}, \hyperlink{class_q_sql_migrator_1_1_helper_1_1_firebird_sql_structure_service_aface10de417ab9e0e749cfe2f53728e6}{Q\+Sql\+Migrator\+::\+Helper\+::\+Firebird\+Sql\+Structure\+Service}, \hyperlink{class_q_sql_migrator_1_1_helper_1_1_postgresql_structure_service_a6a6f23dd54be7f27f0fa798c65512746}{Q\+Sql\+Migrator\+::\+Helper\+::\+Postgresql\+Structure\+Service}, and \hyperlink{class_q_sql_migrator_1_1_helper_1_1_sqlite_sql_structure_service_a39ea75353d9471ae6ebffd36865dd52a}{Q\+Sql\+Migrator\+::\+Helper\+::\+Sqlite\+Sql\+Structure\+Service}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/\+Q\+Sql\+Migrator/\+Helper/Sql\+Structure\+Service.\+h\end{DoxyCompactItemize}

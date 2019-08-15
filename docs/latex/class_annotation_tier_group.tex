@@ -1,0 +1,143 @@
+\hypertarget{class_annotation_tier_group}{}\section{Annotation\+Tier\+Group Class Reference}
+\label{class_annotation_tier_group}\index{Annotation\+Tier\+Group@{Annotation\+Tier\+Group}}
+Inheritance diagram for Annotation\+Tier\+Group\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_annotation_tier_group}
+\end{center}
+\end{figure}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_annotation_tier_group_a13088d0f3786f1d1b171d99623856efc}\label{class_annotation_tier_group_a13088d0f3786f1d1b171d99623856efc}} 
+void {\bfseries tier\+Inserted} (\hyperlink{class_annotation_tier}{Annotation\+Tier} $\ast$tier)
+\item 
+\mbox{\Hypertarget{class_annotation_tier_group_af567945dc914d185458e5e5b33ac2351}\label{class_annotation_tier_group_af567945dc914d185458e5e5b33ac2351}} 
+void {\bfseries tier\+Deleted} (Q\+String tier\+Name)
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_annotation_tier_group_a1f9216569e4472d42a03d56d1d8d85ab}\label{class_annotation_tier_group_a1f9216569e4472d42a03d56d1d8d85ab}} 
+{\bfseries Annotation\+Tier\+Group} (Q\+Object $\ast$parent=nullptr)
+\item 
+\mbox{\Hypertarget{class_annotation_tier_group_ab15b7541e671ee5b689d2b0439c34813}\label{class_annotation_tier_group_ab15b7541e671ee5b689d2b0439c34813}} 
+Q\+String {\bfseries ID} () const
+\item 
+\mbox{\Hypertarget{class_annotation_tier_group_af35d66ef4ee1f95f8717f6d092b16450}\label{class_annotation_tier_group_af35d66ef4ee1f95f8717f6d092b16450}} 
+void {\bfseries set\+ID} (const Q\+String \&ID)
+\item 
+\mbox{\Hypertarget{class_annotation_tier_group_a0ddaad6d5fc3842284eef55e44a3f278}\label{class_annotation_tier_group_a0ddaad6d5fc3842284eef55e44a3f278}} 
+\hyperlink{struct_real_time}{Real\+Time} {\bfseries t\+Min} () const
+\item 
+\mbox{\Hypertarget{class_annotation_tier_group_ac3c30ab4c2b06825b50e97f14138db8c}\label{class_annotation_tier_group_ac3c30ab4c2b06825b50e97f14138db8c}} 
+\hyperlink{struct_real_time}{Real\+Time} {\bfseries t\+Max} () const
+\item 
+\mbox{\Hypertarget{class_annotation_tier_group_a88a5b0eda8ff9043c45ad27b0e10f848}\label{class_annotation_tier_group_a88a5b0eda8ff9043c45ad27b0e10f848}} 
+\hyperlink{struct_real_time}{Real\+Time} {\bfseries duration} () const
+\item 
+\mbox{\Hypertarget{class_annotation_tier_group_a7ecc7a86af2df4a514718680eac1630d}\label{class_annotation_tier_group_a7ecc7a86af2df4a514718680eac1630d}} 
+\hyperlink{class_annotation_tier}{Annotation\+Tier} $\ast$ {\bfseries tier} (int index) const
+\item 
+\mbox{\Hypertarget{class_annotation_tier_group_a61f8204c07bb2b214ad5f3858b974bba}\label{class_annotation_tier_group_a61f8204c07bb2b214ad5f3858b974bba}} 
+\hyperlink{class_annotation_tier}{Annotation\+Tier} $\ast$ {\bfseries tier} (const Q\+String \&name) const
+\item 
+\mbox{\Hypertarget{class_annotation_tier_group_a84bd7ee636bc58b353f8557f89910a43}\label{class_annotation_tier_group_a84bd7ee636bc58b353f8557f89910a43}} 
+int {\bfseries tiers\+Count} () const
+\item 
+\mbox{\Hypertarget{class_annotation_tier_group_a3a9e5dfe0b01d4acfd8e28289c9d75ee}\label{class_annotation_tier_group_a3a9e5dfe0b01d4acfd8e28289c9d75ee}} 
+bool {\bfseries has\+Tiers} () const
+\item 
+\mbox{\Hypertarget{class_annotation_tier_group_a0a868f1406c1c5b989b9303bb1000715}\label{class_annotation_tier_group_a0a868f1406c1c5b989b9303bb1000715}} 
+Q\+List$<$ \hyperlink{class_annotation_tier}{Annotation\+Tier} $\ast$ $>$ {\bfseries tiers} () const
+\item 
+\mbox{\Hypertarget{class_annotation_tier_group_a9f6129cfdb96ce9084d49f4a4f3f9581}\label{class_annotation_tier_group_a9f6129cfdb96ce9084d49f4a4f3f9581}} 
+void {\bfseries insert\+Tier} (int index, \hyperlink{class_annotation_tier}{Annotation\+Tier} $\ast$tier)
+\item 
+\mbox{\Hypertarget{class_annotation_tier_group_a394c786058d3650fb2b170493ad21454}\label{class_annotation_tier_group_a394c786058d3650fb2b170493ad21454}} 
+void {\bfseries insert\+Tier\+Replacing} (int index, \hyperlink{class_annotation_tier}{Annotation\+Tier} $\ast$tier)
+\item 
+\mbox{\Hypertarget{class_annotation_tier_group_a96df167d0aac7e8f38cd8267a29d5f33}\label{class_annotation_tier_group_a96df167d0aac7e8f38cd8267a29d5f33}} 
+void {\bfseries add\+Tier} (\hyperlink{class_annotation_tier}{Annotation\+Tier} $\ast$tier)
+\item 
+\mbox{\Hypertarget{class_annotation_tier_group_ad477a0009c24b987406dbf1dc3d4d9a0}\label{class_annotation_tier_group_ad477a0009c24b987406dbf1dc3d4d9a0}} 
+void {\bfseries add\+Tier\+Replacing} (\hyperlink{class_annotation_tier}{Annotation\+Tier} $\ast$tier)
+\item 
+\mbox{\Hypertarget{class_annotation_tier_group_ad7fb9197ffbf6d128ce0d0e8c9c42874}\label{class_annotation_tier_group_ad7fb9197ffbf6d128ce0d0e8c9c42874}} 
+void {\bfseries swap\+Tiers} (int old\+Index, int new\+Index)
+\item 
+\mbox{\Hypertarget{class_annotation_tier_group_aeded4a0c4c3d6a7f2f5df08b042c3349}\label{class_annotation_tier_group_aeded4a0c4c3d6a7f2f5df08b042c3349}} 
+void {\bfseries remove\+Tier\+At} (int i)
+\item 
+\mbox{\Hypertarget{class_annotation_tier_group_a77b0a3cce3e181340446c1ed53fee04b}\label{class_annotation_tier_group_a77b0a3cce3e181340446c1ed53fee04b}} 
+void {\bfseries remove\+Tier\+By\+Name} (const Q\+String \&name)
+\item 
+\mbox{\Hypertarget{class_annotation_tier_group_a298ac8f51f3ed8ef502c64c0f707751f}\label{class_annotation_tier_group_a298ac8f51f3ed8ef502c64c0f707751f}} 
+void {\bfseries rename\+Tier} (const Q\+String \&name\+Before, const Q\+String \&name\+After)
+\item 
+\mbox{\Hypertarget{class_annotation_tier_group_ad375da2b5d84a63fbf6255c5813a579e}\label{class_annotation_tier_group_ad375da2b5d84a63fbf6255c5813a579e}} 
+\hyperlink{class_interval_tier}{Interval\+Tier} $\ast$ {\bfseries get\+Interval\+Tier\+By\+Name} (const Q\+String \&name) const
+\item 
+\mbox{\Hypertarget{class_annotation_tier_group_a75c8efe087b3158f9c7769a1d1e720de}\label{class_annotation_tier_group_a75c8efe087b3158f9c7769a1d1e720de}} 
+\hyperlink{class_interval_tier}{Interval\+Tier} $\ast$ {\bfseries get\+Interval\+Tier\+By\+Index} (int index) const
+\item 
+\mbox{\Hypertarget{class_annotation_tier_group_a77efe7e0e65f895bf2c3d6d5dc5afe41}\label{class_annotation_tier_group_a77efe7e0e65f895bf2c3d6d5dc5afe41}} 
+\hyperlink{class_point_tier}{Point\+Tier} $\ast$ {\bfseries get\+Point\+Tier\+By\+Name} (const Q\+String \&name) const
+\item 
+\mbox{\Hypertarget{class_annotation_tier_group_a1b381a663af16fd87582b7645e6a3b0a}\label{class_annotation_tier_group_a1b381a663af16fd87582b7645e6a3b0a}} 
+\hyperlink{class_point_tier}{Point\+Tier} $\ast$ {\bfseries get\+Point\+Tier\+By\+Index} (int index) const
+\item 
+\mbox{\Hypertarget{class_annotation_tier_group_a5a666bcf4b60f4ea42bfc56e6970207c}\label{class_annotation_tier_group_a5a666bcf4b60f4ea42bfc56e6970207c}} 
+\hyperlink{class_sequence_tier}{Sequence\+Tier} $\ast$ {\bfseries get\+Sequence\+Tier\+By\+Name} (const Q\+String \&name) const
+\item 
+\mbox{\Hypertarget{class_annotation_tier_group_a71049bb192a09d3dc4cc0d7eddb7d157}\label{class_annotation_tier_group_a71049bb192a09d3dc4cc0d7eddb7d157}} 
+\hyperlink{class_sequence_tier}{Sequence\+Tier} $\ast$ {\bfseries get\+Sequence\+Tier\+By\+Index} (int index) const
+\item 
+\mbox{\Hypertarget{class_annotation_tier_group_a263bcfc93cd75b6818f54089c7c8d6ac}\label{class_annotation_tier_group_a263bcfc93cd75b6818f54089c7c8d6ac}} 
+\hyperlink{class_tree_tier}{Tree\+Tier} $\ast$ {\bfseries get\+Tree\+Tier\+By\+Name} (const Q\+String \&name) const
+\item 
+\mbox{\Hypertarget{class_annotation_tier_group_a48c30da8b1807b0fd46fd7da343a7234}\label{class_annotation_tier_group_a48c30da8b1807b0fd46fd7da343a7234}} 
+\hyperlink{class_tree_tier}{Tree\+Tier} $\ast$ {\bfseries get\+Tree\+Tier\+By\+Index} (int index) const
+\item 
+\mbox{\Hypertarget{class_annotation_tier_group_a2d8fe2a9050f5aca66bd61ae797f19cb}\label{class_annotation_tier_group_a2d8fe2a9050f5aca66bd61ae797f19cb}} 
+\hyperlink{class_relation_tier}{Relation\+Tier} $\ast$ {\bfseries get\+Relation\+Tier\+By\+Name} (const Q\+String \&name) const
+\item 
+\mbox{\Hypertarget{class_annotation_tier_group_a187b9cfbeb741c78c8469fa300dee887}\label{class_annotation_tier_group_a187b9cfbeb741c78c8469fa300dee887}} 
+\hyperlink{class_relation_tier}{Relation\+Tier} $\ast$ {\bfseries get\+Relation\+Tier\+By\+Index} (int index) const
+\item 
+\mbox{\Hypertarget{class_annotation_tier_group_ad2c96e89f53ccfab2f667727bc995ec7}\label{class_annotation_tier_group_ad2c96e89f53ccfab2f667727bc995ec7}} 
+int {\bfseries get\+Tier\+Index\+By\+Name} (const Q\+String \&name) const
+\item 
+\mbox{\Hypertarget{class_annotation_tier_group_a9eaf011f0a807f95db993bfe826cffc7}\label{class_annotation_tier_group_a9eaf011f0a807f95db993bfe826cffc7}} 
+Q\+String\+List {\bfseries tier\+Names} () const
+\item 
+\mbox{\Hypertarget{class_annotation_tier_group_a1a45061aa5edd02b0fe4fcf832c63911}\label{class_annotation_tier_group_a1a45061aa5edd02b0fe4fcf832c63911}} 
+void {\bfseries insert\+Tier\+Clone} (int index, const \hyperlink{class_annotation_tier}{Annotation\+Tier} $\ast$tier, const Q\+String \&new\+Name)
+\item 
+\mbox{\Hypertarget{class_annotation_tier_group_a798aa6ba5d352ec09693ced0fe6773d4}\label{class_annotation_tier_group_a798aa6ba5d352ec09693ced0fe6773d4}} 
+bool {\bfseries reorder\+Tiers} (Q\+String\+List tier\+Names\+In\+New\+Order)
+\item 
+\mbox{\Hypertarget{class_annotation_tier_group_a2ed5a9803b673f8fdf76de842a45f599}\label{class_annotation_tier_group_a2ed5a9803b673f8fdf76de842a45f599}} 
+void {\bfseries merge\+Silent\+Pauses\+On\+All\+Interval\+Tiers} (const Q\+String \&silent\+Pause\+Text)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_annotation_tier_group_a4b219b439c4d301bcc6ed814bd7cb868}\label{class_annotation_tier_group_a4b219b439c4d301bcc6ed814bd7cb868}} 
+Q\+String {\bfseries m\+\_\+\+ID}
+\item 
+\mbox{\Hypertarget{class_annotation_tier_group_a73d9af796b7cd6c75dc563b702083a50}\label{class_annotation_tier_group_a73d9af796b7cd6c75dc563b702083a50}} 
+Q\+List$<$ \hyperlink{class_annotation_tier}{Annotation\+Tier} $\ast$ $>$ {\bfseries m\+\_\+tiers}
+\item 
+\mbox{\Hypertarget{class_annotation_tier_group_a8391f2110068e88fbcbfd9da0aa02c67}\label{class_annotation_tier_group_a8391f2110068e88fbcbfd9da0aa02c67}} 
+Q\+String {\bfseries annotation\+ID}
+\item 
+\mbox{\Hypertarget{class_annotation_tier_group_a0a25c4f69d95d5a05c4a36b2ce27cf22}\label{class_annotation_tier_group_a0a25c4f69d95d5a05c4a36b2ce27cf22}} 
+Q\+String {\bfseries speaker\+ID}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/annotation/Annotation\+Tier\+Group.\+h\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/annotation/Annotation\+Tier\+Group.\+cpp\end{DoxyCompactItemize}

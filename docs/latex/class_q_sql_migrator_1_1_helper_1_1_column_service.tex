@@ -1,0 +1,40 @@
+\hypertarget{class_q_sql_migrator_1_1_helper_1_1_column_service}{}\section{Q\+Sql\+Migrator\+:\+:Helper\+:\+:Column\+Service Class Reference}
+\label{class_q_sql_migrator_1_1_helper_1_1_column_service}\index{Q\+Sql\+Migrator\+::\+Helper\+::\+Column\+Service@{Q\+Sql\+Migrator\+::\+Helper\+::\+Column\+Service}}
+
+
+interface for a service that can convert column and index definitions to proper S\+QL statements  
+
+
+
+
+{\ttfamily \#include $<$Column\+Service.\+h$>$}
+
+Inheritance diagram for Q\+Sql\+Migrator\+:\+:Helper\+:\+:Column\+Service\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.906574cm]{class_q_sql_migrator_1_1_helper_1_1_column_service}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_helper_1_1_column_service_aa3adb01c524afc209a029a803f9ff177}\label{class_q_sql_migrator_1_1_helper_1_1_column_service_aa3adb01c524afc209a029a803f9ff177}} 
+virtual Q\+String {\bfseries generate\+Column\+Definition\+Sql} (const \hyperlink{class_q_sql_migrator_1_1_structure_1_1_column}{Structure\+::\+Column} \&column) const =0
+\item 
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_helper_1_1_column_service_a785bde5004e7a4a4daf909c169b7e27c}\label{class_q_sql_migrator_1_1_helper_1_1_column_service_a785bde5004e7a4a4daf909c169b7e27c}} 
+virtual Q\+String {\bfseries generate\+Columns\+Definition\+Sql} (const Q\+List$<$ \hyperlink{class_q_sql_migrator_1_1_structure_1_1_column}{Structure\+::\+Column} $>$ \&column\+List) const =0
+\item 
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_helper_1_1_column_service_ae6384025ff1f65772b1f249286fd35e8}\label{class_q_sql_migrator_1_1_helper_1_1_column_service_ae6384025ff1f65772b1f249286fd35e8}} 
+virtual Q\+String {\bfseries generate\+Index\+Column\+Definition\+Sql} (const \hyperlink{class_q_sql_migrator_1_1_structure_1_1_index_1_1_column}{Structure\+::\+Index\+::\+Column} \&column) const =0
+\item 
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_helper_1_1_column_service_add05b75bd7c1bbcd8d7dc54445623ac9}\label{class_q_sql_migrator_1_1_helper_1_1_column_service_add05b75bd7c1bbcd8d7dc54445623ac9}} 
+virtual Q\+String {\bfseries generate\+Index\+Columns\+Definition\+Sql} (const Structure\+::\+Index\+::\+Column\+List \&columns) const =0
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+interface for a service that can convert column and index definitions to proper S\+QL statements 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/\+Q\+Sql\+Migrator/\+Helper/Column\+Service.\+h\end{DoxyCompactItemize}

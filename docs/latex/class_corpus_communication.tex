@@ -1,0 +1,129 @@
+\hypertarget{class_corpus_communication}{}\section{Corpus\+Communication Class Reference}
+\label{class_corpus_communication}\index{Corpus\+Communication@{Corpus\+Communication}}
+Inheritance diagram for Corpus\+Communication\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_corpus_communication}
+\end{center}
+\end{figure}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_corpus_communication_a8048c2cd61bada85b866023c553dd32e}\label{class_corpus_communication_a8048c2cd61bada85b866023c553dd32e}} 
+void {\bfseries corpus\+Recording\+Added} (Q\+Pointer$<$ P\+R\+A\+A\+L\+I\+N\+E\+\_\+\+C\+O\+R\+E\+\_\+\+N\+A\+M\+E\+S\+P\+A\+C\+E\+::\+Corpus\+Recording $>$ recording)
+\item 
+\mbox{\Hypertarget{class_corpus_communication_a696e92bbff3d1c317aee4c9cfb6bce9f}\label{class_corpus_communication_a696e92bbff3d1c317aee4c9cfb6bce9f}} 
+void {\bfseries corpus\+Recording\+Deleted} (Q\+String communication\+ID, Q\+String recording\+ID)
+\item 
+\mbox{\Hypertarget{class_corpus_communication_a1eda96f1b582b8d7e4094b9a53faa587}\label{class_corpus_communication_a1eda96f1b582b8d7e4094b9a53faa587}} 
+void {\bfseries corpus\+Annotation\+Added} (Q\+Pointer$<$ P\+R\+A\+A\+L\+I\+N\+E\+\_\+\+C\+O\+R\+E\+\_\+\+N\+A\+M\+E\+S\+P\+A\+C\+E\+::\+Corpus\+Annotation $>$ annotation)
+\item 
+\mbox{\Hypertarget{class_corpus_communication_a71c1c6deb1c74bf06d9fc15e78b174db}\label{class_corpus_communication_a71c1c6deb1c74bf06d9fc15e78b174db}} 
+void {\bfseries corpus\+Annotation\+Deleted} (Q\+String communication\+ID, Q\+String annotation\+ID)
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_corpus_communication_ad31f58fabee0a614ee124c3b795bc3ad}\label{class_corpus_communication_ad31f58fabee0a614ee124c3b795bc3ad}} 
+{\bfseries Corpus\+Communication} (\hyperlink{class_corpus_repository}{Corpus\+Repository} $\ast$repository=nullptr, Q\+Object $\ast$parent=nullptr)
+\item 
+\mbox{\Hypertarget{class_corpus_communication_ae8e4b4e27772a2f65b0a6bdd90770d9a}\label{class_corpus_communication_ae8e4b4e27772a2f65b0a6bdd90770d9a}} 
+{\bfseries Corpus\+Communication} (const Q\+String \&ID, \hyperlink{class_corpus_repository}{Corpus\+Repository} $\ast$repository=nullptr, Q\+Object $\ast$parent=nullptr)
+\item 
+\mbox{\Hypertarget{class_corpus_communication_a148919c92fd0bd530c02e21bc7b47cef}\label{class_corpus_communication_a148919c92fd0bd530c02e21bc7b47cef}} 
+{\bfseries Corpus\+Communication} (\hyperlink{class_corpus_communication}{Corpus\+Communication} $\ast$other, Q\+Object $\ast$parent=nullptr)
+\item 
+\mbox{\Hypertarget{class_corpus_communication_aaf9f5021f355745621cc5b3723f97b88}\label{class_corpus_communication_aaf9f5021f355745621cc5b3723f97b88}} 
+Corpus\+Object\+::\+Type {\bfseries type} () const override
+\item 
+\mbox{\Hypertarget{class_corpus_communication_a8a492d78bd3da6e73ff117af82aeeb7f}\label{class_corpus_communication_a8a492d78bd3da6e73ff117af82aeeb7f}} 
+bool {\bfseries save} () override
+\item 
+\mbox{\Hypertarget{class_corpus_communication_a645454b2fd643c5cb276cdc89d6c0b44}\label{class_corpus_communication_a645454b2fd643c5cb276cdc89d6c0b44}} 
+Q\+Pointer$<$ \hyperlink{class_corpus}{Corpus} $>$ {\bfseries corpus} () const
+\item 
+\mbox{\Hypertarget{class_corpus_communication_a6399e6c046291d2e2175044a98680b62}\label{class_corpus_communication_a6399e6c046291d2e2175044a98680b62}} 
+Q\+String {\bfseries name} () const
+\item 
+\mbox{\Hypertarget{class_corpus_communication_a7cb8ac67e54fd08f8cfb7659cfe4df20}\label{class_corpus_communication_a7cb8ac67e54fd08f8cfb7659cfe4df20}} 
+void {\bfseries set\+Name} (const Q\+String \&name)
+\item 
+\mbox{\Hypertarget{class_corpus_communication_af6cbf3648e853d94efc7181cd1a4f3eb}\label{class_corpus_communication_af6cbf3648e853d94efc7181cd1a4f3eb}} 
+void {\bfseries set\+Corpus\+ID} (const Q\+String \&corpus\+ID) override
+\item 
+\mbox{\Hypertarget{class_corpus_communication_a35f2afa3731d8a0af46d34c7bff6bd6a}\label{class_corpus_communication_a35f2afa3731d8a0af46d34c7bff6bd6a}} 
+Q\+Pointer$<$ \hyperlink{class_corpus_recording}{Corpus\+Recording} $>$ {\bfseries recording} (const Q\+String \&recording\+ID) const
+\item 
+\mbox{\Hypertarget{class_corpus_communication_a64898e8bf8c0802c40e847d54958fbe6}\label{class_corpus_communication_a64898e8bf8c0802c40e847d54958fbe6}} 
+int {\bfseries recordings\+Count} () const
+\item 
+\mbox{\Hypertarget{class_corpus_communication_a1dc45504056a52c6dc20f3c8acc19809}\label{class_corpus_communication_a1dc45504056a52c6dc20f3c8acc19809}} 
+bool {\bfseries has\+Recordings} () const
+\item 
+\mbox{\Hypertarget{class_corpus_communication_a7f77f4d7b4b130c31d6db5c1591230c0}\label{class_corpus_communication_a7f77f4d7b4b130c31d6db5c1591230c0}} 
+bool {\bfseries has\+Recording} (const Q\+String \&recording\+ID) const
+\item 
+\mbox{\Hypertarget{class_corpus_communication_aaf2ef5dcc3594d1a24949f915cf23bfa}\label{class_corpus_communication_aaf2ef5dcc3594d1a24949f915cf23bfa}} 
+const Q\+Map$<$ Q\+String, Q\+Pointer$<$ \hyperlink{class_corpus_recording}{Corpus\+Recording} $>$ $>$ \& {\bfseries recordings} () const
+\item 
+\mbox{\Hypertarget{class_corpus_communication_a7b752d1babaf38bf2dc29c7ca01a1f11}\label{class_corpus_communication_a7b752d1babaf38bf2dc29c7ca01a1f11}} 
+Q\+List$<$ Q\+String $>$ {\bfseries recording\+I\+Ds} () const
+\item 
+\mbox{\Hypertarget{class_corpus_communication_adf43b6d6a4fce03cdd333a61346b543a}\label{class_corpus_communication_adf43b6d6a4fce03cdd333a61346b543a}} 
+void {\bfseries add\+Recording} (\hyperlink{class_corpus_recording}{Corpus\+Recording} $\ast$recording)
+\item 
+\mbox{\Hypertarget{class_corpus_communication_ade2b822fd5a7029b05f08db3613f58be}\label{class_corpus_communication_ade2b822fd5a7029b05f08db3613f58be}} 
+void {\bfseries remove\+Recording} (const Q\+String \&recording\+ID)
+\item 
+\mbox{\Hypertarget{class_corpus_communication_a4af937c3102c4a609214516dd4906893}\label{class_corpus_communication_a4af937c3102c4a609214516dd4906893}} 
+double {\bfseries duration\+Sec} () const
+\item 
+\mbox{\Hypertarget{class_corpus_communication_a6e8c3fab9c1e84382613788afa1ad892}\label{class_corpus_communication_a6e8c3fab9c1e84382613788afa1ad892}} 
+Q\+Pointer$<$ \hyperlink{class_corpus_annotation}{Corpus\+Annotation} $>$ {\bfseries annotation} (const Q\+String \&annotation\+ID) const
+\item 
+\mbox{\Hypertarget{class_corpus_communication_a97b5bf826b319808d100759d3b63daf1}\label{class_corpus_communication_a97b5bf826b319808d100759d3b63daf1}} 
+int {\bfseries annotations\+Count} () const
+\item 
+\mbox{\Hypertarget{class_corpus_communication_aec4ab5d693d36a628a3ff3800a1cb2fa}\label{class_corpus_communication_aec4ab5d693d36a628a3ff3800a1cb2fa}} 
+bool {\bfseries has\+Annotations} () const
+\item 
+\mbox{\Hypertarget{class_corpus_communication_a5de9631605419702088875b668b2ed4e}\label{class_corpus_communication_a5de9631605419702088875b668b2ed4e}} 
+bool {\bfseries has\+Annotation} (const Q\+String \&annotation\+ID) const
+\item 
+\mbox{\Hypertarget{class_corpus_communication_a39033d3c365366cd7e687472187297bc}\label{class_corpus_communication_a39033d3c365366cd7e687472187297bc}} 
+const Q\+Map$<$ Q\+String, Q\+Pointer$<$ \hyperlink{class_corpus_annotation}{Corpus\+Annotation} $>$ $>$ \& {\bfseries annotations} () const
+\item 
+\mbox{\Hypertarget{class_corpus_communication_a82456aa4a74824e65ca2c5607658871e}\label{class_corpus_communication_a82456aa4a74824e65ca2c5607658871e}} 
+Q\+List$<$ Q\+String $>$ {\bfseries annotation\+I\+Ds} () const
+\item 
+\mbox{\Hypertarget{class_corpus_communication_a8761cb30f9108b257793c9035e71cbe2}\label{class_corpus_communication_a8761cb30f9108b257793c9035e71cbe2}} 
+void {\bfseries add\+Annotation} (\hyperlink{class_corpus_annotation}{Corpus\+Annotation} $\ast$annotation)
+\item 
+\mbox{\Hypertarget{class_corpus_communication_a73cafc4b999510036f2e2417a51f25c8}\label{class_corpus_communication_a73cafc4b999510036f2e2417a51f25c8}} 
+void {\bfseries remove\+Annotation} (const Q\+String \&annotation\+ID)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_corpus_communication_a1a79b5e97057886b29ea41f1752f49ad}\label{class_corpus_communication_a1a79b5e97057886b29ea41f1752f49ad}} 
+Q\+List$<$ Q\+String $>$ {\bfseries deleted\+Annotation\+I\+Ds}
+\item 
+\mbox{\Hypertarget{class_corpus_communication_a7ace8bca02f7247ae54dba95fb2024bd}\label{class_corpus_communication_a7ace8bca02f7247ae54dba95fb2024bd}} 
+Q\+List$<$ Q\+String $>$ {\bfseries deleted\+Recording\+I\+Ds}
+\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_corpus_communication_a1aeb5434de9c329b027618f77d707acf}\label{class_corpus_communication_a1aeb5434de9c329b027618f77d707acf}} 
+Q\+String {\bfseries name}
+\item 
+\mbox{\Hypertarget{class_corpus_communication_a6e73b451bd9c76270e2de6294103bc6b}\label{class_corpus_communication_a6e73b451bd9c76270e2de6294103bc6b}} 
+double {\bfseries duration\+Sec}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/corpus/Corpus\+Communication.\+h\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/corpus/Corpus\+Communication.\+cpp\end{DoxyCompactItemize}

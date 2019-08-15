@@ -1,0 +1,76 @@
+\hypertarget{class_q_sql_migrator_1_1_helper_1_1_quote_service}{}\section{Q\+Sql\+Migrator\+:\+:Helper\+:\+:Quote\+Service Class Reference}
+\label{class_q_sql_migrator_1_1_helper_1_1_quote_service}\index{Q\+Sql\+Migrator\+::\+Helper\+::\+Quote\+Service@{Q\+Sql\+Migrator\+::\+Helper\+::\+Quote\+Service}}
+
+
+interface for a service that is used to quote different kinds of strings for a database  
+
+
+
+
+{\ttfamily \#include $<$Quote\+Service.\+h$>$}
+
+Inheritance diagram for Q\+Sql\+Migrator\+:\+:Helper\+:\+:Quote\+Service\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_q_sql_migrator_1_1_helper_1_1_quote_service}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual Q\+String \hyperlink{class_q_sql_migrator_1_1_helper_1_1_quote_service_acb56728a4d07a8857955e34536844ec7}{quote\+Table\+Name} (const Q\+String \&table\+Name) const =0
+\item 
+virtual Q\+String \hyperlink{class_q_sql_migrator_1_1_helper_1_1_quote_service_ae5ed3750bb00609d483996e7baa6f885}{quote\+Column\+Name} (const Q\+String \&column\+Name) const =0
+\item 
+virtual Q\+String \hyperlink{class_q_sql_migrator_1_1_helper_1_1_quote_service_a5a557ef5b418afcbe9ae01ce57616218}{quote\+String} (const Q\+String \&string) const =0
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+interface for a service that is used to quote different kinds of strings for a database 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_helper_1_1_quote_service_ae5ed3750bb00609d483996e7baa6f885}\label{class_q_sql_migrator_1_1_helper_1_1_quote_service_ae5ed3750bb00609d483996e7baa6f885}} 
+\index{Q\+Sql\+Migrator\+::\+Helper\+::\+Quote\+Service@{Q\+Sql\+Migrator\+::\+Helper\+::\+Quote\+Service}!quote\+Column\+Name@{quote\+Column\+Name}}
+\index{quote\+Column\+Name@{quote\+Column\+Name}!Q\+Sql\+Migrator\+::\+Helper\+::\+Quote\+Service@{Q\+Sql\+Migrator\+::\+Helper\+::\+Quote\+Service}}
+\subsubsection{\texorpdfstring{quote\+Column\+Name()}{quoteColumnName()}}
+{\footnotesize\ttfamily virtual Q\+String Q\+Sql\+Migrator\+::\+Helper\+::\+Quote\+Service\+::quote\+Column\+Name (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{column\+Name }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\begin{DoxyReturn}{Returns}
+the column name properly quoted for an sql execution 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{class_q_sql_migrator_1_1_helper_1_1_postgresql_quote_service_af54cb8f1749e470e2ea8794fb58896c8}{Q\+Sql\+Migrator\+::\+Helper\+::\+Postgresql\+Quote\+Service}, and \hyperlink{class_q_sql_migrator_1_1_helper_1_1_base_sql_quote_service_a26aebafe6d736520b5661c82a4db4ae9}{Q\+Sql\+Migrator\+::\+Helper\+::\+Base\+Sql\+Quote\+Service}.
+
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_helper_1_1_quote_service_a5a557ef5b418afcbe9ae01ce57616218}\label{class_q_sql_migrator_1_1_helper_1_1_quote_service_a5a557ef5b418afcbe9ae01ce57616218}} 
+\index{Q\+Sql\+Migrator\+::\+Helper\+::\+Quote\+Service@{Q\+Sql\+Migrator\+::\+Helper\+::\+Quote\+Service}!quote\+String@{quote\+String}}
+\index{quote\+String@{quote\+String}!Q\+Sql\+Migrator\+::\+Helper\+::\+Quote\+Service@{Q\+Sql\+Migrator\+::\+Helper\+::\+Quote\+Service}}
+\subsubsection{\texorpdfstring{quote\+String()}{quoteString()}}
+{\footnotesize\ttfamily virtual Q\+String Q\+Sql\+Migrator\+::\+Helper\+::\+Quote\+Service\+::quote\+String (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{string }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\begin{DoxyReturn}{Returns}
+the string value properly quoted for an sql execution 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{class_q_sql_migrator_1_1_helper_1_1_postgresql_quote_service_aea4456a2d9ae05fbc1bb653dfcb6571f}{Q\+Sql\+Migrator\+::\+Helper\+::\+Postgresql\+Quote\+Service}, and \hyperlink{class_q_sql_migrator_1_1_helper_1_1_base_sql_quote_service_a54146919b3027be887151bcc27c56dad}{Q\+Sql\+Migrator\+::\+Helper\+::\+Base\+Sql\+Quote\+Service}.
+
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_helper_1_1_quote_service_acb56728a4d07a8857955e34536844ec7}\label{class_q_sql_migrator_1_1_helper_1_1_quote_service_acb56728a4d07a8857955e34536844ec7}} 
+\index{Q\+Sql\+Migrator\+::\+Helper\+::\+Quote\+Service@{Q\+Sql\+Migrator\+::\+Helper\+::\+Quote\+Service}!quote\+Table\+Name@{quote\+Table\+Name}}
+\index{quote\+Table\+Name@{quote\+Table\+Name}!Q\+Sql\+Migrator\+::\+Helper\+::\+Quote\+Service@{Q\+Sql\+Migrator\+::\+Helper\+::\+Quote\+Service}}
+\subsubsection{\texorpdfstring{quote\+Table\+Name()}{quoteTableName()}}
+{\footnotesize\ttfamily virtual Q\+String Q\+Sql\+Migrator\+::\+Helper\+::\+Quote\+Service\+::quote\+Table\+Name (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{table\+Name }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\begin{DoxyReturn}{Returns}
+the table name properly quoted for an sql execution 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{class_q_sql_migrator_1_1_helper_1_1_postgresql_quote_service_a56541b2bbc99faae890a9a21d50e14f6}{Q\+Sql\+Migrator\+::\+Helper\+::\+Postgresql\+Quote\+Service}, and \hyperlink{class_q_sql_migrator_1_1_helper_1_1_base_sql_quote_service_aacd2ed13fd6f57bc77b4870ac5105f9e}{Q\+Sql\+Migrator\+::\+Helper\+::\+Base\+Sql\+Quote\+Service}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/\+Q\+Sql\+Migrator/\+Helper/Quote\+Service.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,231 @@
+\hypertarget{class_interval_tier}{}\section{Interval\+Tier Class Reference}
+\label{class_interval_tier}\index{Interval\+Tier@{Interval\+Tier}}
+Inheritance diagram for Interval\+Tier\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_interval_tier}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_interval_tier_aff5f634bb75eab83ff00b6b19d4ebbef}\label{class_interval_tier_aff5f634bb75eab83ff00b6b19d4ebbef}} 
+{\bfseries Interval\+Tier} (const Q\+String \&name=Q\+String(), const \hyperlink{struct_real_time}{Real\+Time} t\+Min=\hyperlink{struct_real_time}{Real\+Time}(0, 0), const \hyperlink{struct_real_time}{Real\+Time} t\+Max=\hyperlink{struct_real_time}{Real\+Time}(0, 0), Q\+Object $\ast$parent=nullptr)
+\item 
+\mbox{\Hypertarget{class_interval_tier_a8a93849adf8e83da348bd17047df45bf}\label{class_interval_tier_a8a93849adf8e83da348bd17047df45bf}} 
+{\bfseries Interval\+Tier} (const Q\+String \&name, const Q\+List$<$ \hyperlink{class_interval}{Interval} $\ast$$>$ \&intervals, const \hyperlink{struct_real_time}{Real\+Time} t\+Min=\hyperlink{struct_real_time}{Real\+Time}(0, 0), const \hyperlink{struct_real_time}{Real\+Time} t\+Max=\hyperlink{struct_real_time}{Real\+Time}(0, 0), Q\+Object $\ast$parent=nullptr)
+\item 
+\mbox{\Hypertarget{class_interval_tier_a174014dbc1f85edffcb153894e616074}\label{class_interval_tier_a174014dbc1f85edffcb153894e616074}} 
+Annotation\+Tier\+::\+Tier\+Type {\bfseries tier\+Type} () const override
+\item 
+\mbox{\Hypertarget{class_interval_tier_a55bdb89e2b5ac8143ade88b4473a60ff}\label{class_interval_tier_a55bdb89e2b5ac8143ade88b4473a60ff}} 
+int {\bfseries count} () const override
+\item 
+\mbox{\Hypertarget{class_interval_tier_a630ea583423b2e7d2c65889153c01b4b}\label{class_interval_tier_a630ea583423b2e7d2c65889153c01b4b}} 
+bool {\bfseries is\+Empty} () const override
+\item 
+\mbox{\Hypertarget{class_interval_tier_a34439ec265ac8c33635bbc6d03efca76}\label{class_interval_tier_a34439ec265ac8c33635bbc6d03efca76}} 
+void {\bfseries clear} () override
+\item 
+\mbox{\Hypertarget{class_interval_tier_a61e20ee688d2478990f6600096f223af}\label{class_interval_tier_a61e20ee688d2478990f6600096f223af}} 
+\hyperlink{class_interval}{Interval} $\ast$ {\bfseries at} (int index) const override
+\item 
+\mbox{\Hypertarget{class_interval_tier_abf2293b6517f8710544575cad7c6ac92}\label{class_interval_tier_abf2293b6517f8710544575cad7c6ac92}} 
+\hyperlink{class_interval}{Interval} $\ast$ {\bfseries first} () const override
+\item 
+\mbox{\Hypertarget{class_interval_tier_a76ed713f9ba5658bcc19f09703239dcb}\label{class_interval_tier_a76ed713f9ba5658bcc19f09703239dcb}} 
+\hyperlink{class_interval}{Interval} $\ast$ {\bfseries last} () const override
+\item 
+\mbox{\Hypertarget{class_interval_tier_a8b4c024910fecd07ecbb2bb3b885ae54}\label{class_interval_tier_a8b4c024910fecd07ecbb2bb3b885ae54}} 
+Q\+String\+List {\bfseries get\+Distinct\+Labels} () const override
+\item 
+\mbox{\Hypertarget{class_interval_tier_ab9cd848ddc55e6d4e888cb753d876c94}\label{class_interval_tier_ab9cd848ddc55e6d4e888cb753d876c94}} 
+Q\+List$<$ Q\+Variant $>$ {\bfseries get\+Distinct\+Values} (const Q\+String \&attribute\+ID) const override
+\item 
+\mbox{\Hypertarget{class_interval_tier_a84104c211b966eabde7bad3622b77975}\label{class_interval_tier_a84104c211b966eabde7bad3622b77975}} 
+void {\bfseries replace} (const Q\+String \&attribute\+ID, const Q\+String \&before, const Q\+String \&after, Qt\+::\+Case\+Sensitivity cs=Qt\+::\+Case\+Sensitive) override
+\item 
+\mbox{\Hypertarget{class_interval_tier_ae236ca7c9912e9049cd3f3fcadb18626}\label{class_interval_tier_ae236ca7c9912e9049cd3f3fcadb18626}} 
+void {\bfseries fill\+Empty\+With} (const Q\+String \&attribute\+ID, const Q\+String \&filler) override
+\item 
+\mbox{\Hypertarget{class_interval_tier_ac37df0a0892e750262c850d8190748e7}\label{class_interval_tier_ac37df0a0892e750262c850d8190748e7}} 
+\hyperlink{class_interval}{Interval} $\ast$ {\bfseries interval} (int index) const
+\item 
+\mbox{\Hypertarget{class_interval_tier_aaf8659174e69bd65c11b19b9731c7144}\label{class_interval_tier_aaf8659174e69bd65c11b19b9731c7144}} 
+Q\+List$<$ \hyperlink{class_interval}{Interval} $\ast$ $>$ {\bfseries intervals} () const
+\item 
+\mbox{\Hypertarget{class_interval_tier_a8c8e64085a79cfd30ebbbe3378aa680f}\label{class_interval_tier_a8c8e64085a79cfd30ebbbe3378aa680f}} 
+\hyperlink{class_interval}{Interval} $\ast$ {\bfseries interval\+At\+Time} (\hyperlink{struct_real_time}{Real\+Time} t, bool prefer\+Interval\+To\+The\+Left\+Of\+Boundary=false)
+\item 
+\mbox{\Hypertarget{class_interval_tier_a956a7a4356be0bffb27fe20fc30f5012}\label{class_interval_tier_a956a7a4356be0bffb27fe20fc30f5012}} 
+int {\bfseries interval\+Index\+At\+Time} (\hyperlink{struct_real_time}{Real\+Time} t, bool prefer\+Interval\+To\+The\+Left\+Of\+Boundary=false) const
+\item 
+\mbox{\Hypertarget{class_interval_tier_a75cc3807768f55bbdbaff30cd58dff46}\label{class_interval_tier_a75cc3807768f55bbdbaff30cd58dff46}} 
+\hyperlink{class_interval}{Interval} $\ast$ {\bfseries add\+To\+End} (\hyperlink{struct_real_time}{Real\+Time} t\+Max, const Q\+String \&text)
+\item 
+\mbox{\Hypertarget{class_interval_tier_afe9f037bcbb3b60cdffb21330a255c93}\label{class_interval_tier_afe9f037bcbb3b60cdffb21330a255c93}} 
+\hyperlink{class_interval}{Interval} $\ast$ {\bfseries split} (\hyperlink{struct_real_time}{Real\+Time} at)
+\item 
+\mbox{\Hypertarget{class_interval_tier_a28d8d40de22ce7050017aaab744ee347}\label{class_interval_tier_a28d8d40de22ce7050017aaab744ee347}} 
+\hyperlink{class_interval}{Interval} $\ast$ {\bfseries split} (int index, \hyperlink{struct_real_time}{Real\+Time} at, bool move\+Original\+Data\+To\+Second\+Interval=false)
+\item 
+\mbox{\Hypertarget{class_interval_tier_a70c6e1b48516cfcd4a1320a2d5f9ec3b}\label{class_interval_tier_a70c6e1b48516cfcd4a1320a2d5f9ec3b}} 
+Q\+List$<$ \hyperlink{class_interval}{Interval} $\ast$ $>$ {\bfseries split\+To\+Equal} (int index, int number\+Of\+Intervals)
+\item 
+\mbox{\Hypertarget{class_interval_tier_ab7c924a2077b92064c27b37260d89ba2}\label{class_interval_tier_ab7c924a2077b92064c27b37260d89ba2}} 
+Q\+List$<$ \hyperlink{class_interval}{Interval} $\ast$ $>$ {\bfseries split\+To\+Proportions} (int index, const Q\+List$<$ int $>$ \&proportions)
+\item 
+\mbox{\Hypertarget{class_interval_tier_a880622de987cb946b45ea10715bb044a}\label{class_interval_tier_a880622de987cb946b45ea10715bb044a}} 
+\hyperlink{class_interval}{Interval} $\ast$ {\bfseries merge} (int index\+From, int index\+To, const Q\+String \&separator=Q\+String())
+\item 
+\mbox{\Hypertarget{class_interval_tier_a682f542fa299e1b38af39d307f51ddcb}\label{class_interval_tier_a682f542fa299e1b38af39d307f51ddcb}} 
+void {\bfseries copy\+Intervals\+From} (const \hyperlink{class_interval_tier}{Interval\+Tier} $\ast$copy, bool copy\+Data=true)
+\item 
+\mbox{\Hypertarget{class_interval_tier_a29e001743f33bbacb767cad666f946bc}\label{class_interval_tier_a29e001743f33bbacb767cad666f946bc}} 
+void {\bfseries replace\+All\+Intervals} (Q\+List$<$ \hyperlink{class_interval}{Interval} $\ast$$>$ \&new\+Intervals)
+\item 
+\mbox{\Hypertarget{class_interval_tier_aec73874d5f67bd89ccfa3a818dbf47db}\label{class_interval_tier_aec73874d5f67bd89ccfa3a818dbf47db}} 
+bool {\bfseries patch\+Intervals} (Q\+List$<$ \hyperlink{class_interval}{Interval} $\ast$$>$ \&new\+Intervals, \hyperlink{struct_real_time}{Real\+Time} from, \hyperlink{struct_real_time}{Real\+Time} to)
+\item 
+\mbox{\Hypertarget{class_interval_tier_aa5128d8086f506c41c93ce6ee5946d2a}\label{class_interval_tier_aa5128d8086f506c41c93ce6ee5946d2a}} 
+Q\+List$<$ \hyperlink{class_interval}{Interval} $\ast$ $>$ {\bfseries patch\+Text\+To\+Intervals\+Equal} (const Q\+String\+List \&new\+Intervals\+Text, \hyperlink{struct_real_time}{Real\+Time} from, \hyperlink{struct_real_time}{Real\+Time} to)
+\item 
+\mbox{\Hypertarget{class_interval_tier_a27862a5cf994e21ec8db73312447cbc0}\label{class_interval_tier_a27862a5cf994e21ec8db73312447cbc0}} 
+Q\+List$<$ \hyperlink{class_interval}{Interval} $\ast$ $>$ {\bfseries patch\+Text\+To\+Intervals\+Proportional} (const Q\+String\+List \&new\+Intervals\+Text, \hyperlink{struct_real_time}{Real\+Time} from, \hyperlink{struct_real_time}{Real\+Time} to)
+\item 
+\mbox{\Hypertarget{class_interval_tier_a83a898c0d4184204ca894d2b1c7c404f}\label{class_interval_tier_a83a898c0d4184204ca894d2b1c7c404f}} 
+bool {\bfseries move\+Boundary} (int index, \hyperlink{struct_real_time}{Real\+Time} time)
+\item 
+\mbox{\Hypertarget{class_interval_tier_a490b04a2ce00262d2d30e402e13727ba}\label{class_interval_tier_a490b04a2ce00262d2d30e402e13727ba}} 
+bool {\bfseries realign\+Intervals} (int index\+From, Q\+List$<$ \hyperlink{struct_real_time}{Real\+Time} $>$ \&new\+Boundaries)
+\item 
+\mbox{\Hypertarget{class_interval_tier_aa2da6ea20a453a2ca2ee016f2f19192f}\label{class_interval_tier_aa2da6ea20a453a2ca2ee016f2f19192f}} 
+bool {\bfseries modify\+Interval\+Duration} (int index, \hyperlink{struct_real_time}{Real\+Time} delta)
+\item 
+\mbox{\Hypertarget{class_interval_tier_aca34a65aa1aa27a8f327cbed2bfda532}\label{class_interval_tier_aca34a65aa1aa27a8f327cbed2bfda532}} 
+bool {\bfseries insert\+Interval} (int index, \hyperlink{class_interval}{Interval} $\ast$interval)
+\item 
+\mbox{\Hypertarget{class_interval_tier_a307f330261f6b3d8153b8a693fb73ea9}\label{class_interval_tier_a307f330261f6b3d8153b8a693fb73ea9}} 
+bool {\bfseries remove\+Interval} (int index)
+\item 
+\mbox{\Hypertarget{class_interval_tier_a38ed43425d063e2dc89ad4d3a3e8bc6a}\label{class_interval_tier_a38ed43425d063e2dc89ad4d3a3e8bc6a}} 
+Q\+List$<$ \hyperlink{struct_real_time}{Real\+Time} $>$ {\bfseries times} () const
+\item 
+\mbox{\Hypertarget{class_interval_tier_a0b77d05ae126b72a764dee668f6c1fb4}\label{class_interval_tier_a0b77d05ae126b72a764dee668f6c1fb4}} 
+Q\+List$<$ \hyperlink{struct_real_time}{Real\+Time} $>$ {\bfseries times\+Min} () const
+\item 
+\mbox{\Hypertarget{class_interval_tier_ace0807a2ff4fe2d151654e4b3222d3de}\label{class_interval_tier_ace0807a2ff4fe2d151654e4b3222d3de}} 
+Q\+List$<$ \hyperlink{struct_real_time}{Real\+Time} $>$ {\bfseries times\+Center} () const
+\item 
+\mbox{\Hypertarget{class_interval_tier_ae5dfecbbd39d8f7943c9b21affbbd867}\label{class_interval_tier_ae5dfecbbd39d8f7943c9b21affbbd867}} 
+Q\+List$<$ \hyperlink{struct_real_time}{Real\+Time} $>$ {\bfseries times\+Max} () const
+\item 
+\mbox{\Hypertarget{class_interval_tier_ad4969baec119e923c80e4de73f83f2f3}\label{class_interval_tier_ad4969baec119e923c80e4de73f83f2f3}} 
+void {\bfseries time\+Shift} (const \hyperlink{struct_real_time}{Real\+Time} delta)
+\item 
+\mbox{\Hypertarget{class_interval_tier_a54416a982e59f92f59819549eb547c70}\label{class_interval_tier_a54416a982e59f92f59819549eb547c70}} 
+bool {\bfseries move\+Tier\+End} (const \hyperlink{struct_real_time}{Real\+Time} time)
+\item 
+\mbox{\Hypertarget{class_interval_tier_a0b871174e03f5a9b67a9a433fedcde86}\label{class_interval_tier_a0b871174e03f5a9b67a9a433fedcde86}} 
+\hyperlink{struct_real_time}{Real\+Time} {\bfseries get\+Boundary\+Closest\+To} (const \hyperlink{struct_real_time}{Real\+Time} time\+Point) const
+\item 
+\mbox{\Hypertarget{class_interval_tier_a234cae5ac742b970b1996b931acc1173}\label{class_interval_tier_a234cae5ac742b970b1996b931acc1173}} 
+void {\bfseries fix\+Boundaries\+Based\+On\+Tier} (const \hyperlink{class_interval_tier}{Interval\+Tier} $\ast$correct\+Boundaries\+Tier, \hyperlink{struct_real_time}{Real\+Time} threshold=\hyperlink{struct_real_time}{Real\+Time}(0, 100000000))
+\item 
+\mbox{\Hypertarget{class_interval_tier_a98625c34c58b057e99e9dbb0dc0c1240}\label{class_interval_tier_a98625c34c58b057e99e9dbb0dc0c1240}} 
+void {\bfseries merge\+Identical\+Annotations} (const Q\+String \&text=Q\+String(), const Q\+String\+List \&ignore\+Intervening=Q\+String\+List())
+\item 
+\mbox{\Hypertarget{class_interval_tier_a08573e137d3040625645da133584d6f7}\label{class_interval_tier_a08573e137d3040625645da133584d6f7}} 
+void {\bfseries merge\+Contiguous\+Annotations} (const Q\+String\+List \&separators\+Of\+Intervals, const Q\+String \&separator\+When\+Merging)
+\item 
+\mbox{\Hypertarget{class_interval_tier_aed7640df18f45eebb84e8c2e6d88d9cf}\label{class_interval_tier_aed7640df18f45eebb84e8c2e6d88d9cf}} 
+Q\+Pair$<$ int, int $>$ {\bfseries get\+Interval\+Indexes\+Contained\+In} (const \hyperlink{struct_real_time}{Real\+Time} \&time\+Start, const \hyperlink{struct_real_time}{Real\+Time} \&time\+End) const
+\item 
+\mbox{\Hypertarget{class_interval_tier_aeec4f27d29d16c568cbe767178697834}\label{class_interval_tier_aeec4f27d29d16c568cbe767178697834}} 
+Q\+Pair$<$ int, int $>$ {\bfseries get\+Interval\+Indexes\+Contained\+In} (const \hyperlink{class_interval}{Interval} $\ast$container) const
+\item 
+\mbox{\Hypertarget{class_interval_tier_a864af2f1e7aa7255e2c8c7de05fbd768}\label{class_interval_tier_a864af2f1e7aa7255e2c8c7de05fbd768}} 
+Q\+List$<$ \hyperlink{class_interval}{Interval} $\ast$ $>$ {\bfseries get\+Intervals\+Contained\+In} (const \hyperlink{struct_real_time}{Real\+Time} \&time\+Start, const \hyperlink{struct_real_time}{Real\+Time} \&time\+End) const
+\item 
+\mbox{\Hypertarget{class_interval_tier_ade6bdc4567e2aa150111817992fe8112}\label{class_interval_tier_ade6bdc4567e2aa150111817992fe8112}} 
+Q\+List$<$ \hyperlink{class_interval}{Interval} $\ast$ $>$ {\bfseries get\+Intervals\+Contained\+In} (const \hyperlink{class_interval}{Interval} $\ast$container) const
+\item 
+\mbox{\Hypertarget{class_interval_tier_a66c7e91553d1f6a26d22a38417a83322}\label{class_interval_tier_a66c7e91553d1f6a26d22a38417a83322}} 
+Q\+String {\bfseries get\+Intervals\+Text\+Contained\+In} (const \hyperlink{struct_real_time}{Real\+Time} \&time\+Start, const \hyperlink{struct_real_time}{Real\+Time} \&time\+End, const Q\+String \&separator=\char`\"{} \char`\"{}) const
+\item 
+\mbox{\Hypertarget{class_interval_tier_a7e5e29d0684e9c3b192a2d4436bb6550}\label{class_interval_tier_a7e5e29d0684e9c3b192a2d4436bb6550}} 
+Q\+String {\bfseries get\+Intervals\+Text\+Contained\+In} (const \hyperlink{class_interval}{Interval} $\ast$container, const Q\+String \&separator=\char`\"{} \char`\"{}) const
+\item 
+\mbox{\Hypertarget{class_interval_tier_a0d9bfb0f1b17b8c89b1641eb2983639f}\label{class_interval_tier_a0d9bfb0f1b17b8c89b1641eb2983639f}} 
+Q\+Pair$<$ int, int $>$ {\bfseries get\+Interval\+Indexes\+Overlapping\+With} (const \hyperlink{struct_real_time}{Real\+Time} \&time\+Start, const \hyperlink{struct_real_time}{Real\+Time} \&time\+End, const \hyperlink{struct_real_time}{Real\+Time} \&threshold=\hyperlink{struct_real_time}{Real\+Time}()) const
+\item 
+\mbox{\Hypertarget{class_interval_tier_abc14969b590387aafe72a1df2e526f09}\label{class_interval_tier_abc14969b590387aafe72a1df2e526f09}} 
+Q\+Pair$<$ int, int $>$ {\bfseries get\+Interval\+Indexes\+Overlapping\+With} (const \hyperlink{class_interval}{Interval} $\ast$contained, const \hyperlink{struct_real_time}{Real\+Time} \&threshold=\hyperlink{struct_real_time}{Real\+Time}()) const
+\item 
+\mbox{\Hypertarget{class_interval_tier_aea818af16fb8dfe875b17776aacb9d71}\label{class_interval_tier_aea818af16fb8dfe875b17776aacb9d71}} 
+Q\+List$<$ \hyperlink{class_interval}{Interval} $\ast$ $>$ {\bfseries get\+Intervals\+Overlapping\+With} (const \hyperlink{struct_real_time}{Real\+Time} \&time\+Start, const \hyperlink{struct_real_time}{Real\+Time} \&time\+End, const \hyperlink{struct_real_time}{Real\+Time} \&threshold=\hyperlink{struct_real_time}{Real\+Time}()) const
+\item 
+\mbox{\Hypertarget{class_interval_tier_af9e8219e4f9f0c9a2507a511c9091d0c}\label{class_interval_tier_af9e8219e4f9f0c9a2507a511c9091d0c}} 
+Q\+List$<$ \hyperlink{class_interval}{Interval} $\ast$ $>$ {\bfseries get\+Intervals\+Overlapping\+With} (const \hyperlink{class_interval}{Interval} $\ast$contained, const \hyperlink{struct_real_time}{Real\+Time} \&threshold=\hyperlink{struct_real_time}{Real\+Time}()) const
+\item 
+\mbox{\Hypertarget{class_interval_tier_ab5611b4f6b3991a589dadd8064094196}\label{class_interval_tier_ab5611b4f6b3991a589dadd8064094196}} 
+Q\+String {\bfseries get\+Intervals\+Text\+Overlapping\+With} (const \hyperlink{struct_real_time}{Real\+Time} \&time\+Start, const \hyperlink{struct_real_time}{Real\+Time} \&time\+End, const \hyperlink{struct_real_time}{Real\+Time} \&threshold=\hyperlink{struct_real_time}{Real\+Time}(), const Q\+String \&separator=\char`\"{} \char`\"{}) const
+\item 
+\mbox{\Hypertarget{class_interval_tier_a91e555792d025710ffa1f4fdb923cb17}\label{class_interval_tier_a91e555792d025710ffa1f4fdb923cb17}} 
+Q\+String {\bfseries get\+Intervals\+Text\+Overlapping\+With} (const \hyperlink{class_interval}{Interval} $\ast$contained, const \hyperlink{struct_real_time}{Real\+Time} \&threshold=\hyperlink{struct_real_time}{Real\+Time}(), const Q\+String \&separator=\char`\"{} \char`\"{}) const
+\item 
+\mbox{\Hypertarget{class_interval_tier_a46826e0ad403f908d0cb16079a3cde88}\label{class_interval_tier_a46826e0ad403f908d0cb16079a3cde88}} 
+\hyperlink{class_interval_tier}{Interval\+Tier} $\ast$ {\bfseries get\+Interval\+Tier\+With\+Attribute\+As\+Text} (const Q\+String \&attribute\+ID) const
+\item 
+\mbox{\Hypertarget{class_interval_tier_a68d9ab34e62cc0794ac0c05aaa924773}\label{class_interval_tier_a68d9ab34e62cc0794ac0c05aaa924773}} 
+\hyperlink{class_interval_tier}{Interval\+Tier} $\ast$ {\bfseries get\+Interval\+Tier\+Subset} (const \hyperlink{struct_real_time}{Real\+Time} \&time\+Start, const \hyperlink{struct_real_time}{Real\+Time} \&time\+End) const
+\item 
+\mbox{\Hypertarget{class_interval_tier_a5649704aea8fb892b4292f63579b7255}\label{class_interval_tier_a5649704aea8fb892b4292f63579b7255}} 
+\hyperlink{class_point_tier}{Point\+Tier} $\ast$ {\bfseries get\+Points\+Min} (const Q\+String \&name, Q\+Object $\ast$parent=nullptr)
+\item 
+\mbox{\Hypertarget{class_interval_tier_a3887a5eda4003c6e6ea9af505440bc2e}\label{class_interval_tier_a3887a5eda4003c6e6ea9af505440bc2e}} 
+\hyperlink{class_point_tier}{Point\+Tier} $\ast$ {\bfseries get\+Points\+Max} (const Q\+String \&name, Q\+Object $\ast$parent=nullptr)
+\item 
+\mbox{\Hypertarget{class_interval_tier_a55d75f3975157a729fec53636d55b804}\label{class_interval_tier_a55d75f3975157a729fec53636d55b804}} 
+void {\bfseries set\+I\+O\+B\+Annotation\+Attribute} (const Q\+String \&attribute, const \hyperlink{class_interval_tier}{Interval\+Tier} $\ast$tier\+Annotation)
+\item 
+\mbox{\Hypertarget{class_interval_tier_a07c4552cee865a0e350ade8d15e481f9}\label{class_interval_tier_a07c4552cee865a0e350ade8d15e481f9}} 
+Q\+String {\bfseries get\+Intervals\+Text} (int index\+Start, int index\+End, const Q\+String \&separator=\char`\"{} \char`\"{}) const
+\item 
+\mbox{\Hypertarget{class_interval_tier_a80b8d5dae4b0a9a3a665348e70303347}\label{class_interval_tier_a80b8d5dae4b0a9a3a665348e70303347}} 
+Q\+String {\bfseries get\+Intervals\+Text} (\hyperlink{struct_real_time}{Real\+Time} time\+Start, \hyperlink{struct_real_time}{Real\+Time} time\+End, const Q\+String \&separator=\char`\"{} \char`\"{}) const
+\item 
+\mbox{\Hypertarget{class_interval_tier_a5048492c99916a64d3ba16995a1211ba}\label{class_interval_tier_a5048492c99916a64d3ba16995a1211ba}} 
+Q\+List$<$ \hyperlink{class_interval}{Interval} $\ast$ $>$ {\bfseries get\+Context} (int index, int delta) const
+\item 
+\mbox{\Hypertarget{class_interval_tier_ab0c3bfc0857e043eb49c21ac81f5a0cc}\label{class_interval_tier_ab0c3bfc0857e043eb49c21ac81f5a0cc}} 
+Q\+List$<$ \hyperlink{class_interval}{Interval} $\ast$ $>$ {\bfseries get\+Context} (int index, \hyperlink{struct_real_time}{Real\+Time} delta) const
+\item 
+\mbox{\Hypertarget{class_interval_tier_ad0c4c402ea77dd78277bd519c9439e16}\label{class_interval_tier_ad0c4c402ea77dd78277bd519c9439e16}} 
+Q\+String {\bfseries get\+Context\+Symmetric\+Formated} (int index, int delta, const Q\+String \&sep=\char`\"{} \char`\"{}, const Q\+String \&left=\char`\"{}$<$\char`\"{}, const Q\+String \&right=\char`\"{}$>$\char`\"{}) const
+\item 
+\mbox{\Hypertarget{class_interval_tier_ac72c11e214170e744f5f101565401d71}\label{class_interval_tier_ac72c11e214170e744f5f101565401d71}} 
+\hyperlink{class_interval_tier}{Interval\+Tier} $\ast$ {\bfseries clone} (const Q\+String \&name=Q\+String(), Q\+Object $\ast$parent=nullptr) const
+\item 
+\mbox{\Hypertarget{class_interval_tier_ad6819cf8271b097fb4bfcec96366a021}\label{class_interval_tier_ad6819cf8271b097fb4bfcec96366a021}} 
+\hyperlink{class_interval_tier}{Interval\+Tier} $\ast$ {\bfseries clone\+Without\+Attributes} (const Q\+String \&name=Q\+String(), Q\+Object $\ast$parent=nullptr) const
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_interval_tier_aa0f89a5331f6f83e4e811895ff712d6f}\label{class_interval_tier_aa0f89a5331f6f83e4e811895ff712d6f}} 
+static \hyperlink{class_interval_tier}{Interval\+Tier} $\ast$ {\bfseries multiplex} (const Q\+String \&name, const \hyperlink{class_interval_tier}{Interval\+Tier} $\ast$tierA, const \hyperlink{class_interval_tier}{Interval\+Tier} $\ast$tierB, const Q\+String \&textA, const Q\+String \&textB, const Q\+String \&text\+AB, Q\+Object $\ast$parent=nullptr)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_interval_tier_aade0f16b8c6310487a53692952007a72}\label{class_interval_tier_aade0f16b8c6310487a53692952007a72}} 
+Q\+List$<$ \hyperlink{class_interval}{Interval} $\ast$ $>$ {\bfseries m\+\_\+intervals}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/annotation/Interval\+Tier.\+h\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/annotation/Interval\+Tier.\+cpp\end{DoxyCompactItemize}

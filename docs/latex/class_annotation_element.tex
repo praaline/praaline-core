@@ -1,0 +1,331 @@
+\hypertarget{class_annotation_element}{}\section{Annotation\+Element Class Reference}
+\label{class_annotation_element}\index{Annotation\+Element@{Annotation\+Element}}
+
+
+The \hyperlink{class_annotation_element}{Annotation\+Element} class.  
+
+
+
+
+{\ttfamily \#include $<$Annotation\+Element.\+h$>$}
+
+Inheritance diagram for Annotation\+Element\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_annotation_element}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_annotation_element_af5282990ffbe25eeea8ab02037e344b0}\label{class_annotation_element_af5282990ffbe25eeea8ab02037e344b0}} 
+enum \hyperlink{class_annotation_element_af5282990ffbe25eeea8ab02037e344b0}{Element\+Type} \{ \newline
+{\bfseries Type\+\_\+\+Element}, 
+{\bfseries Type\+\_\+\+Point}, 
+{\bfseries Type\+\_\+\+Interval}, 
+{\bfseries Type\+\_\+\+Sequence}, 
+\newline
+{\bfseries Type\+\_\+\+Relation}
+ \}\begin{DoxyCompactList}\small\item\em The Element\+Type enum. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_annotation_element_a8a7015a798a7b3dba1f55ab5482db2be}\label{class_annotation_element_a8a7015a798a7b3dba1f55ab5482db2be}} 
+\hyperlink{class_annotation_element_a8a7015a798a7b3dba1f55ab5482db2be}{Annotation\+Element} ()
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_annotation_element}{Annotation\+Element}. \end{DoxyCompactList}\item 
+\hyperlink{class_annotation_element_a77b837f3d7eb7d450b1aca83765a488f}{Annotation\+Element} (const Q\+String \&\hyperlink{class_annotation_element_aa59bd98501e3882990681f6aff2ee863}{text})
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_annotation_element}{Annotation\+Element}. \end{DoxyCompactList}\item 
+\hyperlink{class_annotation_element_a12c2571e880beacafbceadb16b6bd0bb}{Annotation\+Element} (const Q\+String \&\hyperlink{class_annotation_element_aa59bd98501e3882990681f6aff2ee863}{text}, const Q\+Hash$<$ Q\+String, Q\+Variant $>$ \&\hyperlink{class_annotation_element_a58082d92f50c4fde2d18ce24ef3fd283}{attributes})
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_annotation_element}{Annotation\+Element}. \end{DoxyCompactList}\item 
+\hyperlink{class_annotation_element_a9add1ee0c531f6b65743e691a42991fe}{Annotation\+Element} (const \hyperlink{class_annotation_element}{Annotation\+Element} \&other)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_annotation_element}{Annotation\+Element}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_annotation_element_a289fc117206f35b038a4aaa5c335aba3}\label{class_annotation_element_a289fc117206f35b038a4aaa5c335aba3}} 
+virtual \hyperlink{class_annotation_element_a289fc117206f35b038a4aaa5c335aba3}{$\sim$\+Annotation\+Element} () override
+\begin{DoxyCompactList}\small\item\em $\sim$\+Annotation\+Element \end{DoxyCompactList}\item 
+virtual \hyperlink{class_annotation_element_af5282990ffbe25eeea8ab02037e344b0}{Element\+Type} \hyperlink{class_annotation_element_a9b2d5cf05a2f81d9b2103a5c736dfb2d}{element\+Type} () const
+\begin{DoxyCompactList}\small\item\em element\+Type \end{DoxyCompactList}\item 
+virtual Q\+String \hyperlink{class_annotation_element_aa59bd98501e3882990681f6aff2ee863}{text} () const
+\begin{DoxyCompactList}\small\item\em text \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_annotation_element_a67b28559349cd0ca84d47f629ee4ee45}{set\+Text} (const Q\+String \&\hyperlink{class_annotation_element_aa59bd98501e3882990681f6aff2ee863}{text})
+\begin{DoxyCompactList}\small\item\em set\+Text \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_annotation_element_aefb0498f0c301d7c1f04ba2d32397f7c}{append\+Text} (const Q\+String \&appended\+Text)
+\begin{DoxyCompactList}\small\item\em append\+Text \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_annotation_element_a6ea70bff6f981c1d6014579d4c7fc680}{replace\+Text} (const Q\+String \&before, const Q\+String \&after, Qt\+::\+Case\+Sensitivity cs=Qt\+::\+Case\+Sensitive)
+\begin{DoxyCompactList}\small\item\em replace\+Text \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_annotation_element_aafa5f3ee2d42db969bafb453e16c35b3}{replace\+Attribute\+Text} (const Q\+String \&attribute\+ID, const Q\+String \&before, const Q\+String \&after, Qt\+::\+Case\+Sensitivity cs=Qt\+::\+Case\+Sensitive)
+\begin{DoxyCompactList}\small\item\em replace\+Attribute\+Text \end{DoxyCompactList}\item 
+virtual Q\+Variant \hyperlink{class_annotation_element_a55f85fb15ed52122653b0769c857899c}{attribute} (const Q\+String \&name) const
+\begin{DoxyCompactList}\small\item\em attribute \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_annotation_element_a206d8790fe92a7c8e6b703d026836584}{set\+Attribute} (const Q\+String \&name, Q\+Variant value)
+\begin{DoxyCompactList}\small\item\em set\+Attribute \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_annotation_element_a0acb66aa65f201880286d82dda4d82bf}{remove\+Attribute} (const Q\+String \&name)
+\begin{DoxyCompactList}\small\item\em remove\+Attribute \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_annotation_element_af81f11a7d19f09e28a73cc3af49fd128}\label{class_annotation_element_af81f11a7d19f09e28a73cc3af49fd128}} 
+virtual void \hyperlink{class_annotation_element_af81f11a7d19f09e28a73cc3af49fd128}{clear\+Attributes} ()
+\begin{DoxyCompactList}\small\item\em clear\+Attributes \end{DoxyCompactList}\item 
+virtual Q\+Hash$<$ Q\+String, Q\+Variant $>$ \hyperlink{class_annotation_element_a58082d92f50c4fde2d18ce24ef3fd283}{attributes} () const
+\begin{DoxyCompactList}\small\item\em attributes \end{DoxyCompactList}\item 
+virtual Q\+List$<$ Q\+String $>$ \hyperlink{class_annotation_element_ab28b90d83a5fdf7d150df32871f43ce8}{attribute\+Names} () const
+\begin{DoxyCompactList}\small\item\em attribute\+Names \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_annotation_element_a4b8247dab4ac0617a86efeb83dd81b3d}\label{class_annotation_element_a4b8247dab4ac0617a86efeb83dd81b3d}} 
+Q\+String {\bfseries m\+\_\+text}
+\item 
+\mbox{\Hypertarget{class_annotation_element_afb3291121c572b7f2a08f7cf866fa553}\label{class_annotation_element_afb3291121c572b7f2a08f7cf866fa553}} 
+Q\+Variant\+Hash {\bfseries m\+\_\+attributes}
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_annotation_element_a2a64bb821e0fcc1c90c808ce5a2eb6ef}\label{class_annotation_element_a2a64bb821e0fcc1c90c808ce5a2eb6ef}} 
+class {\bfseries Annotation\+Tier}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{class_annotation_element}{Annotation\+Element} class. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_annotation_element_a77b837f3d7eb7d450b1aca83765a488f}\label{class_annotation_element_a77b837f3d7eb7d450b1aca83765a488f}} 
+\index{Annotation\+Element@{Annotation\+Element}!Annotation\+Element@{Annotation\+Element}}
+\index{Annotation\+Element@{Annotation\+Element}!Annotation\+Element@{Annotation\+Element}}
+\subsubsection{\texorpdfstring{Annotation\+Element()}{AnnotationElement()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Annotation\+Element\+::\+Annotation\+Element (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{text }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+\hyperlink{class_annotation_element}{Annotation\+Element}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_annotation_element_a12c2571e880beacafbceadb16b6bd0bb}\label{class_annotation_element_a12c2571e880beacafbceadb16b6bd0bb}} 
+\index{Annotation\+Element@{Annotation\+Element}!Annotation\+Element@{Annotation\+Element}}
+\index{Annotation\+Element@{Annotation\+Element}!Annotation\+Element@{Annotation\+Element}}
+\subsubsection{\texorpdfstring{Annotation\+Element()}{AnnotationElement()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Annotation\+Element\+::\+Annotation\+Element (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{text,  }\item[{const Q\+Hash$<$ Q\+String, Q\+Variant $>$ \&}]{attributes }\end{DoxyParamCaption})}
+
+
+
+\hyperlink{class_annotation_element}{Annotation\+Element}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & \\
+\hline
+{\em attributes} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_annotation_element_a9add1ee0c531f6b65743e691a42991fe}\label{class_annotation_element_a9add1ee0c531f6b65743e691a42991fe}} 
+\index{Annotation\+Element@{Annotation\+Element}!Annotation\+Element@{Annotation\+Element}}
+\index{Annotation\+Element@{Annotation\+Element}!Annotation\+Element@{Annotation\+Element}}
+\subsubsection{\texorpdfstring{Annotation\+Element()}{AnnotationElement()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Annotation\+Element\+::\+Annotation\+Element (\begin{DoxyParamCaption}\item[{const \hyperlink{class_annotation_element}{Annotation\+Element} \&}]{other }\end{DoxyParamCaption})}
+
+
+
+\hyperlink{class_annotation_element}{Annotation\+Element}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_annotation_element_aefb0498f0c301d7c1f04ba2d32397f7c}\label{class_annotation_element_aefb0498f0c301d7c1f04ba2d32397f7c}} 
+\index{Annotation\+Element@{Annotation\+Element}!append\+Text@{append\+Text}}
+\index{append\+Text@{append\+Text}!Annotation\+Element@{Annotation\+Element}}
+\subsubsection{\texorpdfstring{append\+Text()}{appendText()}}
+{\footnotesize\ttfamily virtual void Annotation\+Element\+::append\+Text (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{appended\+Text }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+append\+Text 
+
+
+\begin{DoxyParams}{Parameters}
+{\em appended\+Text} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_annotation_element_a55f85fb15ed52122653b0769c857899c}\label{class_annotation_element_a55f85fb15ed52122653b0769c857899c}} 
+\index{Annotation\+Element@{Annotation\+Element}!attribute@{attribute}}
+\index{attribute@{attribute}!Annotation\+Element@{Annotation\+Element}}
+\subsubsection{\texorpdfstring{attribute()}{attribute()}}
+{\footnotesize\ttfamily virtual Q\+Variant Annotation\+Element\+::attribute (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{name }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+attribute 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented in \hyperlink{class_interval_aebcaee36c1adf49669d8a0faa16a335f}{Interval}, \hyperlink{class_sequence_a415f655b5985fa47499a7f665ce7c2d4}{Sequence}, \hyperlink{class_relation_a424ac3f46c1a62f2f72592dcf10d1f1e}{Relation}, and \hyperlink{class_point_a0ff561e393cdf7475126b96de6106d12}{Point}.
+
+\mbox{\Hypertarget{class_annotation_element_ab28b90d83a5fdf7d150df32871f43ce8}\label{class_annotation_element_ab28b90d83a5fdf7d150df32871f43ce8}} 
+\index{Annotation\+Element@{Annotation\+Element}!attribute\+Names@{attribute\+Names}}
+\index{attribute\+Names@{attribute\+Names}!Annotation\+Element@{Annotation\+Element}}
+\subsubsection{\texorpdfstring{attribute\+Names()}{attributeNames()}}
+{\footnotesize\ttfamily virtual Q\+List$<$Q\+String$>$ Annotation\+Element\+::attribute\+Names (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+attribute\+Names 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_annotation_element_a58082d92f50c4fde2d18ce24ef3fd283}\label{class_annotation_element_a58082d92f50c4fde2d18ce24ef3fd283}} 
+\index{Annotation\+Element@{Annotation\+Element}!attributes@{attributes}}
+\index{attributes@{attributes}!Annotation\+Element@{Annotation\+Element}}
+\subsubsection{\texorpdfstring{attributes()}{attributes()}}
+{\footnotesize\ttfamily virtual Q\+Hash$<$Q\+String, Q\+Variant$>$ Annotation\+Element\+::attributes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+attributes 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_annotation_element_a9b2d5cf05a2f81d9b2103a5c736dfb2d}\label{class_annotation_element_a9b2d5cf05a2f81d9b2103a5c736dfb2d}} 
+\index{Annotation\+Element@{Annotation\+Element}!element\+Type@{element\+Type}}
+\index{element\+Type@{element\+Type}!Annotation\+Element@{Annotation\+Element}}
+\subsubsection{\texorpdfstring{element\+Type()}{elementType()}}
+{\footnotesize\ttfamily virtual \hyperlink{class_annotation_element_af5282990ffbe25eeea8ab02037e344b0}{Element\+Type} Annotation\+Element\+::element\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+element\+Type 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented in \hyperlink{class_interval_a3ea5342504df09262d59cd2ab1658804}{Interval}, \hyperlink{class_sequence_a09f57e396cbb4a9de8caa81ca3b96ad1}{Sequence}, \hyperlink{class_relation_a31e74e5707090aedfa225289b06683f4}{Relation}, and \hyperlink{class_point_ac576e4660a79cf5bbffa4591a22d2a28}{Point}.
+
+\mbox{\Hypertarget{class_annotation_element_a0acb66aa65f201880286d82dda4d82bf}\label{class_annotation_element_a0acb66aa65f201880286d82dda4d82bf}} 
+\index{Annotation\+Element@{Annotation\+Element}!remove\+Attribute@{remove\+Attribute}}
+\index{remove\+Attribute@{remove\+Attribute}!Annotation\+Element@{Annotation\+Element}}
+\subsubsection{\texorpdfstring{remove\+Attribute()}{removeAttribute()}}
+{\footnotesize\ttfamily virtual void Annotation\+Element\+::remove\+Attribute (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+remove\+Attribute 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_annotation_element_aafa5f3ee2d42db969bafb453e16c35b3}\label{class_annotation_element_aafa5f3ee2d42db969bafb453e16c35b3}} 
+\index{Annotation\+Element@{Annotation\+Element}!replace\+Attribute\+Text@{replace\+Attribute\+Text}}
+\index{replace\+Attribute\+Text@{replace\+Attribute\+Text}!Annotation\+Element@{Annotation\+Element}}
+\subsubsection{\texorpdfstring{replace\+Attribute\+Text()}{replaceAttributeText()}}
+{\footnotesize\ttfamily virtual void Annotation\+Element\+::replace\+Attribute\+Text (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{attribute\+ID,  }\item[{const Q\+String \&}]{before,  }\item[{const Q\+String \&}]{after,  }\item[{Qt\+::\+Case\+Sensitivity}]{cs = {\ttfamily Qt\+:\+:CaseSensitive} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+replace\+Attribute\+Text 
+
+
+\begin{DoxyParams}{Parameters}
+{\em attribute\+ID} & \\
+\hline
+{\em before} & \\
+\hline
+{\em after} & \\
+\hline
+{\em cs} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_annotation_element_a6ea70bff6f981c1d6014579d4c7fc680}\label{class_annotation_element_a6ea70bff6f981c1d6014579d4c7fc680}} 
+\index{Annotation\+Element@{Annotation\+Element}!replace\+Text@{replace\+Text}}
+\index{replace\+Text@{replace\+Text}!Annotation\+Element@{Annotation\+Element}}
+\subsubsection{\texorpdfstring{replace\+Text()}{replaceText()}}
+{\footnotesize\ttfamily virtual void Annotation\+Element\+::replace\+Text (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{before,  }\item[{const Q\+String \&}]{after,  }\item[{Qt\+::\+Case\+Sensitivity}]{cs = {\ttfamily Qt\+:\+:CaseSensitive} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+replace\+Text 
+
+
+\begin{DoxyParams}{Parameters}
+{\em before} & \\
+\hline
+{\em after} & \\
+\hline
+{\em cs} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_annotation_element_a206d8790fe92a7c8e6b703d026836584}\label{class_annotation_element_a206d8790fe92a7c8e6b703d026836584}} 
+\index{Annotation\+Element@{Annotation\+Element}!set\+Attribute@{set\+Attribute}}
+\index{set\+Attribute@{set\+Attribute}!Annotation\+Element@{Annotation\+Element}}
+\subsubsection{\texorpdfstring{set\+Attribute()}{setAttribute()}}
+{\footnotesize\ttfamily virtual void Annotation\+Element\+::set\+Attribute (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{name,  }\item[{Q\+Variant}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+set\+Attribute 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+{\em value} & \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \hyperlink{class_interval_a0895204effc21e1f4ead9b78b4b9726f}{Interval}, \hyperlink{class_sequence_a0c573124c566aa3a28c63fb362f58c6b}{Sequence}, \hyperlink{class_relation_ae669645f5fc531a6118d68b51a4d64df}{Relation}, and \hyperlink{class_point_a997cc0d524866e257f58ef9a3e82a432}{Point}.
+
+\mbox{\Hypertarget{class_annotation_element_a67b28559349cd0ca84d47f629ee4ee45}\label{class_annotation_element_a67b28559349cd0ca84d47f629ee4ee45}} 
+\index{Annotation\+Element@{Annotation\+Element}!set\+Text@{set\+Text}}
+\index{set\+Text@{set\+Text}!Annotation\+Element@{Annotation\+Element}}
+\subsubsection{\texorpdfstring{set\+Text()}{setText()}}
+{\footnotesize\ttfamily virtual void Annotation\+Element\+::set\+Text (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{text }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+set\+Text 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_annotation_element_aa59bd98501e3882990681f6aff2ee863}\label{class_annotation_element_aa59bd98501e3882990681f6aff2ee863}} 
+\index{Annotation\+Element@{Annotation\+Element}!text@{text}}
+\index{text@{text}!Annotation\+Element@{Annotation\+Element}}
+\subsubsection{\texorpdfstring{text()}{text()}}
+{\footnotesize\ttfamily virtual Q\+String Annotation\+Element\+::text (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+text 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/annotation/Annotation\+Element.\+h\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/annotation/Annotation\+Element.\+cpp\end{DoxyCompactItemize}

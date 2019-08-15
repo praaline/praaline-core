@@ -1,0 +1,126 @@
+\hypertarget{class_sequence}{}\section{Sequence Class Reference}
+\label{class_sequence}\index{Sequence@{Sequence}}
+Inheritance diagram for Sequence\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_sequence}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sequence_a7b62d42c5c2d9662fd1549229e518d3d}\label{class_sequence_a7b62d42c5c2d9662fd1549229e518d3d}} 
+{\bfseries Sequence} (int index\+From, int index\+To, const Q\+String \&\hyperlink{class_annotation_element_aa59bd98501e3882990681f6aff2ee863}{text}=Q\+String(), const Q\+Hash$<$ Q\+String, Q\+Variant $>$ \&\hyperlink{class_annotation_element_a58082d92f50c4fde2d18ce24ef3fd283}{attributes}=Q\+Hash$<$ Q\+String, Q\+Variant $>$())
+\item 
+\mbox{\Hypertarget{class_sequence_ae106d2fd1e8a2858e30412d4803e22f4}\label{class_sequence_ae106d2fd1e8a2858e30412d4803e22f4}} 
+{\bfseries Sequence} (const \hyperlink{class_sequence}{Sequence} \&copy)
+\item 
+\mbox{\Hypertarget{class_sequence_a0f33fb453d2679fa023138aff62bba9c}\label{class_sequence_a0f33fb453d2679fa023138aff62bba9c}} 
+\hyperlink{class_sequence}{Sequence} $\ast$ {\bfseries clone} ()
+\item 
+\mbox{\Hypertarget{class_sequence_a3056f0993ce983f93b5fb489c81a350b}\label{class_sequence_a3056f0993ce983f93b5fb489c81a350b}} 
+\hyperlink{class_sequence}{Sequence} $\ast$ {\bfseries clone\+Without\+Attributes} ()
+\item 
+\mbox{\Hypertarget{class_sequence_a12dd06fab447e2dc5662b452c0397c4c}\label{class_sequence_a12dd06fab447e2dc5662b452c0397c4c}} 
+int {\bfseries index\+From} () const
+\item 
+\mbox{\Hypertarget{class_sequence_a996e9ce8e75718b6c5d385d3d5c44e16}\label{class_sequence_a996e9ce8e75718b6c5d385d3d5c44e16}} 
+int {\bfseries index\+To} () const
+\item 
+\mbox{\Hypertarget{class_sequence_ae56ca4ca9c4e02dc83810c733870f8e9}\label{class_sequence_ae56ca4ca9c4e02dc83810c733870f8e9}} 
+int {\bfseries length} () const
+\item 
+virtual Q\+Variant \hyperlink{class_sequence_a415f655b5985fa47499a7f665ce7c2d4}{attribute} (const Q\+String \&name) const override
+\begin{DoxyCompactList}\small\item\em attribute \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_sequence_a0c573124c566aa3a28c63fb362f58c6b}{set\+Attribute} (const Q\+String \&name, Q\+Variant value) override
+\begin{DoxyCompactList}\small\item\em set\+Attribute \end{DoxyCompactList}\item 
+virtual \hyperlink{class_annotation_element_af5282990ffbe25eeea8ab02037e344b0}{Element\+Type} \hyperlink{class_sequence_a09f57e396cbb4a9de8caa81ca3b96ad1}{element\+Type} () const override
+\begin{DoxyCompactList}\small\item\em element\+Type \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_sequence_ac60a029ededf52b751ca6816d9bcc6a8}\label{class_sequence_ac60a029ededf52b751ca6816d9bcc6a8}} 
+int {\bfseries compare} (const \hyperlink{class_sequence}{Sequence} \&other) const
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sequence_ad5343489162de6c1e2f6f141f9e46176}\label{class_sequence_ad5343489162de6c1e2f6f141f9e46176}} 
+int {\bfseries m\+\_\+index\+From}
+\item 
+\mbox{\Hypertarget{class_sequence_a1a9b44ccaf29fe0be09aa981801af36e}\label{class_sequence_a1a9b44ccaf29fe0be09aa981801af36e}} 
+int {\bfseries m\+\_\+index\+To}
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sequence_a6781e2c8fe5fcdb7684545a10e8f28a0}\label{class_sequence_a6781e2c8fe5fcdb7684545a10e8f28a0}} 
+class {\bfseries Sequence\+Tier}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_sequence_a415f655b5985fa47499a7f665ce7c2d4}\label{class_sequence_a415f655b5985fa47499a7f665ce7c2d4}} 
+\index{Sequence@{Sequence}!attribute@{attribute}}
+\index{attribute@{attribute}!Sequence@{Sequence}}
+\subsubsection{\texorpdfstring{attribute()}{attribute()}}
+{\footnotesize\ttfamily Q\+Variant Sequence\+::attribute (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{name }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+attribute 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{class_annotation_element_a55f85fb15ed52122653b0769c857899c}{Annotation\+Element}.
+
+\mbox{\Hypertarget{class_sequence_a09f57e396cbb4a9de8caa81ca3b96ad1}\label{class_sequence_a09f57e396cbb4a9de8caa81ca3b96ad1}} 
+\index{Sequence@{Sequence}!element\+Type@{element\+Type}}
+\index{element\+Type@{element\+Type}!Sequence@{Sequence}}
+\subsubsection{\texorpdfstring{element\+Type()}{elementType()}}
+{\footnotesize\ttfamily virtual \hyperlink{class_annotation_element_af5282990ffbe25eeea8ab02037e344b0}{Element\+Type} Sequence\+::element\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+element\+Type 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{class_annotation_element_a9b2d5cf05a2f81d9b2103a5c736dfb2d}{Annotation\+Element}.
+
+\mbox{\Hypertarget{class_sequence_a0c573124c566aa3a28c63fb362f58c6b}\label{class_sequence_a0c573124c566aa3a28c63fb362f58c6b}} 
+\index{Sequence@{Sequence}!set\+Attribute@{set\+Attribute}}
+\index{set\+Attribute@{set\+Attribute}!Sequence@{Sequence}}
+\subsubsection{\texorpdfstring{set\+Attribute()}{setAttribute()}}
+{\footnotesize\ttfamily void Sequence\+::set\+Attribute (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{name,  }\item[{Q\+Variant}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+set\+Attribute 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+{\em value} & \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{class_annotation_element_a206d8790fe92a7c8e6b703d026836584}{Annotation\+Element}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/annotation/Sequence.\+h\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/annotation/Sequence.\+cpp\end{DoxyCompactItemize}

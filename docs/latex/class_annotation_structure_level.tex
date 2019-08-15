@@ -1,0 +1,112 @@
+\hypertarget{class_annotation_structure_level}{}\section{Annotation\+Structure\+Level Class Reference}
+\label{class_annotation_structure_level}\index{Annotation\+Structure\+Level@{Annotation\+Structure\+Level}}
+Inheritance diagram for Annotation\+Structure\+Level\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_annotation_structure_level}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_annotation_structure_level_afc285006c7e5eb38d34b4099893cb7f5}\label{class_annotation_structure_level_afc285006c7e5eb38d34b4099893cb7f5}} 
+enum {\bfseries Level\+Type} \{ \newline
+{\bfseries Independent\+Points\+Level} = 10, 
+{\bfseries Independent\+Intervals\+Level} = 20, 
+{\bfseries Grouping\+Level} = 30, 
+{\bfseries Sequences\+Level} = 40, 
+\newline
+{\bfseries Tree\+Level} = 50, 
+{\bfseries Relations\+Level} = 60
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_annotation_structure_level_a3d27dbadf04532e73024a2c9cd94a2da}\label{class_annotation_structure_level_a3d27dbadf04532e73024a2c9cd94a2da}} 
+{\bfseries Annotation\+Structure\+Level} (Q\+Object $\ast$parent=nullptr)
+\item 
+\mbox{\Hypertarget{class_annotation_structure_level_ab85043cd1f2e34a92fa205b97ef58ad5}\label{class_annotation_structure_level_ab85043cd1f2e34a92fa205b97ef58ad5}} 
+{\bfseries Annotation\+Structure\+Level} (const Q\+String \&ID, Level\+Type type=Independent\+Intervals\+Level, const Q\+String \&name=Q\+String(), const Q\+String \&description=Q\+String(), const Q\+String \&parent\+Level\+ID=Q\+String(), const \hyperlink{class_data_type}{Data\+Type} \&datatype=\hyperlink{class_data_type}{Data\+Type}(\hyperlink{class_data_type_a8df455d8d3949b604fbb2967dfeff239a160c768176611f2649889e252c756539}{Data\+Type\+::\+Var\+Char}, 1024), int order=0, bool indexed=false, const Q\+String \&name\+Value\+List=Q\+String(), Q\+Object $\ast$parent=nullptr)
+\item 
+\mbox{\Hypertarget{class_annotation_structure_level_aa69940d5dd044fed5a848788633e3573}\label{class_annotation_structure_level_aa69940d5dd044fed5a848788633e3573}} 
+Level\+Type {\bfseries level\+Type} () const
+\item 
+\mbox{\Hypertarget{class_annotation_structure_level_acdac30a3532497e2995c4f7d0055476c}\label{class_annotation_structure_level_acdac30a3532497e2995c4f7d0055476c}} 
+bool {\bfseries is\+Level\+Type\+Primary} () const
+\item 
+\mbox{\Hypertarget{class_annotation_structure_level_aee293305035809bcd57a3476912f7784}\label{class_annotation_structure_level_aee293305035809bcd57a3476912f7784}} 
+void {\bfseries set\+Level\+Type} (Level\+Type type)
+\item 
+\mbox{\Hypertarget{class_annotation_structure_level_a56eb69db99dbafbe878a84a59a97645b}\label{class_annotation_structure_level_a56eb69db99dbafbe878a84a59a97645b}} 
+Q\+String {\bfseries parent\+Level\+ID} () const
+\item 
+\mbox{\Hypertarget{class_annotation_structure_level_ae076985df9a024cab28a357d96ddbeed}\label{class_annotation_structure_level_ae076985df9a024cab28a357d96ddbeed}} 
+void {\bfseries set\+Parent\+Level\+ID} (const Q\+String \&parent\+Level\+ID)
+\item 
+\mbox{\Hypertarget{class_annotation_structure_level_aaa843ffde9f31c28052263fb6ef4f9e0}\label{class_annotation_structure_level_aaa843ffde9f31c28052263fb6ef4f9e0}} 
+Q\+Pointer$<$ \hyperlink{class_annotation_structure_attribute}{Annotation\+Structure\+Attribute} $>$ {\bfseries attribute} (int index) const
+\item 
+\mbox{\Hypertarget{class_annotation_structure_level_a096ca66fca9d2226bbbb7558518587d1}\label{class_annotation_structure_level_a096ca66fca9d2226bbbb7558518587d1}} 
+Q\+Pointer$<$ \hyperlink{class_annotation_structure_attribute}{Annotation\+Structure\+Attribute} $>$ {\bfseries attribute} (const Q\+String \&ID) const
+\item 
+\mbox{\Hypertarget{class_annotation_structure_level_af679873831d05ade95e7d7587b5e1dcc}\label{class_annotation_structure_level_af679873831d05ade95e7d7587b5e1dcc}} 
+int {\bfseries attribute\+Index\+By\+ID} (const Q\+String \&ID) const
+\item 
+\mbox{\Hypertarget{class_annotation_structure_level_a726491c28b63f3140c9c1e2f6e6c0c2a}\label{class_annotation_structure_level_a726491c28b63f3140c9c1e2f6e6c0c2a}} 
+int {\bfseries attributes\+Count} () const
+\item 
+\mbox{\Hypertarget{class_annotation_structure_level_af1b1599c8048b257293c34c8390658d5}\label{class_annotation_structure_level_af1b1599c8048b257293c34c8390658d5}} 
+bool {\bfseries has\+Attributes} () const
+\item 
+\mbox{\Hypertarget{class_annotation_structure_level_a041f830775922af4ea907d070a039080}\label{class_annotation_structure_level_a041f830775922af4ea907d070a039080}} 
+bool {\bfseries has\+Attribute} (const Q\+String \&ID)
+\item 
+\mbox{\Hypertarget{class_annotation_structure_level_ada820074c9207c1601100c92f5d9796b}\label{class_annotation_structure_level_ada820074c9207c1601100c92f5d9796b}} 
+Q\+String\+List {\bfseries attribute\+I\+Ds} () const
+\item 
+\mbox{\Hypertarget{class_annotation_structure_level_af893384c9a873ce8816505364358dfb4}\label{class_annotation_structure_level_af893384c9a873ce8816505364358dfb4}} 
+Q\+List$<$ Q\+Pointer$<$ \hyperlink{class_annotation_structure_attribute}{Annotation\+Structure\+Attribute} $>$ $>$ {\bfseries attributes} () const
+\item 
+\mbox{\Hypertarget{class_annotation_structure_level_aa77cfa1015672e248eed37ea75db7e47}\label{class_annotation_structure_level_aa77cfa1015672e248eed37ea75db7e47}} 
+void {\bfseries insert\+Attribute} (int index, \hyperlink{class_annotation_structure_attribute}{Annotation\+Structure\+Attribute} $\ast$attribute)
+\item 
+\mbox{\Hypertarget{class_annotation_structure_level_adbf3154e9893a0ea975751638b277bf2}\label{class_annotation_structure_level_adbf3154e9893a0ea975751638b277bf2}} 
+void {\bfseries add\+Attribute} (\hyperlink{class_annotation_structure_attribute}{Annotation\+Structure\+Attribute} $\ast$attribute)
+\item 
+\mbox{\Hypertarget{class_annotation_structure_level_af9d0d8200d766bd166051feaad209e8a}\label{class_annotation_structure_level_af9d0d8200d766bd166051feaad209e8a}} 
+void {\bfseries swap\+Attribute} (int old\+Index, int new\+Index)
+\item 
+\mbox{\Hypertarget{class_annotation_structure_level_a7640b925290bd80f46aa0931043abb1b}\label{class_annotation_structure_level_a7640b925290bd80f46aa0931043abb1b}} 
+void {\bfseries remove\+Attribute\+At} (int i)
+\item 
+\mbox{\Hypertarget{class_annotation_structure_level_a8d8865e606c5ee399d7b0e3e904f0e19}\label{class_annotation_structure_level_a8d8865e606c5ee399d7b0e3e904f0e19}} 
+void {\bfseries remove\+Attribute\+By\+ID} (const Q\+String \&ID)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_annotation_structure_level_a76285d7e363afd93464bd7ef7ed048ec}\label{class_annotation_structure_level_a76285d7e363afd93464bd7ef7ed048ec}} 
+Level\+Type {\bfseries m\+\_\+level\+Type}
+\item 
+\mbox{\Hypertarget{class_annotation_structure_level_a6a5eee5ebd6f8e266be3ac2fa09f6ccc}\label{class_annotation_structure_level_a6a5eee5ebd6f8e266be3ac2fa09f6ccc}} 
+Q\+String {\bfseries m\+\_\+parent\+Level\+ID}
+\item 
+\mbox{\Hypertarget{class_annotation_structure_level_a74c9169103a7c2d818feb6465156786e}\label{class_annotation_structure_level_a74c9169103a7c2d818feb6465156786e}} 
+Q\+List$<$ Q\+Pointer$<$ \hyperlink{class_annotation_structure_attribute}{Annotation\+Structure\+Attribute} $>$ $>$ {\bfseries m\+\_\+attributes}
+\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_annotation_structure_level_ac4e448ffc536acb2c7c43c5988aeb925}\label{class_annotation_structure_level_ac4e448ffc536acb2c7c43c5988aeb925}} 
+Level\+Type {\bfseries level\+Type}
+\item 
+\mbox{\Hypertarget{class_annotation_structure_level_a2dfe6d8522dcfa8d86d9177ae8b282af}\label{class_annotation_structure_level_a2dfe6d8522dcfa8d86d9177ae8b282af}} 
+Q\+String {\bfseries parent\+Level\+ID}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/structure/Annotation\+Structure\+Level.\+h\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/structure/Annotation\+Structure\+Level.\+cpp\end{DoxyCompactItemize}

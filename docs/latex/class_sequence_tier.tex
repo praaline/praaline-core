@@ -1,0 +1,102 @@
+\hypertarget{class_sequence_tier}{}\section{Sequence\+Tier Class Reference}
+\label{class_sequence_tier}\index{Sequence\+Tier@{Sequence\+Tier}}
+Inheritance diagram for Sequence\+Tier\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_sequence_tier}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sequence_tier_a99b112042467f75ee0e72d38c0596143}\label{class_sequence_tier_a99b112042467f75ee0e72d38c0596143}} 
+{\bfseries Sequence\+Tier} (const Q\+String \&name=Q\+String(), \hyperlink{class_annotation_tier}{Annotation\+Tier} $\ast$base\+Tier=nullptr, Q\+Object $\ast$parent=nullptr)
+\item 
+\mbox{\Hypertarget{class_sequence_tier_af30e9512ac556573e6bb9dd84dfaedda}\label{class_sequence_tier_af30e9512ac556573e6bb9dd84dfaedda}} 
+{\bfseries Sequence\+Tier} (const Q\+String \&name, const Q\+List$<$ \hyperlink{class_sequence}{Sequence} $\ast$$>$ \&sequences, \hyperlink{class_annotation_tier}{Annotation\+Tier} $\ast$base\+Tier=nullptr, Q\+Object $\ast$parent=nullptr)
+\item 
+\mbox{\Hypertarget{class_sequence_tier_abbdfdb337ebff4aa24d9986155032935}\label{class_sequence_tier_abbdfdb337ebff4aa24d9986155032935}} 
+Annotation\+Tier\+::\+Tier\+Type {\bfseries tier\+Type} () const override
+\item 
+\mbox{\Hypertarget{class_sequence_tier_a3c153f45f40becc562facf1f87984ba7}\label{class_sequence_tier_a3c153f45f40becc562facf1f87984ba7}} 
+int {\bfseries count} () const override
+\item 
+\mbox{\Hypertarget{class_sequence_tier_a27639b67ee0f8909dfe983b5a553fbf2}\label{class_sequence_tier_a27639b67ee0f8909dfe983b5a553fbf2}} 
+\hyperlink{struct_real_time}{Real\+Time} {\bfseries t\+Min} () const override
+\item 
+\mbox{\Hypertarget{class_sequence_tier_a3b0d0094e865c6949f3191f85400bf6c}\label{class_sequence_tier_a3b0d0094e865c6949f3191f85400bf6c}} 
+\hyperlink{struct_real_time}{Real\+Time} {\bfseries t\+Max} () const override
+\item 
+\mbox{\Hypertarget{class_sequence_tier_a01f2c97474b854bbed05deeb6d060cad}\label{class_sequence_tier_a01f2c97474b854bbed05deeb6d060cad}} 
+bool {\bfseries is\+Empty} () const override
+\item 
+\mbox{\Hypertarget{class_sequence_tier_ab6b298de3358fac29d3298866c1d5fe8}\label{class_sequence_tier_ab6b298de3358fac29d3298866c1d5fe8}} 
+void {\bfseries clear} () override
+\item 
+\mbox{\Hypertarget{class_sequence_tier_a1c4097d05ad26043b8e5424bf0108a3c}\label{class_sequence_tier_a1c4097d05ad26043b8e5424bf0108a3c}} 
+\hyperlink{class_sequence}{Sequence} $\ast$ {\bfseries at} (int index) const override
+\item 
+\mbox{\Hypertarget{class_sequence_tier_ae37067bb227b636edb0c98302eca7216}\label{class_sequence_tier_ae37067bb227b636edb0c98302eca7216}} 
+\hyperlink{class_sequence}{Sequence} $\ast$ {\bfseries first} () const override
+\item 
+\mbox{\Hypertarget{class_sequence_tier_ac15e98d91018f09fa75fcd91ab529580}\label{class_sequence_tier_ac15e98d91018f09fa75fcd91ab529580}} 
+\hyperlink{class_sequence}{Sequence} $\ast$ {\bfseries last} () const override
+\item 
+\mbox{\Hypertarget{class_sequence_tier_a9c447cab316b8cea8e7b3b7d550b089a}\label{class_sequence_tier_a9c447cab316b8cea8e7b3b7d550b089a}} 
+Q\+String\+List {\bfseries get\+Distinct\+Labels} () const override
+\item 
+\mbox{\Hypertarget{class_sequence_tier_aeaf433d03c58e50ab9fd37a1723a33c6}\label{class_sequence_tier_aeaf433d03c58e50ab9fd37a1723a33c6}} 
+Q\+List$<$ Q\+Variant $>$ {\bfseries get\+Distinct\+Values} (const Q\+String \&attribute\+ID) const override
+\item 
+\mbox{\Hypertarget{class_sequence_tier_aa625eb3b79a7fb731cc29014b4b13829}\label{class_sequence_tier_aa625eb3b79a7fb731cc29014b4b13829}} 
+void {\bfseries replace} (const Q\+String \&attribute\+ID, const Q\+String \&before, const Q\+String \&after, Qt\+::\+Case\+Sensitivity cs=Qt\+::\+Case\+Sensitive) override
+\item 
+\mbox{\Hypertarget{class_sequence_tier_a1fb1876de3c69fd21941d96861f2338b}\label{class_sequence_tier_a1fb1876de3c69fd21941d96861f2338b}} 
+void {\bfseries fill\+Empty\+With} (const Q\+String \&attribute\+ID, const Q\+String \&filler) override
+\item 
+\mbox{\Hypertarget{class_sequence_tier_a875087af07020d3e4e48647cbec2a23c}\label{class_sequence_tier_a875087af07020d3e4e48647cbec2a23c}} 
+\hyperlink{class_annotation_tier}{Annotation\+Tier} $\ast$ {\bfseries base\+Tier} () const
+\item 
+\mbox{\Hypertarget{class_sequence_tier_a2d82fc5e0e6680beb8460cbb958af344}\label{class_sequence_tier_a2d82fc5e0e6680beb8460cbb958af344}} 
+void {\bfseries set\+Base\+Tier} (\hyperlink{class_annotation_tier}{Annotation\+Tier} $\ast$tier)
+\item 
+\mbox{\Hypertarget{class_sequence_tier_a704f3bf23fc775ec76275dd07b9bf359}\label{class_sequence_tier_a704f3bf23fc775ec76275dd07b9bf359}} 
+\hyperlink{class_sequence}{Sequence} $\ast$ {\bfseries sequence} (int index) const
+\item 
+\mbox{\Hypertarget{class_sequence_tier_ad24ab586c190929d647300f53d38e692}\label{class_sequence_tier_ad24ab586c190929d647300f53d38e692}} 
+Q\+List$<$ \hyperlink{class_sequence}{Sequence} $\ast$ $>$ {\bfseries sequences} () const
+\item 
+\mbox{\Hypertarget{class_sequence_tier_aad9a707f4b2535f7ff1aff6d8548a44f}\label{class_sequence_tier_aad9a707f4b2535f7ff1aff6d8548a44f}} 
+void {\bfseries add\+Sequence} (\hyperlink{class_sequence}{Sequence} $\ast$sequence)
+\item 
+\mbox{\Hypertarget{class_sequence_tier_a797332a0409477ae47d44c33e562f468}\label{class_sequence_tier_a797332a0409477ae47d44c33e562f468}} 
+void {\bfseries add\+Sequences} (Q\+List$<$ \hyperlink{class_sequence}{Sequence} $\ast$$>$ sequences)
+\item 
+\mbox{\Hypertarget{class_sequence_tier_a1dd71012e0abc484594a62ebca64ac6a}\label{class_sequence_tier_a1dd71012e0abc484594a62ebca64ac6a}} 
+void {\bfseries remove\+Sequence\+At} (int i)
+\item 
+\mbox{\Hypertarget{class_sequence_tier_a21086f19deb1766122b7bb80c15ee76d}\label{class_sequence_tier_a21086f19deb1766122b7bb80c15ee76d}} 
+Q\+List$<$ \hyperlink{class_annotation_element}{Annotation\+Element} $\ast$ $>$ {\bfseries sequence\+Elements} (int sequence\+Index) const
+\item 
+\mbox{\Hypertarget{class_sequence_tier_a6f32bc599d14cb09a478d81d1591a6ab}\label{class_sequence_tier_a6f32bc599d14cb09a478d81d1591a6ab}} 
+\hyperlink{class_sequence_tier}{Sequence\+Tier} $\ast$ {\bfseries clone} (const Q\+String \&name=Q\+String(), Q\+Object $\ast$parent=nullptr) const
+\item 
+\mbox{\Hypertarget{class_sequence_tier_a02f08a44b80a6e75f06273c66b61c1a0}\label{class_sequence_tier_a02f08a44b80a6e75f06273c66b61c1a0}} 
+\hyperlink{class_sequence_tier}{Sequence\+Tier} $\ast$ {\bfseries clone\+Without\+Attributes} (const Q\+String \&name=Q\+String(), Q\+Object $\ast$parent=nullptr) const
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sequence_tier_abc1325e8e3cc910db955d7c7256b4978}\label{class_sequence_tier_abc1325e8e3cc910db955d7c7256b4978}} 
+\hyperlink{class_annotation_tier}{Annotation\+Tier} $\ast$ {\bfseries m\+\_\+base\+Tier}
+\item 
+\mbox{\Hypertarget{class_sequence_tier_adcb9ff59afbdb49bef972e9ddb8d8fdf}\label{class_sequence_tier_adcb9ff59afbdb49bef972e9ddb8d8fdf}} 
+Q\+List$<$ \hyperlink{class_sequence}{Sequence} $\ast$ $>$ {\bfseries m\+\_\+sequences}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/annotation/Sequence\+Tier.\+h\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/annotation/Sequence\+Tier.\+cpp\end{DoxyCompactItemize}

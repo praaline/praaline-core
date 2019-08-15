@@ -1,0 +1,121 @@
+\hypertarget{class_q_sql_migrator_1_1_migration_tracker_1_1_migration_tracker_service}{}\section{Q\+Sql\+Migrator\+:\+:Migration\+Tracker\+:\+:Migration\+Tracker\+Service Class Reference}
+\label{class_q_sql_migrator_1_1_migration_tracker_1_1_migration_tracker_service}\index{Q\+Sql\+Migrator\+::\+Migration\+Tracker\+::\+Migration\+Tracker\+Service@{Q\+Sql\+Migrator\+::\+Migration\+Tracker\+::\+Migration\+Tracker\+Service}}
+
+
+Interface of a service that is used to track successfully executed migrations.  
+
+
+
+
+{\ttfamily \#include $<$Migration\+Tracker\+Service.\+h$>$}
+
+Inheritance diagram for Q\+Sql\+Migrator\+:\+:Migration\+Tracker\+:\+:Migration\+Tracker\+Service\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_q_sql_migrator_1_1_migration_tracker_1_1_migration_tracker_service}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \hyperlink{class_q_sql_migrator_1_1_migration_tracker_1_1_migration_tracker_service_a539b5fe686ffd6ae6577c046201f0df3}{can\+Revert\+Strucutural\+Changes\+Using\+Transactions} () const =0
+\item 
+virtual Q\+String\+List \hyperlink{class_q_sql_migrator_1_1_migration_tracker_1_1_migration_tracker_service_a5de22e070fc1b4f487dbe256e1c874ef}{migration\+List} (const \hyperlink{class_q_sql_migrator_1_1_command_execution_1_1_command_execution_context}{Command\+Execution\+::\+Command\+Execution\+Context} \&context) const =0
+\item 
+virtual bool \hyperlink{class_q_sql_migrator_1_1_migration_tracker_1_1_migration_tracker_service_a8bb56a82aeefab574a0d7eb2dd5112e5}{was\+Migration\+Executed} (const Q\+String \&migration\+Name, const \hyperlink{class_q_sql_migrator_1_1_command_execution_1_1_command_execution_context}{Command\+Execution\+::\+Command\+Execution\+Context} \&context) const =0
+\item 
+virtual bool \hyperlink{class_q_sql_migrator_1_1_migration_tracker_1_1_migration_tracker_service_ad9bc087a72a4535e81812a0069dbaa6a}{add\+Migration} (const Q\+String \&migration\+Name, const \hyperlink{class_q_sql_migrator_1_1_command_execution_1_1_command_execution_context}{Command\+Execution\+::\+Command\+Execution\+Context} \&context) const =0
+\item 
+virtual bool \hyperlink{class_q_sql_migrator_1_1_migration_tracker_1_1_migration_tracker_service_a3041c2cb0027e6a40639ce4c47482c17}{remove\+Migration} (const Q\+String \&migration\+Name, const \hyperlink{class_q_sql_migrator_1_1_command_execution_1_1_command_execution_context}{Command\+Execution\+::\+Command\+Execution\+Context} \&context) const =0
+\item 
+virtual bool \hyperlink{class_q_sql_migrator_1_1_migration_tracker_1_1_migration_tracker_service_a26dc17b23f3e2a62c9964ce46c740b57}{prepare} (const \hyperlink{class_q_sql_migrator_1_1_migration_execution_1_1_migration_execution_context}{Migration\+Execution\+::\+Migration\+Execution\+Context} \&context) const =0
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Interface of a service that is used to track successfully executed migrations. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_migration_tracker_1_1_migration_tracker_service_ad9bc087a72a4535e81812a0069dbaa6a}\label{class_q_sql_migrator_1_1_migration_tracker_1_1_migration_tracker_service_ad9bc087a72a4535e81812a0069dbaa6a}} 
+\index{Q\+Sql\+Migrator\+::\+Migration\+Tracker\+::\+Migration\+Tracker\+Service@{Q\+Sql\+Migrator\+::\+Migration\+Tracker\+::\+Migration\+Tracker\+Service}!add\+Migration@{add\+Migration}}
+\index{add\+Migration@{add\+Migration}!Q\+Sql\+Migrator\+::\+Migration\+Tracker\+::\+Migration\+Tracker\+Service@{Q\+Sql\+Migrator\+::\+Migration\+Tracker\+::\+Migration\+Tracker\+Service}}
+\subsubsection{\texorpdfstring{add\+Migration()}{addMigration()}}
+{\footnotesize\ttfamily virtual bool Q\+Sql\+Migrator\+::\+Migration\+Tracker\+::\+Migration\+Tracker\+Service\+::add\+Migration (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{migration\+Name,  }\item[{const \hyperlink{class_q_sql_migrator_1_1_command_execution_1_1_command_execution_context}{Command\+Execution\+::\+Command\+Execution\+Context} \&}]{context }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\begin{DoxyReturn}{Returns}
+true, if it was able to sucessfully record that the migrations was executed 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{class_q_sql_migrator_1_1_migration_tracker_1_1_base_migration_table_service_a0acf906f43678d623984e334fe43a11a}{Q\+Sql\+Migrator\+::\+Migration\+Tracker\+::\+Base\+Migration\+Table\+Service}.
+
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_migration_tracker_1_1_migration_tracker_service_a539b5fe686ffd6ae6577c046201f0df3}\label{class_q_sql_migrator_1_1_migration_tracker_1_1_migration_tracker_service_a539b5fe686ffd6ae6577c046201f0df3}} 
+\index{Q\+Sql\+Migrator\+::\+Migration\+Tracker\+::\+Migration\+Tracker\+Service@{Q\+Sql\+Migrator\+::\+Migration\+Tracker\+::\+Migration\+Tracker\+Service}!can\+Revert\+Strucutural\+Changes\+Using\+Transactions@{can\+Revert\+Strucutural\+Changes\+Using\+Transactions}}
+\index{can\+Revert\+Strucutural\+Changes\+Using\+Transactions@{can\+Revert\+Strucutural\+Changes\+Using\+Transactions}!Q\+Sql\+Migrator\+::\+Migration\+Tracker\+::\+Migration\+Tracker\+Service@{Q\+Sql\+Migrator\+::\+Migration\+Tracker\+::\+Migration\+Tracker\+Service}}
+\subsubsection{\texorpdfstring{can\+Revert\+Strucutural\+Changes\+Using\+Transactions()}{canRevertStrucuturalChangesUsingTransactions()}}
+{\footnotesize\ttfamily virtual bool Q\+Sql\+Migrator\+::\+Migration\+Tracker\+::\+Migration\+Tracker\+Service\+::can\+Revert\+Strucutural\+Changes\+Using\+Transactions (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\begin{DoxyReturn}{Returns}
+true if transactions can revert changes to table structures 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{class_q_sql_migrator_1_1_migration_tracker_1_1_base_migration_table_service_aea5fa9e4804a436221180560efeab253}{Q\+Sql\+Migrator\+::\+Migration\+Tracker\+::\+Base\+Migration\+Table\+Service}, and \hyperlink{class_q_sql_migrator_1_1_migration_tracker_1_1_sqlite_migration_table_service_a6d2f747ce2a599033dee174f8e996fff}{Q\+Sql\+Migrator\+::\+Migration\+Tracker\+::\+Sqlite\+Migration\+Table\+Service}.
+
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_migration_tracker_1_1_migration_tracker_service_a5de22e070fc1b4f487dbe256e1c874ef}\label{class_q_sql_migrator_1_1_migration_tracker_1_1_migration_tracker_service_a5de22e070fc1b4f487dbe256e1c874ef}} 
+\index{Q\+Sql\+Migrator\+::\+Migration\+Tracker\+::\+Migration\+Tracker\+Service@{Q\+Sql\+Migrator\+::\+Migration\+Tracker\+::\+Migration\+Tracker\+Service}!migration\+List@{migration\+List}}
+\index{migration\+List@{migration\+List}!Q\+Sql\+Migrator\+::\+Migration\+Tracker\+::\+Migration\+Tracker\+Service@{Q\+Sql\+Migrator\+::\+Migration\+Tracker\+::\+Migration\+Tracker\+Service}}
+\subsubsection{\texorpdfstring{migration\+List()}{migrationList()}}
+{\footnotesize\ttfamily virtual Q\+String\+List Q\+Sql\+Migrator\+::\+Migration\+Tracker\+::\+Migration\+Tracker\+Service\+::migration\+List (\begin{DoxyParamCaption}\item[{const \hyperlink{class_q_sql_migrator_1_1_command_execution_1_1_command_execution_context}{Command\+Execution\+::\+Command\+Execution\+Context} \&}]{context }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\begin{DoxyReturn}{Returns}
+a list of all tracked successful migration executions 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{class_q_sql_migrator_1_1_migration_tracker_1_1_base_migration_table_service_a1105240b456db9f85c2fc2866582a292}{Q\+Sql\+Migrator\+::\+Migration\+Tracker\+::\+Base\+Migration\+Table\+Service}.
+
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_migration_tracker_1_1_migration_tracker_service_a26dc17b23f3e2a62c9964ce46c740b57}\label{class_q_sql_migrator_1_1_migration_tracker_1_1_migration_tracker_service_a26dc17b23f3e2a62c9964ce46c740b57}} 
+\index{Q\+Sql\+Migrator\+::\+Migration\+Tracker\+::\+Migration\+Tracker\+Service@{Q\+Sql\+Migrator\+::\+Migration\+Tracker\+::\+Migration\+Tracker\+Service}!prepare@{prepare}}
+\index{prepare@{prepare}!Q\+Sql\+Migrator\+::\+Migration\+Tracker\+::\+Migration\+Tracker\+Service@{Q\+Sql\+Migrator\+::\+Migration\+Tracker\+::\+Migration\+Tracker\+Service}}
+\subsubsection{\texorpdfstring{prepare()}{prepare()}}
+{\footnotesize\ttfamily virtual bool Q\+Sql\+Migrator\+::\+Migration\+Tracker\+::\+Migration\+Tracker\+Service\+::prepare (\begin{DoxyParamCaption}\item[{const \hyperlink{class_q_sql_migrator_1_1_migration_execution_1_1_migration_execution_context}{Migration\+Execution\+::\+Migration\+Execution\+Context} \&}]{context }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\begin{DoxyReturn}{Returns}
+true, if the tracking was in place or was sucessfully prepared 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{class_q_sql_migrator_1_1_migration_tracker_1_1_base_migration_table_service_a76bec328f72c8fc91002cc285731332c}{Q\+Sql\+Migrator\+::\+Migration\+Tracker\+::\+Base\+Migration\+Table\+Service}.
+
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_migration_tracker_1_1_migration_tracker_service_a3041c2cb0027e6a40639ce4c47482c17}\label{class_q_sql_migrator_1_1_migration_tracker_1_1_migration_tracker_service_a3041c2cb0027e6a40639ce4c47482c17}} 
+\index{Q\+Sql\+Migrator\+::\+Migration\+Tracker\+::\+Migration\+Tracker\+Service@{Q\+Sql\+Migrator\+::\+Migration\+Tracker\+::\+Migration\+Tracker\+Service}!remove\+Migration@{remove\+Migration}}
+\index{remove\+Migration@{remove\+Migration}!Q\+Sql\+Migrator\+::\+Migration\+Tracker\+::\+Migration\+Tracker\+Service@{Q\+Sql\+Migrator\+::\+Migration\+Tracker\+::\+Migration\+Tracker\+Service}}
+\subsubsection{\texorpdfstring{remove\+Migration()}{removeMigration()}}
+{\footnotesize\ttfamily virtual bool Q\+Sql\+Migrator\+::\+Migration\+Tracker\+::\+Migration\+Tracker\+Service\+::remove\+Migration (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{migration\+Name,  }\item[{const \hyperlink{class_q_sql_migrator_1_1_command_execution_1_1_command_execution_context}{Command\+Execution\+::\+Command\+Execution\+Context} \&}]{context }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\begin{DoxyReturn}{Returns}
+true, if it was able to sucessfully remove a migration from the tracked successfully executed migrations 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{class_q_sql_migrator_1_1_migration_tracker_1_1_base_migration_table_service_a2b0bf914a7672e5540b7b003cd378aaf}{Q\+Sql\+Migrator\+::\+Migration\+Tracker\+::\+Base\+Migration\+Table\+Service}.
+
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_migration_tracker_1_1_migration_tracker_service_a8bb56a82aeefab574a0d7eb2dd5112e5}\label{class_q_sql_migrator_1_1_migration_tracker_1_1_migration_tracker_service_a8bb56a82aeefab574a0d7eb2dd5112e5}} 
+\index{Q\+Sql\+Migrator\+::\+Migration\+Tracker\+::\+Migration\+Tracker\+Service@{Q\+Sql\+Migrator\+::\+Migration\+Tracker\+::\+Migration\+Tracker\+Service}!was\+Migration\+Executed@{was\+Migration\+Executed}}
+\index{was\+Migration\+Executed@{was\+Migration\+Executed}!Q\+Sql\+Migrator\+::\+Migration\+Tracker\+::\+Migration\+Tracker\+Service@{Q\+Sql\+Migrator\+::\+Migration\+Tracker\+::\+Migration\+Tracker\+Service}}
+\subsubsection{\texorpdfstring{was\+Migration\+Executed()}{wasMigrationExecuted()}}
+{\footnotesize\ttfamily virtual bool Q\+Sql\+Migrator\+::\+Migration\+Tracker\+::\+Migration\+Tracker\+Service\+::was\+Migration\+Executed (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{migration\+Name,  }\item[{const \hyperlink{class_q_sql_migrator_1_1_command_execution_1_1_command_execution_context}{Command\+Execution\+::\+Command\+Execution\+Context} \&}]{context }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\begin{DoxyReturn}{Returns}
+true if the specified migrations was tracked as successfully executed 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{class_q_sql_migrator_1_1_migration_tracker_1_1_base_migration_table_service_afaa1f00b646de9db114a82597a40f9ea}{Q\+Sql\+Migrator\+::\+Migration\+Tracker\+::\+Base\+Migration\+Table\+Service}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/\+Q\+Sql\+Migrator/\+Migration\+Tracker/Migration\+Tracker\+Service.\+h\end{DoxyCompactItemize}

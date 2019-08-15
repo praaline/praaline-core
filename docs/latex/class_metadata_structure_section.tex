@@ -1,0 +1,122 @@
+\hypertarget{class_metadata_structure_section}{}\section{Metadata\+Structure\+Section Class Reference}
+\label{class_metadata_structure_section}\index{Metadata\+Structure\+Section@{Metadata\+Structure\+Section}}
+Inheritance diagram for Metadata\+Structure\+Section\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_metadata_structure_section}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_metadata_structure_section_a05979f89a40a6f1956646cb93e01c0bf}\label{class_metadata_structure_section_a05979f89a40a6f1956646cb93e01c0bf}} 
+{\bfseries Metadata\+Structure\+Section} (Q\+Object $\ast$parent=nullptr)
+\item 
+\mbox{\Hypertarget{class_metadata_structure_section_a3fb654c3afbf9cb0b00e759db35a75ef}\label{class_metadata_structure_section_a3fb654c3afbf9cb0b00e759db35a75ef}} 
+{\bfseries Metadata\+Structure\+Section} (const Q\+String \&ID, const Q\+String \&name=Q\+String(), const Q\+String \&description=Q\+String(), int item\+Order=0, Q\+Object $\ast$parent=nullptr)
+\item 
+\mbox{\Hypertarget{class_metadata_structure_section_af8c32c610057824ed02c868fd3d6c655}\label{class_metadata_structure_section_af8c32c610057824ed02c868fd3d6c655}} 
+Q\+String {\bfseries ID} () const
+\item 
+\mbox{\Hypertarget{class_metadata_structure_section_ac11d472b73af81b0c604199810d235a5}\label{class_metadata_structure_section_ac11d472b73af81b0c604199810d235a5}} 
+void {\bfseries set\+ID} (const Q\+String \&id)
+\item 
+\mbox{\Hypertarget{class_metadata_structure_section_a18b5a20761a6038cf02cb284b4e60887}\label{class_metadata_structure_section_a18b5a20761a6038cf02cb284b4e60887}} 
+Q\+String {\bfseries name} () const
+\item 
+\mbox{\Hypertarget{class_metadata_structure_section_ac18cb912a09f5215a698dc653b5e6dc6}\label{class_metadata_structure_section_ac18cb912a09f5215a698dc653b5e6dc6}} 
+void {\bfseries set\+Name} (const Q\+String \&name)
+\item 
+\mbox{\Hypertarget{class_metadata_structure_section_acb9d8561dc03268d976ba48b92629a81}\label{class_metadata_structure_section_acb9d8561dc03268d976ba48b92629a81}} 
+Q\+String {\bfseries description} () const
+\item 
+\mbox{\Hypertarget{class_metadata_structure_section_aeb8ba9a64961043bc562f224fc4045b1}\label{class_metadata_structure_section_aeb8ba9a64961043bc562f224fc4045b1}} 
+void {\bfseries set\+Description} (const Q\+String \&description)
+\item 
+\mbox{\Hypertarget{class_metadata_structure_section_a1cd539481c6bd2e6578878adebf887eb}\label{class_metadata_structure_section_a1cd539481c6bd2e6578878adebf887eb}} 
+int {\bfseries item\+Order} () const
+\item 
+\mbox{\Hypertarget{class_metadata_structure_section_a5750f87ead80911a43414ad69aeb09d1}\label{class_metadata_structure_section_a5750f87ead80911a43414ad69aeb09d1}} 
+void {\bfseries set\+Item\+Order} (int item\+Order)
+\item 
+\mbox{\Hypertarget{class_metadata_structure_section_a33e112913b96322c30fe43607cc5c2ab}\label{class_metadata_structure_section_a33e112913b96322c30fe43607cc5c2ab}} 
+Q\+Pointer$<$ \hyperlink{class_metadata_structure_attribute}{Metadata\+Structure\+Attribute} $>$ {\bfseries attribute} (int index) const
+\item 
+\mbox{\Hypertarget{class_metadata_structure_section_a8a76b746412dcea03b1811973c7122b7}\label{class_metadata_structure_section_a8a76b746412dcea03b1811973c7122b7}} 
+Q\+Pointer$<$ \hyperlink{class_metadata_structure_attribute}{Metadata\+Structure\+Attribute} $>$ {\bfseries attribute} (const Q\+String \&ID) const
+\item 
+\mbox{\Hypertarget{class_metadata_structure_section_ab4d8fb7c79c8ef0cf160d1d835b521bd}\label{class_metadata_structure_section_ab4d8fb7c79c8ef0cf160d1d835b521bd}} 
+int {\bfseries attribute\+Index\+By\+ID} (const Q\+String \&ID) const
+\item 
+\mbox{\Hypertarget{class_metadata_structure_section_a9343003c07ea3f0eee271205d0452e3d}\label{class_metadata_structure_section_a9343003c07ea3f0eee271205d0452e3d}} 
+int {\bfseries attributes\+Count} () const
+\item 
+\mbox{\Hypertarget{class_metadata_structure_section_ac46b5149bfe6c88013dfd46c0055132e}\label{class_metadata_structure_section_ac46b5149bfe6c88013dfd46c0055132e}} 
+bool {\bfseries has\+Attributes} () const
+\item 
+\mbox{\Hypertarget{class_metadata_structure_section_a301c2a96c4c17b11e18246963afe9c6a}\label{class_metadata_structure_section_a301c2a96c4c17b11e18246963afe9c6a}} 
+bool {\bfseries has\+Attribute} (const Q\+String \&ID)
+\item 
+\mbox{\Hypertarget{class_metadata_structure_section_aba0479e7c7d545c767615e49f96d0f52}\label{class_metadata_structure_section_aba0479e7c7d545c767615e49f96d0f52}} 
+Q\+String\+List {\bfseries attribute\+I\+Ds} () const
+\item 
+\mbox{\Hypertarget{class_metadata_structure_section_ab2ff1c9e9c01ed25a3eff907e8a709e8}\label{class_metadata_structure_section_ab2ff1c9e9c01ed25a3eff907e8a709e8}} 
+Q\+String\+List {\bfseries attribute\+Names} () const
+\item 
+\mbox{\Hypertarget{class_metadata_structure_section_addaee8014aff99842863a18dda45ae2a}\label{class_metadata_structure_section_addaee8014aff99842863a18dda45ae2a}} 
+Q\+List$<$ Q\+Pointer$<$ \hyperlink{class_metadata_structure_attribute}{Metadata\+Structure\+Attribute} $>$ $>$ {\bfseries attributes} () const
+\item 
+\mbox{\Hypertarget{class_metadata_structure_section_a2001c195fee3dbc58964e37942a949cc}\label{class_metadata_structure_section_a2001c195fee3dbc58964e37942a949cc}} 
+void {\bfseries insert\+Attribute} (int index, \hyperlink{class_metadata_structure_attribute}{Metadata\+Structure\+Attribute} $\ast$attribute)
+\item 
+\mbox{\Hypertarget{class_metadata_structure_section_a212e10d4319e19ce1de5566920ba8a27}\label{class_metadata_structure_section_a212e10d4319e19ce1de5566920ba8a27}} 
+void {\bfseries add\+Attribute} (\hyperlink{class_metadata_structure_attribute}{Metadata\+Structure\+Attribute} $\ast$attribute)
+\item 
+\mbox{\Hypertarget{class_metadata_structure_section_a64927ce59c4d5c76a7947eef30c15b06}\label{class_metadata_structure_section_a64927ce59c4d5c76a7947eef30c15b06}} 
+void {\bfseries swap\+Attribute} (int old\+Index, int new\+Index)
+\item 
+\mbox{\Hypertarget{class_metadata_structure_section_ac924205c945e9f918b44e0100e7b719f}\label{class_metadata_structure_section_ac924205c945e9f918b44e0100e7b719f}} 
+void {\bfseries remove\+Attribute\+At} (int i)
+\item 
+\mbox{\Hypertarget{class_metadata_structure_section_aff78a2f2092db851c470f9f902b404cc}\label{class_metadata_structure_section_aff78a2f2092db851c470f9f902b404cc}} 
+void {\bfseries remove\+Attribute\+By\+ID} (const Q\+String \&ID)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_metadata_structure_section_a05e8adaa3e9cfc684afe183860fa33f2}\label{class_metadata_structure_section_a05e8adaa3e9cfc684afe183860fa33f2}} 
+Q\+String {\bfseries m\+\_\+\+ID}
+\item 
+\mbox{\Hypertarget{class_metadata_structure_section_a4b1ef290d60172118648904c8c669432}\label{class_metadata_structure_section_a4b1ef290d60172118648904c8c669432}} 
+Q\+String {\bfseries m\+\_\+name}
+\item 
+\mbox{\Hypertarget{class_metadata_structure_section_a52716268a4675d2e018da64c01c0f302}\label{class_metadata_structure_section_a52716268a4675d2e018da64c01c0f302}} 
+Q\+String {\bfseries m\+\_\+description}
+\item 
+\mbox{\Hypertarget{class_metadata_structure_section_aa55adb25b015d75b7d092811005f7930}\label{class_metadata_structure_section_aa55adb25b015d75b7d092811005f7930}} 
+int {\bfseries m\+\_\+item\+Order}
+\item 
+\mbox{\Hypertarget{class_metadata_structure_section_ab42688fd5ff90c130cb95a7baeaa975b}\label{class_metadata_structure_section_ab42688fd5ff90c130cb95a7baeaa975b}} 
+Q\+List$<$ Q\+Pointer$<$ \hyperlink{class_metadata_structure_attribute}{Metadata\+Structure\+Attribute} $>$ $>$ {\bfseries m\+\_\+attributes}
+\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_metadata_structure_section_aab1747d66f623058650fe857047879fd}\label{class_metadata_structure_section_aab1747d66f623058650fe857047879fd}} 
+Q\+String {\bfseries ID}
+\item 
+\mbox{\Hypertarget{class_metadata_structure_section_a97363217c0d043a41d5bd36210cd2725}\label{class_metadata_structure_section_a97363217c0d043a41d5bd36210cd2725}} 
+Q\+String {\bfseries name}
+\item 
+\mbox{\Hypertarget{class_metadata_structure_section_ac572cd30623cfc11309a1b1ab211ad4f}\label{class_metadata_structure_section_ac572cd30623cfc11309a1b1ab211ad4f}} 
+Q\+String {\bfseries description}
+\item 
+\mbox{\Hypertarget{class_metadata_structure_section_a7ae45ab7e6cd4eda1cc38fc4261262d4}\label{class_metadata_structure_section_a7ae45ab7e6cd4eda1cc38fc4261262d4}} 
+int {\bfseries item\+Order}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/structure/Metadata\+Structure\+Section.\+h\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/structure/Metadata\+Structure\+Section.\+cpp\end{DoxyCompactItemize}

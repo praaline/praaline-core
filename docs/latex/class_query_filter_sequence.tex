@@ -1,0 +1,77 @@
+\hypertarget{class_query_filter_sequence}{}\section{Query\+Filter\+Sequence Class Reference}
+\label{class_query_filter_sequence}\index{Query\+Filter\+Sequence@{Query\+Filter\+Sequence}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_query_filter_sequence_1_1_condition}{Condition}
+\end{DoxyCompactItemize}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_query_filter_sequence_ab56d5a6f594eb822544fa32ff2b613c4}\label{class_query_filter_sequence_ab56d5a6f594eb822544fa32ff2b613c4}} 
+enum {\bfseries Operand} \{ \newline
+{\bfseries No\+Condition}, 
+{\bfseries Equals}, 
+{\bfseries Does\+Not\+Equal}, 
+{\bfseries Greater\+Than}, 
+\newline
+{\bfseries Greater\+Than\+Or\+Equal}, 
+{\bfseries Less\+Than}, 
+{\bfseries Less\+Than\+Or\+Equal}, 
+{\bfseries Contains}, 
+\newline
+{\bfseries Does\+Not\+Contain}, 
+{\bfseries Like}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_query_filter_sequence_ac34ce006d68390c7367631da15ac9f28}\label{class_query_filter_sequence_ac34ce006d68390c7367631da15ac9f28}} 
+{\bfseries Query\+Filter\+Sequence} (Q\+String annotation\+Level\+ID)
+\item 
+\mbox{\Hypertarget{class_query_filter_sequence_ab186d53f92f31eb5da5e92df3f3b1103}\label{class_query_filter_sequence_ab186d53f92f31eb5da5e92df3f3b1103}} 
+Q\+String {\bfseries annotation\+Level\+ID} () const
+\item 
+\mbox{\Hypertarget{class_query_filter_sequence_a72258722fba1802c7815beef74f80b9c}\label{class_query_filter_sequence_a72258722fba1802c7815beef74f80b9c}} 
+Q\+String\+List {\bfseries attribute\+I\+Ds} () const
+\item 
+\mbox{\Hypertarget{class_query_filter_sequence_af82815ef6f8b92cae8b012c1b24f14b9}\label{class_query_filter_sequence_af82815ef6f8b92cae8b012c1b24f14b9}} 
+int {\bfseries attributes\+Count} () const
+\item 
+\mbox{\Hypertarget{class_query_filter_sequence_affbbf11fe2c4c1de13b7557b2235fe46}\label{class_query_filter_sequence_affbbf11fe2c4c1de13b7557b2235fe46}} 
+int {\bfseries sequence\+Length} () const
+\item 
+\mbox{\Hypertarget{class_query_filter_sequence_a08cf11a89abdbeacb32bfa9db3cb673f}\label{class_query_filter_sequence_a08cf11a89abdbeacb32bfa9db3cb673f}} 
+\hyperlink{struct_query_filter_sequence_1_1_condition}{Condition} {\bfseries condition} (Q\+String annotation\+Attribute\+ID, int position) const
+\item 
+\mbox{\Hypertarget{class_query_filter_sequence_a14683d88a182b6667c21c28bfd484ec0}\label{class_query_filter_sequence_a14683d88a182b6667c21c28bfd484ec0}} 
+void {\bfseries set\+Condition} (Q\+String annotation\+Attribute\+ID, int position, \hyperlink{struct_query_filter_sequence_1_1_condition}{Condition} condition)
+\item 
+\mbox{\Hypertarget{class_query_filter_sequence_a14ffa792fd71f32401846de0d1abace8}\label{class_query_filter_sequence_a14ffa792fd71f32401846de0d1abace8}} 
+Q\+String {\bfseries condition\+String} (Q\+String annotation\+Attribute\+ID, int position) const
+\item 
+\mbox{\Hypertarget{class_query_filter_sequence_a46162d921641ed743e1d21efa53e749f}\label{class_query_filter_sequence_a46162d921641ed743e1d21efa53e749f}} 
+void {\bfseries set\+Condition\+String} (Q\+String annotation\+Attribute\+ID, int position, Q\+String where\+Clause)
+\item 
+\mbox{\Hypertarget{class_query_filter_sequence_a7c69ebb1409e84d584f0a2802fe2ea33}\label{class_query_filter_sequence_a7c69ebb1409e84d584f0a2802fe2ea33}} 
+void {\bfseries add\+Attribute} (Q\+String annotation\+Attribute\+ID)
+\item 
+\mbox{\Hypertarget{class_query_filter_sequence_a4c8b1d81e3ce5fcc42c81e88eba3804c}\label{class_query_filter_sequence_a4c8b1d81e3ce5fcc42c81e88eba3804c}} 
+void {\bfseries remove\+Attribute} (Q\+String annotation\+Attribute\+ID)
+\item 
+\mbox{\Hypertarget{class_query_filter_sequence_a5a58de4524250284c6ac3ea02ad9be71}\label{class_query_filter_sequence_a5a58de4524250284c6ac3ea02ad9be71}} 
+void {\bfseries expand\+Sequence} (int length=1)
+\item 
+\mbox{\Hypertarget{class_query_filter_sequence_a2649254c871502ef8856d10492836e20}\label{class_query_filter_sequence_a2649254c871502ef8856d10492836e20}} 
+void {\bfseries reduce\+Sequence} (int length=1)
+\item 
+\mbox{\Hypertarget{class_query_filter_sequence_a199ce5306a626f10c9b69743b910dbbd}\label{class_query_filter_sequence_a199ce5306a626f10c9b69743b910dbbd}} 
+Q\+String {\bfseries friendly\+Syntax} () const
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/query/Query\+Filter\+Sequence.\+h\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/query/Query\+Filter\+Sequence.\+cpp\end{DoxyCompactItemize}

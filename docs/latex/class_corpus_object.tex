@@ -1,0 +1,132 @@
+\hypertarget{class_corpus_object}{}\section{Corpus\+Object Class Reference}
+\label{class_corpus_object}\index{Corpus\+Object@{Corpus\+Object}}
+Inheritance diagram for Corpus\+Object\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.643836cm]{class_corpus_object}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_corpus_object_ab1f215448ffcef87c0c49aeef66db14a}\label{class_corpus_object_ab1f215448ffcef87c0c49aeef66db14a}} 
+enum {\bfseries Type} \{ \newline
+{\bfseries Type\+\_\+\+Corpus}, 
+{\bfseries Type\+\_\+\+Communication}, 
+{\bfseries Type\+\_\+\+Speaker}, 
+{\bfseries Type\+\_\+\+Recording}, 
+\newline
+{\bfseries Type\+\_\+\+Annotation}, 
+{\bfseries Type\+\_\+\+Participation}, 
+{\bfseries Type\+\_\+\+Bookmark}, 
+{\bfseries Type\+\_\+\+Undefined}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_corpus_object_aa2aa622291fe174695e2df7b3fe209f6}\label{class_corpus_object_aa2aa622291fe174695e2df7b3fe209f6}} 
+void {\bfseries changed\+ID} (const Q\+String \&old\+ID, const Q\+String \&new\+ID)
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_corpus_object_a566aa38d732176789207ea0d7fbab2bc}\label{class_corpus_object_a566aa38d732176789207ea0d7fbab2bc}} 
+{\bfseries Corpus\+Object} (\hyperlink{class_corpus_repository}{Corpus\+Repository} $\ast$repository=nullptr, Q\+Object $\ast$parent=nullptr)
+\item 
+\mbox{\Hypertarget{class_corpus_object_a8e00309147ddefacf88b2d09e8727ec1}\label{class_corpus_object_a8e00309147ddefacf88b2d09e8727ec1}} 
+{\bfseries Corpus\+Object} (const Q\+String \&ID, \hyperlink{class_corpus_repository}{Corpus\+Repository} $\ast$repository=nullptr, Q\+Object $\ast$parent=nullptr)
+\item 
+\mbox{\Hypertarget{class_corpus_object_a458418cb64b8605e7c2f7b7cdffa09ab}\label{class_corpus_object_a458418cb64b8605e7c2f7b7cdffa09ab}} 
+virtual Q\+String {\bfseries ID} () const
+\item 
+\mbox{\Hypertarget{class_corpus_object_a05c01cd12ca002adda56391be2f13456}\label{class_corpus_object_a05c01cd12ca002adda56391be2f13456}} 
+virtual void {\bfseries set\+ID} (const Q\+String \&ID)
+\item 
+\mbox{\Hypertarget{class_corpus_object_a7b738ad4e8eafe37d48b4e0b98f884f2}\label{class_corpus_object_a7b738ad4e8eafe37d48b4e0b98f884f2}} 
+virtual Q\+String {\bfseries original\+ID} () const
+\item 
+\mbox{\Hypertarget{class_corpus_object_a37a6a4a4316fd90b3492cd483b0afc78}\label{class_corpus_object_a37a6a4a4316fd90b3492cd483b0afc78}} 
+virtual Q\+String {\bfseries corpus\+ID} () const
+\item 
+\mbox{\Hypertarget{class_corpus_object_a8fc4da05cc682e58dd808fb74f1dd6df}\label{class_corpus_object_a8fc4da05cc682e58dd808fb74f1dd6df}} 
+virtual void {\bfseries set\+Corpus\+ID} (const Q\+String \&corpus\+ID)
+\item 
+\mbox{\Hypertarget{class_corpus_object_a852a551d621797fa865826355b9949e8}\label{class_corpus_object_a852a551d621797fa865826355b9949e8}} 
+virtual Corpus\+Object\+::\+Type {\bfseries type} () const =0
+\item 
+\mbox{\Hypertarget{class_corpus_object_aa703c47d513173a42d449a8896bc972d}\label{class_corpus_object_aa703c47d513173a42d449a8896bc972d}} 
+virtual bool {\bfseries save} ()=0
+\item 
+\mbox{\Hypertarget{class_corpus_object_a373445edd8e454dbd4afe8e861f68243}\label{class_corpus_object_a373445edd8e454dbd4afe8e861f68243}} 
+Q\+Variant {\bfseries property} (const Q\+String \&name) const
+\item 
+\mbox{\Hypertarget{class_corpus_object_a60216fe28daeecc9cb2fc30d38db3625}\label{class_corpus_object_a60216fe28daeecc9cb2fc30d38db3625}} 
+bool {\bfseries set\+Property} (const Q\+String \&name, const Q\+Variant \&value)
+\item 
+\mbox{\Hypertarget{class_corpus_object_acf7d6ac282eb3a522ae37f8ee890fcef}\label{class_corpus_object_acf7d6ac282eb3a522ae37f8ee890fcef}} 
+Q\+Pointer$<$ \hyperlink{class_corpus_repository}{Corpus\+Repository} $>$ {\bfseries repository} () const
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_corpus_object_ae234a9c51d4835904f4266e333c85dd8}\label{class_corpus_object_ae234a9c51d4835904f4266e333c85dd8}} 
+static Q\+String {\bfseries type\+To\+Friendly\+String} (Corpus\+Object\+::\+Type type)
+\item 
+\mbox{\Hypertarget{class_corpus_object_ac7e99e31de551e3af537963caf4584c7}\label{class_corpus_object_ac7e99e31de551e3af537963caf4584c7}} 
+static Q\+String {\bfseries type\+To\+String} (Corpus\+Object\+::\+Type type)
+\item 
+\mbox{\Hypertarget{class_corpus_object_a25b56b17b6dcc2894c7590c3a43f9681}\label{class_corpus_object_a25b56b17b6dcc2894c7590c3a43f9681}} 
+static Corpus\+Object\+::\+Type {\bfseries string\+To\+Type} (const Q\+String \&str)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_corpus_object_a5e16a4a58de09340ba669bdea107b4d2}\label{class_corpus_object_a5e16a4a58de09340ba669bdea107b4d2}} 
+void {\bfseries copy\+Properties\+From} (\hyperlink{class_corpus_object}{Corpus\+Object} $\ast$other)
+\item 
+\mbox{\Hypertarget{class_corpus_object_af91aaf99f39a8fc41ffbe62238c90c4e}\label{class_corpus_object_af91aaf99f39a8fc41ffbe62238c90c4e}} 
+bool {\bfseries event\+Filter} (Q\+Object $\ast$obj, Q\+Event $\ast$event)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_corpus_object_a7c764f5c4ca06ae1910b90aaca70945a}\label{class_corpus_object_a7c764f5c4ca06ae1910b90aaca70945a}} 
+Q\+String {\bfseries m\+\_\+\+ID}
+\item 
+\mbox{\Hypertarget{class_corpus_object_a31e6a6a19903610a4187aa0600dc0041}\label{class_corpus_object_a31e6a6a19903610a4187aa0600dc0041}} 
+Q\+String {\bfseries m\+\_\+original\+ID}
+\item 
+\mbox{\Hypertarget{class_corpus_object_a00bfdb906e43b45e3d09f285d50d9007}\label{class_corpus_object_a00bfdb906e43b45e3d09f285d50d9007}} 
+Q\+String {\bfseries m\+\_\+corpus\+ID}
+\item 
+\mbox{\Hypertarget{class_corpus_object_a5828ef6aeb1ae8277621786f22614c87}\label{class_corpus_object_a5828ef6aeb1ae8277621786f22614c87}} 
+Q\+Pointer$<$ \hyperlink{class_corpus_repository}{Corpus\+Repository} $>$ {\bfseries m\+\_\+repository}
+\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_corpus_object_a2e87f6afeb982f6b9ab31eb1f7423382}\label{class_corpus_object_a2e87f6afeb982f6b9ab31eb1f7423382}} 
+Q\+String {\bfseries ID}
+\item 
+\mbox{\Hypertarget{class_corpus_object_aa54db2f97f4e244f229c2afbd26f8e34}\label{class_corpus_object_aa54db2f97f4e244f229c2afbd26f8e34}} 
+Q\+String {\bfseries original\+ID}
+\item 
+\mbox{\Hypertarget{class_corpus_object_a580f7c90c3839b4b10bbac02a8b5b641}\label{class_corpus_object_a580f7c90c3839b4b10bbac02a8b5b641}} 
+Q\+String {\bfseries corpus\+ID}
+\item 
+\mbox{\Hypertarget{class_corpus_object_a1eb66ea1ca76fcb8500ecf9b67959c66}\label{class_corpus_object_a1eb66ea1ca76fcb8500ecf9b67959c66}} 
+Type {\bfseries type}
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_corpus_object_a4fb3bed7506f0eb1a6ce3107c88f6561}\label{class_corpus_object_a4fb3bed7506f0eb1a6ce3107c88f6561}} 
+class {\bfseries Corpus\+Datastore}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/corpus/Corpus\+Object.\+h\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/corpus/Corpus\+Object.\+cpp\end{DoxyCompactItemize}

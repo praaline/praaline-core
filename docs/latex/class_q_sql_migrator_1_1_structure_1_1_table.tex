@@ -1,0 +1,85 @@
+\hypertarget{class_q_sql_migrator_1_1_structure_1_1_table}{}\section{Q\+Sql\+Migrator\+:\+:Structure\+:\+:Table Class Reference}
+\label{class_q_sql_migrator_1_1_structure_1_1_table}\index{Q\+Sql\+Migrator\+::\+Structure\+::\+Table@{Q\+Sql\+Migrator\+::\+Structure\+::\+Table}}
+
+
+The \hyperlink{class_q_sql_migrator_1_1_structure_1_1_table}{Table} class represents basic table-\/structure.  
+
+
+
+
+{\ttfamily \#include $<$Table.\+h$>$}
+
+Inheritance diagram for Q\+Sql\+Migrator\+:\+:Structure\+:\+:Table\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_q_sql_migrator_1_1_structure_1_1_table}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_q_sql_migrator_1_1_structure_1_1_table_1_1_builder}{Builder}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_structure_1_1_table_af082e6f451ccd29c9e6802edc2b8679f}\label{class_q_sql_migrator_1_1_structure_1_1_table_af082e6f451ccd29c9e6802edc2b8679f}} 
+{\bfseries Table} (const Q\+String \&name, const Column\+List \&columns)
+\item 
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_structure_1_1_table_a0a10ebfe069af02a399e9ee6428b59a4}\label{class_q_sql_migrator_1_1_structure_1_1_table_a0a10ebfe069af02a399e9ee6428b59a4}} 
+const Q\+String \& {\bfseries name} () const
+\item 
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_structure_1_1_table_a06429875e52f9f9f34caccaccd0af96f}\label{class_q_sql_migrator_1_1_structure_1_1_table_a06429875e52f9f9f34caccaccd0af96f}} 
+const Column\+List \& {\bfseries columns} () const
+\item 
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_structure_1_1_table_a6be4aaf4447939be1fb346e4ff602bf5}\label{class_q_sql_migrator_1_1_structure_1_1_table_a6be4aaf4447939be1fb346e4ff602bf5}} 
+bool {\bfseries is\+Valid} () const
+\item 
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_structure_1_1_table_aa267b06b340116416a790d6f511f6e44}\label{class_q_sql_migrator_1_1_structure_1_1_table_aa267b06b340116416a790d6f511f6e44}} 
+bool {\bfseries has\+Column} (const Q\+String \&column\+Name) const
+\item 
+Q\+String\+List \hyperlink{class_q_sql_migrator_1_1_structure_1_1_table_a0bba07abafd6027dc62949d45b7f3886}{column\+Names} () const
+\item 
+\hyperlink{class_q_sql_migrator_1_1_structure_1_1_table}{Table} \hyperlink{class_q_sql_migrator_1_1_structure_1_1_table_a71965f3d679b32caeb1669afdf68d4da}{clone\+Without\+Column} (const Q\+String \&column\+Name) const
+\item 
+\hyperlink{class_q_sql_migrator_1_1_structure_1_1_column}{Column} \hyperlink{class_q_sql_migrator_1_1_structure_1_1_table_a19734a5c9414f7e8c90591349ad607c3}{fetch\+Column\+By\+Name} (const Q\+String \&name) const
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{class_q_sql_migrator_1_1_structure_1_1_table}{Table} class represents basic table-\/structure. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_structure_1_1_table_a71965f3d679b32caeb1669afdf68d4da}\label{class_q_sql_migrator_1_1_structure_1_1_table_a71965f3d679b32caeb1669afdf68d4da}} 
+\index{Q\+Sql\+Migrator\+::\+Structure\+::\+Table@{Q\+Sql\+Migrator\+::\+Structure\+::\+Table}!clone\+Without\+Column@{clone\+Without\+Column}}
+\index{clone\+Without\+Column@{clone\+Without\+Column}!Q\+Sql\+Migrator\+::\+Structure\+::\+Table@{Q\+Sql\+Migrator\+::\+Structure\+::\+Table}}
+\subsubsection{\texorpdfstring{clone\+Without\+Column()}{cloneWithoutColumn()}}
+{\footnotesize\ttfamily \hyperlink{class_q_sql_migrator_1_1_structure_1_1_table}{Table} Q\+Sql\+Migrator\+::\+Structure\+::\+Table\+::clone\+Without\+Column (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{column\+Name }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+the cloned table without the specified column 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_structure_1_1_table_a0bba07abafd6027dc62949d45b7f3886}\label{class_q_sql_migrator_1_1_structure_1_1_table_a0bba07abafd6027dc62949d45b7f3886}} 
+\index{Q\+Sql\+Migrator\+::\+Structure\+::\+Table@{Q\+Sql\+Migrator\+::\+Structure\+::\+Table}!column\+Names@{column\+Names}}
+\index{column\+Names@{column\+Names}!Q\+Sql\+Migrator\+::\+Structure\+::\+Table@{Q\+Sql\+Migrator\+::\+Structure\+::\+Table}}
+\subsubsection{\texorpdfstring{column\+Names()}{columnNames()}}
+{\footnotesize\ttfamily Q\+String\+List Q\+Sql\+Migrator\+::\+Structure\+::\+Table\+::column\+Names (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+a generated list of all column names 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_q_sql_migrator_1_1_structure_1_1_table_a19734a5c9414f7e8c90591349ad607c3}\label{class_q_sql_migrator_1_1_structure_1_1_table_a19734a5c9414f7e8c90591349ad607c3}} 
+\index{Q\+Sql\+Migrator\+::\+Structure\+::\+Table@{Q\+Sql\+Migrator\+::\+Structure\+::\+Table}!fetch\+Column\+By\+Name@{fetch\+Column\+By\+Name}}
+\index{fetch\+Column\+By\+Name@{fetch\+Column\+By\+Name}!Q\+Sql\+Migrator\+::\+Structure\+::\+Table@{Q\+Sql\+Migrator\+::\+Structure\+::\+Table}}
+\subsubsection{\texorpdfstring{fetch\+Column\+By\+Name()}{fetchColumnByName()}}
+{\footnotesize\ttfamily \hyperlink{class_q_sql_migrator_1_1_structure_1_1_column}{Column} Q\+Sql\+Migrator\+::\+Structure\+::\+Table\+::fetch\+Column\+By\+Name (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{name }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+the column with the given name 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/\+Q\+Sql\+Migrator/\+Structure/Table.\+h\item 
+/home/george/\+Develop/\+Praaline\+Py/praaline-\/core/\+Q\+Sql\+Migrator/\+Structure/Table.\+cpp\end{DoxyCompactItemize}
