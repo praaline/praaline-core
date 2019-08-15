@@ -21,6 +21,7 @@ QT += xml sql
 QT -= gui
 
 DEFINES += PRAALINE_CORE_LIBRARY
+DEFINES += USE_PRAALINE_CORE_NAMESPACE
 
 INCLUDEPATH += . ..
 DEPENDPATH += . ..
@@ -233,6 +234,11 @@ HEADERS += \
     interfaces/elan/ELANAnnotation.h
 
 SOURCES += \
+    base/DataType.cpp \
+    base/IDatastore.cpp \
+    base/ISaveable.cpp \
+    base/RealTime.cpp \
+    base/RealValueList.cpp \
     annotation/AnnotationDataTable.cpp \
     annotation/AnnotationElement.cpp \
     annotation/AnnotationTier.cpp \
@@ -247,9 +253,6 @@ SOURCES += \
     annotation/SequenceTier.cpp \
     annotation/Transcription.cpp \
     annotation/TreeTier.cpp \
-    base/DataType.cpp \
-    base/RealTime.cpp \
-    base/RealValueList.cpp \
     corpus/Corpus.cpp \
     corpus/CorpusAnnotation.cpp \
     corpus/CorpusBookmark.cpp \
@@ -259,11 +262,14 @@ SOURCES += \
     corpus/CorpusParticipation.cpp \
     corpus/CorpusRecording.cpp \
     corpus/CorpusSpeaker.cpp \
+    datastore/AnnotationDatastore.cpp \
     datastore/CorpusDatastore.cpp \
     datastore/CorpusRepository.cpp \
     datastore/CorpusRepositoryDefinition.cpp \
     datastore/DatastoreFactory.cpp \
     datastore/FileDatastore.cpp \
+    datastore/MetadataDatastore.cpp \
+    datastore/NameValueListDatastore.cpp \
     datastore/SQLAnnotationDatastore.cpp \
     datastore/SQLMetadataDatastore.cpp \
     datastore/XMLAnnotationDatastore.cpp \
@@ -283,6 +289,8 @@ SOURCES += \
     interfaces/praat/PraatTextGrid.cpp \
     interfaces/subtitles/SubtitlesFile.cpp \
     interfaces/transcriber/TranscriberAnnotationGraph.cpp \
+    interfaces/tei/TEIHeader.cpp \
+    interfaces/elan/ELANAnnotation.cpp \
     language/PhonemeDefinitions.cpp \
     language/PhoneticAlphabet.cpp \
     language/Tokeniser.cpp \
@@ -419,9 +427,8 @@ SOURCES += \
     structure/MetadataStructureAttribute.cpp \
     structure/MetadataStructureSection.cpp \
     structure/NameValueList.cpp \
-    structure/StructureAttributeBase.cpp \
-    interfaces/tei/TEIHeader.cpp \
-    interfaces/elan/ELANAnnotation.cpp
+    structure/StructureAttributeBase.cpp
 
 DISTFILES += \
+    Doxyfile \
     pncore.qmodel

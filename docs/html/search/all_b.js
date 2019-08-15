@@ -1,6 +1,21 @@
 var searchData=
 [
-  ['namevaluelist',['NameValueList',['../classPraaline_1_1Core_1_1NameValueList.html',1,'Praaline::Core']]],
-  ['namevaluelistdatastore',['NameValueListDatastore',['../classPraaline_1_1Core_1_1NameValueListDatastore.html',1,'Praaline::Core']]],
-  ['numeric',['Numeric',['../classQSqlMigrator_1_1Structure_1_1SqlType.html#ac1733fcbed79941acd89bcf3196d9912a73d009657d5271bb1d691bef7f9f9de7',1,'QSqlMigrator::Structure::SqlType']]]
+  ['measures',['Measures',['../class_measures.html',1,'']]],
+  ['metadatadatastore',['MetadataDatastore',['../class_metadata_datastore.html',1,'']]],
+  ['metadatastructure',['MetadataStructure',['../class_metadata_structure.html',1,'']]],
+  ['metadatastructureattribute',['MetadataStructureAttribute',['../class_metadata_structure_attribute.html',1,'']]],
+  ['metadatastructuresection',['MetadataStructureSection',['../class_metadata_structure_section.html',1,'']]],
+  ['migration',['Migration',['../class_q_sql_migrator_1_1_migrations_1_1_migration.html',1,'QSqlMigrator::Migrations']]],
+  ['migrationexecutionconfig',['MigrationExecutionConfig',['../struct_q_sql_migrator_1_1_migration_execution_1_1_migration_execution_config.html',1,'QSqlMigrator::MigrationExecution']]],
+  ['migrationexecutioncontext',['MigrationExecutionContext',['../class_q_sql_migrator_1_1_migration_execution_1_1_migration_execution_context.html',1,'QSqlMigrator::MigrationExecution']]],
+  ['migrationexecutionservice',['MigrationExecutionService',['../class_q_sql_migrator_1_1_migration_execution_1_1_migration_execution_service.html',1,'QSqlMigrator::MigrationExecution']]],
+  ['migrationlist',['migrationList',['../class_q_sql_migrator_1_1_migration_tracker_1_1_base_migration_table_service.html#a1105240b456db9f85c2fc2866582a292',1,'QSqlMigrator::MigrationTracker::BaseMigrationTableService::migrationList()'],['../class_q_sql_migrator_1_1_migration_tracker_1_1_migration_tracker_service.html#a5de22e070fc1b4f487dbe256e1c874ef',1,'QSqlMigrator::MigrationTracker::MigrationTrackerService::migrationList()']]],
+  ['migrationrepository',['MigrationRepository',['../class_q_sql_migrator_1_1_migrations_1_1_migration_repository.html',1,'QSqlMigrator::Migrations']]],
+  ['migrationtrackerservice',['MigrationTrackerService',['../class_q_sql_migrator_1_1_migration_tracker_1_1_migration_tracker_service.html',1,'QSqlMigrator::MigrationTracker']]],
+  ['missingmigrations',['missingMigrations',['../class_q_sql_migrator_1_1_q_sql_migrator_service.html#a9d643749c3e565e02532854c2ff35971',1,'QSqlMigrator::QSqlMigratorService']]],
+  ['mysqlaltercolumntypeservice',['MysqlAlterColumnTypeService',['../class_q_sql_migrator_1_1_command_execution_1_1_mysql_alter_column_type_service.html',1,'QSqlMigrator::CommandExecution']]],
+  ['mysqlcolumnservice',['MysqlColumnService',['../class_q_sql_migrator_1_1_helper_1_1_mysql_column_service.html',1,'QSqlMigrator::Helper']]],
+  ['mysqlrenamecolumnservice',['MysqlRenameColumnService',['../class_q_sql_migrator_1_1_command_execution_1_1_mysql_rename_column_service.html',1,'QSqlMigrator::CommandExecution']]],
+  ['mysqlstructureservice',['MysqlStructureService',['../class_q_sql_migrator_1_1_helper_1_1_mysql_structure_service.html',1,'QSqlMigrator::Helper']]],
+  ['mysqltypemapperservice',['MysqlTypeMapperService',['../class_q_sql_migrator_1_1_helper_1_1_mysql_type_mapper_service.html',1,'QSqlMigrator::Helper']]]
 ];

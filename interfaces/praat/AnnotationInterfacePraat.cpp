@@ -10,8 +10,7 @@
 
 #include "AnnotationInterfacePraat.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 struct AnnotationInterfacePraatData {
     AnnotationInterfacePraatData() :
@@ -182,7 +181,4 @@ bool AnnotationInterfacePraat::exportAnnotation(CorpusRepository *repository, co
     return result;
 }
 
-
-} // namespace Core
-} // namespace Praaline
-
+PRAALINE_CORE_END_NAMESPACE

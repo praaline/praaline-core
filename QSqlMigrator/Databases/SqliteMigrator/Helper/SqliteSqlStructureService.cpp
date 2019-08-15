@@ -92,7 +92,7 @@ ColumnList columnsFromTableInfo(QSqlQuery &tableInfoQuery, const QSet<QString> &
         if (uniqueColumns.contains(name))
             attr |= Column::Unique;
 
-        columns << Column(name, type, defaultValue, attr);
+        columns << Column(name, SqlType(type), defaultValue, attr);
     }
     return columns;
 }

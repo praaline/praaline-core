@@ -8,8 +8,15 @@
 
 #include "JSONSerialiserAnnotationStructure.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
+
+JSONSerialiserAnnotationStructure::JSONSerialiserAnnotationStructure()
+{
+}
+
+JSONSerialiserAnnotationStructure::~JSONSerialiserAnnotationStructure()
+{
+}
 
 // public static
 bool JSONSerialiserAnnotationStructure::write(AnnotationStructure *structure, const QString &filename)
@@ -117,7 +124,7 @@ AnnotationStructureLevel *JSONSerialiserAnnotationStructure::readLevel(QJsonObje
     if (json.contains("datatype") && json["datatype"].isString())
         level->setDatatype(DataType(json["datatype"].toString()));
     if (json.contains("datalength") && json["datalength"].isString())
-        level->setDatatype(DataType(level->datatype().base(), json["datalength"].toString().toInt()));
+        level->setDatatype(DataType(level->datatype().base(), json["datalength"].toString().toUInt()));
     if (json.contains("indexed") && json["indexed"].isBool())
         level->setIndexed(json["indexed"].toBool());
     if (json.contains("nameValueList") && json["nameValueList"].isString())
@@ -166,7 +173,7 @@ AnnotationStructureAttribute *JSONSerialiserAnnotationStructure::readAttribute(Q
     if (json.contains("datatype") && json["datatype"].isString())
         attribute->setDatatype(DataType(json["datatype"].toString()));
     if (json.contains("datalength") && json["datalength"].isString())
-        attribute->setDatatype(DataType(attribute->datatype().base(), json["datalength"].toString().toInt()));
+        attribute->setDatatype(DataType(attribute->datatype().base(), json["datalength"].toString().toUInt()));
     if (json.contains("indexed") && json["indexed"].isBool())
         attribute->setIndexed(json["indexed"].toBool());
     if (json.contains("nameValueList") && json["nameValueList"].isString())
@@ -176,5 +183,4 @@ AnnotationStructureAttribute *JSONSerialiserAnnotationStructure::readAttribute(Q
     return attribute;
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

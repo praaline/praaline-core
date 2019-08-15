@@ -14,8 +14,7 @@
 #include "annotation/RelationTier.h"
 #include "SQLSerialiserAnnotation.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 // ==========================================================================================================================
 // Helper Functions
@@ -325,9 +324,9 @@ AnnotationTier *SQLSerialiserAnnotation::getTier(
         const QString &annotationID, const QString &speakerID, const QString &levelID, const QStringList &attributeIDs,
         AnnotationStructure *structure, QSqlDatabase &db)
 {
-    if (!structure) return Q_NULLPTR;
+    if (!structure) return nullptr;
     AnnotationStructureLevel *level = structure->level(levelID);
-    if (!level) return Q_NULLPTR;
+    if (!level) return nullptr;
     AnnotationDatastore::Selection selection(annotationID, speakerID, levelID, attributeIDs);
     if (level->levelType() == AnnotationStructureLevel::IndependentPointsLevel) {
         QList<Point *> points = getPoints(selection, structure, db);
@@ -342,7 +341,7 @@ AnnotationTier *SQLSerialiserAnnotation::getTier(
         QList<Sequence *> sequences = getSequences(selection, structure, db);
         if (!sequences.isEmpty()) return new SequenceTier(levelID, sequences);
     }
-    return Q_NULLPTR;
+    return nullptr;
 }
 
 AnnotationTierGroup *SQLSerialiserAnnotation::getTiers(
@@ -581,10 +580,10 @@ IntervalTier *SQLSerialiserAnnotation::getSpeakerTimeline(
     QMap<QString, QList<Interval *> > speakingIntervals;
     QMap<QString, IntervalTier * > speakingTiers;
 
-    if (!structure) return 0;
+    if (!structure) return nullptr;
     AnnotationStructureLevel *level = structure->level(levelID);
-    if (!level) return 0;
-    if (communicationID.isEmpty() && annotationID.isEmpty()) return 0;
+    if (!level) return nullptr;
+    if (communicationID.isEmpty() && annotationID.isEmpty()) return nullptr;
 
     QSqlQuery query(db);
     QString q = QString("SELECT tMin, tMax, speakerID, xText FROM %1 ").arg(levelID);
@@ -608,8 +607,8 @@ IntervalTier *SQLSerialiserAnnotation::getSpeakerTimeline(
         if (!timelineBoundaries.contains(tMax)) timelineBoundaries << tMax;
         speakingIntervals[speakerID].append(new Interval(tMin, tMax, xText));
     }
-    if (timelineBoundaries.isEmpty()) return 0;
-    qSort(timelineBoundaries);
+    if (timelineBoundaries.isEmpty()) return nullptr;
+    std::sort(timelineBoundaries.begin(), timelineBoundaries.end());
     QList<Interval *> timelineIntervals;
     for (int i = 0; i < timelineBoundaries.count() - 1; ++i) {
         timelineIntervals << new Interval(timelineBoundaries.at(i), timelineBoundaries.at(i + 1), "");
@@ -749,5 +748,4 @@ QList<QPair<QList<QVariant>, long long> > SQLSerialiserAnnotation::countItems(
     return list;
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

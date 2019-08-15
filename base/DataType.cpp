@@ -1,7 +1,6 @@
 #include "DataType.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 DataType::DataType(DataType::Base base, quint64 precision, int scale) :
     m_base(base),
@@ -90,6 +89,5 @@ const DataType &DataType::invalid()
     return invalid_sql_type;
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
 

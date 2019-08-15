@@ -6,8 +6,7 @@
 #include "AnnotationStructureAttribute.h"
 #include "AnnotationStructureLevel.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 AnnotationStructureLevel::AnnotationStructureLevel(QObject *parent) :
     StructureAttributeBase(parent)
@@ -35,16 +34,21 @@ bool AnnotationStructureLevel::isLevelTypePrimary() const
     return false;
 }
 
+AnnotationStructureLevel::~AnnotationStructureLevel()
+{
+    // Attributes are QObjects, they are deleted as children of this QObject.
+}
+
 // ==========================================================================================================
 // ATTRIBUTES
 // ==========================================================================================================
 
-QPointer<AnnotationStructureAttribute> AnnotationStructureLevel::attribute(int index) const
+AnnotationStructureAttribute *AnnotationStructureLevel::attribute(int index) const
 {
     return m_attributes.value(index);
 }
 
-QPointer<AnnotationStructureAttribute> AnnotationStructureLevel::attribute(const QString &ID) const
+AnnotationStructureAttribute *AnnotationStructureLevel::attribute(const QString &ID) const
 {
     foreach (QPointer<AnnotationStructureAttribute> attribute, m_attributes) {
         if ((attribute) && (attribute->ID() == ID))
@@ -85,7 +89,7 @@ QStringList AnnotationStructureLevel::attributeIDs() const
     return ret;
 }
 
-QList<QPointer<AnnotationStructureAttribute> > AnnotationStructureLevel::attributes() const
+QList<AnnotationStructureAttribute *> AnnotationStructureLevel::attributes() const
 {
     return m_attributes;
 }
@@ -106,7 +110,7 @@ void AnnotationStructureLevel::addAttribute(AnnotationStructureAttribute *attrib
 
 void AnnotationStructureLevel::swapAttribute(int oldIndex, int newIndex)
 {
-    m_attributes.swap(oldIndex, newIndex);
+    m_attributes.swapItemsAt(oldIndex, newIndex);
 }
 
 void AnnotationStructureLevel::removeAttributeAt(int i)
@@ -123,5 +127,4 @@ void AnnotationStructureLevel::removeAttributeByID(const QString &ID)
         m_attributes.removeAt(i);
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

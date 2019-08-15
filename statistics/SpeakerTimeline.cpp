@@ -13,8 +13,7 @@
 
 #include "SpeakerTimeline.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 struct SpeakerTimelineData {
     QString minimalLevelID;
@@ -75,7 +74,7 @@ bool SpeakerTimeline::calculate(QPointer<CorpusCommunication> com, const QString
     }
 
     // Create a timeline clone where regions of identical speakers are merged together
-    d->tier_timelineSpk = new IntervalTier(d->tier_timelineSyll);
+    d->tier_timelineSpk = d->tier_timelineSyll->clone();
     if (!d->tier_timelineSpk) return false;
     d->tier_timelineSpk->setParent(this);
     d->tier_timelineSpk->mergeIdenticalAnnotations();
@@ -145,10 +144,10 @@ void debugCreateTimelineTextgrid(QPointer<CorpusCommunication> com, const QStrin
             if (!tiers) continue;
             IntervalTier *tier_syll = tiers->getIntervalTierByName("syll");
             IntervalTier *tier_tokmin = tiers->getIntervalTierByName("tok_min");
-            txg->addTier(new IntervalTier(tier_syll));
-            txg->addTier(new IntervalTier(tier_tokmin));
+            txg->addTier(tier_syll->clone());
+            txg->addTier(tier_tokmin->clone());
             // Turn
-            IntervalTier *tier_turns = new IntervalTier(tier_timelineSpk);
+            IntervalTier *tier_turns = tier_timelineSpk->clone();
             foreach (Interval *intv, tier_turns->intervals()) {
                 if (intv->text().contains(speakerID)) intv->setText(speakerID); else intv->setText("");
             }
@@ -158,12 +157,12 @@ void debugCreateTimelineTextgrid(QPointer<CorpusCommunication> com, const QStrin
         qDeleteAll(tiersAll);
     }
     txg->addTier(tier_timelineSyll);
-    IntervalTier *tier_timelineSyllT = new IntervalTier(tier_timelineSyll, "timelineSyllT");
+    IntervalTier *tier_timelineSyllT = tier_timelineSyll->clone("timelineSyllT");
     foreach (Interval *intv, tier_timelineSyllT->intervals())
         intv->setText(intv->attribute("temporal").toString());
     txg->addTier(tier_timelineSyllT);
     txg->addTier(tier_timelineSpk);
-    IntervalTier *tier_timelineSpkT = new IntervalTier(tier_timelineSpk, "timelineSpkT");
+    IntervalTier *tier_timelineSpkT = tier_timelineSpk->clone("timelineSpkT");
     foreach (Interval *intv, tier_timelineSpkT->intervals())
         intv->setText(intv->attribute("temporal").toString());
     txg->addTier(tier_timelineSpkT);
@@ -171,5 +170,4 @@ void debugCreateTimelineTextgrid(QPointer<CorpusCommunication> com, const QStrin
     PraatTextGrid::save(path + "/" + com->ID() + ".TextGrid", txg.data());
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

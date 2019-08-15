@@ -8,8 +8,7 @@
 
 #include "JSONSerialiserMetadataStructure.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 // public static
 bool JSONSerialiserMetadataStructure::write(MetadataStructure *structure, const QString &filename)
@@ -197,7 +196,7 @@ MetadataStructureAttribute *JSONSerialiserMetadataStructure::readAttribute(QJson
     if (json.contains("datatype") && json["datatype"].isString())
         attribute->setDatatype(DataType(json["datatype"].toString()));
     if (json.contains("datalength") && json["datalength"].isString())
-        attribute->setDatatype(DataType(attribute->datatype().base(), json["datalength"].toString().toInt()));
+        attribute->setDatatype(DataType(attribute->datatype().base(), json["datalength"].toString().toUInt()));
     if (json.contains("indexed") && json["indexed"].isBool())
         attribute->setIndexed(json["indexed"].toBool());
     if (json.contains("nameValueList") && json["nameValueList"].isString())
@@ -205,5 +204,4 @@ MetadataStructureAttribute *JSONSerialiserMetadataStructure::readAttribute(QJson
     return attribute;
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

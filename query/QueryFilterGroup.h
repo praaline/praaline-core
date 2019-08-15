@@ -3,7 +3,7 @@
 
 /*
     Praaline - Core module - Queries and Datasets
-    Copyright (c) 2011-2017 George Christodoulides
+    Copyright (c) 2011-2019 George Christodoulides
 
     This program or module is free software: you can redistribute it
     and/or modify it under the terms of the GNU General Public License
@@ -20,8 +20,7 @@
 #include <QList>
 #include "QueryFilterSequence.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 class PRAALINE_CORE_SHARED_EXPORT QueryFilterGroup
 {
@@ -35,7 +34,6 @@ public:
     int longestSequenceLength() const;
 };
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
 
 #endif // QUERYFILTERGROUP_H

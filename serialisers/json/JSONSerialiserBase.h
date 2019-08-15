@@ -3,7 +3,7 @@
 
 /*
     Praaline - Core module - JSON Serialisers
-    Copyright (c) 2011-2018 George Christodoulides
+    Copyright (c) 2011-2019 George Christodoulides
 
     This program or module is free software: you can redistribute it
     and/or modify it under the terms of the GNU General Public License
@@ -15,8 +15,9 @@
     the GNU General Public License for more details.
 */
 
-namespace Praaline {
-namespace Core {
+#include "pncore_global.h"
+
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 class JSONSerialiserBase
 {
@@ -24,7 +25,6 @@ public:
     JSONSerialiserBase();
 };
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
 
 #endif // JSONSERIALISERBASE_H

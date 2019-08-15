@@ -3,8 +3,7 @@
 #include <QTextStream>
 #include "InterfaceTextFile.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 // QString InterfaceTextFile::m_defaultEncoding = "UTF-8";
 // or
@@ -58,5 +57,4 @@ void InterfaceTextFile::detectEncoding(QFile &file, QTextStream &stream)
     }
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

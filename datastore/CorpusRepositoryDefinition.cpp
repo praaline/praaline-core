@@ -8,8 +8,7 @@
 #include "DatastoreInfo.h"
 #include "CorpusRepositoryDefinition.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 CorpusRepositoryDefinition::CorpusRepositoryDefinition() :
     basePath(QString()), basePathMedia(QString())
@@ -144,5 +143,4 @@ bool CorpusRepositoryDefinition::load(const QString &filename)
     return true;
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

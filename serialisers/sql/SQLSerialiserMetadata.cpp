@@ -7,8 +7,7 @@
 #include "datastore/CorpusDatastore.h"
 #include "SQLSerialiserMetadata.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 // ==============================================================================================================================
 // Load metadata information
@@ -136,7 +135,7 @@ QList<CorpusObjectInfo> SQLSerialiserMetadata::getCorpusObjectInfoList(
 Corpus *SQLSerialiserMetadata::getCorpus(
         const QString &corpusID, QSqlDatabase &db, MetadataStructure *structure, CorpusDatastore *datastore)
 {
-    if (!structure) return Q_NULLPTR;
+    if (!structure) return nullptr;
     Corpus *corpus = new Corpus(corpusID);
     QSqlQuery q(db);
     prepareSelectQuery(q, CorpusObject::Type_Corpus, MetadataDatastore::Selection(corpusID, "", ""));
@@ -957,6 +956,4 @@ QList<QPair<QList<QVariant>, long> > SQLSerialiserMetadata::getDistinctValues(Co
     return list;
 }
 
-
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

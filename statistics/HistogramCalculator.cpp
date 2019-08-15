@@ -12,8 +12,7 @@
 #include "StatisticalSummary.h"
 #include "HistogramCalculator.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 HistogramCalculator::HistogramCalculator()
     : m_max(0), m_min(0), m_IQR(0)
@@ -26,7 +25,7 @@ HistogramCalculator::~HistogramCalculator()
 
 void HistogramCalculator::prepareValues()
 {
-    qSort(m_values.begin(), m_values.end());
+    std::sort(m_values.begin(), m_values.end());
 
     StatisticalSummary s;
     s.setStatistics(StatisticalSummary::Max | StatisticalSummary::Min | StatisticalSummary::InterQuartileRange);
@@ -60,7 +59,7 @@ double HistogramCalculator::optimalBinWidth() const
 
 int HistogramCalculator::optimalNumberBins() const
 {
-    return ceil((m_max - m_min) / optimalBinWidth());
+    return static_cast<int>(ceil((m_max - m_min) / optimalBinWidth()));
 }
 
 QList<double> HistogramCalculator::binEdges(int bins) const
@@ -100,5 +99,4 @@ QList<int> HistogramCalculator::counts(int bins) const
     return binCounts;
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

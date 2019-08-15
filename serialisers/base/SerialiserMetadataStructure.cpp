@@ -2,8 +2,7 @@
 #include "structure/MetadataStructure.h"
 #include "SerialiserMetadataStructure.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 SerialiserMetadataStructure::SerialiserMetadataStructure()
 {
@@ -13,5 +12,4 @@ SerialiserMetadataStructure::~SerialiserMetadataStructure()
 {
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

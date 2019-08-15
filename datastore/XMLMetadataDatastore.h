@@ -3,7 +3,7 @@
 
 /*
     Praaline - Core module - XML Serialisers
-    Copyright (c) 2011-2018 George Christodoulides
+    Copyright (c) 2011-2019 George Christodoulides
 
     This program or module is free software: you can redistribute it
     and/or modify it under the terms of the GNU General Public License
@@ -18,8 +18,7 @@
 #include <QObject>
 #include "datastore/MetadataDatastore.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 class MetadataStructure;
 
@@ -27,8 +26,8 @@ class XMLMetadataDatastore : public MetadataDatastore
 {
     Q_OBJECT
 public:
-    XMLMetadataDatastore(MetadataStructure *structure, CorpusRepository *repository, QObject *parent = 0);
-    ~XMLMetadataDatastore();
+    XMLMetadataDatastore(MetadataStructure *structure, CorpusRepository *repository, QObject *parent = nullptr);
+    ~XMLMetadataDatastore() override;
 
     // ==========================================================================================================================
     // Datastore
@@ -96,7 +95,6 @@ private:
     QPointer<MetadataStructure> m_structure;
 };
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
 
 #endif // XMLMETADATADATASTORE_H

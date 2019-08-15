@@ -1,8 +1,7 @@
 #include <QRegularExpression>
 #include "PraatPitchFile.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 // Initialise regular expressions
 // Regular Expressions for:
@@ -162,8 +161,9 @@ bool PraatPitchFile::load(const QString &filename, PraatPitch &data)
 
 bool PraatPitchFile::save(const QString &filename, PraatPitch &data)
 {
+    Q_UNUSED(filename)
+    Q_UNUSED(data)
     return false;
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

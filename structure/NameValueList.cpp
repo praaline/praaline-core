@@ -1,7 +1,6 @@
 #include "NameValueList.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 NameValueList::NameValueList(QObject *parent) :
     QObject(parent), m_datatype(DataType::Invalid)
@@ -135,5 +134,4 @@ void NameValueList::clear()
     m_valueToDisplay.clear();
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

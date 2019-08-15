@@ -15,8 +15,7 @@ using namespace QSqlMigrator::Commands;
 #include "SQLSerialiserBase.h"
 #include "SQLSerialiserMetadataStructure.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 // static
 bool SQLSerialiserMetadataStructure::initialiseMetadataStructureSchema(QSqlDatabase &db)
@@ -550,5 +549,4 @@ bool SQLSerialiserMetadataStructure::deleteMetadataAttribute(CorpusObject::Type 
     return true;
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

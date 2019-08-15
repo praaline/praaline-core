@@ -11,8 +11,7 @@
 #include "PraatTextFile.h"
 #include "PraatPointTierFile.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 bool PraatPointTierFile::readPoint(bool isShortFile, QTextStream &stream, QString &line,
                                    double &timePoint, double &value)
@@ -108,5 +107,4 @@ bool PraatPointTierFile::save(const QString &filename, const QString &praatObjec
     return true;
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

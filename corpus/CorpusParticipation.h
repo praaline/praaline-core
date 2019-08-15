@@ -3,7 +3,7 @@
 
 /*
     Praaline - Core module - Corpus metadata
-    Copyright (c) 2011-2017 George Christodoulides
+    Copyright (c) 2011-2019 George Christodoulides
 
     This program or module is free software: you can redistribute it
     and/or modify it under the terms of the GNU General Public License
@@ -23,8 +23,7 @@
 #include "CorpusCommunication.h"
 #include "CorpusSpeaker.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 class Corpus;
 
@@ -36,8 +35,9 @@ class PRAALINE_CORE_SHARED_EXPORT CorpusParticipation : public CorpusObject
     Q_PROPERTY(QString role READ role WRITE setRole)
 
 public:
-    CorpusParticipation(QPointer<CorpusCommunication> com, QPointer<CorpusSpeaker> spk, QString role = QString(), QObject *parent = 0);
-    ~CorpusParticipation() {}
+    CorpusParticipation(QPointer<CorpusCommunication> com, QPointer<CorpusSpeaker> spk, QString role = QString(),
+                        QObject *parent = nullptr);
+    ~CorpusParticipation() override {}
     void copyProperties(CorpusParticipation *other);
 
     CorpusObject::Type type() const override { return CorpusObject::Type_Participation; }
@@ -66,7 +66,6 @@ private:
     Q_DISABLE_COPY(CorpusParticipation)
 };
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
 
 #endif // CORPUSPARTICIPATION_H

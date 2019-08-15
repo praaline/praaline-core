@@ -12,8 +12,7 @@
 #include "annotation/Point.h"
 #include "PraatTextGrid.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 // Initialise regular expressions
 QRegularExpression PraatTextGrid::regex_interval_tier = QRegularExpression("class\\s+=\\s+\\\"IntervalTier\\\"");
@@ -214,11 +213,10 @@ bool PraatTextGrid::save(const QString &filename, AnnotationTierGroup *group)
 {
     if (group == nullptr) return false; // I can only save AnnotationTierGroups
 
-    AnnotationTier *tier;
-    IntervalTier *iTier;
-    PointTier *pTier;
-    Interval *interval;
-    Point *point;
+    IntervalTier *iTier(nullptr);
+    PointTier *pTier(nullptr);
+    Interval *interval(nullptr);
+    Point *point(nullptr);
 
     QFile file(filename);
 
@@ -237,7 +235,7 @@ bool PraatTextGrid::save(const QString &filename, AnnotationTierGroup *group)
            .arg(QString::number(group->tMax().toDouble(), 'f', 16));
 
     int countTiers = 0;
-    foreach (tier, group->tiers()) {
+    foreach (AnnotationTier *tier, group->tiers()) {
         if ((tier->tierType() == AnnotationTier::TierType_Intervals) || (tier->tierType() == AnnotationTier::TierType_Grouping) ||
             (tier->tierType() == AnnotationTier::TierType_Points))
             countTiers++;
@@ -245,7 +243,7 @@ bool PraatTextGrid::save(const QString &filename, AnnotationTierGroup *group)
     out << QString("tiers? <exists>\nsize = %1\nitem []:\n").arg(countTiers);
 
     int n = 0;
-    foreach (tier, group->tiers()) {
+    foreach (AnnotationTier *tier, group->tiers()) {
         // Save empty tiers as well! if (tier->isEmpty()) continue;
 
         QString tierType;
@@ -335,5 +333,4 @@ QList<PraatTierData> PraatTextGrid::getTierData(const QString &filename)
     return ret;
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

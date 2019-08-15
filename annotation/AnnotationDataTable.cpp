@@ -10,8 +10,7 @@
 #include "base/RealValueList.h"
 #include "annotation/AnnotationDataTable.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 AnnotationDataTable::AnnotationDataTable(QObject *parent) :
     QObject(parent)
@@ -141,5 +140,4 @@ bool AnnotationDataTable::saveToFile(const QString &filename)
     return true;
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

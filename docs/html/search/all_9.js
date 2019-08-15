@@ -1,22 +1,12 @@
 var searchData=
 [
-  ['lastappliedmigration',['lastAppliedMigration',['../classQSqlMigrator_1_1QSqlMigratorService.html#a8cb34984b384328254139239c9f50a69',1,'QSqlMigrator::QSqlMigratorService']]],
-  ['localscheme',['LocalScheme',['../classQSqlMigrator_1_1Structure_1_1LocalScheme.html',1,'QSqlMigrator::Structure']]],
-  ['localschemeaddcolumnservice',['LocalSchemeAddColumnService',['../classQSqlMigrator_1_1CommandExecution_1_1LocalSchemeAddColumnService.html',1,'QSqlMigrator::CommandExecution']]],
-  ['localschemealtercolumntypeservice',['LocalSchemeAlterColumnTypeService',['../classQSqlMigrator_1_1CommandExecution_1_1LocalSchemeAlterColumnTypeService.html',1,'QSqlMigrator::CommandExecution']]],
-  ['localschemebasecommandexecutionservice',['LocalSchemeBaseCommandExecutionService',['../classQSqlMigrator_1_1CommandExecution_1_1LocalSchemeBaseCommandExecutionService.html',1,'QSqlMigrator::CommandExecution']]],
-  ['localschemecommandexecutioncontext',['LocalSchemeCommandExecutionContext',['../classQSqlMigrator_1_1CommandExecution_1_1LocalSchemeCommandExecutionContext.html',1,'QSqlMigrator::CommandExecution']]],
-  ['localschemecommandexecutionservice',['LocalSchemeCommandExecutionService',['../classQSqlMigrator_1_1CommandExecution_1_1LocalSchemeCommandExecutionService.html',1,'QSqlMigrator::CommandExecution']]],
-  ['localschemecommandexecutionservicerepository',['LocalSchemeCommandExecutionServiceRepository',['../classQSqlMigrator_1_1CommandExecution_1_1LocalSchemeCommandExecutionServiceRepository.html',1,'QSqlMigrator::CommandExecution']]],
-  ['localschemecomparisoncontext',['LocalSchemeComparisonContext',['../classQSqlMigrator_1_1LocalSchemeMigrator_1_1LocalSchemeComparisonContext.html',1,'QSqlMigrator::LocalSchemeMigrator']]],
-  ['localschemecomparisonservice',['LocalSchemeComparisonService',['../classQSqlMigrator_1_1LocalSchemeMigrator_1_1LocalSchemeComparisonService.html',1,'QSqlMigrator::LocalSchemeMigrator']]],
-  ['localschemecreateindexservice',['LocalSchemeCreateIndexService',['../classQSqlMigrator_1_1CommandExecution_1_1LocalSchemeCreateIndexService.html',1,'QSqlMigrator::CommandExecution']]],
-  ['localschemecreatetableservice',['LocalSchemeCreateTableService',['../classQSqlMigrator_1_1CommandExecution_1_1LocalSchemeCreateTableService.html',1,'QSqlMigrator::CommandExecution']]],
-  ['localschemedropcolumnservice',['LocalSchemeDropColumnService',['../classQSqlMigrator_1_1CommandExecution_1_1LocalSchemeDropColumnService.html',1,'QSqlMigrator::CommandExecution']]],
-  ['localschemedropindexservice',['LocalSchemeDropIndexService',['../classQSqlMigrator_1_1CommandExecution_1_1LocalSchemeDropIndexService.html',1,'QSqlMigrator::CommandExecution']]],
-  ['localschemedroptableservice',['LocalSchemeDropTableService',['../classQSqlMigrator_1_1CommandExecution_1_1LocalSchemeDropTableService.html',1,'QSqlMigrator::CommandExecution']]],
-  ['localschememigrationexecutioncontext',['LocalSchemeMigrationExecutionContext',['../classQSqlMigrator_1_1MigrationExecution_1_1LocalSchemeMigrationExecutionContext.html',1,'QSqlMigrator::MigrationExecution']]],
-  ['localschememigrationexecutionservice',['LocalSchemeMigrationExecutionService',['../classQSqlMigrator_1_1MigrationExecution_1_1LocalSchemeMigrationExecutionService.html',1,'QSqlMigrator::MigrationExecution']]],
-  ['localschemerenamecolumnservice',['LocalSchemeRenameColumnService',['../classQSqlMigrator_1_1CommandExecution_1_1LocalSchemeRenameColumnService.html',1,'QSqlMigrator::CommandExecution']]],
-  ['localschemerenametableservice',['LocalSchemeRenameTableService',['../classQSqlMigrator_1_1CommandExecution_1_1LocalSchemeRenameTableService.html',1,'QSqlMigrator::CommandExecution']]]
+  ['jsonserialiserannotation',['JSONSerialiserAnnotation',['../class_j_s_o_n_serialiser_annotation.html',1,'']]],
+  ['jsonserialiserannotationstructure',['JSONSerialiserAnnotationStructure',['../class_j_s_o_n_serialiser_annotation_structure.html',1,'']]],
+  ['jsonserialiserbase',['JSONSerialiserBase',['../class_j_s_o_n_serialiser_base.html',1,'']]],
+  ['jsonserialisercorpusbookmark',['JSONSerialiserCorpusBookmark',['../class_j_s_o_n_serialiser_corpus_bookmark.html',1,'']]],
+  ['jsonserialiserdatasetdefinition',['JSONSerialiserDatasetDefinition',['../class_j_s_o_n_serialiser_dataset_definition.html',1,'']]],
+  ['jsonserialisermetadata',['JSONSerialiserMetadata',['../class_j_s_o_n_serialiser_metadata.html',1,'']]],
+  ['jsonserialisermetadatastructure',['JSONSerialiserMetadataStructure',['../class_j_s_o_n_serialiser_metadata_structure.html',1,'']]],
+  ['jsonserialisernamevaluelist',['JSONSerialiserNameValueList',['../class_j_s_o_n_serialiser_name_value_list.html',1,'']]],
+  ['jsonserialiserquerydefinition',['JSONSerialiserQueryDefinition',['../class_j_s_o_n_serialiser_query_definition.html',1,'']]]
 ];

@@ -4,8 +4,7 @@
 #include "annotation/IntervalTier.h"
 #include "Measures.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 // Helper static functions
 // static
@@ -71,7 +70,7 @@ bool Measures::mean(double &mean, IntervalTier *tier, QString attributeName, int
         count++;
     }
     if (count == 0) return false;
-    mean = sum / ((double)count);
+    mean = sum / static_cast<double>(count);
     return true;
 }
 
@@ -113,11 +112,10 @@ double Measures::relative(IntervalTier *tier, QString attributeName, int i, int 
 // static
 int Measures::quantize(double x, int factor, int max)
 {
-    int r = (int) (x * factor);
+    int r = static_cast<int>(x * factor);
     if (r < -max) r = -max;
     if (r > max) r = max;
     return r;
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

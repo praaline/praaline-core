@@ -1,12 +1,10 @@
 #include "StatisticalMeasureDefinition.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 StatisticalMeasureDefinition::StatisticalMeasureDefinition()
 {
 
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

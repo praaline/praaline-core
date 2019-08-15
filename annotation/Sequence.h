@@ -3,7 +3,7 @@
 
 /*
     Praaline - Core module - Annotation
-    Copyright (c) 2011-2017 George Christodoulides
+    Copyright (c) 2011-2019 George Christodoulides
 
     This program or module is free software: you can redistribute it
     and/or modify it under the terms of the GNU General Public License
@@ -21,19 +21,21 @@
 #include "base/RealTime.h"
 #include "AnnotationElement.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 class PRAALINE_CORE_SHARED_EXPORT Sequence : public AnnotationElement
 {
     friend class SequenceTier;
 public:
     Sequence();
-    Sequence(int indexFrom, int indexTo, const QString &text);
-    Sequence(int indexFrom, int indexTo, const QString &text, const QHash<QString, QVariant> &attributes);
+    Sequence(int indexFrom, int indexTo,
+             const QString &text = QString(), const QHash<QString, QVariant> &attributes = QHash<QString, QVariant>());
     Sequence(const Sequence &copy);
-    Sequence(const Sequence *copy, bool copyAttributes = true);
-    virtual ~Sequence() {}
+    virtual ~Sequence() override;
+
+    // Create new sequence from existing one
+    Sequence *clone();
+    Sequence *cloneWithoutAttributes();
 
     // Properties
     inline int indexFrom () const
@@ -57,10 +59,8 @@ protected:
     int m_indexTo;
 };
 
+PRAALINE_CORE_END_NAMESPACE
 
-} // namespace Core
-} // namespace Praaline
-
-Q_DECLARE_METATYPE(Praaline::Core::Sequence)
+Q_DECLARE_METATYPE(PRAALINE_CORE_NAMESPACE::Sequence)
 
 #endif // SEQUENCE_H

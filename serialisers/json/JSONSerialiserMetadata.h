@@ -3,7 +3,7 @@
 
 /*
     Praaline - Core module - JSON Serialisers
-    Copyright (c) 2011-2018 George Christodoulides
+    Copyright (c) 2011-2019 George Christodoulides
 
     This program or module is free software: you can redistribute it
     and/or modify it under the terms of the GNU General Public License
@@ -18,6 +18,8 @@
 #include <QList>
 #include <QPointer>
 #include <QJsonObject>
+
+#include "pncore_global.h"
 #include "JSONSerialiserBase.h"
 #include "serialisers/base/SerialiserMetadata.h"
 #include "corpus/Corpus.h"
@@ -27,8 +29,7 @@
 #include "corpus/CorpusAnnotation.h"
 #include "structure/MetadataStructure.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 class JSONSerialiserMetadata : public JSONSerialiserBase, public SerialiserMetadata
 {
@@ -68,7 +69,6 @@ private:
     static void readAttributes(CorpusObject::Type what, CorpusObject *obj, MetadataStructure *structure, QJsonObject &json);
 };
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
 
 #endif // JSONSERIALISERMETADATA_H

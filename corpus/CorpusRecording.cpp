@@ -10,8 +10,7 @@
 #include "datastore/FileDatastore.h"
 #include "datastore/MetadataDatastore.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 CorpusRecording::CorpusRecording(CorpusRepository *repository, QObject *parent) :
     CorpusObject(repository, parent),
@@ -192,5 +191,4 @@ bool CorpusRecording::save() {
     return m_repository->metadata()->saveRecordings(QList<QPointer<CorpusRecording> >() << this);
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

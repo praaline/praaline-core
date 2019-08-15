@@ -15,15 +15,9 @@
 #include "AnnotationElement.h"
 #include "Sequence.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 Sequence::Sequence()
-{
-}
-
-Sequence::Sequence(int indexFrom, int indexTo, const QString &text) :
-    AnnotationElement(text), m_indexFrom(indexFrom), m_indexTo(indexTo)
 {
 }
 
@@ -37,15 +31,18 @@ Sequence::Sequence(const Sequence &copy) :
 {
 }
 
-Sequence::Sequence(const Sequence *copy, bool copyAttributes)
+Sequence::~Sequence()
 {
-    if (!copy) return;
-    m_indexFrom = copy->m_indexFrom;
-    m_indexTo = copy->m_indexTo;
-    m_text = copy->m_text;
-    if (copyAttributes) {
-        m_attributes = copy->m_attributes;
-    }
+}
+
+Sequence *Sequence::clone()
+{
+    return new Sequence(m_indexFrom, m_indexTo, m_text, m_attributes);
+}
+
+Sequence *Sequence::cloneWithoutAttributes()
+{
+    return new Sequence(m_indexFrom, m_indexTo, m_text);
 }
 
 QVariant Sequence::attribute(const QString &name) const
@@ -70,5 +67,4 @@ int Sequence::compare(const Sequence &other) const
     return other.m_text.compare(m_text);
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

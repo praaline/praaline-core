@@ -3,7 +3,7 @@
 
 /*
     Praaline - Core module - Corpus Structure Definition
-    Copyright (c) 2011-2018 George Christodoulides
+    Copyright (c) 2011-2019 George Christodoulides
 
     This program or module is free software: you can redistribute it
     and/or modify it under the terms of the GNU General Public License
@@ -21,8 +21,7 @@
 #include <QVariant>
 #include "structure/StructureAttributeBase.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 class PRAALINE_CORE_SHARED_EXPORT MetadataStructureAttribute : public StructureAttributeBase
 {
@@ -31,11 +30,11 @@ class PRAALINE_CORE_SHARED_EXPORT MetadataStructureAttribute : public StructureA
     Q_PROPERTY(QVariant defaultValue READ defaultValue WRITE setDefaultValue)
 
 public:
-    explicit MetadataStructureAttribute(QObject *parent = 0);
-    MetadataStructureAttribute(const QString &ID, QObject *parent = 0);
+    explicit MetadataStructureAttribute(QObject *parent = nullptr);
+    MetadataStructureAttribute(const QString &ID, QObject *parent = nullptr);
     MetadataStructureAttribute(const QString &ID, const QString &name, const QString &description,
-                               const DataType &datatype, int order = 0, QObject *parent = 0);
-    MetadataStructureAttribute(const MetadataStructureAttribute *other, QObject *parent = 0);
+                               const DataType &datatype, int order = 0, QObject *parent = nullptr);
+    MetadataStructureAttribute(const MetadataStructureAttribute *other, QObject *parent = nullptr);
 
     // Data
     QString sectionID() const;
@@ -53,7 +52,6 @@ protected:
     QVariant m_defaultValue;
 };
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
 
 #endif // METADATASTRUCTUREATTRIBUTE_H

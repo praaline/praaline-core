@@ -13,8 +13,7 @@
 #include "base/RealTime.h"
 #include "PraatTextFile.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 class PRAALINE_CORE_SHARED_EXPORT PraatPointTierFile : PraatTextFile
 {
@@ -30,7 +29,6 @@ private:
     PraatPointTierFile() {}
 };
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
 
 #endif // PRAATPOINTTIERFILE_H

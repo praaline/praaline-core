@@ -14,8 +14,7 @@
 #include "XMLSerialiserAnnotationStructure.h"
 #include "XMLSerialiserMetadata.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 QString XMLSerialiserMetadata::xmlElementName_Corpus("Corpus");
 QString XMLSerialiserMetadata::xmlElementName_Communication("Communication");
@@ -29,6 +28,9 @@ QString XMLSerialiserMetadata::xmlElementName_Participation("Participation");
 // public static
 bool XMLSerialiserMetadata::saveCorpus(Corpus *corpus, MetadataStructure* mstructure, QXmlStreamWriter &xml)
 {
+    Q_UNUSED(corpus)
+    Q_UNUSED(mstructure)
+    Q_UNUSED(xml)
     //    xml.writeStartElement("CorpusData");
     //    xml.writeStartElement("Communications");
     //    foreach (CorpusCommunication *com, corpus->communications()) {
@@ -169,6 +171,8 @@ void XMLSerialiserMetadata::readAttributes(CorpusObject::Type what, CorpusObject
 // private static
 Corpus *XMLSerialiserMetadata::readCorpus(MetadataStructure *mstructure, QXmlStreamReader &xml)
 {
+    Q_UNUSED(mstructure)
+    Q_UNUSED(xml)
     //    while (!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == xmlElementName_Corpus)) {
     //        if (xml.tokenType() == QXmlStreamReader::StartElement) {
     //            if (xml.name() == "CorpusData") {
@@ -320,68 +324,100 @@ CorpusAnnotation *XMLSerialiserMetadata::readAnnotation(MetadataStructure *mstru
 // public static
 bool XMLSerialiserMetadata::saveCorpora(const QList<QPointer<Corpus> > &list, MetadataStructure *mstructure, QXmlStreamWriter &xml)
 {
+    Q_UNUSED(list)
+    Q_UNUSED(mstructure)
+    Q_UNUSED(xml)
     return false;
 }
 
 // public static
 bool XMLSerialiserMetadata::saveCommunications(const QList<QPointer<CorpusCommunication> > &list, MetadataStructure *mstructure, QXmlStreamWriter &xml)
 {
+    Q_UNUSED(list)
+    Q_UNUSED(mstructure)
+    Q_UNUSED(xml)
     return false;
 }
 
 // public static
 bool XMLSerialiserMetadata::saveSpeakers(const QList<QPointer<CorpusSpeaker> > &list, MetadataStructure *mstructure, QXmlStreamWriter &xml)
 {
+    Q_UNUSED(list)
+    Q_UNUSED(mstructure)
+    Q_UNUSED(xml)
     return false;
 }
 
 // public static
 bool XMLSerialiserMetadata::saveRecordings(const QList<QPointer<CorpusRecording> > &list, MetadataStructure *mstructure, QXmlStreamWriter &xml)
 {
+    Q_UNUSED(list)
+    Q_UNUSED(mstructure)
+    Q_UNUSED(xml)
     return false;
 }
 
 // public static
 bool XMLSerialiserMetadata::saveAnnotations(const QList<QPointer<CorpusAnnotation> > &list, MetadataStructure *mstructure, QXmlStreamWriter &xml)
 {
+    Q_UNUSED(list)
+    Q_UNUSED(mstructure)
+    Q_UNUSED(xml)
     return false;
 }
 
 // public static
 bool XMLSerialiserMetadata::saveParticipations(const QList<QPointer<CorpusParticipation> > &list, MetadataStructure *mstructure, QXmlStreamWriter &xml)
 {
+    Q_UNUSED(list)
+    Q_UNUSED(mstructure)
+    Q_UNUSED(xml)
     return false;
 }
 
 // public static
 bool XMLSerialiserMetadata::loadCorpora(QList<QPointer<Corpus> > &list, MetadataStructure *mstructure, QXmlStreamReader &xml)
 {
+    Q_UNUSED(list)
+    Q_UNUSED(mstructure)
+    Q_UNUSED(xml)
     return false;
 }
 
 // public static
 bool XMLSerialiserMetadata::loadCommunications(QList<QPointer<CorpusCommunication> > &list, MetadataStructure *mstructure, QXmlStreamReader &xml)
 {
+    Q_UNUSED(list)
+    Q_UNUSED(mstructure)
+    Q_UNUSED(xml)
     return false;
 }
 
 // public static
 bool XMLSerialiserMetadata::loadSpeakers(QList<QPointer<CorpusSpeaker> > &list, MetadataStructure *mstructure, QXmlStreamReader &xml)
 {
+    Q_UNUSED(list)
+    Q_UNUSED(mstructure)
+    Q_UNUSED(xml)
     return false;
 }
 
 // public static
 bool XMLSerialiserMetadata::loadRecordings(QList<QPointer<CorpusRecording> > &list, MetadataStructure *mstructure, QXmlStreamReader &xml)
 {
+    Q_UNUSED(list)
+    Q_UNUSED(mstructure)
+    Q_UNUSED(xml)
     return false;
 }
 
 // public static
 bool XMLSerialiserMetadata::loadAnnotations(QList<QPointer<CorpusAnnotation> > &list, MetadataStructure *mstructure, QXmlStreamReader &xml)
 {
+    Q_UNUSED(list)
+    Q_UNUSED(mstructure)
+    Q_UNUSED(xml)
     return false;
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

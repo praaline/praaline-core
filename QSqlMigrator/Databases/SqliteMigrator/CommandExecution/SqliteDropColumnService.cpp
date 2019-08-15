@@ -55,7 +55,7 @@ bool SqliteDropColumnService::execute(const Commands::ConstCommandPtr &command,
 
     Structure::Table table( context.helperRepository().sqlStructureService().getTableDefinition(dropColumn->tableName(), context.database()) );
     Structure::Table::Builder alteredTable(dropColumn->tableName());
-    const Structure::Column* originalColumn = Q_NULLPTR;
+    const Structure::Column* originalColumn = nullptr;
     QStringList alteredTableColumnNames;
     foreach (const Structure::Column &column, table.columns()) {
         if (column.name() == dropColumn->columnName()) {

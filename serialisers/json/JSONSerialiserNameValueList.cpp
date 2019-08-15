@@ -7,8 +7,7 @@
 #include <QJsonArray>
 #include "JSONSerialiserNameValueList.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 JSONSerialiserNameValueList::JSONSerialiserNameValueList()
 {
@@ -83,6 +82,7 @@ bool JSONSerialiserNameValueList::loadNameValueLists(QList<QPointer<NameValueLis
 // private static
 NameValueList *JSONSerialiserNameValueList::readNameValueList(QJsonObject &json)
 {
+    Q_UNUSED(json)
     NameValueList *nvl = new NameValueList();
 //    if (json.contains("id") && json["id"].isString())
 //        bookmark->setID(json["id"].toString());
@@ -124,5 +124,4 @@ QJsonObject JSONSerialiserNameValueList::writeNameValueList(NameValueList *nvl)
     return json;
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

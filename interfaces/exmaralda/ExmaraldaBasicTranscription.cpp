@@ -13,8 +13,7 @@
 
 #include "ExmaraldaBasicTranscription.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 bool ExmaraldaBasicTranscription::readMetadata(QXmlStreamReader &xml)
 {
@@ -364,7 +363,7 @@ bool ExmaraldaBasicTranscription::save(const QString &filename, ExmaraldaBasicTr
     transcription.writeCommonTimeline(xml);
     // tiers
     QList<QString> tierIDs = transcription.tiers().keys();
-    qSort(tierIDs);
+    std::sort(tierIDs.begin(), tierIDs.end());
     foreach (QString tierID, tierIDs) {
         transcription.writeTier(tierID, xml);
     }
@@ -375,6 +374,4 @@ bool ExmaraldaBasicTranscription::save(const QString &filename, ExmaraldaBasicTr
     return true;
 }
 
-} // namespace Core
-} // namespace Praaline
-
+PRAALINE_CORE_END_NAMESPACE

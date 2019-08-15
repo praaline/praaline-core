@@ -21,8 +21,7 @@
 #include <QMap>
 #include "annotation/Interval.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 struct PRAALINE_CORE_SHARED_EXPORT QueryOccurrencePointer
 {
@@ -92,7 +91,6 @@ protected:
     QMap<QString, QList<ResultInterval> > m_resultIntervals;
 };
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
 
 #endif // QUERYOCCURRENCE_H

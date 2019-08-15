@@ -3,7 +3,7 @@
 
 /*
     Praaline - Core module - Statistics
-    Copyright (c) 2011-2018 George Christodoulides
+    Copyright (c) 2011-2019 George Christodoulides
 
     This file is based on:
     QGIS qgshistogram.
@@ -22,8 +22,7 @@
 #include "pncore_global.h"
 #include <QList>
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 class PRAALINE_CORE_SHARED_EXPORT HistogramCalculator
 {
@@ -51,8 +50,6 @@ private:
     void prepareValues();
 };
 
-} // namespace Core
-} // namespace Praaline
-
+PRAALINE_CORE_END_NAMESPACE
 
 #endif // HISTOGRAMCALCULATOR_H

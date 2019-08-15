@@ -3,7 +3,7 @@
 
 /*
     Praaline - Core module - Corpus metadata
-    Copyright (c) 2011-2017 George Christodoulides
+    Copyright (c) 2011-2019 George Christodoulides
 
     This program or module is free software: you can redistribute it
     and/or modify it under the terms of the GNU General Public License
@@ -23,8 +23,7 @@
 #include "base/RealTime.h"
 #include "CorpusObject.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 class Corpus;
 
@@ -45,10 +44,10 @@ class PRAALINE_CORE_SHARED_EXPORT CorpusRecording : public CorpusObject
     Q_PROPERTY(QString communicationID READ communicationID)
 
 public:
-    explicit CorpusRecording(CorpusRepository *repository = 0, QObject *parent = 0);
-    explicit CorpusRecording(const QString ID, CorpusRepository *repository = 0, QObject *parent = 0);
-    explicit CorpusRecording(CorpusRecording *other, QObject *parent = 0);
-    ~CorpusRecording() {}
+    explicit CorpusRecording(CorpusRepository *repository = nullptr, QObject *parent = nullptr);
+    explicit CorpusRecording(const QString ID, CorpusRepository *repository = nullptr, QObject *parent = nullptr);
+    explicit CorpusRecording(CorpusRecording *other, QObject *parent = nullptr);
+    ~CorpusRecording() override {}
 
     CorpusObject::Type type() const override { return CorpusObject::Type_Recording; }
     bool save() override;
@@ -114,7 +113,6 @@ private:
     Q_DISABLE_COPY(CorpusRecording)
 };
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
 
 #endif // CORPUSRECORDING_H

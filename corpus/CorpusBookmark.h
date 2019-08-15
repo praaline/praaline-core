@@ -3,7 +3,7 @@
 
 /*
     Praaline - Core module - Corpus metadata
-    Copyright (c) 2011-2017 George Christodoulides
+    Copyright (c) 2011-2019 George Christodoulides
 
     This program or module is free software: you can redistribute it
     and/or modify it under the terms of the GNU General Public License
@@ -21,8 +21,7 @@
 #include "base/RealTime.h"
 #include "CorpusObject.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 class PRAALINE_CORE_SHARED_EXPORT CorpusBookmark : public CorpusObject
 {
@@ -37,13 +36,13 @@ class PRAALINE_CORE_SHARED_EXPORT CorpusBookmark : public CorpusObject
     Q_PROPERTY(QString notes READ notes WRITE setNotes)
 
 public:
-    CorpusBookmark(QObject *parent = 0);
+    explicit CorpusBookmark(QObject *parent = nullptr);
     CorpusBookmark(const QString &corpusID, const QString &communicationID, const QString &annotationID,
                    const RealTime &time,
-                   const QString &name, const QString &notes = QString(), QObject *parent = 0);
+                   const QString &name, const QString &notes = QString(), QObject *parent = nullptr);
     CorpusBookmark(const QString &corpusID, const QString &communicationID, const QString &annotationID,
                    const RealTime &timeStart, const RealTime &timeEnd,
-                   const QString &name, const QString &notes = QString(), QObject *parent = 0);
+                   const QString &name, const QString &notes = QString(), QObject *parent = nullptr);
 
     QString ID() const override;
     void setID(const QString &ID) override { Q_UNUSED(ID) }
@@ -87,7 +86,6 @@ private:
     Q_DISABLE_COPY(CorpusBookmark)
 };
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
 
 #endif // CORPUSBOOKMARK_H

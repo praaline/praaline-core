@@ -4,11 +4,10 @@
 #include "MetadataStructureAttribute.h"
 #include "MetadataStructureSection.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 MetadataStructureSection::MetadataStructureSection(QObject *parent) :
-    QObject(parent)
+    QObject(parent), m_itemOrder(0)
 {
 }
 
@@ -39,7 +38,7 @@ QPointer<MetadataStructureAttribute> MetadataStructureSection::attribute(const Q
         if ((attribute) && (attribute->ID() == ID))
             return attribute;
     }
-    return 0;
+    return nullptr;
 }
 
 int MetadataStructureSection::attributeIndexByID(const QString &ID) const
@@ -103,7 +102,7 @@ void MetadataStructureSection::addAttribute(MetadataStructureAttribute *attribut
 
 void MetadataStructureSection::swapAttribute(int oldIndex, int newIndex)
 {
-    m_attributes.swap(oldIndex, newIndex);
+    m_attributes.swapItemsAt(oldIndex, newIndex);
 }
 
 void MetadataStructureSection::removeAttributeAt(int i)
@@ -121,5 +120,4 @@ void MetadataStructureSection::removeAttributeByID(const QString &ID)
     }
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

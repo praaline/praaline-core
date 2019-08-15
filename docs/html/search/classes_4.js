@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['eventinfo',['EventInfo',['../classPraaline_1_1Core_1_1ExmaraldaBasicTranscription_1_1EventInfo.html',1,'Praaline::Core::ExmaraldaBasicTranscription']]],
-  ['exmaraldabasictranscription',['ExmaraldaBasicTranscription',['../classPraaline_1_1Core_1_1ExmaraldaBasicTranscription.html',1,'Praaline::Core']]],
-  ['exmaraldatranscriptionbridge',['ExmaraldaTranscriptionBridge',['../classPraaline_1_1Core_1_1ExmaraldaTranscriptionBridge.html',1,'Praaline::Core']]]
+  ['elanannotation',['ELANAnnotation',['../class_e_l_a_n_annotation.html',1,'']]],
+  ['eventinfo',['EventInfo',['../class_exmaralda_basic_transcription_1_1_event_info.html',1,'ExmaraldaBasicTranscription']]],
+  ['exmaraldabasictranscription',['ExmaraldaBasicTranscription',['../class_exmaralda_basic_transcription.html',1,'']]],
+  ['exmaraldatranscriptionbridge',['ExmaraldaTranscriptionBridge',['../class_exmaralda_transcription_bridge.html',1,'']]]
 ];

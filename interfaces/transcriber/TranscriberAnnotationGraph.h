@@ -17,8 +17,7 @@
 
 class QXmlStreamReader;
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 class PRAALINE_CORE_SHARED_EXPORT TranscriberAnnotationGraph : InterfaceTextFile
 {
@@ -75,7 +74,6 @@ private:
     static QString xmlElementName_Turn;
 };
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
 
 #endif // TRANSCRIBERANNOTATIONGRAPH_H

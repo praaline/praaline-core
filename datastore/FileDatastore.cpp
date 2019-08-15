@@ -2,8 +2,7 @@
 #include <QDir>
 #include "FileDatastore.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 FileDatastore::FileDatastore(QObject *parent) :
     QObject(parent)
@@ -22,5 +21,5 @@ QString FileDatastore::getRelativeToBasePath(const QString &absoluteFilePath) co
     return QDir(QDir(m_basePath).canonicalPath()).relativeFilePath(absoluteFilePath);
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
+

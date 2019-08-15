@@ -19,10 +19,9 @@
 #include <QString>
 #include <QObject>
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
-StatisticalSummary::StatisticalSummary(const Statistics& stats)
+StatisticalSummary::StatisticalSummary(const StatisticalSummary::Statistics& stats)
     : m_statistics(stats)
 {
     reset();
@@ -91,7 +90,7 @@ void StatisticalSummary::calculate(const QList<double> &values)
          || m_statistics & StatisticalSummary::InterQuartileRange)
     {
         sorted = values;
-        qSort(sorted.begin(), sorted.end());
+        std::sort(sorted.begin(), sorted.end());
         bool even = (m_count % 2) < 1;
         if (even) {
             m_median = (sorted[m_count / 2 - 1] + sorted[m_count / 2]) / 2.0;
@@ -150,7 +149,7 @@ void StatisticalSummary::calculate(const QList<double> &values)
     if (m_statistics & StatisticalSummary::Minority || m_statistics & StatisticalSummary::Majority)
     {
         QList<int> valueCounts = m_valueCount.values();
-        qSort(valueCounts.begin(), valueCounts.end());
+        std::sort(valueCounts.begin(), valueCounts.end());
         if (m_statistics & StatisticalSummary::Minority) {
             m_minority = m_valueCount.key(valueCounts.first());
         }
@@ -240,5 +239,4 @@ QString StatisticalSummary::displayName(StatisticalSummary::Statistic statistic)
     return QString();
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

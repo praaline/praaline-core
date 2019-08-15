@@ -15,15 +15,9 @@
 #include "AnnotationElement.h"
 #include "Interval.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 Interval::Interval()
-{
-}
-
-Interval::Interval(const RealTime tMin, const RealTime tMax, const QString &text) :
-    AnnotationElement(text), m_tMin(tMin), m_tMax(tMax)
 {
 }
 
@@ -37,37 +31,47 @@ Interval::Interval(const Interval &copy) :
 {
 }
 
-Interval::Interval(const Interval *copy, bool copyAttributes)
+Interval::~Interval()
 {
-    if (!copy) return;
-    m_tMin = copy->m_tMin;
-    m_tMax = copy->m_tMax;
-    m_text = copy->m_text;
-    if (copyAttributes) {
-        m_attributes = copy->m_attributes;
-    }
 }
 
-Interval::Interval(const RealTime tMin, const RealTime tMax, const Interval *copy) :
-    AnnotationElement(copy->text()), m_tMin(tMin), m_tMax(tMax)
+// Create new interval from existing one(s)
+Interval *Interval::clone()
 {
-    foreach (QString attributeID, copy->m_attributes.keys())
-        m_attributes.insert(attributeID, copy->m_attributes.value(attributeID));
+    return new Interval(*this);
 }
 
-Interval::Interval(const QList<Interval *> &intervals, const QString &separator)
+Interval *Interval::cloneWithoutAttributes()
 {
-    // Constructor that concatenates intervals into a new one
+    return new Interval(m_tMin, m_tMax, m_text);
+}
+
+Interval *Interval::cloneReposition(const RealTime tMin, const RealTime tMax)
+{
+    return new Interval(tMin, tMax, m_text, m_attributes);
+}
+
+Interval *Interval::cloneRepositionWithoutAttributes(const RealTime tMin, const RealTime tMax)
+{
+    return new Interval(tMin, tMax, m_text);
+}
+
+// static
+Interval *Interval::fromList(const QList<Interval *> &intervals, const QString &separator)
+{
+    RealTime tMin, tMax; QString text;
+    // Concatenates intervals into a new one
     if (intervals.count() > 0) {
-        m_tMin = intervals[0]->tMin();
-        m_tMax = intervals[intervals.count() - 1]->tMax();
+        tMin = intervals[0]->tMin();
+        tMax = intervals[intervals.count() - 1]->tMax();
         bool first = true;
         foreach (Interval *intv, intervals) {
-            if (!first) m_text.append(separator);
-            m_text.append(intv->text().trimmed());
+            if (!first) text.append(separator);
+            text.append(intv->text().trimmed());
             first = false;
         }
     }
+    return new Interval(tMin, tMax, text);
 }
 
 QVariant Interval::attribute(const QString &name) const
@@ -130,5 +134,5 @@ int Interval::compare(const Interval &other) const
     return other.m_text.compare(m_text);
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
+

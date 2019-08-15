@@ -3,7 +3,7 @@
 
 /*
     Praaline - Core module - Corpus Structure Definition
-    Copyright (c) 2011-2018 George Christodoulides
+    Copyright (c) 2011-2019 George Christodoulides
 
     This program or module is free software: you can redistribute it
     and/or modify it under the terms of the GNU General Public License
@@ -18,10 +18,10 @@
 #include "pncore_global.h"
 #include <QObject>
 #include <QString>
+#include "base/DataType.h"
 #include "structure/StructureAttributeBase.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 class PRAALINE_CORE_SHARED_EXPORT AnnotationStructureAttribute : public StructureAttributeBase
 {
@@ -29,12 +29,12 @@ class PRAALINE_CORE_SHARED_EXPORT AnnotationStructureAttribute : public Structur
     Q_PROPERTY(QString statLevelOfMeasurement READ statLevelOfMeasurement  WRITE setStatLevelOfMeasurement)
 
 public:
-    explicit AnnotationStructureAttribute(QObject *parent = 0);
-    AnnotationStructureAttribute(const AnnotationStructureAttribute *other, QObject *parent = 0);
+    explicit AnnotationStructureAttribute(QObject *parent = nullptr);
+    AnnotationStructureAttribute(const AnnotationStructureAttribute *other, QObject *parent = nullptr);
     AnnotationStructureAttribute(const QString &ID, const QString &name = QString(), const QString &description = QString(),
                                  const DataType &datatype = DataType(DataType::VarChar, 255), int order = 0,
                                  bool indexed = false, const QString &nameValueList = QString(),
-                                 QObject *parent = 0);
+                                 QObject *parent = nullptr);
 
     // Data
     QString statLevelOfMeasurement() const { return m_statLevelOfMeasurement; }
@@ -48,7 +48,6 @@ protected:
     QString m_statLevelOfMeasurement;
 };
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
 
 #endif // CORPUSANNOTATIONATTRIBUTE_H

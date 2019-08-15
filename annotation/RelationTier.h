@@ -3,7 +3,7 @@
 
 /*
     Praaline - Core module - Annotation
-    Copyright (c) 2011-2017 George Christodoulides
+    Copyright (c) 2011-2019 George Christodoulides
 
     This program or module is free software: you can redistribute it
     and/or modify it under the terms of the GNU General Public License
@@ -22,24 +22,24 @@
 #include "AnnotationTier.h"
 #include "Relation.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 class PRAALINE_CORE_SHARED_EXPORT RelationTier : public AnnotationTier
 {
     Q_OBJECT
 public:
     // Constructors, destructor
-    RelationTier(const QString &name = QString(), QObject *parent = 0);
-    RelationTier(const QString &name, const QList<Relation *> &relations, QObject *parent = 0);
-    RelationTier(const RelationTier *copy, QString name = QString(), bool copyAttributes = true, QObject *parent = 0);
-    virtual ~RelationTier();
+    RelationTier(const QString &name = QString(), AnnotationTier *baseTier = nullptr, QObject *parent = nullptr);
+    RelationTier(const QString &name, const QList<Relation *> &relations, AnnotationTier *baseTier = nullptr, QObject *parent = nullptr);
+    virtual ~RelationTier() override;
 
     // Implementation of AnnotationTier
     AnnotationTier::TierType tierType() const override
         { return AnnotationTier::TierType_Relations; }
     int count() const override
         { return m_relations.count(); }
+    RealTime tMin() const override;
+    RealTime tMax() const override;
     bool isEmpty() const override;
     void clear() override;
     Relation *at(int index) const override;
@@ -50,6 +50,10 @@ public:
     void replace(const QString &attributeID, const QString &before, const QString &after, Qt::CaseSensitivity cs = Qt::CaseSensitive) override;
     void fillEmptyWith(const QString &attributeID,const QString &filler) override;
 
+    // Base tier
+    AnnotationTier *baseTier() const;
+    void setBaseTier(AnnotationTier *tier);
+
     // Accessors for Relations
     Relation* relation(int index) const;
     QList<Relation *> relations() const;
@@ -59,14 +63,21 @@ public:
     void addRelations(QList<Relation *> relations);
     void removeRelationAt(int i);
 
+    // Access to base annotation elements
+    QPair<AnnotationElement *, AnnotationElement *> relationElements(int relationIndex) const;
+
+    // Clone
+    RelationTier *clone(const QString &name = QString(), QObject *parent = nullptr) const;
+    RelationTier *cloneWithoutAttributes(const QString &name = QString(), QObject *parent = nullptr) const;
+
 protected:
+    AnnotationTier *m_baseTier;
     QList<Relation *> m_relations;
 
 private:
     static bool compareRelations(Relation *A, Relation *B);
 };
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
 
 #endif // RELATIONTIER_H

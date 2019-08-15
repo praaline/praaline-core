@@ -3,7 +3,7 @@
 
 /*
     Praaline - Core module - Corpus metadata
-    Copyright (c) 2011-2017 George Christodoulides
+    Copyright (c) 2011-2019 George Christodoulides
 
     This program or module is free software: you can redistribute it
     and/or modify it under the terms of the GNU General Public License
@@ -29,8 +29,7 @@
 #include "CorpusSpeaker.h"
 #include "CorpusParticipation.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 class PRAALINE_CORE_SHARED_EXPORT Corpus : public CorpusObject
 {
@@ -117,9 +116,9 @@ public:
     QList<QPair<QString, QString> > deletedParticipationIDs;
 
 signals:
-    void communicationAdded(QPointer<Praaline::Core::CorpusCommunication> communication);
+    void communicationAdded(QPointer<PRAALINE_CORE_NAMESPACE::CorpusCommunication> communication);
     void communicationDeleted(QString ID);
-    void speakerAdded(QPointer<Praaline::Core::CorpusSpeaker> speaker);
+    void speakerAdded(QPointer<PRAALINE_CORE_NAMESPACE::CorpusSpeaker> speaker);
     void speakerDeleted(QString ID);
 
 private slots:
@@ -137,7 +136,6 @@ private:
     Q_DISABLE_COPY(Corpus)
 };
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
 
 #endif // CORPUS_H

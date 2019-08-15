@@ -1,8 +1,7 @@
 #include <QString>
 #include "PhoneticAlphabet.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 PhoneticAlphabet::PhoneticAlphabet()
 {
@@ -52,5 +51,4 @@ QString PhoneticAlphabet::convertSAMPAtoIPAUnicode(const QString &sampa)
     return ipa;
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

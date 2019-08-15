@@ -5,45 +5,29 @@
 #include "IntervalTier.h"
 #include "AnnotationTier.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 // ==========================================================================================================
 // Constructors - destructor
 // ==========================================================================================================
 PointTier::PointTier(const QString &name, const RealTime tMin, const RealTime tMax, QObject *parent) :
-    AnnotationTier(parent)
+    AnnotationTier(name, parent)
 {
-    m_name = name;
     m_tMin = tMin;
     m_tMax = tMax;
 }
 
 PointTier::PointTier(const QString &name, const QList<Point *> &points,
                      const RealTime tMin, const RealTime tMax, QObject *parent) :
-    AnnotationTier(parent)
+    AnnotationTier(name, parent)
 {
-    m_name = name;
     m_tMin = tMin;
     m_tMax = tMax;
     m_points = points;
     if (m_points.count() == 0) return;
-    qSort(m_points.begin(), m_points.end(), PointTier::comparePoints);
+    std::sort(m_points.begin(), m_points.end(), PointTier::comparePoints);
     if (m_tMin > m_points.first()->m_time) m_tMin = m_points.first()->m_time;
     if (m_tMax < m_points.last()->m_time) m_tMax = m_points.last()->m_time;
-}
-
-PointTier::PointTier(const PointTier *copy, QString name, bool copyAttributes, QObject *parent) :
-    AnnotationTier(parent)
-{
-    if (!copy) return;
-    m_name = (name.isEmpty()) ? copy->name() : name;
-    m_tMin = copy->tMin();
-    m_tMax = copy->tMax();
-    // deep copy of points
-    foreach (Point *point, copy->points()) {
-        m_points << new Point(point, copyAttributes);
-    }
 }
 
 PointTier::~PointTier()
@@ -105,7 +89,7 @@ QList<QVariant> PointTier::getDistinctValues(const QString &attributeID) const
 void PointTier::replace(const QString &attributeID, const QString &before, const QString &after, Qt::CaseSensitivity cs)
 {
     foreach (Point *point, m_points) {
-        if (attributeID.isEmpty())
+        if (attributeID.isEmpty() || attributeID == "text")
             point->replaceText(before, after, cs);
         else
             point->replaceAttributeText(attributeID, before, after, cs);
@@ -115,7 +99,7 @@ void PointTier::replace(const QString &attributeID, const QString &before, const
 void PointTier::fillEmptyWith(const QString &attributeID, const QString &filler)
 {
     foreach (Point *point, m_points) {
-        if (attributeID.isEmpty()) {
+        if (attributeID.isEmpty() || attributeID == "text") {
             if (point->text().isEmpty())
                 point->setText(filler);
         } else {
@@ -182,13 +166,13 @@ int PointTier::pointIndexAtTime(RealTime t, RealTime threshold) const
 void PointTier::addPoint(Point *point)
 {
     m_points << point;
-    qSort(m_points.begin(), m_points.end(), PointTier::comparePoints);
+    std::sort(m_points.begin(), m_points.end(), PointTier::comparePoints);
 }
 
 void PointTier::addPoints(QList<Point *> points)
 {
     m_points << points;
-    qSort(m_points.begin(), m_points.end(), PointTier::comparePoints);
+    std::sort(m_points.begin(), m_points.end(), PointTier::comparePoints);
 }
 
 void PointTier::removePointAt(int i)
@@ -292,5 +276,23 @@ QList<Point *> PointTier::findLocalMaxima(const RealTime &localMaxThreshold, con
     return ret;
 }
 
-} // namespace Core
-} // namespace Praaline
+// Clone
+PointTier *PointTier::clone(const QString &name, QObject *parent) const
+{
+    QString cloneName = (name.isEmpty()) ? m_name : name;
+    QList<Point *> clonePoints;
+    foreach (Point *point, m_points)
+        clonePoints << point->clone();
+    return new PointTier(cloneName, clonePoints, m_tMin, m_tMax, parent);
+}
+
+PointTier *PointTier::cloneWithoutAttributes(const QString &name, QObject *parent) const
+{
+    QString cloneName = (name.isEmpty()) ? m_name : name;
+    QList<Point *> clonePoints;
+    foreach (Point *point, m_points)
+        clonePoints << point->cloneWithoutAttributes();
+    return new PointTier(cloneName, clonePoints, m_tMin, m_tMax, parent);
+}
+
+PRAALINE_CORE_END_NAMESPACE

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['helperrepository',['HelperRepository',['../classQSqlMigrator_1_1Helper_1_1HelperRepository.html',1,'QSqlMigrator::Helper']]],
-  ['histogramcalculator',['HistogramCalculator',['../classPraaline_1_1Core_1_1HistogramCalculator.html',1,'Praaline::Core']]]
+  ['helperrepository',['HelperRepository',['../class_q_sql_migrator_1_1_helper_1_1_helper_repository.html',1,'QSqlMigrator::Helper']]],
+  ['histogramcalculator',['HistogramCalculator',['../class_histogram_calculator.html',1,'']]]
 ];

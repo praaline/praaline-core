@@ -15,15 +15,9 @@
 #include "AnnotationElement.h"
 #include "Relation.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 Relation::Relation()
-{
-}
-
-Relation::Relation(int indexFrom, int indexTo, const QString &text) :
-    AnnotationElement(text), m_indexFrom(indexFrom), m_indexTo(indexTo)
 {
 }
 
@@ -37,15 +31,18 @@ Relation::Relation(const Relation &copy) :
 {
 }
 
-Relation::Relation(const Relation *copy, bool copyAttributes)
+Relation::~Relation()
 {
-    if (!copy) return;
-    m_indexFrom = copy->m_indexFrom;
-    m_indexTo = copy->m_indexTo;
-    m_text = copy->m_text;
-    if (copyAttributes) {
-        m_attributes = copy->m_attributes;
-    }
+}
+
+Relation *Relation::clone()
+{
+    return new Relation(m_indexFrom, m_indexTo, m_text, m_attributes);
+}
+
+Relation *Relation::cloneWithoutAttributes()
+{
+    return new Relation(m_indexFrom, m_indexTo, m_text);
 }
 
 QVariant Relation::attribute(const QString &name) const
@@ -69,5 +66,5 @@ int Relation::compare(const Relation &other) const
     return other.m_text.compare(m_text);
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
+

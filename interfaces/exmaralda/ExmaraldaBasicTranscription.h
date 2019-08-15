@@ -17,8 +17,7 @@
 #include "annotation/IntervalTier.h"
 #include "annotation/PointTier.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 class ExmaraldaBasicTranscription : public QObject
 {
@@ -112,7 +111,6 @@ private:
     QHash<QString, TierInfo> m_tiers;
 };
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
 
 #endif // EXMARALDAPARTITURTRANSCRIPTION_H

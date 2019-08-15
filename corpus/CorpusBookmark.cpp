@@ -1,7 +1,6 @@
 #include "CorpusBookmark.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 CorpusBookmark::CorpusBookmark(QObject *parent) :
     CorpusObject(nullptr, parent)
@@ -119,5 +118,4 @@ void CorpusBookmark::setNotes(const QString &notes)
     }
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

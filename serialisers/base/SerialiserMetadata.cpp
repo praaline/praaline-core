@@ -1,8 +1,7 @@
 #include "SerialiserMetadata.h"
 #include "structure/MetadataStructure.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 SerialiserMetadata::SerialiserMetadata()
 {
@@ -32,5 +31,4 @@ QStringList SerialiserMetadata::getEffectiveAttributeIDs(MetadataStructure *stru
     return effectiveAttributeIDs;
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

@@ -3,8 +3,16 @@
 #include <QHash>
 #include "AnnotationTier.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
+
+AnnotationTier::AnnotationTier(const QString &name, QObject *parent) :
+    QObject (parent), m_name(name)
+{
+}
+
+AnnotationTier::~AnnotationTier()
+{
+}
 
 QString AnnotationTier::name() const
 {
@@ -34,5 +42,4 @@ RealTime AnnotationTier::duration() const
     return m_tMax - m_tMin;
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

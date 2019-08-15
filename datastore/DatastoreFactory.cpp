@@ -8,8 +8,7 @@
 #include "datastore/SQLAnnotationDatastore.h"
 #include "datastore/SQLMetadataDatastore.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 // static
 AnnotationDatastore *DatastoreFactory::getAnnotationDatastore(const DatastoreInfo &dsi, AnnotationStructure *structure, CorpusRepository *repository)
@@ -29,6 +28,6 @@ MetadataDatastore *DatastoreFactory::getMetadataDatastore(const DatastoreInfo &d
     return nullptr;
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
+
 

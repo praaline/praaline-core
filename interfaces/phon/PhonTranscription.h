@@ -8,8 +8,7 @@
 #include <QXmlStreamReader>
 #include "base/RealTime.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 struct PhonTranscriptionData;
 
@@ -105,7 +104,6 @@ private:
     static QString xmlElementName_Tier;
 };
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
 
 #endif // PHONTRANSCRIPTION_H

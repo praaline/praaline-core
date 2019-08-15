@@ -8,8 +8,7 @@
 #include "serialisers/base/SerialiserAnnotationStructure.h"
 #include "XMLSerialiserAnnotationStructure.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 // Initialise static strings
 QString XMLSerialiserAnnotationStructure::xmlElementName_Structure("AnnotationStructure");
@@ -162,7 +161,7 @@ AnnotationStructureLevel *XMLSerialiserAnnotationStructure::readLevel(QXmlStream
         level->setDatatype(DataType(xmlAttributes.value("datatype").toString()));
     }
     if (xmlAttributes.hasAttribute("datalength")) {
-        level->setDatatype(DataType(level->datatype().base(), xmlAttributes.value("datalength").toInt()));
+        level->setDatatype(DataType(level->datatype().base(), xmlAttributes.value("datalength").toUInt()));
     }
     if (xmlAttributes.hasAttribute("indexed")) {
         if (xmlAttributes.value("indexed").toString() == "true") level->setIndexed(true); else level->setIndexed(false);
@@ -211,7 +210,7 @@ AnnotationStructureAttribute *XMLSerialiserAnnotationStructure::readAttribute(QX
         attribute->setDatatype(DataType(xmlAttributes.value("datatype").toString()));
     }
     if (xmlAttributes.hasAttribute("datalength")) {
-        attribute->setDatatype(DataType(attribute->datatype().base(), xmlAttributes.value("datalength").toInt()));
+        attribute->setDatatype(DataType(attribute->datatype().base(), xmlAttributes.value("datalength").toUInt()));
     }
     if (xmlAttributes.hasAttribute("indexed")) {
         if (xmlAttributes.value("indexed").toString() == "true") attribute->setIndexed(true); else attribute->setIndexed(false);
@@ -235,5 +234,4 @@ AnnotationStructureAttribute *XMLSerialiserAnnotationStructure::readAttribute(QX
     return attribute;
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

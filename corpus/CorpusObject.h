@@ -3,7 +3,7 @@
 
 /*
     Praaline - Core module - Corpus metadata
-    Copyright (c) 2011-2017 George Christodoulides
+    Copyright (c) 2011-2019 George Christodoulides
 
     This program or module is free software: you can redistribute it
     and/or modify it under the terms of the GNU General Public License
@@ -22,8 +22,7 @@
 #include <QVariant>
 #include "base/ISaveable.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 class CorpusRepository;
 
@@ -54,8 +53,8 @@ public:
     static QString typeToString(CorpusObject::Type type);
     static CorpusObject::Type stringToType(const QString &str);
 
-    explicit CorpusObject(CorpusRepository *repository = 0, QObject *parent = 0);
-    explicit CorpusObject(const QString &ID, CorpusRepository *repository = 0, QObject *parent = 0);
+    explicit CorpusObject(CorpusRepository *repository = nullptr, QObject *parent = nullptr);
+    explicit CorpusObject(const QString &ID, CorpusRepository *repository = nullptr, QObject *parent = nullptr);
     virtual ~CorpusObject() {}
 
     virtual QString ID() const { return m_ID; }
@@ -94,7 +93,6 @@ private:
     Q_DISABLE_COPY(CorpusObject)
 };
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
 
 #endif // CORPUSOBJECT_H

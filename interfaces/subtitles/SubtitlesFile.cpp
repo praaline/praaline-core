@@ -2,8 +2,7 @@
 #include <QFile>
 #include "SubtitlesFile.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 RealTime timeCodeToRealTime(const QString &timecode)
 {
@@ -110,5 +109,4 @@ bool SubtitlesFile::saveSRT(const QString &filename, IntervalTier *tier, const Q
     return false;
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

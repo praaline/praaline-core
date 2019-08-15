@@ -12,8 +12,7 @@
 
 class QXmlStreamReader;
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 class Corpus;
 
@@ -24,7 +23,6 @@ public:
 
 };
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
 
 #endif // TEIHEADER_H

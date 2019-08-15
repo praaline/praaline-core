@@ -6,8 +6,7 @@
 #include "SQLSerialiserAnnotation.h"
 #include "SQLQueryEngineAnnotation.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 SQLQueryEngineAnnotation::SQLQueryEngineAnnotation()
 {
@@ -176,5 +175,4 @@ bool SQLQueryEngineAnnotation::updateAnnotationsFromQueryOccurrences(const QList
     return false;
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

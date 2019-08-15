@@ -3,7 +3,7 @@
 
 /*
     Praaline - Core module - Corpus metadata
-    Copyright (c) 2011-2017 George Christodoulides
+    Copyright (c) 2011-2019 George Christodoulides
 
     This program or module is free software: you can redistribute it
     and/or modify it under the terms of the GNU General Public License
@@ -20,8 +20,7 @@
 #include "CorpusObject.h"
 #include "base/ISaveable.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 class PRAALINE_CORE_SHARED_EXPORT CorpusObjectInfo : public ISaveable
 {
@@ -29,9 +28,9 @@ class PRAALINE_CORE_SHARED_EXPORT CorpusObjectInfo : public ISaveable
 
 public:
     explicit CorpusObjectInfo();
-    CorpusObjectInfo(CorpusObject::Type type);
+    explicit CorpusObjectInfo(CorpusObject::Type type);
     CorpusObjectInfo(const CorpusObjectInfo &other);
-    virtual ~CorpusObjectInfo() {}
+    virtual ~CorpusObjectInfo();
     // Notes: Requirements for QVariant are a public default constructor, a public copy constructor, and a public destructor.
     // All constructors set isNew and isDirty to true. If the object is retrieved from the database, the datastore will set
     // its state to Clean.
@@ -58,9 +57,8 @@ private:
     QVariantHash m_attributes;
 };
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
 
-Q_DECLARE_METATYPE(Praaline::Core::CorpusObjectInfo)
+Q_DECLARE_METATYPE(PRAALINE_CORE_NAMESPACE::CorpusObjectInfo)
 
 #endif // CORPUSOBJECTINFO_H

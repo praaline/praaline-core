@@ -1,7 +1,6 @@
 #include "SerialiserNameValueList.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 SerialiserNameValueList::SerialiserNameValueList()
 {
@@ -11,5 +10,4 @@ SerialiserNameValueList::~SerialiserNameValueList()
 {
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

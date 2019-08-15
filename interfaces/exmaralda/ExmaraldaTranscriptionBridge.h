@@ -6,8 +6,7 @@
 #include "annotation/AnnotationTier.h"
 #include "ExmaraldaBasicTranscription.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 class ExmaraldaTranscriptionBridge : public QObject
 {
@@ -39,7 +38,6 @@ private:
     QList<TierToExportInfo > m_tiersToExport;
 };
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
 
 #endif // EXMARALDATRANSCRIPTIONBRIDGE_H

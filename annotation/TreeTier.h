@@ -3,7 +3,7 @@
 
 /*
     Praaline - Core module - Annotation
-    Copyright (c) 2011-2017 George Christodoulides
+    Copyright (c) 2011-2019 George Christodoulides
 
     This program or module is free software: you can redistribute it
     and/or modify it under the terms of the GNU General Public License
@@ -19,8 +19,7 @@
 #include <QObject>
 #include "AnnotationTier.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 class PRAALINE_CORE_SHARED_EXPORT TreeTier : public AnnotationTier
 {
@@ -34,7 +33,6 @@ signals:
 public slots:
 };
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
 
 #endif // TREETIER_H

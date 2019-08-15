@@ -35,6 +35,7 @@
 
 #include "QSqlMigrator/Structure/Table.h"
 
+
 #include <QDebug>
 #include <QStringList>
 
@@ -52,14 +53,14 @@ bool SqliteAlterColumnTypeService::execute(const Commands::ConstCommandPtr &comm
 
     const Structure::Table origTable( context.helperRepository().sqlStructureService().getTableDefinition(alterColumnType->tableName(), context.database()) );
     Structure::Table::Builder alteredTable(alterColumnType->tableName());
-    const Structure::Column* originalColumn = Q_NULLPTR;
+    const Structure::Column* originalColumn = nullptr;
 
     QString newType = context.helperRepository().typeMapperService().map(alterColumnType->newType());
 
     foreach (const Structure::Column &column, origTable.columns()) {
         if (column.name() == alterColumnType->columnName()) {
             originalColumn = &column;
-            alteredTable << Structure::Column(column.name(), newType, column.attributes());
+            alteredTable << Structure::Column(column.name(), Structure::SqlType(newType), column.attributes());
         } else {
             alteredTable << column;
         }
@@ -76,7 +77,7 @@ bool SqliteAlterColumnTypeService::execute(const Commands::ConstCommandPtr &comm
         Commands::CommandPtr undoCommand(new Commands::AlterColumnType(alterColumnType->columnName(),
                                                                        alterColumnType->tableName(),
                                                                        originalColumn->type(),
-                                                                       newType));
+                                                                       Structure::SqlType(newType)));
         context.setUndoCommand(undoCommand);
     }
 

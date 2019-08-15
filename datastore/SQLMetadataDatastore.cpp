@@ -13,8 +13,7 @@
 #include "serialisers/sql/SQLSerialiserNameValueList.h"
 #include "SQLMetadataDatastore.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 struct SQLMetadataDatastoreData {
     QSqlDatabase database;
@@ -325,5 +324,5 @@ QList<QPair<QList<QVariant>, long> > SQLMetadataDatastore::getDistinctValues(Cor
     return SQLSerialiserMetadata::getDistinctValues(type, attributeIDs, d->database, d->structure);
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
+

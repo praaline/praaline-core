@@ -3,7 +3,7 @@
 
 /*
     Praaline - Core module - Statistics
-    Copyright (c) 2011-2018 George Christodoulides
+    Copyright (c) 2011-2019 George Christodoulides
 
     This program or module is free software: you can redistribute it
     and/or modify it under the terms of the GNU General Public License
@@ -15,13 +15,13 @@
     the GNU General Public License for more details.
 */
 
-#include "pncore_global.h"
 #include <QObject>
 #include <QList>
 #include <QScopedPointer>
 
-namespace Praaline {
-namespace Core {
+#include "pncore_global.h"
+
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 class CorpusCommunication;
 class IntervalTier;
@@ -32,7 +32,7 @@ class PRAALINE_CORE_SHARED_EXPORT SpeakerTimeline : public QObject
 {
     Q_OBJECT
 public:
-    explicit SpeakerTimeline(QObject *parent = 0);
+    explicit SpeakerTimeline(QObject *parent = nullptr);
     virtual ~SpeakerTimeline();
 
     bool calculate(QPointer<CorpusCommunication> com, const QString &minimalLevelID);
@@ -49,7 +49,6 @@ private:
     SpeakerTimelineData *d;
 };
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
 
 #endif // SPEAKERTIMELINE_H

@@ -5,37 +5,22 @@
 #include "IntervalTier.h"
 #include "AnnotationTier.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 // ==========================================================================================================
 // Constructors - destructor
 // ==========================================================================================================
 SequenceTier::SequenceTier(const QString &name, AnnotationTier *baseTier, QObject *parent) :
-    AnnotationTier(parent), m_baseTier(baseTier)
+    AnnotationTier(name, parent), m_baseTier(baseTier)
 {
-    m_name = name;
 }
 
 SequenceTier::SequenceTier(const QString &name, const QList<Sequence *> &sequences, AnnotationTier *baseTier, QObject *parent) :
-    AnnotationTier(parent), m_baseTier(baseTier)
+    AnnotationTier(name, parent), m_baseTier(baseTier)
 {
-    m_name = name;
     m_sequences = sequences;
     if (m_sequences.count() == 0) return;
-    qSort(m_sequences.begin(), m_sequences.end(), SequenceTier::compareSequences);
-}
-
-SequenceTier::SequenceTier(const SequenceTier *copy, QString name, bool copyAttributes, QObject *parent) :
-    AnnotationTier(parent), m_baseTier(nullptr)
-{
-    if (!copy) return;
-    m_name = (name.isEmpty()) ? copy->name() : name;
-    m_baseTier = copy->baseTier();
-    // deep copy of Sequences
-    foreach (Sequence *sequence, copy->sequences()) {
-        m_sequences << new Sequence(sequence, copyAttributes);
-    }
+    std::sort(m_sequences.begin(), m_sequences.end(), SequenceTier::compareSequences);
 }
 
 SequenceTier::~SequenceTier()
@@ -77,13 +62,13 @@ Sequence *SequenceTier::at(int index) const
 
 Sequence *SequenceTier::first() const
 {
-    if (isEmpty()) return Q_NULLPTR;
+    if (isEmpty()) return nullptr;
     return m_sequences.first();
 }
 
 Sequence *SequenceTier::last() const
 {
-    if (isEmpty()) return Q_NULLPTR;
+    if (isEmpty()) return nullptr;
     return m_sequences.last();
 }
 
@@ -167,13 +152,13 @@ bool SequenceTier::compareSequences(Sequence *A, Sequence *B) {
 void SequenceTier::addSequence(Sequence *sequence)
 {
     m_sequences << sequence;
-    qSort(m_sequences.begin(), m_sequences.end(), SequenceTier::compareSequences);
+    std::sort(m_sequences.begin(), m_sequences.end(), SequenceTier::compareSequences);
 }
 
 void SequenceTier::addSequences(QList<Sequence *> sequences)
 {
     m_sequences << sequences;
-    qSort(m_sequences.begin(), m_sequences.end(), SequenceTier::compareSequences);
+    std::sort(m_sequences.begin(), m_sequences.end(), SequenceTier::compareSequences);
 }
 
 void SequenceTier::removeSequenceAt(int i)
@@ -185,15 +170,35 @@ QList<AnnotationElement *> SequenceTier::sequenceElements(int sequenceIndex) con
 {
     QList<AnnotationElement *> elements;
     if (!m_baseTier) return elements;
-    if (sequenceIndex < 0 || sequenceIndex >= m_sequences.count()) {
-        int from = m_sequences.at(sequenceIndex)->indexFrom();
-        int to = m_sequences.at(sequenceIndex)->indexTo();
-        for (int i = from; i <= to; ++i) {
-            if (i > 0 && i < m_baseTier->count()) elements << m_baseTier->at(i);
-        }
+    if ((sequenceIndex < 0) || (sequenceIndex >= m_sequences.count())) return elements;
+    int from = m_sequences.at(sequenceIndex)->indexFrom();
+    int to = m_sequences.at(sequenceIndex)->indexTo();
+    for (int i = from; i <= to; ++i) {
+        if (i > 0 && i < m_baseTier->count()) elements << m_baseTier->at(i);
     }
     return elements;
 }
 
-} // namespace Core
-} // namespace Praaline
+// ==============================================================================================================================
+// Clone
+// ==============================================================================================================================
+
+SequenceTier *SequenceTier::clone(const QString &name, QObject *parent) const
+{
+    QString cloneName = (name.isEmpty()) ? m_name : name;
+    QList<Sequence *> cloneSequences;
+    foreach (Sequence *seq, m_sequences)
+        cloneSequences << seq->clone();
+    return new SequenceTier(cloneName, cloneSequences, m_baseTier, parent);
+}
+
+SequenceTier *SequenceTier::cloneWithoutAttributes(const QString &name, QObject *parent) const
+{
+    QString cloneName = (name.isEmpty()) ? m_name : name;
+    QList<Sequence *> cloneSequences;
+    foreach (Sequence *seq, m_sequences)
+        cloneSequences << seq->cloneWithoutAttributes();
+    return new SequenceTier(cloneName, cloneSequences, m_baseTier, parent);
+}
+
+PRAALINE_CORE_END_NAMESPACE

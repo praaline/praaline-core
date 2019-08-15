@@ -3,7 +3,7 @@
 
 /*
     Praaline - Core module - Annotation
-    Copyright (c) 2011-2017 George Christodoulides
+    Copyright (c) 2011-2019 George Christodoulides
 
     This program or module is free software: you can redistribute it
     and/or modify it under the terms of the GNU General Public License
@@ -24,14 +24,13 @@
 #include "base/RealTime.h"
 #include "base/RealValueList.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 class PRAALINE_CORE_SHARED_EXPORT AnnotationDataTable : public QObject
 {
     Q_OBJECT
 public:
-    explicit AnnotationDataTable(QObject *parent = 0);
+    explicit AnnotationDataTable(QObject *parent = nullptr);
     virtual ~AnnotationDataTable();
 
     QString ID() const { return m_ID; }
@@ -57,6 +56,7 @@ public:
     virtual bool saveToFile(const QString &filename);
 
     virtual RealValueList getValueList(const QString &fieldname);
+
 signals:
 
 public slots:
@@ -69,7 +69,6 @@ protected:
     QList< QList<QVariant> > m_data;                // rows < columns >
 };
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
 
 #endif

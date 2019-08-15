@@ -12,8 +12,7 @@
 #include "datastore/CorpusRepository.h"
 #include "datastore/MetadataDatastore.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 Corpus::Corpus(CorpusRepository *repository, QObject *parent) :
     CorpusObject(repository, parent)
@@ -418,5 +417,5 @@ QList<QPair<QString, QString> > Corpus::getCommunicationsRecordingsIDs() const
     return list;
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
+

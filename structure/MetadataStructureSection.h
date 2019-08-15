@@ -3,7 +3,7 @@
 
 /*
     Praaline - Core module - Corpus Structure Definition
-    Copyright (c) 2011-2018 George Christodoulides
+    Copyright (c) 2011-2019 George Christodoulides
 
     This program or module is free software: you can redistribute it
     and/or modify it under the terms of the GNU General Public License
@@ -21,8 +21,7 @@
 #include <QString>
 #include "structure/MetadataStructureAttribute.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 class PRAALINE_CORE_SHARED_EXPORT MetadataStructureSection : public QObject
 {
@@ -33,9 +32,9 @@ class PRAALINE_CORE_SHARED_EXPORT MetadataStructureSection : public QObject
     Q_PROPERTY(int itemOrder READ itemOrder WRITE setItemOrder)
 
 public:
-    explicit MetadataStructureSection(QObject *parent = 0);
+    explicit MetadataStructureSection(QObject *parent = nullptr);
     MetadataStructureSection(const QString &ID, const QString &name = QString(),
-                             const QString &description = QString(), int itemOrder = 0, QObject *parent = 0);
+                             const QString &description = QString(), int itemOrder = 0, QObject *parent = nullptr);
     ~MetadataStructureSection();
 
     // Data
@@ -76,7 +75,6 @@ protected:
     QList<QPointer<MetadataStructureAttribute> > m_attributes;
 };
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
 
 #endif // METADATASTRUCTURESECTION_H

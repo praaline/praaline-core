@@ -1,6 +1,10 @@
 var searchData=
 [
-  ['scale',['scale',['../classPraaline_1_1Core_1_1DataType.html#a9119af5266a1ede78170f7f147ea89b9',1,'Praaline::Core::DataType::scale()'],['../classQSqlMigrator_1_1Structure_1_1SqlType.html#a7ab9dc8bcc11902e3d7bfb65a271de66',1,'QSqlMigrator::Structure::SqlType::scale()']]],
-  ['sqltype',['SqlType',['../classQSqlMigrator_1_1Structure_1_1SqlType.html#af83707a053e7fd46ab395d45b78b587d',1,'QSqlMigrator::Structure::SqlType::SqlType(const QString &amp;string)'],['../classQSqlMigrator_1_1Structure_1_1SqlType.html#a354f8b358490b38fef28a9514762f4e4',1,'QSqlMigrator::Structure::SqlType::SqlType(const Praaline::Core::DataType &amp;datatype)'],['../classQSqlMigrator_1_1Structure_1_1SqlType.html#a025fddf53697e4ae4dc6f01be8d69395',1,'QSqlMigrator::Structure::SqlType::SqlType(Base base, quint64 precision=0, int scale=0)']]],
-  ['string',['string',['../classPraaline_1_1Core_1_1DataType.html#a9b9e9d11960f49e85668d1ab89d35b43',1,'Praaline::Core::DataType::string()'],['../classQSqlMigrator_1_1Structure_1_1SqlType.html#acb1136acab557ca09d7bf7d8515894ab',1,'QSqlMigrator::Structure::SqlType::string()']]]
+  ['realtime2frame',['realTime2Frame',['../struct_real_time.html#a3a99b7b0da96694a868e8fc211c41375',1,'RealTime']]],
+  ['refreshlockislivinginvoker',['RefreshLockIsLivingInvoker',['../class_q_sql_migrator_1_1_sqlite_migrator_1_1_refresh_lock_is_living_invoker.html#a906d849ff01d1a3de866b1226f153d07',1,'QSqlMigrator::SqliteMigrator::RefreshLockIsLivingInvoker']]],
+  ['removeattribute',['removeAttribute',['../class_annotation_element.html#a0acb66aa65f201880286d82dda4d82bf',1,'AnnotationElement']]],
+  ['removemigration',['removeMigration',['../class_q_sql_migrator_1_1_migration_tracker_1_1_base_migration_table_service.html#a2b0bf914a7672e5540b7b003cd378aaf',1,'QSqlMigrator::MigrationTracker::BaseMigrationTableService::removeMigration()'],['../class_q_sql_migrator_1_1_migration_tracker_1_1_migration_tracker_service.html#a3041c2cb0027e6a40639ce4c47482c17',1,'QSqlMigrator::MigrationTracker::MigrationTrackerService::removeMigration()']]],
+  ['replaceattributetext',['replaceAttributeText',['../class_annotation_element.html#aafa5f3ee2d42db969bafb453e16c35b3',1,'AnnotationElement']]],
+  ['replacetext',['replaceText',['../class_annotation_element.html#a6ea70bff6f981c1d6014579d4c7fc680',1,'AnnotationElement']]],
+  ['reverse',['reverse',['../class_q_sql_migrator_1_1_commands_1_1_custom_command_base.html#a40c94f9cd360848f2c1c80b05a86ad08',1,'QSqlMigrator::Commands::CustomCommandBase']]]
 ];

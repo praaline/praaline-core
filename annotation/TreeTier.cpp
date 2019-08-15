@@ -1,9 +1,8 @@
 #include "TreeTier.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
-TreeTier::TreeTier(QObject *parent) : AnnotationTier(parent)
+TreeTier::TreeTier(QObject *parent) : AnnotationTier("", parent)
 {
 
 }
@@ -13,5 +12,5 @@ TreeTier::~TreeTier()
 
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
+

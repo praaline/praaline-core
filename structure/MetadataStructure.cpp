@@ -5,8 +5,7 @@
 #include <QMetaEnum>
 #include "MetadataStructure.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 MetadataStructure::MetadataStructure(QObject *parent) :
     QObject(parent)
@@ -38,18 +37,18 @@ MetadataStructure::~MetadataStructure()
 
 QPointer<MetadataStructureSection> MetadataStructure::section(CorpusObject::Type what, int index) const
 {
-    if (!m_sections.contains(what)) return 0;
+    if (!m_sections.contains(what)) return nullptr;
     return m_sections[what].value(index);
 }
 
 QPointer<MetadataStructureSection> MetadataStructure::section(CorpusObject::Type what, const QString &ID) const
 {
-    if (!m_sections.contains(what)) return 0;
+    if (!m_sections.contains(what)) return nullptr;
     foreach (QPointer<MetadataStructureSection> section, m_sections[what]) {
         if ((section) && section->ID() == ID)
             return section;
     }
-    return 0;
+    return nullptr;
 }
 
 int MetadataStructure::sectionIndexByID(CorpusObject::Type what, const QString &ID) const
@@ -99,7 +98,7 @@ void MetadataStructure::addSection(CorpusObject::Type what, MetadataStructureSec
 void MetadataStructure::swapSections(CorpusObject::Type what, int oldIndex, int newIndex)
 {
     if ((oldIndex == 0) || (newIndex == 0)) return;
-    m_sections[what].swap(oldIndex, newIndex);
+    m_sections[what].swapItemsAt(oldIndex, newIndex);
     emit MetadataStructureChanged();
 }
 
@@ -127,7 +126,7 @@ QPointer<MetadataStructureAttribute> MetadataStructure::attribute(CorpusObject::
             if ((attribute) && (attribute->ID() == ID))
                 return attribute;
     }
-    return 0;
+    return nullptr;
 }
 
 QList<QPointer<MetadataStructureAttribute> > MetadataStructure::attributes(CorpusObject::Type what) const
@@ -289,5 +288,4 @@ QStringList MetadataStructure::allAttributeNames(CorpusObject::Type what) const
     return ret;
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

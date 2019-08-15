@@ -6,8 +6,7 @@
 #include <QXmlStreamWriter>
 #include "XMLSerialiserNameValueList.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 QString XMLSerialiserNameValueList::xmlElementName_NameValueList("NameValueList");
 
@@ -124,5 +123,4 @@ bool XMLSerialiserNameValueList::loadNameValueLists(QList<QPointer<NameValueList
     return ret;
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

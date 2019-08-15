@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['operator_20bool',['operator bool',['../classQSqlMigrator_1_1SqliteMigrator_1_1DatabaseLock.html#a46c3cdb86439f1e764163486e43f89c8',1,'QSqlMigrator::SqliteMigrator::DatabaseLock']]],
-  ['operator_2f',['operator/',['../structRealTime.html#abb69ca8bb8b646a69df1f16d83450e6b',1,'RealTime']]]
+  ['migrationlist',['migrationList',['../class_q_sql_migrator_1_1_migration_tracker_1_1_base_migration_table_service.html#a1105240b456db9f85c2fc2866582a292',1,'QSqlMigrator::MigrationTracker::BaseMigrationTableService::migrationList()'],['../class_q_sql_migrator_1_1_migration_tracker_1_1_migration_tracker_service.html#a5de22e070fc1b4f487dbe256e1c874ef',1,'QSqlMigrator::MigrationTracker::MigrationTrackerService::migrationList()']]],
+  ['missingmigrations',['missingMigrations',['../class_q_sql_migrator_1_1_q_sql_migrator_service.html#a9d643749c3e565e02532854c2ff35971',1,'QSqlMigrator::QSqlMigratorService']]]
 ];

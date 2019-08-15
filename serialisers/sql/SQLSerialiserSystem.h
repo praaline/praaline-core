@@ -3,7 +3,7 @@
 
 /*
     Praaline - Core module - SQL Serialisers
-    Copyright (c) 2011-2018 George Christodoulides
+    Copyright (c) 2011-2019 George Christodoulides
 
     This program or module is free software: you can redistribute it
     and/or modify it under the terms of the GNU General Public License
@@ -16,10 +16,11 @@
 */
 
 #include <QString>
-#include <corpus/CorpusObject.h>
 
-namespace Praaline {
-namespace Core {
+#include "pncore_global.h"
+#include "corpus/CorpusObject.h"
+
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 class SQLSerialiserSystem
 {
@@ -33,7 +34,6 @@ private:
     SQLSerialiserSystem() {}
 };
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
 
 #endif // SQLSERIALISERSYSTEM_H

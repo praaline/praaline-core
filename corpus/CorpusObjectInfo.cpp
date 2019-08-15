@@ -1,7 +1,6 @@
 #include "CorpusObjectInfo.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 CorpusObjectInfo::CorpusObjectInfo() :
     m_type(CorpusObject::Type_Undefined)
@@ -24,6 +23,10 @@ CorpusObjectInfo::CorpusObjectInfo(const CorpusObjectInfo &other) :
     m_isDirty = true;
 }
 
-} // namespace Core
-} // namespace Praaline
+CorpusObjectInfo::~CorpusObjectInfo()
+{
+}
+
+PRAALINE_CORE_END_NAMESPACE
+
 

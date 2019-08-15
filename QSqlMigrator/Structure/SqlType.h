@@ -50,13 +50,13 @@ public:
      * \brief Construct the type from
      * \param string the string representation of an sql type
      */
-    SqlType(const QString& string);
+    explicit SqlType(const QString& string);
 
     /*!
      * \brief Construct the type from
      * \param datatype the Praaline data tyep
      */
-    SqlType(const Praaline::Core::DataType& datatype);
+    explicit SqlType(const PRAALINE_CORE_NAMESPACE::DataType& datatype);
 
     /*!
      * \brief Constructs the type

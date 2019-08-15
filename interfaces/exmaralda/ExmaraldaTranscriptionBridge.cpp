@@ -7,8 +7,7 @@
 #include "ExmaraldaBasicTranscription.h"
 #include "ExmaraldaTranscriptionBridge.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 ExmaraldaTranscriptionBridge::ExmaraldaTranscriptionBridge(QObject *parent) :
     QObject(parent)
@@ -76,5 +75,4 @@ void ExmaraldaTranscriptionBridge::exportPraalineToPartitur(ExmaraldaBasicTransc
     }
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

@@ -5,36 +5,22 @@
 #include "IntervalTier.h"
 #include "AnnotationTier.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 // ==========================================================================================================
 // Constructors - destructor
 // ==========================================================================================================
-RelationTier::RelationTier(const QString &name, QObject *parent) :
-    AnnotationTier(parent)
+RelationTier::RelationTier(const QString &name, AnnotationTier *baseTier, QObject *parent) :
+    AnnotationTier(name, parent), m_baseTier(baseTier)
 {
-    m_name = name;
 }
 
-RelationTier::RelationTier(const QString &name, const QList<Relation *> &relations, QObject *parent) :
-    AnnotationTier(parent)
+RelationTier::RelationTier(const QString &name, const QList<Relation *> &relations, AnnotationTier *baseTier, QObject *parent) :
+    AnnotationTier(name, parent), m_baseTier(baseTier)
 {
-    m_name = name;
     m_relations = relations;
     if (m_relations.count() == 0) return;
-    qSort(m_relations.begin(), m_relations.end(), RelationTier::compareRelations);
-}
-
-RelationTier::RelationTier(const RelationTier *copy, QString name, bool copyAttributes, QObject *parent) :
-    AnnotationTier(parent)
-{
-    if (!copy) return;
-    m_name = (name.isEmpty()) ? copy->name() : name;
-    // deep copy of Relations
-    foreach (Relation *relation, copy->relations()) {
-        m_relations << new Relation(relation, copyAttributes);
-    }
+    std::sort(m_relations.begin(), m_relations.end(), RelationTier::compareRelations);
 }
 
 RelationTier::~RelationTier()
@@ -45,6 +31,18 @@ RelationTier::~RelationTier()
 // ==============================================================================================================================
 // Implementation of AnnotationTier
 // ==============================================================================================================================
+
+RealTime RelationTier::tMin() const
+{
+    if (m_baseTier) return m_baseTier->tMin();
+    return m_tMin;
+}
+
+RealTime RelationTier::tMax() const
+{
+    if (m_baseTier) return m_baseTier->tMax();
+    return m_tMax;
+}
 
 bool RelationTier::isEmpty() const
 {
@@ -64,13 +62,13 @@ Relation *RelationTier::at(int index) const
 
 Relation *RelationTier::first() const
 {
-    if (isEmpty()) return Q_NULLPTR;
+    if (isEmpty()) return nullptr;
     return m_relations.first();
 }
 
 Relation *RelationTier::last() const
 {
-    if (isEmpty()) return Q_NULLPTR;
+    if (isEmpty()) return nullptr;
     return m_relations.last();
 }
 
@@ -117,6 +115,20 @@ void RelationTier::fillEmptyWith(const QString &attributeID, const QString &fill
 }
 
 // ==============================================================================================================================
+// Base tier
+// ==============================================================================================================================
+
+AnnotationTier *RelationTier::baseTier() const
+{
+    return m_baseTier;
+}
+
+void RelationTier::setBaseTier(AnnotationTier *tier)
+{
+    m_baseTier = tier;
+}
+
+// ==============================================================================================================================
 // Accessors and mutators for Relations
 // ==============================================================================================================================
 
@@ -140,13 +152,13 @@ bool RelationTier::compareRelations(Relation *A, Relation *B) {
 void RelationTier::addRelation(Relation *relation)
 {
     m_relations << relation;
-    qSort(m_relations.begin(), m_relations.end(), RelationTier::compareRelations);
+    std::sort(m_relations.begin(), m_relations.end(), RelationTier::compareRelations);
 }
 
 void RelationTier::addRelations(QList<Relation *> relations)
 {
     m_relations << relations;
-    qSort(m_relations.begin(), m_relations.end(), RelationTier::compareRelations);
+    std::sort(m_relations.begin(), m_relations.end(), RelationTier::compareRelations);
 }
 
 void RelationTier::removeRelationAt(int i)
@@ -154,5 +166,38 @@ void RelationTier::removeRelationAt(int i)
     m_relations.removeAt(i);
 }
 
-} // namespace Core
-} // namespace Praaline
+QPair<AnnotationElement *, AnnotationElement *> RelationTier::relationElements(int relationIndex) const
+{
+    QPair<AnnotationElement *, AnnotationElement *> pair = QPair<AnnotationElement *, AnnotationElement *>(nullptr, nullptr);
+    if (!m_baseTier) return pair;
+    if ((relationIndex < 0) || (relationIndex >= m_relations.count())) return pair;
+    int from = m_relations.at(relationIndex)->indexFrom();
+    int to = m_relations.at(relationIndex)->indexTo();
+    pair.first = m_baseTier->at(from);
+    pair.second = m_baseTier->at(to);
+    return pair;
+}
+
+// ==============================================================================================================================
+// Clone
+// ==============================================================================================================================
+RelationTier *RelationTier::clone(const QString &name, QObject *parent) const
+{
+    QString cloneName = (name.isEmpty()) ? m_name : name;
+    QList<Relation *> cloneRelations;
+    foreach (Relation *rel, m_relations)
+        cloneRelations << rel->clone();
+    return new RelationTier(cloneName, cloneRelations, m_baseTier, parent);
+}
+
+RelationTier *RelationTier::cloneWithoutAttributes(const QString &name, QObject *parent) const
+{
+    QString cloneName = (name.isEmpty()) ? m_name : name;
+    QList<Relation *> cloneRelations;
+    foreach (Relation *rel, m_relations)
+        cloneRelations << rel->cloneWithoutAttributes();
+    return new RelationTier(cloneName, cloneRelations, m_baseTier, parent);
+}
+
+
+PRAALINE_CORE_END_NAMESPACE

@@ -3,7 +3,7 @@
 
 /*
     Praaline - Core module - Corpus metadata
-    Copyright (c) 2011-2017 George Christodoulides
+    Copyright (c) 2011-2019 George Christodoulides
 
     This program or module is free software: you can redistribute it
     and/or modify it under the terms of the GNU General Public License
@@ -24,8 +24,7 @@
 #include "CorpusRecording.h"
 #include "CorpusAnnotation.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 class Corpus;
 
@@ -36,10 +35,10 @@ class PRAALINE_CORE_SHARED_EXPORT CorpusCommunication : public CorpusObject
     Q_PROPERTY(double durationSec READ durationSec)
 
 public:
-    explicit CorpusCommunication(CorpusRepository *repository = 0, QObject *parent = 0);
-    explicit CorpusCommunication(const QString &ID, CorpusRepository *repository = 0, QObject *parent = 0);
-    explicit CorpusCommunication(CorpusCommunication *other, QObject *parent = 0);
-    ~CorpusCommunication();
+    explicit CorpusCommunication(CorpusRepository *repository = nullptr, QObject *parent = nullptr);
+    explicit CorpusCommunication(const QString &ID, CorpusRepository *repository = nullptr, QObject *parent = nullptr);
+    explicit CorpusCommunication(CorpusCommunication *other, QObject *parent = nullptr);
+    ~CorpusCommunication() override;
 
     CorpusObject::Type type() const override { return CorpusObject::Type_Communication; }
     bool save() override;
@@ -80,9 +79,9 @@ public:
     QList<QString> deletedRecordingIDs;
 
 signals:
-    void corpusRecordingAdded(QPointer<Praaline::Core::CorpusRecording> recording);
+    void corpusRecordingAdded(QPointer<PRAALINE_CORE_NAMESPACE::CorpusRecording> recording);
     void corpusRecordingDeleted(QString communicationID, QString recordingID);
-    void corpusAnnotationAdded(QPointer<Praaline::Core::CorpusAnnotation> annotation);
+    void corpusAnnotationAdded(QPointer<PRAALINE_CORE_NAMESPACE::CorpusAnnotation> annotation);
     void corpusAnnotationDeleted(QString communicationID, QString annotationID);
 
 private slots:
@@ -97,7 +96,6 @@ private:
     Q_DISABLE_COPY(CorpusCommunication)
 };
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
 
 #endif // CORPUSITEM_H

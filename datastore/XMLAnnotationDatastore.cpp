@@ -6,8 +6,7 @@
 #include "structure/AnnotationStructure.h"
 #include "XMLAnnotationDatastore.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 XMLAnnotationDatastore::XMLAnnotationDatastore(AnnotationStructure *structure, CorpusRepository *repository, QObject *parent) :
     AnnotationDatastore(repository, parent), m_structure(structure)
@@ -357,5 +356,4 @@ QList<QPair<QList<QVariant>, long long> > XMLAnnotationDatastore::countItems(con
     return ret;
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

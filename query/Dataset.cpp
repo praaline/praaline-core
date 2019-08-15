@@ -4,21 +4,16 @@
 #include "annotation/IntervalTier.h"
 #include "Dataset.h"
 
-
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 Dataset::Dataset()
 {
 
 }
 
-
-
 void Dataset::prepare()
 {
 
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

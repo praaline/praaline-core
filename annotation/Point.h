@@ -3,7 +3,7 @@
 
 /*
     Praaline - Core module - Annotation
-    Copyright (c) 2011-2017 George Christodoulides
+    Copyright (c) 2011-2019 George Christodoulides
 
     This program or module is free software: you can redistribute it
     and/or modify it under the terms of the GNU General Public License
@@ -20,8 +20,7 @@
 #include "base/RealTime.h"
 #include "AnnotationElement.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 class PRAALINE_CORE_SHARED_EXPORT Point : public AnnotationElement
 {
@@ -29,14 +28,14 @@ class PRAALINE_CORE_SHARED_EXPORT Point : public AnnotationElement
 
 public:
     Point();
-    Point(const RealTime &time, const QString &text = QString());
-    Point(const RealTime &time, const QString &text, const QHash<QString, QVariant> &attributes);
+    explicit Point(const RealTime time,
+                   const QString &text = QString(), const QHash<QString, QVariant> &attributes = QHash<QString, QVariant>());
     Point(const Point &copy);
-    Point(const Point *copy, bool copyAttributes = true);
-    virtual ~Point();
+    virtual ~Point() override;
 
     // Properties
     inline RealTime time() const { return m_time; }
+    inline double test(RealTime a) const { return a.toDouble(); }
 
     // Overrides
     virtual QVariant attribute(const QString &name) const override;
@@ -45,13 +44,18 @@ public:
         return Type_Point;
     }
 
+    // Create new point from existing one
+    Point *clone() const;
+    Point *cloneWithoutAttributes() const;
+    Point *cloneReposition(const RealTime time) const;
+    Point *cloneRepositionWithoutAttributes(const RealTime time) const;
+
 protected:
     RealTime m_time;    
 };
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
 
-Q_DECLARE_METATYPE(Praaline::Core::Point)
+Q_DECLARE_METATYPE(PRAALINE_CORE_NAMESPACE::Point)
 
 #endif // POINT_H

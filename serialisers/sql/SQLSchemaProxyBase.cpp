@@ -11,8 +11,7 @@ using namespace QSqlMigrator::Commands;
 #include "SQLSerialiserBase.h"
 #include "SQLSchemaProxyBase.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 bool SQLSchemaProxyBase::addColumnToTable(QString tableName, QString columnName,
                                           DataType datatype, QSqlDatabase &db)
@@ -70,5 +69,4 @@ bool SQLSchemaProxyBase::deleteTable(QString tableName, QSqlDatabase &db)
                 &migration, db);
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

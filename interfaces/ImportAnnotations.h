@@ -5,8 +5,7 @@
 #include <QList>
 #include "pncore_global.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 class Corpus;
 class CorpusCommunication;
@@ -43,7 +42,6 @@ public:
                             AnnotationTierGroup *inputTiers, QList<TierCorrespondance> &correspondances);
 };
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
 
 #endif // IMPORTANNOTATIONS_H

@@ -3,7 +3,7 @@
 
 /*
     Praaline - Core module - XML Serialisers
-    Copyright (c) 2011-2018 George Christodoulides
+    Copyright (c) 2011-2019 George Christodoulides
 
     This program or module is free software: you can redistribute it
     and/or modify it under the terms of the GNU General Public License
@@ -19,8 +19,7 @@
 #include "structure/AnnotationStructure.h"
 #include "datastore/AnnotationDatastore.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 class CorpusRepository;
 
@@ -28,8 +27,8 @@ class XMLAnnotationDatastore : public AnnotationDatastore
 {
     Q_OBJECT
 public:
-    explicit XMLAnnotationDatastore(AnnotationStructure *structure, CorpusRepository *repository, QObject *parent = 0);
-    ~XMLAnnotationDatastore();
+    explicit XMLAnnotationDatastore(AnnotationStructure *structure, CorpusRepository *repository, QObject *parent = nullptr);
+    ~XMLAnnotationDatastore() override;
 
     // ==========================================================================================================================
     // Datastore
@@ -123,7 +122,6 @@ private:
     QPointer<AnnotationStructure> m_structure;
 };
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
 
 #endif // XMLANNOTATIONDATASTORE_H

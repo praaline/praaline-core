@@ -3,7 +3,7 @@
 
 /*
     Praaline - Core module - JSON Serialisers
-    Copyright (c) 2011-2018 George Christodoulides
+    Copyright (c) 2011-2019 George Christodoulides
 
     This program or module is free software: you can redistribute it
     and/or modify it under the terms of the GNU General Public License
@@ -19,11 +19,12 @@
 #include <QPointer>
 #include <QString>
 #include <QJsonObject>
+
+#include "pncore_global.h"
 #include "JSONSerialiserBase.h"
 #include "query/QueryDefinition.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 class PRAALINE_CORE_SHARED_EXPORT JSONSerialiserQueryDefinition : JSONSerialiserBase
 {
@@ -38,7 +39,6 @@ private:
     ~JSONSerialiserQueryDefinition();
 };
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
 
 #endif // JSONSERIALISERQUERYDEFINITION_H

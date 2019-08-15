@@ -6,8 +6,7 @@
 
 #include "corpus/Corpus.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 QString PhonTranscription::xmlElementName_Session("session");
 QString PhonTranscription::xmlElementName_Header("header");
@@ -355,5 +354,4 @@ bool PhonTranscription::readSegmentGroupTier(QXmlStreamReader &xml, PhonTranscri
     return true;
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

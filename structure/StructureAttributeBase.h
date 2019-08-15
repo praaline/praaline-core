@@ -3,7 +3,7 @@
 
 /*
     Praaline - Core module - Corpus Structure Definition
-    Copyright (c) 2011-2018 George Christodoulides
+    Copyright (c) 2011-2019 George Christodoulides
 
     This program or module is free software: you can redistribute it
     and/or modify it under the terms of the GNU General Public License
@@ -19,8 +19,7 @@
 #include "pncore_global.h"
 #include "base/DataType.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 class PRAALINE_CORE_SHARED_EXPORT StructureAttributeBase : public QObject
 {
@@ -35,11 +34,11 @@ class PRAALINE_CORE_SHARED_EXPORT StructureAttributeBase : public QObject
     Q_PROPERTY(QString nameValueList READ nameValueList WRITE setNameValueList)
 
 public:
-    explicit StructureAttributeBase(QObject *parent = 0);
-    StructureAttributeBase(const QString &ID, QObject *parent = 0);
+    explicit StructureAttributeBase(QObject *parent = nullptr);
+    StructureAttributeBase(const QString &ID, QObject *parent = nullptr);
     StructureAttributeBase(const QString &ID, const QString &name, const QString &description, const DataType &datatype,
-                  int order = 0, bool indexed = false, const QString &nameValueList = QString(), QObject *parent = 0);
-    StructureAttributeBase(const StructureAttributeBase *other, QObject *parent = 0);
+                  int order = 0, bool indexed = false, const QString &nameValueList = QString(), QObject *parent = nullptr);
+    StructureAttributeBase(const StructureAttributeBase *other, QObject *parent = nullptr);
     virtual ~StructureAttributeBase() {}
 
     // Data
@@ -75,7 +74,6 @@ protected:
     QString m_nameValueList;    // Use a name-value list (controlled vocabulary)
 };
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
 
 #endif // STRUCTUREATTRIBUTEBASE_H

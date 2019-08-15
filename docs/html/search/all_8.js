@@ -1,18 +1,17 @@
 var searchData=
 [
-  ['idatastore',['IDatastore',['../classPraaline_1_1Core_1_1IDatastore.html',1,'Praaline::Core']]],
-  ['importannotations',['ImportAnnotations',['../classPraaline_1_1Core_1_1ImportAnnotations.html',1,'Praaline::Core']]],
-  ['index',['Index',['../classQSqlMigrator_1_1Structure_1_1LocalScheme_1_1Index.html',1,'QSqlMigrator::Structure::LocalScheme']]],
-  ['index',['Index',['../classQSqlMigrator_1_1Structure_1_1Index.html',1,'QSqlMigrator::Structure']]],
-  ['integer',['Integer',['../classPraaline_1_1Core_1_1DataType.html#aec0dcc1ec8a524ffa73064f5b520caeaa28f63d168d2c517f25e4c67ae7c9f237',1,'Praaline::Core::DataType::Integer()'],['../classQSqlMigrator_1_1Structure_1_1SqlType.html#ac1733fcbed79941acd89bcf3196d9912a6a971498ee79c54f6261723814e69b70',1,'QSqlMigrator::Structure::SqlType::Integer()']]],
-  ['interfacetextfile',['InterfaceTextFile',['../classPraaline_1_1Core_1_1InterfaceTextFile.html',1,'Praaline::Core']]],
-  ['interval',['Interval',['../classPraaline_1_1Core_1_1Interval.html',1,'Praaline::Core']]],
-  ['intervaltier',['IntervalTier',['../classPraaline_1_1Core_1_1IntervalTier.html',1,'Praaline::Core']]],
-  ['invalid',['invalid',['../classPraaline_1_1Core_1_1DataType.html#a9ace738cc18460772574dcf450b6dce4',1,'Praaline::Core::DataType::invalid()'],['../classQSqlMigrator_1_1Structure_1_1SqlType.html#a7b24e9c49441de9c17d8c10d8b2cdd11',1,'QSqlMigrator::Structure::SqlType::invalid()']]],
-  ['ipadata',['IPAData',['../classPraaline_1_1Core_1_1PhonTranscription_1_1IPAData.html',1,'Praaline::Core::PhonTranscription']]],
-  ['isaveable',['ISaveable',['../classPraaline_1_1Core_1_1ISaveable.html',1,'Praaline::Core']]],
-  ['isbasetype',['isBaseType',['../classQSqlMigrator_1_1Structure_1_1SqlType.html#aa34df4408dce395ca175ae294ba42aa5',1,'QSqlMigrator::Structure::SqlType']]],
-  ['isstring',['isString',['../classQSqlMigrator_1_1Structure_1_1SqlType.html#a2420eb1a6aabd9ceaa4cfa91903203a3',1,'QSqlMigrator::Structure::SqlType']]],
-  ['isundoused',['isUndoUsed',['../classQSqlMigrator_1_1CommandExecution_1_1CommandExecutionContext.html#a7cbe947a8dee6b2a4676715872e5c569',1,'QSqlMigrator::CommandExecution::CommandExecutionContext']]],
-  ['isvalid',['isValid',['../classPraaline_1_1Core_1_1DataType.html#acca1456d522fc401583cd408c5bdec25',1,'Praaline::Core::DataType::isValid()'],['../classQSqlMigrator_1_1Structure_1_1SqlType.html#aa85a60783ed6f3cb2962ebc7d012130b',1,'QSqlMigrator::Structure::SqlType::isValid()']]]
+  ['idatastore',['IDatastore',['../class_i_datastore.html',1,'']]],
+  ['importannotations',['ImportAnnotations',['../class_import_annotations.html',1,'']]],
+  ['index',['Index',['../class_q_sql_migrator_1_1_structure_1_1_index.html',1,'QSqlMigrator::Structure::Index'],['../class_q_sql_migrator_1_1_structure_1_1_local_scheme_1_1_index.html',1,'QSqlMigrator::Structure::LocalScheme::Index']]],
+  ['integer',['Integer',['../class_data_type.html#a8df455d8d3949b604fbb2967dfeff239a3749547ad6302148b455bb3c0855689b',1,'DataType::Integer()'],['../class_q_sql_migrator_1_1_structure_1_1_sql_type.html#ac1733fcbed79941acd89bcf3196d9912a6a971498ee79c54f6261723814e69b70',1,'QSqlMigrator::Structure::SqlType::Integer()']]],
+  ['interfacetextfile',['InterfaceTextFile',['../class_interface_text_file.html',1,'']]],
+  ['interval',['Interval',['../class_interval.html',1,'Interval'],['../class_interval.html#a115ec019acb96b75bd872cbb871f54e5',1,'Interval::Interval()'],['../class_interval.html#a2a823516ca46649463bb83f046093ba1',1,'Interval::Interval(const RealTime tMin, const RealTime tMax, const QString &amp;text=QString(), const QHash&lt; QString, QVariant &gt; &amp;attributes=QHash&lt; QString, QVariant &gt;())'],['../class_interval.html#a41ac30b52ead595e870fde9c8c18e0e3',1,'Interval::Interval(const Interval &amp;copy)']]],
+  ['intervaltier',['IntervalTier',['../class_interval_tier.html',1,'']]],
+  ['invalid',['invalid',['../class_data_type.html#a57b17d24ef05c53131e20dfcd54e219d',1,'DataType::invalid()'],['../class_q_sql_migrator_1_1_structure_1_1_sql_type.html#afa9de070483ba42c6070d80454c3e4ca',1,'QSqlMigrator::Structure::SqlType::invalid()']]],
+  ['ipadata',['IPAData',['../class_phon_transcription_1_1_i_p_a_data.html',1,'PhonTranscription']]],
+  ['isaveable',['ISaveable',['../class_i_saveable.html',1,'']]],
+  ['isbasetype',['isBaseType',['../class_q_sql_migrator_1_1_structure_1_1_sql_type.html#a54c409ad114a2951e4fd11cea266bc66',1,'QSqlMigrator::Structure::SqlType']]],
+  ['isstring',['isString',['../class_q_sql_migrator_1_1_structure_1_1_sql_type.html#ac615ae6908ecf48f55486a4746c26ce3',1,'QSqlMigrator::Structure::SqlType']]],
+  ['isundoused',['isUndoUsed',['../class_q_sql_migrator_1_1_command_execution_1_1_command_execution_context.html#a48821a3965e12db6d06cfefcb103df2e',1,'QSqlMigrator::CommandExecution::CommandExecutionContext']]],
+  ['isvalid',['isValid',['../class_data_type.html#ad7629e3562fdd2ad8afea12050dec31b',1,'DataType::isValid()'],['../class_q_sql_migrator_1_1_structure_1_1_sql_type.html#a51e3974a6b29b47dee30e7597aa3a08b',1,'QSqlMigrator::Structure::SqlType::isValid()']]]
 ];

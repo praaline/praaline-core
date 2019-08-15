@@ -7,8 +7,7 @@
 #include <QJsonArray>
 #include "JSONSerialiserCorpusBookmark.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 JSONSerialiserCorpusBookmark::JSONSerialiserCorpusBookmark()
 {
@@ -124,5 +123,4 @@ QJsonObject JSONSerialiserCorpusBookmark::writeBookmark(CorpusBookmark *bookmark
     return json;
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

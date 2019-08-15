@@ -6,8 +6,7 @@
 #include "interfaces/InterfaceTextFile.h"
 #include "annotation/IntervalTier.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 class PRAALINE_CORE_SHARED_EXPORT SubtitlesFile : InterfaceTextFile
 {
@@ -18,7 +17,6 @@ public:
     static bool saveSRT(const QString &filename, IntervalTier *tier, const QString &attributeID = QString());
 };
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
 
 #endif // SUBTITLESFILE_H

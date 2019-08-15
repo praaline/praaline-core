@@ -10,8 +10,7 @@
 #include "serialisers/sql/SQLSerialiserNameValueList.h"
 #include "serialisers/sql/SQLQueryEngineAnnotation.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 struct SQLAnnotationDatastoreData {
     QSqlDatabase database;
@@ -345,5 +344,4 @@ QList<QPair<QList<QVariant>, long long> > SQLAnnotationDatastore::countItems(con
     return SQLSerialiserAnnotation::countItems(levelID, groupByAttributeIDs, excludeNULL, excludeValues, d->structure, d->database);
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

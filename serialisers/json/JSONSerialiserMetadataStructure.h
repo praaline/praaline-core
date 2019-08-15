@@ -3,7 +3,7 @@
 
 /*
     Praaline - Core module - JSON Serialisers
-    Copyright (c) 2011-2018 George Christodoulides
+    Copyright (c) 2011-2019 George Christodoulides
 
     This program or module is free software: you can redistribute it
     and/or modify it under the terms of the GNU General Public License
@@ -15,14 +15,16 @@
     the GNU General Public License for more details.
 */
 
-#include "pncore_global.h"
-#include "structure/MetadataStructure.h"
+#include <QString>
 #include <QJsonObject>
 
-namespace Praaline {
-namespace Core {
+#include "pncore_global.h"
+#include "structure/MetadataStructure.h"
+#include "serialisers/base/SerialiserMetadataStructure.h"
 
-class PRAALINE_CORE_SHARED_EXPORT JSONSerialiserMetadataStructure
+PRAALINE_CORE_BEGIN_NAMESPACE
+
+class PRAALINE_CORE_SHARED_EXPORT JSONSerialiserMetadataStructure : public SerialiserMetadataStructure
 {
 public:
     static bool write(MetadataStructure *structure, const QString &filename);
@@ -42,7 +44,6 @@ private:
     static MetadataStructureAttribute  *readAttribute(QJsonObject &json);
 };
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
 
 #endif // JSONSERIALISERMETADATASTRUCTURE_H

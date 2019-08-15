@@ -20,11 +20,12 @@
 #include <QString>
 #include <QXmlStreamReader>
 #include <QXmlStreamWriter>
-#include "XMLSerialiserBase.h"
-#include "corpus/CorpusBookmark.h"
 
-namespace Praaline {
-namespace Core {
+#include "pncore_global.h"
+#include "corpus/CorpusBookmark.h"
+#include "XMLSerialiserBase.h"
+
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 class PRAALINE_CORE_SHARED_EXPORT XMLSerialiserCorpusBookmark : XMLSerialiserBase
 {
@@ -44,7 +45,6 @@ private:
     static QString xmlElementName_CorpusBookmark;
 };
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
 
 #endif // XMLSERIALISERCORPUSBOOKMARK_H

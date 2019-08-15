@@ -13,8 +13,7 @@
 
 #include "ImportAnnotations.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 ImportAnnotations::ImportAnnotations()
 {
@@ -137,6 +136,4 @@ bool ImportAnnotations::importBasic(Corpus *corpus, CorpusCommunication *com, Co
     return true;
 }
 
-
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

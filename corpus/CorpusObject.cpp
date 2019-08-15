@@ -6,9 +6,7 @@
 #include "datastore/CorpusRepository.h"
 #include "CorpusObject.h"
 
-
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 CorpusObject::CorpusObject(CorpusRepository *repository, QObject *parent) :
     QObject(parent), m_ID(QString()), m_originalID(QString()), m_repository(repository)
@@ -115,5 +113,4 @@ CorpusObject::Type CorpusObject::stringToType(const QString &str)
     return CorpusObject::Type_Undefined;
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

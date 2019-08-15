@@ -1,11 +1,7 @@
 var searchData=
 [
-  ['xmlannotationdatastore',['XMLAnnotationDatastore',['../classPraaline_1_1Core_1_1XMLAnnotationDatastore.html',1,'Praaline::Core']]],
-  ['xmlmetadatadatastore',['XMLMetadataDatastore',['../classPraaline_1_1Core_1_1XMLMetadataDatastore.html',1,'Praaline::Core']]],
-  ['xmlserialiserannotation',['XMLSerialiserAnnotation',['../classPraaline_1_1Core_1_1XMLSerialiserAnnotation.html',1,'Praaline::Core']]],
-  ['xmlserialiserannotationstructure',['XMLSerialiserAnnotationStructure',['../classPraaline_1_1Core_1_1XMLSerialiserAnnotationStructure.html',1,'Praaline::Core']]],
-  ['xmlserialiserbase',['XMLSerialiserBase',['../classPraaline_1_1Core_1_1XMLSerialiserBase.html',1,'Praaline::Core']]],
-  ['xmlserialisercorpus',['XMLSerialiserCorpus',['../classPraaline_1_1Core_1_1XMLSerialiserCorpus.html',1,'Praaline::Core']]],
-  ['xmlserialisercorpusbookmark',['XMLSerialiserCorpusBookmark',['../classPraaline_1_1Core_1_1XMLSerialiserCorpusBookmark.html',1,'Praaline::Core']]],
-  ['xmlserialisermetadatastructure',['XMLSerialiserMetadataStructure',['../classPraaline_1_1Core_1_1XMLSerialiserMetadataStructure.html',1,'Praaline::Core']]]
+  ['wasmigrationexecuted',['wasMigrationExecuted',['../class_q_sql_migrator_1_1_migration_tracker_1_1_base_migration_table_service.html#afaa1f00b646de9db114a82597a40f9ea',1,'QSqlMigrator::MigrationTracker::BaseMigrationTableService::wasMigrationExecuted()'],['../class_q_sql_migrator_1_1_migration_tracker_1_1_migration_tracker_service.html#a8bb56a82aeefab574a0d7eb2dd5112e5',1,'QSqlMigrator::MigrationTracker::MigrationTrackerService::wasMigrationExecuted()']]],
+  ['wordalign',['WordAlign',['../class_word_align.html',1,'']]],
+  ['wordaligndata',['WordAlignData',['../struct_word_align_data.html',1,'']]],
+  ['wordalignmentitem',['WordAlignmentItem',['../struct_word_alignment_item.html',1,'']]]
 ];

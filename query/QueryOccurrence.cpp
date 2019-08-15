@@ -1,7 +1,6 @@
 #include "QueryOccurrence.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 QueryOccurrence::QueryOccurrence(const QString &corpusID, const QString &communicationID, const QString &annotationID,
                                  const QMap<QString, QList<ResultInterval> > &resultIntervals,
@@ -116,5 +115,4 @@ QList<QueryOccurrence::ResultInterval> QueryOccurrence::rightContext(const QStri
     return ret;
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

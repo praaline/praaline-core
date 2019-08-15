@@ -8,8 +8,8 @@
 
 #include "Transcription.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
+
 
 struct TranscriptionData {
     QString annotationID;
@@ -49,5 +49,5 @@ QList<CorpusSpeaker> Transcription::speakers() const
     return ret;
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
+

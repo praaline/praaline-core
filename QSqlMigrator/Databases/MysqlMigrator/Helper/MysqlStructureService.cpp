@@ -83,7 +83,7 @@ Table MysqlStructureService::getTableDefinition(const QString &tableName, QSqlDa
             if (key == "PRI" && defaultValue == "0") {
                 defaultValue = "";
             }
-            columns << Column(name, type, defaultValue, attr);
+            columns << Column(name, SqlType(type), defaultValue, attr);
         }
     } while (false);
     return Table(tableName, columns);

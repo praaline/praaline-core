@@ -16,19 +16,13 @@
 #include "base/RealTime.h"
 #include "Point.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 Point::Point()
 {
 }
 
-Point::Point(const RealTime &time, const QString &text) :
-    AnnotationElement(text), m_time(time)
-{
-}
-
-Point::Point(const RealTime &time, const QString &text, const QHash<QString, QVariant> &attributes) :
+Point::Point(RealTime time, const QString &text, const QHash<QString, QVariant> &attributes) :
     AnnotationElement(text, attributes), m_time(time)
 {
 }
@@ -36,16 +30,6 @@ Point::Point(const RealTime &time, const QString &text, const QHash<QString, QVa
 Point::Point(const Point &copy) :
     AnnotationElement(copy.m_text, copy.m_attributes), m_time(copy.m_time)
 {
-}
-
-Point::Point(const Point *copy, bool copyAttributes)
-{
-    if (!copy) return;
-    m_time = copy->m_time;
-    m_text = copy->m_text;
-    if (copyAttributes) {
-        m_attributes = copy->m_attributes;
-    }
 }
 
 Point::~Point()
@@ -64,5 +48,24 @@ void Point::setAttribute(const QString &name, QVariant value) {
     AnnotationElement::setAttribute(name, value);
 }
 
-} // namespace Core
-} // namespace Praaline
+Point *Point::clone() const
+{
+    return new Point(m_time, m_text, m_attributes);
+}
+
+Point *Point::cloneWithoutAttributes() const
+{
+    return new Point(m_time, m_text);
+}
+
+Point *Point::cloneReposition(const RealTime time) const
+{
+    return new Point(time, m_text, m_attributes);
+}
+
+Point *Point::cloneRepositionWithoutAttributes(const RealTime time) const
+{
+    return new Point(time, m_text);
+}
+
+PRAALINE_CORE_END_NAMESPACE

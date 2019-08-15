@@ -1,14 +1,16 @@
 var searchData=
 [
-  ['database',['Database',['../classQSqlMigrator_1_1Scheme_1_1Database.html',1,'QSqlMigrator::Scheme']]],
-  ['databaselock',['DatabaseLock',['../classQSqlMigrator_1_1SqliteMigrator_1_1DatabaseLock.html',1,'QSqlMigrator::SqliteMigrator']]],
-  ['dataset',['Dataset',['../classPraaline_1_1Core_1_1Dataset.html',1,'Praaline::Core']]],
-  ['datastorefactory',['DatastoreFactory',['../classPraaline_1_1Core_1_1DatastoreFactory.html',1,'Praaline::Core']]],
-  ['datastoreinfo',['DatastoreInfo',['../classPraaline_1_1Core_1_1DatastoreInfo.html',1,'Praaline::Core']]],
-  ['datatype',['DataType',['../classPraaline_1_1Core_1_1DataType.html',1,'Praaline::Core']]],
-  ['dbcolumn',['DbColumn',['../classQSqlMigrator_1_1Scheme_1_1DbColumn.html',1,'QSqlMigrator::Scheme']]],
-  ['dbtable',['DbTable',['../classQSqlMigrator_1_1Scheme_1_1DbTable.html',1,'QSqlMigrator::Scheme']]],
-  ['dropcolumn',['DropColumn',['../classQSqlMigrator_1_1Commands_1_1DropColumn.html',1,'QSqlMigrator::Commands']]],
-  ['dropindex',['DropIndex',['../classQSqlMigrator_1_1Commands_1_1DropIndex.html',1,'QSqlMigrator::Commands']]],
-  ['droptable',['DropTable',['../classQSqlMigrator_1_1Commands_1_1DropTable.html',1,'QSqlMigrator::Commands']]]
+  ['database',['Database',['../class_q_sql_migrator_1_1_scheme_1_1_database.html',1,'QSqlMigrator::Scheme']]],
+  ['databaselock',['DatabaseLock',['../class_q_sql_migrator_1_1_sqlite_migrator_1_1_database_lock.html',1,'QSqlMigrator::SqliteMigrator']]],
+  ['dataset',['Dataset',['../class_dataset.html',1,'']]],
+  ['datasetdefinition',['DatasetDefinition',['../class_dataset_definition.html',1,'']]],
+  ['datasetdefinitiondata',['DatasetDefinitionData',['../struct_dataset_definition_data.html',1,'']]],
+  ['datastorefactory',['DatastoreFactory',['../class_datastore_factory.html',1,'']]],
+  ['datastoreinfo',['DatastoreInfo',['../class_datastore_info.html',1,'']]],
+  ['datatype',['DataType',['../class_data_type.html',1,'']]],
+  ['dbcolumn',['DbColumn',['../class_q_sql_migrator_1_1_scheme_1_1_db_column.html',1,'QSqlMigrator::Scheme']]],
+  ['dbtable',['DbTable',['../class_q_sql_migrator_1_1_scheme_1_1_db_table.html',1,'QSqlMigrator::Scheme']]],
+  ['dropcolumn',['DropColumn',['../class_q_sql_migrator_1_1_commands_1_1_drop_column.html',1,'QSqlMigrator::Commands']]],
+  ['dropindex',['DropIndex',['../class_q_sql_migrator_1_1_commands_1_1_drop_index.html',1,'QSqlMigrator::Commands']]],
+  ['droptable',['DropTable',['../class_q_sql_migrator_1_1_commands_1_1_drop_table.html',1,'QSqlMigrator::Commands']]]
 ];

@@ -3,7 +3,7 @@
 
 /*
     Praaline - Core module - Datastores
-    Copyright (c) 2011-2017 George Christodoulides
+    Copyright (c) 2011-2019 George Christodoulides
 
     This program or module is free software: you can redistribute it
     and/or modify it under the terms of the GNU General Public License
@@ -28,8 +28,7 @@
 #include "corpus/CorpusObject.h"
 #include "corpus/CorpusObjectInfo.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 class DatastoreInfo;
 class MetadataStructureAttribute;
@@ -67,9 +66,8 @@ public:
             attributeIDs(attributeIDs) {}
     };
 
-    MetadataDatastore(CorpusRepository *repository, QObject *parent = 0) :
-        CorpusDatastore(repository, parent) {}
-    virtual ~MetadataDatastore() {}
+    MetadataDatastore(CorpusRepository *repository, QObject *parent = nullptr);
+    virtual ~MetadataDatastore();
 
     // ==========================================================================================================================
     // Datastore
@@ -140,7 +138,6 @@ public:
 
 };
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
 
 #endif // ABSTRACTMETADATADATASTORE_H

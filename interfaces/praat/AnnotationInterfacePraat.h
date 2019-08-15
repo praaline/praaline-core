@@ -5,8 +5,7 @@
 #include <QObject>
 #include <QString>
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 class CorpusRepository;
 class AnnotationTierGroup;
@@ -34,7 +33,7 @@ public:
         SpeakerPolicy_PrimaryAndSecondary
     };
 
-    explicit AnnotationInterfacePraat(QObject *parent = 0);
+    explicit AnnotationInterfacePraat(QObject *parent = nullptr);
     ~AnnotationInterfacePraat();
 
     const QList<Correspondance> &correpondances();
@@ -62,7 +61,6 @@ private:
     void copyToTextgrid(AnnotationTierGroup *tiers, AnnotationTierGroup *txg, const QString &prefixTierNames = QString());
 };
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
 
 #endif // ANNOTATIONINTERFACEPRAAT_H

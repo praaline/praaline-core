@@ -3,7 +3,7 @@
 
 /*
     Praaline - Core module - Annotation
-    Copyright (c) 2011-2017 George Christodoulides
+    Copyright (c) 2011-2019 George Christodoulides
 
     This program or module is free software: you can redistribute it
     and/or modify it under the terms of the GNU General Public License
@@ -25,8 +25,7 @@
 #include "AnnotationTier.h"
 #include "Interval.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 class Point;
 class PointTier;
@@ -38,13 +37,10 @@ class PRAALINE_CORE_SHARED_EXPORT IntervalTier : public AnnotationTier
 public:
     // Constructors, destructor
     IntervalTier(const QString &name = QString(),
-                 const RealTime tMin = RealTime(0, 0), const RealTime tMax = RealTime(0, 0), QObject *parent = 0);
+                 const RealTime tMin = RealTime(0, 0), const RealTime tMax = RealTime(0, 0), QObject *parent = nullptr);
     IntervalTier(const QString &name, const QList<Interval *> &intervals,
-                 const RealTime tMin = RealTime(0, 0), const RealTime tMax = RealTime(0, 0), QObject *parent = 0);
-    IntervalTier(const IntervalTier *copy, QString name = QString(), bool copyAttributes = true, QObject *parent = 0);
-    IntervalTier(const QString &name, const IntervalTier *tierA, const IntervalTier *tierB,
-                 const QString &textA, const QString &textB, const QString &textAB, QObject *parent = 0);
-    virtual ~IntervalTier();
+                 const RealTime tMin = RealTime(0, 0), const RealTime tMax = RealTime(0, 0), QObject *parent = nullptr);
+    virtual ~IntervalTier() override;
 
     // Implementation of AnnotationTier
     AnnotationTier::TierType tierType() const override
@@ -120,14 +116,23 @@ public:
     IntervalTier *getIntervalTierWithAttributeAsText(const QString &attributeID) const;
     IntervalTier *getIntervalTierSubset(const RealTime &timeStart, const RealTime &timeEnd) const;
 
-    PointTier *getPointsMin(const QString &name, QObject *parent = 0);
-    PointTier *getPointsMax(const QString &name, QObject *parent = 0);
+    PointTier *getPointsMin(const QString &name, QObject *parent = nullptr);
+    PointTier *getPointsMax(const QString &name, QObject *parent = nullptr);
+
     void setIOBAnnotationAttribute(const QString &attribute, const IntervalTier *tierAnnotation);
     QString getIntervalsText(int indexStart, int indexEnd, const QString &separator = " ") const;
     QString getIntervalsText(RealTime timeStart, RealTime timeEnd, const QString &separator = " ") const;
     QList<Interval *> getContext(int index, int delta) const;
     QList<Interval *> getContext(int index, RealTime delta) const;
     QString getContextSymmetricFormated(int index, int delta, const QString &sep = " ", const QString &left = "<", const QString &right = ">") const;
+
+    // Clone
+    IntervalTier *clone(const QString &name = QString(), QObject *parent = nullptr) const;
+    IntervalTier *cloneWithoutAttributes(const QString &name = QString(), QObject *parent = nullptr) const;
+
+    // Multiplex
+    static IntervalTier *multiplex(const QString &name, const IntervalTier *tierA, const IntervalTier *tierB,
+                                   const QString &textA, const QString &textB, const QString &textAB, QObject *parent = nullptr);
 
 protected:
     QList<Interval *> m_intervals;
@@ -138,7 +143,6 @@ private:
     QList<Interval *> createIntervalsToProportions(RealTime timeStart, RealTime duration, const QList<int> &proportions) const;
 };
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
 
 #endif // INTERVALTIER_H

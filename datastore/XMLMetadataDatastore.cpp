@@ -6,8 +6,7 @@
 #include "datastore/CorpusRepository.h"
 #include "XMLMetadataDatastore.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 XMLMetadataDatastore::XMLMetadataDatastore(MetadataStructure *structure, CorpusRepository *repository, QObject *parent) :
     MetadataDatastore(repository, parent), m_structure(structure)
@@ -262,5 +261,4 @@ bool XMLMetadataDatastore::deleteParticipation(const QString &communicationID, c
     return false;
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

@@ -3,7 +3,7 @@
 
 /*
     Praaline - Core module - Annotation
-    Copyright (c) 2011-2017 George Christodoulides
+    Copyright (c) 2011-2019 George Christodoulides
 
     This program or module is free software: you can redistribute it
     and/or modify it under the terms of the GNU General Public License
@@ -23,8 +23,7 @@
 #include <QStringList>
 #include "base/RealTime.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 class AnnotationTier;
 class PointTier;
@@ -37,7 +36,7 @@ class PRAALINE_CORE_SHARED_EXPORT AnnotationTierGroup : public QObject
 {
     Q_OBJECT
 public:
-    explicit AnnotationTierGroup(QObject *parent = 0);
+    explicit AnnotationTierGroup(QObject *parent = nullptr);
     virtual ~AnnotationTierGroup();
 
     QString ID() const { return m_ID; }
@@ -96,7 +95,6 @@ protected:
 
 typedef QMap<QString, QPointer<AnnotationTierGroup> > AnnotationTierGroupPerSpeakerMap;
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
 
 #endif // ANNOTATIONTIERGROUP_H

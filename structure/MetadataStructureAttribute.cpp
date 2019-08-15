@@ -3,8 +3,7 @@
 #include "MetadataStructureSection.h"
 #include "MetadataStructureAttribute.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 MetadataStructureAttribute::MetadataStructureAttribute(QObject *parent) :
     StructureAttributeBase(parent)
@@ -34,5 +33,4 @@ QString MetadataStructureAttribute::sectionID() const
     return QString();
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

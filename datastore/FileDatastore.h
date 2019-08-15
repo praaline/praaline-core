@@ -3,7 +3,7 @@
 
 /*
     Praaline - Core module - Datastores
-    Copyright (c) 2011-2017 George Christodoulides
+    Copyright (c) 2011-2019 George Christodoulides
 
     This program or module is free software: you can redistribute it
     and/or modify it under the terms of the GNU General Public License
@@ -18,8 +18,7 @@
 #include "pncore_global.h"
 #include <QObject>
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 class Corpus;
 class CorpusObjectInfo;
@@ -30,7 +29,7 @@ class PRAALINE_CORE_SHARED_EXPORT FileDatastore : public QObject
     Q_PROPERTY(QString basePath READ basePath WRITE setBasePath)
 
 public:
-    explicit FileDatastore(QObject *parent = 0);
+    explicit FileDatastore(QObject *parent = nullptr);
     virtual ~FileDatastore() {}
 
     QString basePath() const { return m_basePath; }
@@ -42,7 +41,6 @@ protected:
     QString m_basePath;
 };
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
 
 #endif // FILEDATASTORE_H

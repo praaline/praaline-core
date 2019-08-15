@@ -3,7 +3,7 @@
 
 /*
     Praaline - Core module - Corpus metadata
-    Copyright (c) 2011-2017 George Christodoulides
+    Copyright (c) 2011-2019 George Christodoulides
 
     This program or module is free software: you can redistribute it
     and/or modify it under the terms of the GNU General Public License
@@ -21,8 +21,7 @@
 #include <QStringList>
 #include "CorpusObject.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 class Corpus;
 
@@ -36,10 +35,10 @@ class PRAALINE_CORE_SHARED_EXPORT CorpusAnnotation : public CorpusObject
     Q_PROPERTY(QString communicationID READ communicationID)
 
 public:
-    explicit CorpusAnnotation(CorpusRepository *repository = 0, QObject *parent = 0);
-    explicit CorpusAnnotation(const QString ID, CorpusRepository *repository = 0, QObject *parent = 0);
-    explicit CorpusAnnotation(CorpusAnnotation *other, QObject *parent = 0);
-    ~CorpusAnnotation() {}
+    explicit CorpusAnnotation(CorpusRepository *repository = nullptr, QObject *parent = nullptr);
+    explicit CorpusAnnotation(const QString ID, CorpusRepository *repository = nullptr, QObject *parent = nullptr);
+    explicit CorpusAnnotation(CorpusAnnotation *other, QObject *parent = nullptr);
+    ~CorpusAnnotation() override {}
 
     CorpusObject::Type type() const override { return CorpusObject::Type_Annotation; }
     bool save() override;
@@ -74,8 +73,6 @@ private:
     Q_DISABLE_COPY(CorpusAnnotation)
 };
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
 
 #endif // CORPUSANNOTATION_H
-

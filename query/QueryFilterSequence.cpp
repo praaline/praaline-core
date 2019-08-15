@@ -1,7 +1,6 @@
 #include "QueryFilterSequence.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 QueryFilterSequence::QueryFilterSequence(QString annotationLevelID) :
     m_annotationLevelID(annotationLevelID)
@@ -122,5 +121,4 @@ QString QueryFilterSequence::friendlySyntax() const
     return QString();
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

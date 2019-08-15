@@ -1,12 +1,10 @@
 #include <QDateTime>
 #include "XMLSerialiserBase.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 XMLSerialiserBase::XMLSerialiserBase()
 {
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

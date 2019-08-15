@@ -3,7 +3,7 @@
 
 /*
     Praaline - Core module - Corpus metadata
-    Copyright (c) 2011-2017 George Christodoulides
+    Copyright (c) 2011-2019 George Christodoulides
 
     This program or module is free software: you can redistribute it
     and/or modify it under the terms of the GNU General Public License
@@ -20,8 +20,7 @@
 #include <QString>
 #include "CorpusObject.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 class Corpus;
 
@@ -31,9 +30,9 @@ class PRAALINE_CORE_SHARED_EXPORT CorpusSpeaker : public CorpusObject
     Q_PROPERTY(QString name READ name WRITE setName)
 
 public:
-    explicit CorpusSpeaker(CorpusRepository *repository = 0, QObject *parent = 0);
-    explicit CorpusSpeaker(const QString &ID, CorpusRepository *repository = 0, QObject *parent = 0);
-    explicit CorpusSpeaker(CorpusSpeaker *other, QObject *parent = 0);
+    explicit CorpusSpeaker(CorpusRepository *repository = nullptr, QObject *parent = nullptr);
+    explicit CorpusSpeaker(const QString &ID, CorpusRepository *repository = nullptr, QObject *parent = nullptr);
+    explicit CorpusSpeaker(CorpusSpeaker *other, QObject *parent = nullptr);
 
     CorpusObject::Type type() const override { return CorpusObject::Type_Speaker; }
     bool save() override;
@@ -49,7 +48,6 @@ private:
     Q_DISABLE_COPY(CorpusSpeaker)
 };
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
 
 #endif // CORPUSSPEAKER_H

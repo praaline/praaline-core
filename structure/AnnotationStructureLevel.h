@@ -3,7 +3,7 @@
 
 /*
     Praaline - Core module - Corpus Structure Definition
-    Copyright (c) 2011-2018 George Christodoulides
+    Copyright (c) 2011-2019 George Christodoulides
 
     This program or module is free software: you can redistribute it
     and/or modify it under the terms of the GNU General Public License
@@ -23,8 +23,7 @@
 #include "structure/StructureAttributeBase.h"
 #include "structure/AnnotationStructureAttribute.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 class PRAALINE_CORE_SHARED_EXPORT AnnotationStructureLevel : public StructureAttributeBase
 {
@@ -50,6 +49,7 @@ public:
                              const DataType &datatype = DataType(DataType::VarChar, 1024),
                              int order = 0, bool indexed = false, const QString &nameValueList = QString(),
                              QObject *parent = nullptr);
+    ~AnnotationStructureLevel() override;
 
     // Data
     LevelType levelType() const { return m_levelType; }
@@ -60,14 +60,14 @@ public:
 
     // ATTRIBUTES
     // Accessors
-    QPointer<AnnotationStructureAttribute> attribute(int index) const;
-    QPointer<AnnotationStructureAttribute> attribute(const QString &ID) const;
+    AnnotationStructureAttribute *attribute(int index) const;
+    AnnotationStructureAttribute *attribute(const QString &ID) const;
     int attributeIndexByID(const QString &ID) const;
     int attributesCount() const;
     bool hasAttributes() const;
     bool hasAttribute(const QString &ID);
     QStringList attributeIDs() const;
-    QList<QPointer<AnnotationStructureAttribute> > attributes() const;
+    QList<AnnotationStructureAttribute *> attributes() const;
     void insertAttribute(int index, AnnotationStructureAttribute *attribute);
     void addAttribute(AnnotationStructureAttribute *attribute);
     void swapAttribute(int oldIndex, int newIndex);
@@ -81,11 +81,10 @@ public slots:
 protected:
     LevelType m_levelType;      // Level type (e.g. independent or grouping)
     QString m_parentLevelID;    // Parent level ID for grouping levels (e.g. phone for syll)
-    QList<QPointer<AnnotationStructureAttribute> > m_attributes;
+    QList<AnnotationStructureAttribute *> m_attributes;
 };
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
 
 #endif // ANNOTATIONSTRUCTURELEVEL_H
 

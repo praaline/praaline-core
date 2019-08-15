@@ -1,7 +1,6 @@
 #include "SQLSerialiserSystem.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 // static
 QString SQLSerialiserSystem::tableNameForCorpusObjectType(CorpusObject::Type type)
@@ -49,5 +48,4 @@ QString SQLSerialiserSystem::defaultSectionID(const CorpusObject::Type type)
     return QString();
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

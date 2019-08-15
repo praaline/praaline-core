@@ -1,7 +1,6 @@
 #include "AnnotationElement.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 AnnotationElement::AnnotationElement()
 {
@@ -30,5 +29,8 @@ AnnotationElement::AnnotationElement(const AnnotationElement &other) :
     m_isDirty = true;
 }
 
-} // namespace Core
-} // namespace Praaline
+AnnotationElement::~AnnotationElement()
+{
+}
+
+PRAALINE_CORE_END_NAMESPACE

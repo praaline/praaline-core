@@ -2,8 +2,7 @@
 #include <QList>
 #include "WordAlign.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 struct WordAlignData {
     WordAlignData() :
@@ -130,7 +129,7 @@ QList<WordAlign::AlignmentItem> WordAlign::alignment() const
 
 double WordAlign::WER() const
 {
-    return ((double)(d->ins_pen + d->del_pen + d->sub_pen)) / ((double)d->wordsReference.count()) * 100.0;
+    return static_cast<double>(d->ins_pen + d->del_pen + d->sub_pen) / static_cast<double>(d->wordsReference.count()) * 100.0;
 }
 
 int WordAlign::insertionsCount() const
@@ -178,6 +177,7 @@ QString WordAlign::alignmentText() const
 
 QString WordAlign::alignmentTextOriginal(const QString &format) const
 {
+    Q_UNUSED(format)
     QString ret;
     for (int i = d->alignment.count() - 1; i >= 0; --i) {
         WordAlign::AlignmentItem item = d->alignment.at(i);
@@ -196,6 +196,7 @@ QString WordAlign::alignmentTextOriginal(const QString &format) const
 
 QString WordAlign::alignmentTextModified(const QString &format) const
 {
+    Q_UNUSED(format)
     QString ret;
     for (int i = d->alignment.count() - 1; i >= 0; --i) {
         WordAlign::AlignmentItem item = d->alignment.at(i);
@@ -212,5 +213,4 @@ QString WordAlign::alignmentTextModified(const QString &format) const
     return ret.trimmed();
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

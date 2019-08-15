@@ -1,7 +1,6 @@
 #include "StructureAttributeBase.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 StructureAttributeBase::StructureAttributeBase(QObject *parent) :
     QObject(parent), m_datatype(DataType::Invalid), m_itemOrder(0), m_indexed(false)
@@ -36,5 +35,4 @@ StructureAttributeBase::StructureAttributeBase(const StructureAttributeBase *oth
     m_nameValueList = other->nameValueList();
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

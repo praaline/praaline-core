@@ -6,8 +6,7 @@
 #include <QFile>
 #include <QTextStream>
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 class PRAALINE_CORE_SHARED_EXPORT InterfaceTextFile
 {
@@ -22,7 +21,6 @@ protected:
     static QString m_defaultEncoding;
 };
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
 
 #endif // INTERFACETEXTFILE_H

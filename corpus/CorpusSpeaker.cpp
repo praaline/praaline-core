@@ -9,8 +9,7 @@
 #include "datastore/CorpusRepository.h"
 #include "datastore/MetadataDatastore.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 CorpusSpeaker::CorpusSpeaker(CorpusRepository *repository, QObject *parent) :
     CorpusObject(repository, parent)
@@ -53,5 +52,4 @@ bool CorpusSpeaker::save() {
     return m_repository->metadata()->saveSpeakers(QList<QPointer<CorpusSpeaker> >() << this);
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

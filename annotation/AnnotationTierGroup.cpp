@@ -12,8 +12,7 @@
 #include "RelationTier.h"
 #include "AnnotationTierGroup.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 // ==========================================================================================================
 // Constructors - destructors
@@ -34,9 +33,8 @@ AnnotationTierGroup::~AnnotationTierGroup()
 // ==========================================================================================================
 RealTime AnnotationTierGroup::tMin() const
 {
-    AnnotationTier *tier;
     RealTime tMin = RealTime(0, 0);
-    foreach (tier, m_tiers) {
+    foreach (AnnotationTier *tier, m_tiers) {
         if (tier->tMin() < tMin)
             tMin = tier->tMin();
     }
@@ -44,9 +42,8 @@ RealTime AnnotationTierGroup::tMin() const
 }
 RealTime AnnotationTierGroup::tMax() const
 {
-    AnnotationTier *tier;
     RealTime tMax = RealTime(0, 0);
-    foreach (tier, m_tiers) {
+    foreach (AnnotationTier *tier, m_tiers) {
         if (tier->tMax() > tMax)
             tMax = tier->tMax();
     }
@@ -66,7 +63,7 @@ AnnotationTier *AnnotationTierGroup::tier(const QString &name) const
     foreach (AnnotationTier *tier, m_tiers) {
         if (tier->name() == name) return tier;
     }
-    return Q_NULLPTR;
+    return nullptr;
 }
 
 int AnnotationTierGroup::tiersCount() const
@@ -122,7 +119,7 @@ void AnnotationTierGroup::addTierReplacing(AnnotationTier *tier)
 
 void AnnotationTierGroup::swapTiers(int oldIndex, int newIndex)
 {
-    m_tiers.swap(oldIndex, newIndex);
+    m_tiers.swapItemsAt(oldIndex, newIndex);
 }
 
 void AnnotationTierGroup::removeTierAt(int i)
@@ -270,20 +267,17 @@ void AnnotationTierGroup::insertTierClone(int index, const AnnotationTier *tier,
 {
     if (!tier) return;
     if ((tier->tierType() == AnnotationTier::TierType_Intervals) || (tier->tierType() == AnnotationTier::TierType_Grouping)) {
-        IntervalTier *newTier = new IntervalTier(static_cast<const IntervalTier *>(tier), newName, true, this);
-        newTier->setParent(this);
+        IntervalTier *newTier = static_cast<const IntervalTier *>(tier)->clone(newName, this);
         m_tiers.insert(index, newTier);
         emit tierInserted(newTier);
     }
     else if (tier->tierType() == AnnotationTier::TierType_Points) {
-        PointTier *newTier = new PointTier(static_cast<const PointTier *>(tier), newName, true, this);
-        newTier->setParent(this);
+        PointTier *newTier = static_cast<const PointTier *>(tier)->clone(newName, this);
         m_tiers.insert(index, newTier);
         emit tierInserted(newTier);
     }
     else if (tier->tierType() == AnnotationTier::TierType_Sequences) {
-        SequenceTier *newTier = new SequenceTier(static_cast<const SequenceTier *>(tier), newName, true, this);
-        newTier->setParent(this);
+        SequenceTier *newTier = static_cast<const SequenceTier *>(tier)->clone(newName, this);
         m_tiers.insert(index, newTier);
         emit tierInserted(newTier);
     }
@@ -294,8 +288,7 @@ void AnnotationTierGroup::insertTierClone(int index, const AnnotationTier *tier,
 //        emit tierInserted(newTier);
 //    }
     else if (tier->tierType() == AnnotationTier::TierType_Relations) {
-        RelationTier *newTier = new RelationTier(static_cast<const RelationTier *>(tier), newName, true, this);
-        newTier->setParent(this);
+        RelationTier *newTier = static_cast<const RelationTier *>(tier)->clone(newName, this);
         m_tiers.insert(index, newTier);
         emit tierInserted(newTier);
     }
@@ -330,5 +323,4 @@ void AnnotationTierGroup::mergeSilentPausesOnAllIntervalTiers(const QString &sil
     }
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

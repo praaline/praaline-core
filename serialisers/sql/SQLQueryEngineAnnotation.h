@@ -3,7 +3,7 @@
 
 /*
     Praaline - Core module - SQL Serialisers
-    Copyright (c) 2011-2018 George Christodoulides
+    Copyright (c) 2011-2019 George Christodoulides
 
     This program or module is free software: you can redistribute it
     and/or modify it under the terms of the GNU General Public License
@@ -16,12 +16,13 @@
 */
 
 #include <QSqlDatabase>
+
+#include "pncore_global.h"
 #include "structure/AnnotationStructure.h"
 #include "query/QueryDefinition.h"
 #include "query/QueryOccurrence.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 class SQLQueryEngineAnnotation
 {
@@ -38,7 +39,6 @@ private:
     SQLQueryEngineAnnotation();
 };
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
 
 #endif // SQLQUERYENGINEANNOTATION_H

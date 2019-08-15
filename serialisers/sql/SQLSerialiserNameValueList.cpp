@@ -14,8 +14,7 @@ using namespace QSqlMigrator;
 using namespace QSqlMigrator::Structure;
 using namespace QSqlMigrator::Commands;
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 // static
 bool SQLSerialiserNameValueList::initialiseNameValueListSchema(QSqlDatabase &db)
@@ -51,10 +50,10 @@ bool SQLSerialiserNameValueList::upgradeNameValueListSchema(QSqlDatabase &db)
 // static
 NameValueList *SQLSerialiserNameValueList::getNameValueList(const QString &listID, NameValueListType listType, QSqlDatabase &db)
 {
-    if (listID.isEmpty()) return Q_NULLPTR;
-    if (!db.isValid()) return Q_NULLPTR;
+    if (listID.isEmpty()) return nullptr;
+    if (!db.isValid()) return nullptr;
     QString tableName = getTableName(listID, listType);
-    if (!db.tables().contains(tableName)) return Q_NULLPTR;
+    if (!db.tables().contains(tableName)) return nullptr;
     // Select information from internal table, then select data
     QSqlQuery q1(db), q2(db);
     q1.setForwardOnly(true);
@@ -65,22 +64,22 @@ NameValueList *SQLSerialiserNameValueList::getNameValueList(const QString &listI
     q2.prepare(QString("SELECT * FROM %1 ORDER BY itemOrder").arg(tableName));
     // Run queries
     q1.exec();
-    if (q1.lastError().isValid()) { qDebug() << q1.lastError(); return Q_NULLPTR; }
+    if (q1.lastError().isValid()) { qDebug() << q1.lastError(); return nullptr; }
     while (q1.next()) {
         NameValueList *list = new NameValueList();
         list->setID(q1.value("listID").toString());
         list->setName(q1.value("name").toString());
         list->setDescription(q1.value("description").toString());
         list->setDatatype(DataType(q1.value("datatype").toString()));
-        list->setDatatype(DataType(list->datatype().base(), q1.value("datatypePrecision").toInt()));
+        list->setDatatype(DataType(list->datatype().base(), q1.value("datatypePrecision").toUInt()));
         q2.exec();
-        if (q2.lastError().isValid()) { qDebug() << q2.lastError(); delete list; return Q_NULLPTR; }
+        if (q2.lastError().isValid()) { qDebug() << q2.lastError(); delete list; return nullptr; }
         while (q2.next()) {
             list->append(q2.value("displayText").toString(), q2.value("value"));
         }
         return list;
     }
-    return 0;
+    return nullptr;
 }
 
 // static
@@ -120,7 +119,7 @@ QMap<QString, QPointer<NameValueList> > SQLSerialiserNameValueList::getAllNameVa
         list->setName(q1.value("name").toString());
         list->setDescription(q1.value("description").toString());
         list->setDatatype(DataType(q1.value("datatype").toString()));
-        list->setDatatype(DataType(list->datatype().base(), q1.value("datatypePrecision").toInt()));
+        list->setDatatype(DataType(list->datatype().base(), q1.value("datatypePrecision").toUInt()));
         QSqlQuery q2(db);
         q2.setForwardOnly(true);
         q2.prepare(QString("SELECT * FROM %1 ORDER BY itemOrder").arg(getTableName(list->ID(), listType)));
@@ -259,5 +258,4 @@ QString SQLSerialiserNameValueList::getTableName(const QString &listID, NameValu
     return QString("nvla_%1").arg(listID);
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

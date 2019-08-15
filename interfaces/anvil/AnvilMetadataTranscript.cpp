@@ -4,8 +4,7 @@
 
 #include "corpus/Corpus.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 QString AnvilMetadataTranscript::xmlElementName_Location("Location");
 QString AnvilMetadataTranscript::xmlElementName_Contact("Contact");
@@ -293,5 +292,4 @@ bool AnvilMetadataTranscript::save(const QString &filename, Corpus *corpus)
     return false;
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

@@ -24,8 +24,8 @@
    This file copyright 2000-2006 Chris Cannam.
 */
 
-#ifndef _REAL_TIME_H_
-#define _REAL_TIME_H_
+#ifndef REAL_TIME_H
+#define REAL_TIME_H
 
 #include "pncore_global.h"
 #include "BaseTypes.h"

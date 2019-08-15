@@ -6,8 +6,7 @@
 #include <QXmlStreamWriter>
 #include "XMLSerialiserCorpusBookmark.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 QString XMLSerialiserCorpusBookmark::xmlElementName_CorpusBookmark("CorpusBookmark");
 
@@ -124,5 +123,4 @@ bool XMLSerialiserCorpusBookmark::loadCorpusBookmarks(QList<QPointer<CorpusBookm
     return ret;
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

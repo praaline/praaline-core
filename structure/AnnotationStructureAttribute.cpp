@@ -2,8 +2,7 @@
 #include "StructureAttributeBase.h"
 #include "AnnotationStructureAttribute.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 AnnotationStructureAttribute::AnnotationStructureAttribute(QObject *parent) :
     StructureAttributeBase(parent)
@@ -23,5 +22,4 @@ AnnotationStructureAttribute::AnnotationStructureAttribute(const AnnotationStruc
     m_statLevelOfMeasurement = other->statLevelOfMeasurement();
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

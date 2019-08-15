@@ -8,8 +8,7 @@
 #include <QRegularExpression>
 #include "interfaces/InterfaceTextFile.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 class PRAALINE_CORE_SHARED_EXPORT PraatTextFile : InterfaceTextFile
 {
@@ -21,7 +20,6 @@ protected:
     static QString seekPattern(QTextStream &stream, const QRegularExpression &regex);
 };
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
 
 #endif // PRAATTEXTFILE_H

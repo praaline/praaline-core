@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['filedatastore',['FileDatastore',['../classPraaline_1_1Core_1_1FileDatastore.html',1,'Praaline::Core']]],
-  ['firebirdsqlstructureservice',['FirebirdSqlStructureService',['../classQSqlMigrator_1_1Helper_1_1FirebirdSqlStructureService.html',1,'QSqlMigrator::Helper']]]
+  ['filedatastore',['FileDatastore',['../class_file_datastore.html',1,'']]],
+  ['firebirdsqlstructureservice',['FirebirdSqlStructureService',['../class_q_sql_migrator_1_1_helper_1_1_firebird_sql_structure_service.html',1,'QSqlMigrator::Helper']]]
 ];

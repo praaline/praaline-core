@@ -14,8 +14,7 @@
 #include "FileDatastore.h"
 #include "CorpusRepository.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 struct CorpusRepositoryData {
     CorpusRepositoryDefinition definition;
@@ -208,6 +207,8 @@ bool CorpusRepository::createMetadataAttribute(CorpusObject::Type type, const QS
                                                const QString &description, const DataType &datatype,
                                                int order, bool indexed, const QString &nameValueList)
 {
+    Q_UNUSED(indexed)
+    Q_UNUSED(nameValueList)
     if (!d->datastoreMetadata) return false;
     if (!d->metadataStructure) return false;
     QString effectiveSectionID = sectionID;
@@ -358,5 +359,4 @@ void CorpusRepository::sendLogMessage(const QString &category, const QString &me
     emit logMessage(category, message);
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

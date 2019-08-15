@@ -3,7 +3,7 @@
 
 /*
     Praaline - Core module - Datastores
-    Copyright (c) 2011-2017 George Christodoulides
+    Copyright (c) 2011-2019 George Christodoulides
 
     This program or module is free software: you can redistribute it
     and/or modify it under the terms of the GNU General Public License
@@ -22,8 +22,7 @@
 #include "base/DataType.h"
 #include "corpus/CorpusObjectInfo.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 class CorpusRepositoryDefinition;
 class MetadataDatastore;
@@ -40,8 +39,8 @@ class PRAALINE_CORE_SHARED_EXPORT CorpusRepository : public QObject
 public:
     // Corpus repository
     // ==========================================================================================================================
-    static CorpusRepository *create(const CorpusRepositoryDefinition &definition, QString &errorMessages, QObject *parent = 0);
-    static CorpusRepository *open(const CorpusRepositoryDefinition &definition, QString &errorMessages, QObject *parent = 0);
+    static CorpusRepository *create(const CorpusRepositoryDefinition &definition, QString &errorMessages, QObject *parent = nullptr);
+    static CorpusRepository *open(const CorpusRepositoryDefinition &definition, QString &errorMessages, QObject *parent = nullptr);
     void close();
 
     QString ID() const;
@@ -90,12 +89,11 @@ public:
     ~CorpusRepository();
 
 private:
-    CorpusRepository(const CorpusRepositoryDefinition &definition, QObject *parent = 0);
+    CorpusRepository(const CorpusRepositoryDefinition &definition, QObject *parent = nullptr);
 
     CorpusRepositoryData *d;
 };
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
 
 #endif // CORPUSREPOSITORY_H

@@ -3,7 +3,7 @@
 
 /*
     Praaline - Core module - Base
-    Copyright (c) 2011-2017 George Christodoulides
+    Copyright (c) 2011-2019 George Christodoulides
 
     This program or module is free software: you can redistribute it
     and/or modify it under the terms of the GNU General Public License
@@ -18,11 +18,14 @@
 #include "pncore_global.h"
 #include "ISaveable.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 // Internal interface
 class IDatastore {
+public:
+    IDatastore();
+    virtual ~IDatastore();
+
 protected:
     static void setNew(ISaveable *item)    { item->m_isNew = true;    }
     static void setDirty(ISaveable *item)  { item->m_isDirty = true;  }
@@ -30,7 +33,6 @@ protected:
                                              item->m_isDirty = false; }
 };
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
 
 #endif // DATASTORE_H

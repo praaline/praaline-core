@@ -7,16 +7,14 @@
 #include "PointTier.h"
 #include "AnnotationTier.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 // ==========================================================================================================
 // Constructors - destructor
 // ==========================================================================================================
 IntervalTier::IntervalTier(const QString &name, const RealTime tMin, const RealTime tMax, QObject *parent) :
-    AnnotationTier(parent)
+    AnnotationTier(name, parent)
 {
-    m_name = name;
     m_tMin = tMin;
     m_tMax = tMax;
     m_intervals << new Interval(tMin, tMax, ""); // initial blank interval
@@ -24,9 +22,8 @@ IntervalTier::IntervalTier(const QString &name, const RealTime tMin, const RealT
 
 IntervalTier::IntervalTier(const QString &name, const QList<Interval *> &intervals,
                            const RealTime tMin, const RealTime tMax, QObject *parent) :
-    AnnotationTier(parent)
+    AnnotationTier(name, parent)
 {
-    m_name = name;
     if (intervals.count() == 0) { // special case
         m_tMin = tMin;
         m_tMax = tMax;
@@ -34,74 +31,10 @@ IntervalTier::IntervalTier(const QString &name, const QList<Interval *> &interva
         return;
     }
     m_intervals = intervals;
-    qSort(m_intervals.begin(), m_intervals.end(), IntervalTier::compareIntervals);
+    std::sort(m_intervals.begin(), m_intervals.end(), IntervalTier::compareIntervals);
     m_tMin = qMin(m_intervals.first()->tMin(), tMin);
     m_tMax = qMax(m_intervals.last()->tMax(), tMax);
     fixEmptyIntervals();
-}
-
-// Deep copy constructor
-// Makes an exact copy of another tier, deep copying the intervals.
-// If name is not given, it will be the same as the original tier.
-IntervalTier::IntervalTier(const IntervalTier *copy, QString name, bool copyAttributes, QObject *parent) :
-    AnnotationTier(parent)
-{
-    if (!copy) {
-        m_name = "error"; m_tMin = RealTime(0, 0); m_tMax = RealTime(1, 0);
-        m_intervals << new Interval(m_tMin, m_tMax, ""); // initial blank interval
-        return;
-    }
-    m_name = (name.isEmpty()) ? copy->name() : name;
-    m_tMin = copy->tMin();
-    m_tMax = copy->tMax();
-    // deep copy of intervals
-    foreach (Interval *intv, copy->intervals()) {
-        m_intervals << new Interval(intv, copyAttributes);
-    }
-}
-
-// Cartesian product constructor
-// Combines two tiers, copying intervals from both and annotating overlaps.
-IntervalTier::IntervalTier(const QString &name, const IntervalTier *tierA, const IntervalTier *tierB,
-                           const QString &textA, const QString &textB, const QString &textAB,
-                           QObject *parent) :
-    AnnotationTier(parent)
-{
-    if (!tierA || !tierB) {
-        m_name = "error"; m_tMin = RealTime(0, 0); m_tMax = RealTime(1, 0);
-        m_intervals << new Interval(m_tMin, m_tMax, ""); // initial blank interval
-        return;
-    }
-    m_name = name;
-    m_tMin = qMin(tierA->tMin(), tierB->tMin());
-    m_tMax = qMax(tierA->tMax(), tierB->tMax());
-    m_intervals << new Interval(m_tMin, m_tMax, ""); // initial blank interval
-
-    RealTime cursor = m_tMin;
-    int i = 0, j = 0;
-    while ((i < tierA->count()) && (j < tierB->count())) {
-        RealTime tMax_A = tierA->interval(i)->tMax();
-        RealTime tMax_B = tierB->interval(j)->tMax();
-        bool active_A = !tierA->interval(i)->isPauseSilent();
-        bool active_B = !tierB->interval(j)->isPauseSilent();
-        QString text;
-        if (tMax_A < tMax_B) {
-            cursor = tMax_A; i++;
-        } else if (tMax_A > tMax_B) {
-            cursor = tMax_B; j++;
-        }
-        else {
-            cursor = tMax_A; i++; j++;
-        }
-        if (active_A && active_B) {
-            text = textAB;
-        } else if (active_A && !active_B) {
-            text = textA;
-        } else if (!active_A && active_B) {
-            text = textB;
-        } // else empty
-        this->addToEnd(cursor, text);
-    }
 }
 
 IntervalTier::~IntervalTier()
@@ -135,13 +68,13 @@ Interval *IntervalTier::at(int index) const
 
 Interval *IntervalTier::first() const
 {
-    if (m_intervals.isEmpty()) return Q_NULLPTR;
+    if (m_intervals.isEmpty()) return nullptr;
     return m_intervals.first();
 }
 
 Interval *IntervalTier::last() const
 {
-    if (m_intervals.isEmpty()) return Q_NULLPTR;
+    if (m_intervals.isEmpty()) return nullptr;
     return m_intervals.last();
 }
 
@@ -266,7 +199,7 @@ void IntervalTier::copyIntervalsFrom(const IntervalTier *copy, bool copyData)
     m_intervals.clear();
     foreach (Interval *intv, copy->intervals()) {
         if (copyData)
-            m_intervals << new Interval(intv);
+            m_intervals << intv->clone();
         else
             m_intervals << new Interval(intv->tMin(), intv->tMax(), "");
     }
@@ -280,7 +213,7 @@ void IntervalTier::replaceAllIntervals(QList<Interval *> &newIntervals)
         m_intervals << new Interval(m_tMin, m_tMax, ""); // initial blank interval
         return;
     }
-    qSort(m_intervals.begin(), m_intervals.end(), IntervalTier::compareIntervals);
+    std::sort(m_intervals.begin(), m_intervals.end(), IntervalTier::compareIntervals);
     fixEmptyIntervals();
     m_tMin = m_intervals.at(0)->m_tMin;
     m_tMax = m_intervals.at(m_intervals.count() - 1)->m_tMax;
@@ -303,7 +236,7 @@ bool IntervalTier::patchIntervals(QList<Interval *> &newIntervals, RealTime from
     // Copy intervals over to tier
     m_intervals << newIntervals;
     // Fix tier
-    qSort(m_intervals.begin(), m_intervals.end(), IntervalTier::compareIntervals);
+    std::sort(m_intervals.begin(), m_intervals.end(), IntervalTier::compareIntervals);
     fixEmptyIntervals();
     m_tMin = m_intervals.at(0)->m_tMin;
     m_tMax = m_intervals.at(m_intervals.count() - 1)->m_tMax;
@@ -464,7 +397,7 @@ Interval *IntervalTier::merge(int indexFrom, int indexTo, const QString &separat
     if ((indexFrom < 0) || (indexFrom >= m_intervals.count())) return nullptr;
     if ((indexTo < 0) || (indexTo >= m_intervals.count())) return nullptr;
     QList<Interval *> list = m_intervals.mid(indexFrom, indexTo - indexFrom + 1);
-    Interval *intvNew = new Interval(list, separator);
+    Interval *intvNew = Interval::fromList(list, separator);
     for (int i = indexFrom; i <= indexTo; i++)
         m_intervals.removeAt(indexFrom);
     m_intervals.insert(indexFrom, intvNew);
@@ -699,7 +632,7 @@ QString IntervalTier::getIntervalsTextOverlappingWith(const Interval *contained,
 // Tier with an attribute as text
 IntervalTier *IntervalTier::getIntervalTierWithAttributeAsText(const QString &attributeID) const
 {
-    IntervalTier *tier = new IntervalTier(this, attributeID, true);
+    IntervalTier *tier = this->clone(attributeID);
     for (int i = 0; (i < m_intervals.count()) && (i < tier->count()); ++i) {
         tier->interval(i)->setText(this->at(i)->attribute(attributeID).toString());
     }
@@ -712,7 +645,7 @@ IntervalTier *IntervalTier::getIntervalTierSubset(const RealTime &timeStart, con
 {
     QList<Interval *> intervals;
     foreach (Interval *intv, getIntervalsOverlappingWith(timeStart, timeEnd)) {
-        intervals << new Interval(intv); // deep copy
+        intervals << intv->clone(); // deep copy
     }
     IntervalTier *ret = new IntervalTier(name(), intervals, timeStart, timeEnd);
     if (ret->count() == 1) {
@@ -984,5 +917,64 @@ bool IntervalTier::removeInterval(int index)
     return true;
 }
 
-} // namespace Core
-} // namespace Praaline
+// Clone
+IntervalTier *IntervalTier::clone(const QString &name, QObject *parent) const
+{
+    QString cloneName = (name.isEmpty()) ? m_name : name;
+    QList<Interval *> cloneIntervals;
+    foreach (Interval *intv, m_intervals)
+        cloneIntervals << intv->clone();
+    return new IntervalTier(cloneName, cloneIntervals, m_tMin, m_tMax, parent);
+}
+
+IntervalTier *IntervalTier::cloneWithoutAttributes(const QString &name, QObject *parent) const
+{
+    QString cloneName = (name.isEmpty()) ? m_name : name;
+    QList<Interval *> cloneIntervals;
+    foreach (Interval *intv, m_intervals)
+        cloneIntervals << intv->cloneWithoutAttributes();
+    return new IntervalTier(cloneName, cloneIntervals, m_tMin, m_tMax, parent);
+}
+
+// Multiplex. Combines two tiers, copying intervals from both and annotating overlaps.
+// static
+IntervalTier *IntervalTier::multiplex(const QString &name, const IntervalTier *tierA, const IntervalTier *tierB,
+                                      const QString &textA, const QString &textB, const QString &textAB, QObject *parent)
+{
+    if (!tierA || !tierB) {
+        return nullptr;
+    }
+
+    RealTime tMin = qMin(tierA->tMin(), tierB->tMin());
+    RealTime tMax = qMax(tierA->tMax(), tierB->tMax());
+    IntervalTier *multiplexed = new IntervalTier(name, tMin, tMax, parent);
+
+    RealTime cursor = tMin;
+    int i = 0, j = 0;
+    while ((i < tierA->count()) && (j < tierB->count())) {
+        RealTime tMax_A = tierA->interval(i)->tMax();
+        RealTime tMax_B = tierB->interval(j)->tMax();
+        bool active_A = !tierA->interval(i)->isPauseSilent();
+        bool active_B = !tierB->interval(j)->isPauseSilent();
+        QString text;
+        if (tMax_A < tMax_B) {
+            cursor = tMax_A; i++;
+        } else if (tMax_A > tMax_B) {
+            cursor = tMax_B; j++;
+        }
+        else {
+            cursor = tMax_A; i++; j++;
+        }
+        if (active_A && active_B) {
+            text = textAB;
+        } else if (active_A && !active_B) {
+            text = textA;
+        } else if (!active_A && active_B) {
+            text = textB;
+        } // else empty
+        multiplexed->addToEnd(cursor, text);
+    }
+    return multiplexed;
+}
+
+PRAALINE_CORE_END_NAMESPACE

@@ -3,7 +3,7 @@
 
 /*
     Praaline - Core module - XML Serialisers
-    Copyright (c) 2011-2018 George Christodoulides
+    Copyright (c) 2011-2019 George Christodoulides
 
     This program or module is free software: you can redistribute it
     and/or modify it under the terms of the GNU General Public License
@@ -19,16 +19,17 @@
 #include <QPointer>
 #include <QXmlStreamWriter>
 #include <QXmlStreamReader>
-#include "XMLSerialiserBase.h"
+
+#include "pncore_global.h"
 #include "corpus/Corpus.h"
 #include "corpus/CorpusCommunication.h"
 #include "corpus/CorpusSpeaker.h"
 #include "corpus/CorpusRecording.h"
 #include "corpus/CorpusAnnotation.h"
 #include "structure/MetadataStructure.h"
+#include "XMLSerialiserBase.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 class XMLSerialiserMetadata : public XMLSerialiserBase
 {
@@ -75,7 +76,6 @@ private:
     static QString xmlElementName_Participation;
 };
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
 
 #endif // XMLSERIALISERMETADATA_H

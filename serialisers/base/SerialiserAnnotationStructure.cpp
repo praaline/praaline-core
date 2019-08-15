@@ -2,8 +2,7 @@
 #include "structure/AnnotationStructure.h"
 #include "serialisers/base/SerialiserAnnotationStructure.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 SerialiserAnnotationStructure::SerialiserAnnotationStructure()
 {
@@ -38,5 +37,4 @@ AnnotationStructureLevel::LevelType SerialiserAnnotationStructure::convertString
     return AnnotationStructureLevel::IndependentIntervalsLevel;
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

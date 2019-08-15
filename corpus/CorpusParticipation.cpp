@@ -3,8 +3,7 @@
 #include "datastore/CorpusRepository.h"
 #include "datastore/MetadataDatastore.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 CorpusParticipation::CorpusParticipation(QPointer<CorpusCommunication> com, QPointer<CorpusSpeaker> spk,
                                          QString role, QObject *parent) :
@@ -86,5 +85,4 @@ bool CorpusParticipation::save() {
     return m_repository->metadata()->saveParticipations(QList<QPointer<CorpusParticipation> >() << this);
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

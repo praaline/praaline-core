@@ -15,8 +15,7 @@ using namespace QSqlMigrator::Commands;
 #include "SQLSerialiserBase.h"
 #include "SQLSerialiserAnnotationStructure.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 // static
 bool SQLSerialiserAnnotationStructure::initialiseAnnotationStructureTables(QSqlDatabase &db)
@@ -81,7 +80,7 @@ bool SQLSerialiserAnnotationStructure::loadAnnotationStructure(QPointer<Annotati
         level->setName(q1.value("name").toString());
         level->setDescription(q1.value("description").toString());
         level->setDatatype(DataType(q1.value("datatype").toString()));
-        level->setDatatype(DataType(level->datatype().base(), q1.value("length").toInt()));
+        level->setDatatype(DataType(level->datatype().base(), q1.value("length").toUInt()));
         if (q1.value("isIndexed").toInt() > 0) level->setIndexed(true); else level->setIndexed(false);
         level->setNameValueList(q1.value("nameValueList").toString());
         q2.bindValue(":levelID", level->ID());
@@ -92,7 +91,7 @@ bool SQLSerialiserAnnotationStructure::loadAnnotationStructure(QPointer<Annotati
             attribute->setName(q2.value("name").toString());
             attribute->setDescription(q2.value("description").toString());
             attribute->setDatatype(DataType(q2.value("datatype").toString()));
-            attribute->setDatatype(DataType(attribute->datatype().base(), q2.value("length").toInt()));
+            attribute->setDatatype(DataType(attribute->datatype().base(), q2.value("length").toUInt()));
             if (q2.value("isIndexed").toInt() > 0) attribute->setIndexed(true); else attribute->setIndexed(false);
             attribute->setNameValueList(q2.value("nameValueList").toString());
             attribute->setParent(level);
@@ -407,7 +406,7 @@ bool SQLSerialiserAnnotationStructure::retypeAnnotationAttribute(const QString &
     DataType oldDataType("");
     while (q.next()) {
         oldDataType = DataType(q.value("datatype").toString());
-        oldDataType = DataType(oldDataType.base(), q.value("length").toInt());
+        oldDataType = DataType(oldDataType.base(), q.value("length").toUInt());
     }
     if (!oldDataType.isValid()) return false;
 
@@ -444,5 +443,4 @@ bool SQLSerialiserAnnotationStructure::deleteAnnotationAttribute(const QString &
     return false;
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

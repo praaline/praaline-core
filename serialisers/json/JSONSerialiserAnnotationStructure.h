@@ -3,7 +3,7 @@
 
 /*
     Praaline - Core module - JSON Serialisers
-    Copyright (c) 2011-2018 George Christodoulides
+    Copyright (c) 2011-2019 George Christodoulides
 
     This program or module is free software: you can redistribute it
     and/or modify it under the terms of the GNU General Public License
@@ -15,13 +15,13 @@
     the GNU General Public License for more details.
 */
 
+#include <QJsonObject>
+
 #include "pncore_global.h"
 #include "structure/AnnotationStructure.h"
 #include "serialisers/base/SerialiserAnnotationStructure.h"
-#include <QJsonObject>
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 class PRAALINE_CORE_SHARED_EXPORT JSONSerialiserAnnotationStructure : public SerialiserAnnotationStructure
 {
@@ -32,8 +32,8 @@ public:
     static AnnotationStructure *read(QJsonObject &json);
 
 private:
-    JSONSerialiserAnnotationStructure() {}
-    ~JSONSerialiserAnnotationStructure() {}
+    JSONSerialiserAnnotationStructure();
+    ~JSONSerialiserAnnotationStructure();
 
     static QJsonObject writeLevel(AnnotationStructureLevel *level);
     static AnnotationStructureLevel *readLevel(QJsonObject &json);
@@ -41,7 +41,6 @@ private:
     static AnnotationStructureAttribute *readAttribute(QJsonObject &json);
 };
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
 
 #endif // JSONSERIALISERANNOTATIONSTRUCTURE_H

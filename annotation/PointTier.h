@@ -3,7 +3,7 @@
 
 /*
     Praaline - Core module - Annotation
-    Copyright (c) 2011-2017 George Christodoulides
+    Copyright (c) 2011-2019 George Christodoulides
 
     This program or module is free software: you can redistribute it
     and/or modify it under the terms of the GNU General Public License
@@ -23,8 +23,7 @@
 #include "AnnotationTier.h"
 #include "Point.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 class Interval;
 class IntervalTier;
@@ -35,11 +34,10 @@ class PRAALINE_CORE_SHARED_EXPORT PointTier : public AnnotationTier
 public:
     // Constructors, destructor
     PointTier(const QString &name = QString(),
-              const RealTime tMin = RealTime(0, 0), const RealTime tMax = RealTime(0, 0), QObject *parent = 0);
+              const RealTime tMin = RealTime(0, 0), const RealTime tMax = RealTime(0, 0), QObject *parent = nullptr);
     PointTier(const QString &name, const QList<Point *> &points,
-              const RealTime tMin = RealTime(0, 0), const RealTime tMax = RealTime(0, 0), QObject *parent = 0);
-    PointTier(const PointTier *copy, QString name = QString(), bool copyAttributes = true, QObject *parent = 0);
-    virtual ~PointTier();
+              const RealTime tMin = RealTime(0, 0), const RealTime tMax = RealTime(0, 0), QObject *parent = nullptr);
+    virtual ~PointTier() override;
 
     // Implementation of AnnotationTier
     AnnotationTier::TierType tierType() const override
@@ -75,10 +73,13 @@ public:
                                   RealTime threshold = RealTime(0, 100000000));
     QList<Point *> getPointsContainedIn(const Interval *container) const;
     QList<Point *> getPointsContainedIn(RealTime tMin, RealTime tMax) const;
-    IntervalTier *getIntervalsMin(const QString &name, QObject *parent = 0);
-    IntervalTier *getIntervalsMax(const QString &name, QObject *parent = 0);
-
+    IntervalTier *getIntervalsMin(const QString &name, QObject *parent = nullptr);
+    IntervalTier *getIntervalsMax(const QString &name, QObject *parent = nullptr);
     QList<Point *> findLocalMaxima(const RealTime &localMaxThreshold, const QString &compareAttributeID) const;
+
+    // Clone
+    PointTier *clone(const QString &name = QString(), QObject *parent = nullptr) const;
+    PointTier *cloneWithoutAttributes(const QString &name = QString(), QObject *parent = nullptr) const;
 
 protected:
     QList<Point *> m_points;
@@ -87,7 +88,6 @@ private:
     static bool comparePoints(Point *A, Point *B);
 };
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
 
 #endif // POINTTIER_H

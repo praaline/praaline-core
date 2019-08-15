@@ -3,7 +3,7 @@
 
 /*
     Praaline - Core module - Statistics
-    Copyright (c) 2011-2018 George Christodoulides
+    Copyright (c) 2011-2019 George Christodoulides
 
     This file is based on:
     QGIS qgsstatisticalsummary.h
@@ -22,8 +22,7 @@
 #include "pncore_global.h"
 #include <QMap>
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 class PRAALINE_CORE_SHARED_EXPORT StatisticalSummary
 {
@@ -49,7 +48,7 @@ public:
     };
     Q_DECLARE_FLAGS(Statistics, Statistic)
 
-    StatisticalSummary(const StatisticalSummary::Statistics& stats = All);
+    explicit StatisticalSummary(const StatisticalSummary::Statistics& stats = All);
     StatisticalSummary(const QList<double> &values, const StatisticalSummary::Statistics& stats = All);
     virtual ~StatisticalSummary();
 
@@ -99,7 +98,6 @@ private:
 
 Q_DECLARE_OPERATORS_FOR_FLAGS(StatisticalSummary::Statistics)
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
 
 #endif // STATISTICALSUMMARY_H

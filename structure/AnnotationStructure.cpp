@@ -3,8 +3,7 @@
 #include <QList>
 #include "AnnotationStructure.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 AnnotationStructure::AnnotationStructure(QObject *parent) :
     QObject(parent)
@@ -13,7 +12,7 @@ AnnotationStructure::AnnotationStructure(QObject *parent) :
 
 AnnotationStructure::~AnnotationStructure()
 {
-    qDeleteAll(m_levels);
+    // Levels are QObjects, they are deleted as children of this QObject.
 }
 
 // ==========================================================================================================
@@ -30,7 +29,7 @@ AnnotationStructureLevel *AnnotationStructure::level(const QString &ID) const
     foreach (AnnotationStructureLevel *level, m_levels) {
         if (level->ID() == ID) return level;
     }
-    return 0;
+    return nullptr;
 }
 
 int AnnotationStructure::getLevelIndexByID(const QString &ID) const
@@ -59,8 +58,8 @@ bool AnnotationStructure::hasLevels() const
 QStringList AnnotationStructure::levelIDs() const
 {
     QStringList ret;
-    foreach (QPointer<AnnotationStructureLevel> level, m_levels)
-        if (level) ret << level->ID();
+    foreach (AnnotationStructureLevel *level, m_levels)
+        ret << level->ID();
     return ret;
 }
 
@@ -87,7 +86,7 @@ void AnnotationStructure::addLevel(AnnotationStructureLevel *level)
 
 void AnnotationStructure::swapLevels(int oldIndex, int newIndex)
 {
-    m_levels.swap(oldIndex, newIndex);
+    m_levels.swapItemsAt(oldIndex, newIndex);
 }
 
 void AnnotationStructure::removeLevelAt(int i)
@@ -115,5 +114,4 @@ void AnnotationStructure::clear()
     emit AnnotationStructureChanged();
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

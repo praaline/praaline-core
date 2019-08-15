@@ -24,8 +24,7 @@ using namespace QSqlMigrator;
 using namespace QSqlMigrator::Migrations;
 using namespace QSqlMigrator::MigrationExecution;
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 struct SQLSerialiserBaseData {
     SQLSerialiserBase::DatabaseSystem system;
@@ -50,7 +49,7 @@ bool SQLSerialiserBase::applyMigration(const QString &migrationName, const Migra
     migrations.insert(migrationName, migration);
     auto contextBuilder = MigrationExecutionContext::Builder(migrations);
     contextBuilder.setDatabase(db);
-    MigrationExecution::MigrationExecutionContextPtr context(0);
+    MigrationExecution::MigrationExecutionContextPtr context(nullptr);
     if (db.driverName() == "QSQLITE")
         context = SqliteMigrator::buildContext(contextBuilder);
     else if (db.driverName() == "QMYSQL")
@@ -125,6 +124,4 @@ bool SQLSerialiserBase::upgradeSchema(QSqlDatabase &db)
     return true;
 }
 
-
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

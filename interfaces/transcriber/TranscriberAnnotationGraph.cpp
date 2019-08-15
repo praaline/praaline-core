@@ -2,8 +2,7 @@
 #include <QXmlStreamReader>
 #include "TranscriberAnnotationGraph.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 QString TranscriberAnnotationGraph::xmlElementName_Trans("Corpus");
 QString TranscriberAnnotationGraph::xmlElementName_Topic("Topic");
@@ -273,5 +272,4 @@ bool TranscriberAnnotationGraph::save(const QString &filename, QList<QPointer<Co
     return true;
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

@@ -3,7 +3,7 @@
 
 /*
     Praaline - Core module - Annotation
-    Copyright (c) 2011-2017 George Christodoulides
+    Copyright (c) 2011-2019 George Christodoulides
 
     This program or module is free software: you can redistribute it
     and/or modify it under the terms of the GNU General Public License
@@ -22,8 +22,7 @@
 #include "AnnotationTier.h"
 #include "Sequence.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 class PRAALINE_CORE_SHARED_EXPORT SequenceTier : public AnnotationTier
 {
@@ -32,7 +31,6 @@ public:
     // Constructors, destructor
     SequenceTier(const QString &name = QString(), AnnotationTier *baseTier = nullptr, QObject *parent = nullptr);
     SequenceTier(const QString &name, const QList<Sequence *> &sequences, AnnotationTier *baseTier = nullptr, QObject *parent = nullptr);
-    SequenceTier(const SequenceTier *copy, QString name = QString(), bool copyAttributes = true, QObject *parent = nullptr);
     virtual ~SequenceTier() override;
 
     // Implementation of AnnotationTier
@@ -68,6 +66,10 @@ public:
     // Access to base annotation elements
     QList<AnnotationElement *> sequenceElements(int sequenceIndex) const;
 
+    // Clone
+    SequenceTier *clone(const QString &name = QString(), QObject *parent = nullptr) const;
+    SequenceTier *cloneWithoutAttributes(const QString &name = QString(), QObject *parent = nullptr) const;
+
 protected:
     AnnotationTier *m_baseTier;
     QList<Sequence *> m_sequences;
@@ -76,7 +78,6 @@ private:
     static bool compareSequences(Sequence *A, Sequence *B);
 };
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
 
 #endif // SEQUENCETIER_H

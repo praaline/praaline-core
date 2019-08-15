@@ -3,7 +3,7 @@
 
 /*
     Praaline - Core module - Annotation
-    Copyright (c) 2011-2017 George Christodoulides
+    Copyright (c) 2011-2019 George Christodoulides
 
     This program or module is free software: you can redistribute it
     and/or modify it under the terms of the GNU General Public License
@@ -21,19 +21,21 @@
 #include "base/RealTime.h"
 #include "AnnotationElement.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 class PRAALINE_CORE_SHARED_EXPORT Relation : public AnnotationElement
 {
     friend class RelationsTier;
 public:
     Relation();
-    Relation(int indexFrom, int indexTo, const QString &text);
-    Relation(int indexFrom, int indexTo, const QString &text, const QHash<QString, QVariant> &attributes);
+    Relation(int indexFrom, int indexTo,
+             const QString &text = QString(), const QHash<QString, QVariant> &attributes = QHash<QString, QVariant>());
     Relation(const Relation &copy);
-    Relation(const Relation *copy, bool copyAttributes = true);
-    virtual ~Relation() {}
+    virtual ~Relation() override;
+
+    // Create new relation from existing one
+    Relation *clone();
+    Relation *cloneWithoutAttributes();
 
     // Properties
     inline int indexFrom () const
@@ -55,10 +57,8 @@ protected:
     int m_indexTo;
 };
 
+PRAALINE_CORE_END_NAMESPACE
 
-} // namespace Core
-} // namespace Praaline
-
-Q_DECLARE_METATYPE(Praaline::Core::Relation)
+Q_DECLARE_METATYPE(PRAALINE_CORE_NAMESPACE::Relation)
 
 #endif // RELATION_H

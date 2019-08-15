@@ -1,8 +1,10 @@
 var searchData=
 [
-  ['toframetext',['toFrameText',['../structRealTime.html#a8ad67f67ab98fb46599d5849c2a9e07e',1,'RealTime']]],
-  ['tosectext',['toSecText',['../structRealTime.html#aab9b336d96aa6f72a2d192bb39da1b8c',1,'RealTime']]],
-  ['tostring',['toString',['../structRealTime.html#af07bbac90e996fc30ef1d7042b527263',1,'RealTime']]],
-  ['totext',['toText',['../structRealTime.html#abc32d8eb32b98e5c29c01cb68d300fac',1,'RealTime']]],
-  ['toxsdduration',['toXsdDuration',['../structRealTime.html#a9fadf94e66241752fafdb13dd44aed4e',1,'RealTime']]]
+  ['scale',['scale',['../class_data_type.html#ad7bd76d9d549701b91bd9ede3dce889a',1,'DataType::scale()'],['../class_q_sql_migrator_1_1_structure_1_1_sql_type.html#ab4b716a0b8f90bf4ac04d4d01bb087fe',1,'QSqlMigrator::Structure::SqlType::scale()']]],
+  ['setattribute',['setAttribute',['../class_annotation_element.html#a206d8790fe92a7c8e6b703d026836584',1,'AnnotationElement::setAttribute()'],['../class_interval.html#a0895204effc21e1f4ead9b78b4b9726f',1,'Interval::setAttribute()'],['../class_point.html#a997cc0d524866e257f58ef9a3e82a432',1,'Point::setAttribute()'],['../class_relation.html#ae669645f5fc531a6118d68b51a4d64df',1,'Relation::setAttribute()'],['../class_sequence.html#a0c573124c566aa3a28c63fb362f58c6b',1,'Sequence::setAttribute()']]],
+  ['settext',['setText',['../class_annotation_element.html#a67b28559349cd0ca84d47f629ee4ee45',1,'AnnotationElement']]],
+  ['sqltype',['SqlType',['../class_q_sql_migrator_1_1_structure_1_1_sql_type.html#af83707a053e7fd46ab395d45b78b587d',1,'QSqlMigrator::Structure::SqlType::SqlType(const QString &amp;string)'],['../class_q_sql_migrator_1_1_structure_1_1_sql_type.html#aeb468b0e5dd0bd47efe88f4d75ab3029',1,'QSqlMigrator::Structure::SqlType::SqlType(const PRAALINE_CORE_NAMESPACE::DataType &amp;datatype)'],['../class_q_sql_migrator_1_1_structure_1_1_sql_type.html#a025fddf53697e4ae4dc6f01be8d69395',1,'QSqlMigrator::Structure::SqlType::SqlType(Base base, quint64 precision=0, int scale=0)']]],
+  ['start',['start',['../class_q_sql_migrator_1_1_sqlite_migrator_1_1_refresh_lock_is_living_invoker.html#acac1953cd1b90584862d31d2f6ac3daa',1,'QSqlMigrator::SqliteMigrator::RefreshLockIsLivingInvoker']]],
+  ['stop',['stop',['../class_q_sql_migrator_1_1_sqlite_migrator_1_1_refresh_lock_is_living_invoker.html#a11af357a94337f3ec1d39b34abb80ca4',1,'QSqlMigrator::SqliteMigrator::RefreshLockIsLivingInvoker']]],
+  ['string',['string',['../class_data_type.html#a61123733098ff8d26bef2a6a6401db83',1,'DataType::string()'],['../class_q_sql_migrator_1_1_structure_1_1_sql_type.html#a440825279083be8b5f15f2a5ddcf2e30',1,'QSqlMigrator::Structure::SqlType::string()']]]
 ];

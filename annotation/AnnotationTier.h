@@ -3,7 +3,7 @@
 
 /*
     Praaline - Core module - Annotation
-    Copyright (c) 2011-2017 George Christodoulides
+    Copyright (c) 2011-2019 George Christodoulides
 
     This program or module is free software: you can redistribute it
     and/or modify it under the terms of the GNU General Public License
@@ -22,10 +22,7 @@
 #include <QList>
 #include "base/RealTime.h"
 
-class QTextStream;
-
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 class AnnotationElement;
 
@@ -47,8 +44,8 @@ public:
         TierType_Relations
     };
 
-    AnnotationTier(QObject *parent = 0) : QObject(parent) {}
-    virtual ~AnnotationTier() {}
+    AnnotationTier(const QString &name = QString(), QObject *parent = nullptr);
+    virtual ~AnnotationTier();
 
     virtual TierType tierType() const = 0;
     virtual QString name() const;
@@ -78,7 +75,6 @@ protected:
     RealTime m_tMax;
 };
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
 
 #endif // ANNOTATIONTIER_H

@@ -1,7 +1,6 @@
 #include "DatasetDefinition.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 struct DatasetDefinitionData {
     QString minimalLevelID;
@@ -17,5 +16,4 @@ DatasetDefinition::~DatasetDefinition()
 {
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

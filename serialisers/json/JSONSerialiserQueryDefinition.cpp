@@ -7,8 +7,7 @@
 #include <QJsonArray>
 #include "JSONSerialiserQueryDefinition.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 JSONSerialiserQueryDefinition::JSONSerialiserQueryDefinition()
 {
@@ -21,26 +20,33 @@ JSONSerialiserQueryDefinition::~JSONSerialiserQueryDefinition()
 // public static
 bool JSONSerialiserQueryDefinition::saveQueryDefinition(const QueryDefinition &definition, const QString &filename)
 {
+    Q_UNUSED(definition)
+    Q_UNUSED(filename)
     return false;
 }
 
 // public static
 bool JSONSerialiserQueryDefinition::saveQueryDefinition(const QueryDefinition &definition, QJsonObject &json)
 {
+    Q_UNUSED(definition)
+    Q_UNUSED(json)
     return false;
 }
 
 // public static
 bool JSONSerialiserQueryDefinition::loadQueryDefinition(QueryDefinition &definition, const QString &filename)
 {
+    Q_UNUSED(definition)
+    Q_UNUSED(filename)
     return false;
 }
 
 // public static
 bool JSONSerialiserQueryDefinition::loadQueryDefinition(QueryDefinition &definition, QJsonObject &json)
 {
+    Q_UNUSED(definition)
+    Q_UNUSED(json)
     return false;
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

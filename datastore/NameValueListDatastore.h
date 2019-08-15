@@ -3,7 +3,7 @@
 
 /*
     Praaline - Core module - Datastores
-    Copyright (c) 2011-2017 George Christodoulides
+    Copyright (c) 2011-2019 George Christodoulides
 
     This program or module is free software: you can redistribute it
     and/or modify it under the terms of the GNU General Public License
@@ -20,8 +20,7 @@
 #include <QPointer>
 #include <QMap>
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 class NameValueList;
 
@@ -29,8 +28,8 @@ class NameValueList;
 class NameValueListDatastore
 {
 public:
-    NameValueListDatastore() {}
-    virtual ~NameValueListDatastore() {}
+    NameValueListDatastore();
+    virtual ~NameValueListDatastore();
 
     virtual NameValueList *getNameValueList(const QString &listID) = 0;
     virtual QStringList getAllNameValueListIDs() = 0;
@@ -40,7 +39,6 @@ public:
     virtual bool deleteNameValueList(const QString &listID) = 0;
 };
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
 
 #endif // NAMEVALUELISTDATASTORE_H

@@ -3,7 +3,7 @@
 
 /*
     Praaline - Core module - Datastores
-    Copyright (c) 2011-2017 George Christodoulides
+    Copyright (c) 2011-2019 George Christodoulides
 
     This program or module is free software: you can redistribute it
     and/or modify it under the terms of the GNU General Public License
@@ -18,8 +18,7 @@
 #include "pncore_global.h"
 #include <QString>
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 class PRAALINE_CORE_SHARED_EXPORT DatastoreInfo
 {
@@ -30,7 +29,7 @@ public:
         Files
     };
 
-    DatastoreInfo() : usePassword(false) {}
+    DatastoreInfo() : type(DatastoreInfo::SQL), usePassword(false) {}
     DatastoreInfo(Type type, QString driver, QString hostname, QString datasource, QString username, QString password) :
         type(type), driver(driver), hostname(hostname), datasource(datasource), username(username), password(password)
     {
@@ -60,7 +59,6 @@ public:
 
 };
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE
 
 #endif // DATASTOREINFO_H

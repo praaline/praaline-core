@@ -2,8 +2,7 @@
 #include <QXmlStreamWriter>
 #include "XMLSerialiserMetadataStructure.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 // Initialise static strings
 QString XMLSerialiserMetadataStructure::xmlElementName_Structure("MetadataStructure");
@@ -219,7 +218,7 @@ MetadataStructureAttribute *XMLSerialiserMetadataStructure::readAttribute(QXmlSt
     MetadataStructureAttribute *attribute = new MetadataStructureAttribute();
     // Check that we're really reading a corpus metadata section specification
     if (xml.tokenType() != QXmlStreamReader::StartElement && xml.name() == xmlElementName_Attribute) {
-        return 0;
+        return nullptr;
     }
     // Read the corpus item's attributes
     QXmlStreamAttributes xmlAttributes = xml.attributes();
@@ -251,5 +250,4 @@ MetadataStructureAttribute *XMLSerialiserMetadataStructure::readAttribute(QXmlSt
     return attribute;
 }
 
-} // namespace Core
-} // namespace Praaline
+PRAALINE_CORE_END_NAMESPACE

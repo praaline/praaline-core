@@ -1,13 +1,10 @@
 #include "Tokeniser.h"
 
-namespace Praaline {
-namespace Core {
+PRAALINE_CORE_BEGIN_NAMESPACE
 
 Tokeniser::Tokeniser()
 {
 
 }
 
-} // namespace Core
-} // namespace Praaline
-
+PRAALINE_CORE_END_NAMESPACE
