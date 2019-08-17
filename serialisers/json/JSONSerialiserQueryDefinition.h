@@ -33,7 +33,7 @@ public:
     static bool loadQueryDefinition(QueryDefinition &definition, const QString &filename);
     static bool loadQueryDefinition(QueryDefinition &definition, QJsonObject &json);
 
-private:
+protected:
     JSONSerialiserQueryDefinition();
     ~JSONSerialiserQueryDefinition();
 };

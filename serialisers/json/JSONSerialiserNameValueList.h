@@ -33,10 +33,11 @@ public:
     static bool loadNameValueLists(QList<NameValueList *> &NVLs, const QString &filename);
     static bool loadNameValueLists(QList<NameValueList *> &NVLs, QJsonObject &json);
 
-private:
+protected:
     JSONSerialiserNameValueList();
     ~JSONSerialiserNameValueList();
 
+private:
     static NameValueList *readNameValueList(QJsonObject &json);
     static QJsonObject writeNameValueList(NameValueList *nvl);
 };

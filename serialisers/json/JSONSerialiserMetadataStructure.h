@@ -24,7 +24,7 @@
 
 PRAALINE_CORE_BEGIN_NAMESPACE
 
-class PRAALINE_CORE_SHARED_EXPORT JSONSerialiserMetadataStructure : public SerialiserMetadataStructure
+class PRAALINE_CORE_SHARED_EXPORT JSONSerialiserMetadataStructure
 {
 public:
     static bool write(MetadataStructure *structure, const QString &filename);
@@ -34,10 +34,11 @@ public:
     static void writePartial(MetadataStructure *structure, CorpusObject::Type what, QJsonObject &json);
     static MetadataStructure *readPartial(CorpusObject::Type what, QJsonObject &json);
 
-private:
-    JSONSerialiserMetadataStructure() {}
-    ~JSONSerialiserMetadataStructure() {}
+protected:
+    JSONSerialiserMetadataStructure();
+    ~JSONSerialiserMetadataStructure();
 
+private:
     static QJsonObject writeSection(CorpusObject::Type what, MetadataStructureSection *section);
     static MetadataStructureSection *readSection(QJsonObject &json);
     static QJsonObject writeAttribute(MetadataStructureAttribute *attribute);

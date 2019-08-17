@@ -34,10 +34,11 @@ public:
     static bool loadNameValueLists(QList<NameValueList *> &NVLs, const QString &filename);
     static bool loadNameValueLists(QList<NameValueList *> &NVLs, QXmlStreamReader &xml);
 
-private:
+protected:
     XMLSerialiserNameValueList();
     ~XMLSerialiserNameValueList();
 
+private:
     static NameValueList *readNameValueList(QXmlStreamReader &xml);
     static bool writeNameValueList(NameValueList *nvl, QXmlStreamWriter &xml);
 

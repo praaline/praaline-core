@@ -42,7 +42,7 @@ public:
     static AnnotationTierGroup *loadTiers(AnnotationStructure *structure, QXmlStreamReader &xml);
     static AnnotationTier *loadTier(AnnotationStructure *structure, QXmlStreamReader &xml);
 
-private:
+protected:
     XMLSerialiserAnnotation();    
     ~XMLSerialiserAnnotation();
 };

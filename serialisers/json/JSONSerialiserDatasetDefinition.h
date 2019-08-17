@@ -33,7 +33,7 @@ public:
     static bool loadDatasetDefinition(DatasetDefinition &definition, const QString &filename);
     static bool loadDatasetDefinition(DatasetDefinition &definition, QJsonObject &json);
 
-private:
+protected:
     JSONSerialiserDatasetDefinition();
     ~JSONSerialiserDatasetDefinition();
 };

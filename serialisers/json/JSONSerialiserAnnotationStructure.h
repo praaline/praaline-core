@@ -31,10 +31,11 @@ public:
     static AnnotationStructure *read(const QString &filename);
     static AnnotationStructure *read(QJsonObject &json);
 
-private:
+protected:
     JSONSerialiserAnnotationStructure();
     ~JSONSerialiserAnnotationStructure();
 
+private:
     static QJsonObject writeLevel(AnnotationStructureLevel *level);
     static AnnotationStructureLevel *readLevel(QJsonObject &json);
     static QJsonObject writeAttribute(AnnotationStructureAttribute *attribute);

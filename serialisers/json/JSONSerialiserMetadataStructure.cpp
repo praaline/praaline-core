@@ -10,6 +10,9 @@
 
 PRAALINE_CORE_BEGIN_NAMESPACE
 
+JSONSerialiserMetadataStructure::JSONSerialiserMetadataStructure() {}
+JSONSerialiserMetadataStructure::~JSONSerialiserMetadataStructure() {}
+
 // public static
 bool JSONSerialiserMetadataStructure::write(MetadataStructure *structure, const QString &filename)
 {

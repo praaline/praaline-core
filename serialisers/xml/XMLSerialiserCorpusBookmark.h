@@ -34,10 +34,11 @@ public:
     static bool loadCorpusBookmarks(QList<CorpusBookmark *> &list, const QString &filename);
     static bool loadCorpusBookmarks(QList<CorpusBookmark *> &list, QXmlStreamReader &xml);
 
-private:
+protected:
     XMLSerialiserCorpusBookmark();
     ~XMLSerialiserCorpusBookmark();
 
+private:
     static CorpusBookmark *readBookmark(QXmlStreamReader &xml);
     static bool writeBookmark(CorpusBookmark *bookmark, QXmlStreamWriter &xml);
 

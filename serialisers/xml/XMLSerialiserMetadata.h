@@ -54,10 +54,11 @@ public:
     static bool loadAnnotations(QList<CorpusAnnotation *> &list, MetadataStructure *mstructure, QXmlStreamReader &xml);
    // static bool loadParticipations(QList<CorpusParticipation *> &list, MetadataStructure *mstructure, QXmlStreamReader &xml);
 
-private:
+protected:
     XMLSerialiserMetadata() {}
     ~XMLSerialiserMetadata() {}
 
+private:
     static Corpus *readCorpus(MetadataStructure *mstructure, QXmlStreamReader &xml);
     static CorpusCommunication *readCommunication(MetadataStructure *mstructure, QXmlStreamReader &xml);
     static CorpusSpeaker *readSpeaker(MetadataStructure *mstructure, QXmlStreamReader &xml);

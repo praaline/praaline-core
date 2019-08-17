@@ -40,7 +40,7 @@ public:
     static AnnotationTierGroup *loadTiers(AnnotationStructure *structure, QJsonObject &json);
     static AnnotationTier *loadTier(AnnotationStructure *structure, QJsonObject &json);
 
-private:
+protected:
     JSONSerialiserAnnotation();
     ~JSONSerialiserAnnotation();
 };
