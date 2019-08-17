@@ -38,9 +38,7 @@ public:
 
     int speakerCount() const;
     QStringList speakerIDs() const;
-    QList<CorpusSpeaker> speakers() const;
-
-
+    QList<CorpusSpeaker *> speakers() const;
 
 signals:
 

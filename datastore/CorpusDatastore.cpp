@@ -9,6 +9,9 @@ CorpusDatastore::CorpusDatastore(CorpusRepository *repository, QObject *parent) 
 {
 }
 
+CorpusDatastore::~CorpusDatastore()
+{
+}
 
 void CorpusDatastore::setRepository(CorpusObject *object)
 {

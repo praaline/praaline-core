@@ -15,6 +15,9 @@ QString XMLSerialiserAnnotationStructure::xmlElementName_Structure("AnnotationSt
 QString XMLSerialiserAnnotationStructure::xmlElementName_Level("AnnotationStructureLevel");
 QString XMLSerialiserAnnotationStructure::xmlElementName_Attribute("AnnotationStructureAttribute");
 
+XMLSerialiserAnnotationStructure::XMLSerialiserAnnotationStructure() {}
+XMLSerialiserAnnotationStructure::~XMLSerialiserAnnotationStructure() {}
+
 // -------------------------------------------------------------------------------------------------------------------------
 
 // static

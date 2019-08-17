@@ -28,34 +28,34 @@ class PRAALINE_CORE_SHARED_EXPORT AnnotationStructure : public QObject
     Q_OBJECT
 public:
     explicit AnnotationStructure(QObject *parent = nullptr);
-    ~AnnotationStructure();
+    ~AnnotationStructure() override;
 
-    QString ID() const { return m_ID; }
-    void setID(const QString &ID) { m_ID = ID; }
-
-    // Management
-    void clear();
+    // DATA
+    QString ID() const;
+    void setID(const QString &ID);
 
     // ANNOTATION LEVELS
+    // Accessors
     AnnotationStructureLevel *level(int index) const;
     AnnotationStructureLevel *level(const QString &ID) const;
-    int getLevelIndexByID(const QString &ID) const;
+    int levelIndexByID(const QString &ID) const;
     int levelsCount() const;
     bool hasLevels() const;
     bool hasLevel(const QString &ID) const;
     QStringList levelIDs() const;
     QList<AnnotationStructureLevel *> levels() const;
-    void insertLevel(int index, AnnotationStructureLevel *level);
-    void addLevel(AnnotationStructureLevel *level);
+    // Mutators
+    bool insertLevel(int index, AnnotationStructureLevel *level);
+    bool addLevel(AnnotationStructureLevel *level);
     void swapLevels(int oldIndex, int newIndex);
     void removeLevelAt(int i);
     void removeLevelByID(const QString &ID);
+    void clear();
 
 signals:
-    void AnnotationStructureChanged();
+    void levelAdded(AnnotationStructure *structure, AnnotationStructureLevel *level);
+    void levelDeleted(AnnotationStructure *structure, QString levelID);
 
-public slots:
-    
 protected:
     QString m_ID;
     QList<AnnotationStructureLevel *> m_levels;

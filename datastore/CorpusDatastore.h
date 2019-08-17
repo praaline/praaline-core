@@ -17,7 +17,6 @@
 
 #include "pncore_global.h"
 #include <QObject>
-#include <QPointer>
 #include <QString>
 
 PRAALINE_CORE_BEGIN_NAMESPACE
@@ -31,14 +30,14 @@ class CorpusDatastore : public QObject
     Q_OBJECT
 public:
     CorpusDatastore(CorpusRepository *repository, QObject *parent = nullptr);
-    virtual ~CorpusDatastore() {}
+    virtual ~CorpusDatastore();
 
     // Back reference to the repository where the corpus object is stored
     // ==========================================================================================================================
     void setRepository(CorpusObject *object);
 
 protected:
-    QPointer<CorpusRepository> m_repository;
+    CorpusRepository *m_repository;
 };
 
 PRAALINE_CORE_END_NAMESPACE

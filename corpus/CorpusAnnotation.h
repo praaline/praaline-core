@@ -44,7 +44,7 @@ public:
     bool save() override;
 
     QString communicationID() const;
-    QPointer<Corpus> corpus() const;
+    Corpus * corpus() const;
 
     QString name() const { return m_name; }
     void setName(const QString &name);

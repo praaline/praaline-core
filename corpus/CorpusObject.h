@@ -17,7 +17,6 @@
 
 #include "pncore_global.h"
 #include <QObject>
-#include <QPointer>
 #include <QString>
 #include <QVariant>
 #include "base/ISaveable.h"
@@ -72,7 +71,7 @@ public:
     QVariant property(const QString &name) const;
     bool setProperty(const QString &name, const QVariant &value);
 
-    QPointer<CorpusRepository> repository() const { return m_repository; }
+    CorpusRepository *repository() const { return m_repository; }
 
 signals:
     void changedID(const QString &oldID, const QString &newID);
@@ -81,7 +80,7 @@ protected:
     QString m_ID;
     QString m_originalID;
     QString m_corpusID;
-    QPointer<CorpusRepository> m_repository;
+    CorpusRepository *m_repository;
 
     void copyPropertiesFrom(CorpusObject *other);
 

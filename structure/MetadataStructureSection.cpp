@@ -24,17 +24,59 @@ MetadataStructureSection::~MetadataStructureSection()
 }
 
 // ==========================================================================================================
-// ATTRIBUTES
+// Data
 // ==========================================================================================================
 
-QPointer<MetadataStructureAttribute> MetadataStructureSection::attribute(int index) const
+QString MetadataStructureSection::ID() const
 {
-    return m_attributes.value(index);
+    return m_ID;
 }
 
-QPointer<MetadataStructureAttribute> MetadataStructureSection::attribute(const QString &ID) const
+void MetadataStructureSection::setID(const QString &ID)
 {
-    foreach (QPointer<MetadataStructureAttribute> attribute, m_attributes) {
+    m_ID = ID;
+}
+
+QString MetadataStructureSection::name() const
+{
+    return m_name;
+}
+
+void MetadataStructureSection::setName(const QString &name)
+{
+    m_name = name;
+}
+
+QString MetadataStructureSection::description() const
+{
+    return m_description;
+}
+
+void MetadataStructureSection::setDescription(const QString &description) {
+    m_description = description;
+}
+
+int MetadataStructureSection::itemOrder() const
+{
+    return m_itemOrder;
+}
+
+void MetadataStructureSection::setItemOrder(int itemOrder) {
+    m_itemOrder = itemOrder;
+}
+
+// ==========================================================================================================
+// Metadata attributes
+// ==========================================================================================================
+
+MetadataStructureAttribute *MetadataStructureSection::attribute(int index) const
+{
+    return m_attributes.value(index, nullptr);
+}
+
+MetadataStructureAttribute *MetadataStructureSection::attribute(const QString &ID) const
+{
+    foreach (MetadataStructureAttribute *attribute, m_attributes) {
         if ((attribute) && (attribute->ID() == ID))
             return attribute;
     }
@@ -60,7 +102,7 @@ bool MetadataStructureSection::hasAttributes() const
     return !m_attributes.isEmpty();
 }
 
-bool MetadataStructureSection::hasAttribute(const QString &ID)
+bool MetadataStructureSection::hasAttribute(const QString &ID) const
 {
     return (attributeIndexByID(ID) != -1);
 }
@@ -68,7 +110,7 @@ bool MetadataStructureSection::hasAttribute(const QString &ID)
 QStringList MetadataStructureSection::attributeIDs() const
 {
     QStringList ret;
-    foreach (QPointer<MetadataStructureAttribute> attribute, m_attributes)
+    foreach (MetadataStructureAttribute *attribute, m_attributes)
         if (attribute) ret << attribute->ID();
     return ret;
 }
@@ -76,28 +118,34 @@ QStringList MetadataStructureSection::attributeIDs() const
 QStringList MetadataStructureSection::attributeNames() const
 {
     QStringList ret;
-    foreach (QPointer<MetadataStructureAttribute> attribute, m_attributes)
+    foreach (MetadataStructureAttribute *attribute, m_attributes)
         if (attribute) ret << attribute->name();
     return ret;
 }
 
-QList<QPointer<MetadataStructureAttribute> > MetadataStructureSection::attributes() const
+QList<MetadataStructureAttribute *> MetadataStructureSection::attributes() const
 {
     return m_attributes;
 }
 
-void MetadataStructureSection::insertAttribute(int index, MetadataStructureAttribute *attribute)
+bool MetadataStructureSection::insertAttribute(int index, MetadataStructureAttribute *attribute)
 {
-    if (!attribute) return;
+    if (!attribute) return false;
+    if (hasAttribute(attribute->ID())) return false;
     attribute->setParent(this);
     m_attributes.insert(index, attribute);
+    emit attributeAdded(this, attribute);
+    return true;
 }
 
-void MetadataStructureSection::addAttribute(MetadataStructureAttribute *attribute)
+bool MetadataStructureSection::addAttribute(MetadataStructureAttribute *attribute)
 {
-    if (!attribute) return;
+    if (!attribute) return false;
+    if (hasAttribute(attribute->ID())) return false;
     attribute->setParent(this);
     m_attributes << attribute;
+    emit attributeAdded(this, attribute);
+    return true;
 }
 
 void MetadataStructureSection::swapAttribute(int oldIndex, int newIndex)
@@ -107,8 +155,13 @@ void MetadataStructureSection::swapAttribute(int oldIndex, int newIndex)
 
 void MetadataStructureSection::removeAttributeAt(int i)
 {
-    if (i >= 0 && i < m_attributes.count()) {
-        m_attributes.removeAt(i);
+    if ((i < 0) || (i >= m_attributes.count())) return;
+    MetadataStructureAttribute *attribute = m_attributes.at(i);
+    m_attributes.removeAt(i);
+    if (attribute) {
+        QString attributeID = attribute->ID();
+        delete attribute;
+        emit attributeDeleted(this, attributeID);
     }
 }
 
@@ -116,7 +169,14 @@ void MetadataStructureSection::removeAttributeByID(const QString &ID)
 {
     int i = attributeIndexByID(ID);
     if (i != -1) {
-        m_attributes.removeAt(i);
+        removeAttributeAt(i);
+    }
+}
+
+void MetadataStructureSection::clear()
+{
+    for (int i = attributesCount() - 1; i >= 0; i--) {
+        removeAttributeAt(attributesCount() - 1);
     }
 }
 

@@ -31,21 +31,24 @@ class PRAALINE_CORE_SHARED_EXPORT MetadataStructureAttribute : public StructureA
 
 public:
     explicit MetadataStructureAttribute(QObject *parent = nullptr);
-    MetadataStructureAttribute(const QString &ID, QObject *parent = nullptr);
-    MetadataStructureAttribute(const QString &ID, const QString &name, const QString &description,
-                               const DataType &datatype, int order = 0, QObject *parent = nullptr);
-    MetadataStructureAttribute(const MetadataStructureAttribute *other, QObject *parent = nullptr);
+    MetadataStructureAttribute(const QString &ID,
+                               const QString &name = QString(), const QString &description = QString(),
+                               const DataType &datatype = DataType(DataType::VarChar, 255), int order = 0,
+                               bool indexed = false, const QString &nameValueList = QString(),
+                               bool mandatory = false, QVariant defaultValue = QVariant(),
+                               QObject *parent = nullptr);
+    ~MetadataStructureAttribute() override;
+
+    MetadataStructureAttribute *clone(QObject *parent = nullptr) const override;
 
     // Data
+    bool mandatory() const;
+    void setMandatory(bool mandatory);
+    QVariant defaultValue() const;
+    void setDefaultValue(const QVariant &defaultValue);
+
+    // Parent data (if available)
     QString sectionID() const;
-    bool mandatory() const { return m_mandatory; }
-    void setMandatory(bool mandatory) { m_mandatory = mandatory; }
-    QVariant defaultValue() const { return m_defaultValue; }
-    void setDefaultValue(const QVariant &defaultValue) { m_defaultValue = defaultValue; }
-
-signals:
-
-public slots:
 
 protected:
     bool m_mandatory;

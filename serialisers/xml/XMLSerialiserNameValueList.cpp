@@ -1,5 +1,4 @@
 #include <QObject>
-#include <QPointer>
 #include <QString>
 #include <QFile>
 #include <QXmlStreamReader>
@@ -60,7 +59,7 @@ bool XMLSerialiserNameValueList::writeNameValueList(NameValueList *nvl, QXmlStre
 }
 
 // static
-bool XMLSerialiserNameValueList::saveNameValueLists(const QList<QPointer<NameValueList> > &NVLs, QXmlStreamWriter &xml)
+bool XMLSerialiserNameValueList::saveNameValueLists(const QList<NameValueList *> &NVLs, QXmlStreamWriter &xml)
 {
     xml.writeStartElement("NameValueLists");
     foreach (NameValueList *nvl, NVLs) {
@@ -72,7 +71,7 @@ bool XMLSerialiserNameValueList::saveNameValueLists(const QList<QPointer<NameVal
 }
 
 // static
-bool XMLSerialiserNameValueList::loadNameValueLists(QList<QPointer<NameValueList> > &NVLs, QXmlStreamReader &xml)
+bool XMLSerialiserNameValueList::loadNameValueLists(QList<NameValueList *> &NVLs, QXmlStreamReader &xml)
 {
     NVLs.clear();
     while (!xml.atEnd() && !xml.hasError()) {
@@ -98,7 +97,7 @@ bool XMLSerialiserNameValueList::loadNameValueLists(QList<QPointer<NameValueList
 }
 
 // static
-bool XMLSerialiserNameValueList::saveNameValueLists(const QList<QPointer<NameValueList> > &NVLs, const QString &filename)
+bool XMLSerialiserNameValueList::saveNameValueLists(const QList<NameValueList *> &NVLs, const QString &filename)
 {
     QFile file(filename);
     if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) return false;
@@ -112,7 +111,7 @@ bool XMLSerialiserNameValueList::saveNameValueLists(const QList<QPointer<NameVal
 }
 
 // static
-bool XMLSerialiserNameValueList::loadNameValueLists(QList<QPointer<NameValueList> > &NVLs, const QString &filename)
+bool XMLSerialiserNameValueList::loadNameValueLists(QList<NameValueList *> &NVLs, const QString &filename)
 {
     QFile file(filename);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) return false;

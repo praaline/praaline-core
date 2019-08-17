@@ -18,7 +18,6 @@
 
 #include "pncore_global.h"
 #include <QObject>
-#include <QPointer>
 #include <QString>
 #include <QList>
 #include <QStringList>
@@ -62,36 +61,36 @@ public:
     // ----------------------------------------------------------------------------------------------------------------
     // Communications
     // ----------------------------------------------------------------------------------------------------------------
-    QPointer<CorpusCommunication> communication(const QString &communicationID) const;
+    CorpusCommunication *communication(const QString &communicationID) const;
     int communicationsCount() const;
     bool hasCommunications() const;
     bool hasCommunication(const QString &communicationID) const;
     QStringList communicationIDs() const;
-    const QMap<QString, QPointer<CorpusCommunication> > &communications() const;
+    const QMap<QString, CorpusCommunication *> &communications() const;
     void addCommunication(CorpusCommunication *communication);
     void removeCommunication(const QString &communicationID);
 
     // ----------------------------------------------------------------------------------------------------------------
     // Speakers
     // ----------------------------------------------------------------------------------------------------------------
-    QPointer<CorpusSpeaker> speaker(const QString &speakerID) const;
+    CorpusSpeaker *speaker(const QString &speakerID) const;
     int speakersCount() const;
     bool hasSpeakers() const;
     bool hasSpeaker(const QString &speakerID) const;
     QStringList speakerIDs() const;
-    const QMap<QString, QPointer<CorpusSpeaker> > &speakers() const;
+    const QMap<QString, CorpusSpeaker *> &speakers() const;
     void addSpeaker(CorpusSpeaker *speaker);
     void removeSpeaker(const QString &speakerID);
 
     // ----------------------------------------------------------------------------------------------------------------
     // Speaker Participation in Communications
     // ----------------------------------------------------------------------------------------------------------------
-    QPointer<CorpusParticipation> participation(const QString &communicationID, const QString &speakerID);
+    CorpusParticipation *participation(const QString &communicationID, const QString &speakerID);
     bool hasParticipation(const QString &communicationID, const QString &speakerID);
-    QList<QPointer<CorpusParticipation> > participations();
-    QList<QPointer<CorpusParticipation> > participationsForCommunication(const QString &communicationID);
-    QList<QPointer<CorpusParticipation> > participationsForSpeaker(const QString &speakerID);
-    QPointer<CorpusParticipation> addParticipation(const QString &communicationID, const QString &speakerID, const QString &role = QString());
+    QList<CorpusParticipation *> participations();
+    QList<CorpusParticipation *> participationsForCommunication(const QString &communicationID);
+    QList<CorpusParticipation *> participationsForSpeaker(const QString &speakerID);
+    CorpusParticipation *addParticipation(const QString &communicationID, const QString &speakerID, const QString &role = QString());
     void removeParticipation(const QString &communicationID, const QString &speakerID);
 
     // ----------------------------------------------------------------------------------------------------------------
@@ -99,12 +98,12 @@ public:
     // ----------------------------------------------------------------------------------------------------------------
     QStringList recordingIDs() const;
     QStringList annotationIDs() const;
-    QList<QPointer<CorpusCommunication> > communicationsList() const;
-    QList<QPointer<CorpusSpeaker> > speakersList() const;
-    QList<QPointer<CorpusRecording> > recordingsList() const;
-    QList<QPointer<CorpusAnnotation> > annotationsList() const;
-    QMap<QString, QPair<QPointer<CorpusRecording>, QPointer<CorpusAnnotation> > > getRecordings_x_Annotations() const;
-    QMap<QString, QPair<QPointer<CorpusAnnotation>, QPointer<CorpusRecording> > > getAnnotations_x_Recordings() const;
+    QList<CorpusCommunication *> communicationsList() const;
+    QList<CorpusSpeaker *> speakersList() const;
+    QList<CorpusRecording *> recordingsList() const;
+    QList<CorpusAnnotation *> annotationsList() const;
+    QMap<QString, QPair<CorpusRecording *, CorpusAnnotation *> > getRecordings_x_Annotations() const;
+    QMap<QString, QPair<CorpusAnnotation *, CorpusRecording *> > getAnnotations_x_Recordings() const;
     QList<QPair<QString, QString> > getCommunicationsAnnotationsIDs() const;
     QList<QPair<QString, QString> > getCommunicationsRecordingsIDs() const;
 
@@ -116,9 +115,9 @@ public:
     QList<QPair<QString, QString> > deletedParticipationIDs;
 
 signals:
-    void communicationAdded(QPointer<PRAALINE_CORE_NAMESPACE::CorpusCommunication> communication);
+    void communicationAdded(PRAALINE_CORE_NAMESPACE::CorpusCommunication *communication);
     void communicationDeleted(QString ID);
-    void speakerAdded(QPointer<PRAALINE_CORE_NAMESPACE::CorpusSpeaker> speaker);
+    void speakerAdded(PRAALINE_CORE_NAMESPACE::CorpusSpeaker *speaker);
     void speakerDeleted(QString ID);
 
 private slots:
@@ -128,10 +127,10 @@ private slots:
 private:
     QString m_name;
     QString m_description;
-    QMap<QString, QPointer<CorpusCommunication> > m_communications;
-    QMap<QString, QPointer<CorpusSpeaker> > m_speakers;
-    QMultiMap<QString, QPointer<CorpusParticipation> > m_participationsByCommunication;
-    QMultiMap<QString, QPointer<CorpusParticipation> > m_participationsBySpeaker;
+    QMap<QString, CorpusCommunication *> m_communications;
+    QMap<QString, CorpusSpeaker *> m_speakers;
+    QMultiMap<QString, CorpusParticipation *> m_participationsByCommunication;
+    QMultiMap<QString, CorpusParticipation *> m_participationsBySpeaker;
 
     Q_DISABLE_COPY(Corpus)
 };

@@ -48,7 +48,7 @@ public:
         m_isDirty = true;
     }
 
-    inline virtual const QVariantHash &attributes() const {
+    inline virtual const QVariantHash attributes() const {
         return m_attributes;
     }
 

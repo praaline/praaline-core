@@ -1,5 +1,4 @@
 #include <QObject>
-#include <QPointer>
 #include <QString>
 #include <QFile>
 #include <QJsonDocument>

@@ -17,7 +17,6 @@
 
 #include "pncore_global.h"
 #include <QObject>
-#include <QPointer>
 #include <QString>
 #include <QList>
 #include <QStringList>
@@ -113,7 +112,7 @@ public:
     // ==========================================================================================================================
     virtual NameValueList *getNameValueList(const QString &listID) = 0;
     virtual QStringList getAllNameValueListIDs() = 0;
-    virtual QMap<QString, QPointer<NameValueList> > getAllNameValueLists() = 0;
+    virtual QMap<QString, NameValueList *> getAllNameValueLists() = 0;
     virtual bool createNameValueList(NameValueList *list) = 0;
     virtual bool updateNameValueList(NameValueList *list) = 0;
     virtual bool deleteNameValueList(const QString &listID) = 0;
@@ -135,11 +134,11 @@ public:
                                     const QStringList &attributeIDs = QStringList()) = 0;
     virtual AnnotationTierGroup *getTiers(const QString &annotationID, const QString &speakerID,
                                           const QStringList &levelIDs = QStringList()) = 0;
-    virtual QMap<QString, QPointer<AnnotationTierGroup> > getTiersAllSpeakers(const QString &annotationID,
-                                                                              const QStringList &levelIDs = QStringList()) = 0;
+    virtual QMap<QString, AnnotationTierGroup *> getTiersAllSpeakers(const QString &annotationID,
+                                                                     const QStringList &levelIDs = QStringList()) = 0;
     virtual bool saveTier(const QString &annotationID, const QString &speakerID, AnnotationTier *tier) = 0;
     virtual bool saveTiers(const QString &annotationID, const QString &speakerID, AnnotationTierGroup *tiers) = 0;
-    virtual bool saveTiersAllSpeakers(const QString &annotationID, QMap<QString, QPointer<AnnotationTierGroup> > &tiersAllSpeakers) = 0;
+    virtual bool saveTiersAllSpeakers(const QString &annotationID, QMap<QString, AnnotationTierGroup *> &tiersAllSpeakers) = 0;
     virtual bool deleteTier(const QString &annotationID, const QString &speakerID, const QString &levelID) = 0;
     virtual bool deleteTiers(const QString &annotationID, const QString &speakerID, const QStringList &levelIDs = QStringList()) = 0;
     virtual bool deleteAllTiersAllSpeakers(const QString &annotationID) = 0;

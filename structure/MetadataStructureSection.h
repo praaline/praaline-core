@@ -17,7 +17,6 @@
 
 #include "pncore_global.h"
 #include <QObject>
-#include <QPointer>
 #include <QString>
 #include "structure/MetadataStructureAttribute.h"
 
@@ -38,41 +37,44 @@ public:
     ~MetadataStructureSection();
 
     // Data
-    QString ID() const { return m_ID; }
-    void setID(const QString &id) { m_ID = id; }
-    QString name() const { return m_name; }
-    void setName(const QString &name) { m_name = name; }
-    QString description() const { return m_description; }
-    void setDescription(const QString &description) { m_description = description; }
-    int itemOrder() const { return m_itemOrder; }
-    void setItemOrder(int itemOrder) { m_itemOrder = itemOrder; }
+    QString ID() const;
+    void setID(const QString &id);
+    QString name() const;
+    void setName(const QString &name);
+    QString description() const;
+    void setDescription(const QString &description);
+    int itemOrder() const;
+    void setItemOrder(int itemOrder);
 
-    // ATTRIBUTES - Accessors
-    QPointer<MetadataStructureAttribute> attribute(int index) const;
-    QPointer<MetadataStructureAttribute> attribute(const QString &ID) const;
+    // METADATA ATTRIBUTES
+    // Accessors
+    MetadataStructureAttribute *attribute(int index) const;
+    MetadataStructureAttribute *attribute(const QString &ID) const;
     int attributeIndexByID(const QString &ID) const;
     int attributesCount() const;
     bool hasAttributes() const;
-    bool hasAttribute(const QString &ID);
+    bool hasAttribute(const QString &ID) const;
     QStringList attributeIDs() const;
     QStringList attributeNames() const;
-    QList<QPointer<MetadataStructureAttribute> > attributes() const;
-    void insertAttribute(int index, MetadataStructureAttribute *attribute);
-    void addAttribute(MetadataStructureAttribute *attribute);
+    QList<MetadataStructureAttribute *> attributes() const;
+    // Mutators
+    bool insertAttribute(int index, MetadataStructureAttribute *attribute);
+    bool addAttribute(MetadataStructureAttribute *attribute);
     void swapAttribute(int oldIndex, int newIndex);
     void removeAttributeAt(int i);
     void removeAttributeByID(const QString &ID);
+    void clear();
 
 signals:
-
-public slots:
+    void attributeAdded(MetadataStructureSection *section, MetadataStructureAttribute *attribute);
+    void attributeDeleted(MetadataStructureSection *section, QString attributeID);
 
 protected:
     QString m_ID;           // Section ID (e.g. speaker)
     QString m_name;         // User-friendly name (e.g. Speaker)
     QString m_description;  // Description (e.g. Speakers metadata)
     int m_itemOrder;        // Order for presentation purposes
-    QList<QPointer<MetadataStructureAttribute> > m_attributes;
+    QList<MetadataStructureAttribute *> m_attributes;
 };
 
 PRAALINE_CORE_END_NAMESPACE

@@ -21,6 +21,7 @@
 
 #include "pncore_global.h"
 #include "structure/MetadataStructure.h"
+#include "serialisers/base/SerialiserMetadataStructure.h"
 
 PRAALINE_CORE_BEGIN_NAMESPACE
 
@@ -34,8 +35,11 @@ public:
     static void writePartial(MetadataStructure *structure, CorpusObject::Type what, QXmlStreamWriter &xml);
     static MetadataStructure *readPartial(CorpusObject::Type what, QXmlStreamReader &xml);
 
-private:
+protected:
     XMLSerialiserMetadataStructure();
+    ~XMLSerialiserMetadataStructure();
+
+private:
     static void writeSection(CorpusObject::Type what, MetadataStructureSection *section, QXmlStreamWriter &xml);
     static MetadataStructureSection *readSection(QXmlStreamReader &xml);
     static void writeAttribute(MetadataStructureAttribute *attribute, QXmlStreamWriter &xml);

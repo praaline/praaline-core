@@ -2,7 +2,6 @@
 #include <QString>
 #include <QMap>
 #include <QDateTime>
-#include <QPointer>
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include <QSqlError>
@@ -101,9 +100,9 @@ QStringList SQLSerialiserNameValueList::getAllNameValueListIDs(NameValueListType
 }
 
 // static
-QMap<QString, QPointer<NameValueList> > SQLSerialiserNameValueList::getAllNameValueLists(NameValueListType listType, QSqlDatabase &db)
+QMap<QString, NameValueList *> SQLSerialiserNameValueList::getAllNameValueLists(NameValueListType listType, QSqlDatabase &db)
 {
-    QMap<QString, QPointer<NameValueList> > lists;
+    QMap<QString, NameValueList *> lists;
     if (!db.isValid()) return lists;
     // Select information from internal table, then select data
     QSqlQuery q1(db);

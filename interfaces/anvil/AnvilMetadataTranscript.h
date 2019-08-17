@@ -3,7 +3,6 @@
 
 #include "pncore_global.h"
 #include <QObject>
-#include <QPointer>
 #include <QList>
 #include <QMap>
 #include <QString>

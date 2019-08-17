@@ -17,7 +17,6 @@
 
 #include "pncore_global.h"
 #include <QObject>
-#include <QPointer>
 #include <QString>
 #include <QMap>
 #include "CorpusObject.h"
@@ -43,7 +42,7 @@ public:
     CorpusObject::Type type() const override { return CorpusObject::Type_Communication; }
     bool save() override;
 
-    QPointer<Corpus> corpus() const;
+    Corpus * corpus() const;
 
     // Basic data
     QString name() const { return m_name; }
@@ -52,11 +51,11 @@ public:
     void setCorpusID(const QString &corpusID) override;
 
     // RECORDINGS
-    QPointer<CorpusRecording> recording(const QString &recordingID) const;
+    CorpusRecording * recording(const QString &recordingID) const;
     int recordingsCount() const;
     bool hasRecordings() const;
     bool hasRecording(const QString &recordingID) const;
-    const QMap<QString, QPointer<CorpusRecording> > &recordings() const;
+    const QMap<QString, CorpusRecording *> &recordings() const;
     QList<QString> recordingIDs() const;
     void addRecording(CorpusRecording *recording);
     void removeRecording(const QString &recordingID);
@@ -64,11 +63,11 @@ public:
     double durationSec() const;
 
     // ANNOTATIONS
-    QPointer<CorpusAnnotation> annotation(const QString &annotationID) const;
+    CorpusAnnotation * annotation(const QString &annotationID) const;
     int annotationsCount() const;
     bool hasAnnotations() const;
     bool hasAnnotation(const QString &annotationID) const;
-    const QMap<QString, QPointer<CorpusAnnotation> > &annotations() const;
+    const QMap<QString, CorpusAnnotation *> &annotations() const;
     QList<QString> annotationIDs() const;
     void addAnnotation(CorpusAnnotation *annotation);
     void removeAnnotation(const QString &annotationID);
@@ -79,9 +78,9 @@ public:
     QList<QString> deletedRecordingIDs;
 
 signals:
-    void corpusRecordingAdded(QPointer<PRAALINE_CORE_NAMESPACE::CorpusRecording> recording);
+    void corpusRecordingAdded(PRAALINE_CORE_NAMESPACE::CorpusRecording *recording);
     void corpusRecordingDeleted(QString communicationID, QString recordingID);
-    void corpusAnnotationAdded(QPointer<PRAALINE_CORE_NAMESPACE::CorpusAnnotation> annotation);
+    void corpusAnnotationAdded(PRAALINE_CORE_NAMESPACE::CorpusAnnotation *annotation);
     void corpusAnnotationDeleted(QString communicationID, QString annotationID);
 
 private slots:
@@ -90,8 +89,8 @@ private slots:
     
 private:
     QString m_name;
-    QMap<QString, QPointer<CorpusRecording> > m_recordings;
-    QMap<QString, QPointer<CorpusAnnotation> > m_annotations;
+    QMap<QString, CorpusRecording *> m_recordings;
+    QMap<QString, CorpusAnnotation *> m_annotations;
 
     Q_DISABLE_COPY(CorpusCommunication)
 };

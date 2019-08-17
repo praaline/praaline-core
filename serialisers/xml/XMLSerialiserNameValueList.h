@@ -16,7 +16,6 @@
 */
 
 #include <QObject>
-#include <QPointer>
 #include <QString>
 #include <QXmlStreamReader>
 #include <QXmlStreamWriter>
@@ -30,10 +29,10 @@ PRAALINE_CORE_BEGIN_NAMESPACE
 class PRAALINE_CORE_SHARED_EXPORT XMLSerialiserNameValueList : XMLSerialiserBase
 {
 public:
-    static bool saveNameValueLists(const QList<QPointer<NameValueList> > &NVLs, const QString &filename);
-    static bool saveNameValueLists(const QList<QPointer<NameValueList> > &NVLs, QXmlStreamWriter &xml);
-    static bool loadNameValueLists(QList<QPointer<NameValueList> > &NVLs, const QString &filename);
-    static bool loadNameValueLists(QList<QPointer<NameValueList> > &NVLs, QXmlStreamReader &xml);
+    static bool saveNameValueLists(const QList<NameValueList *> &NVLs, const QString &filename);
+    static bool saveNameValueLists(const QList<NameValueList *> &NVLs, QXmlStreamWriter &xml);
+    static bool loadNameValueLists(QList<NameValueList *> &NVLs, const QString &filename);
+    static bool loadNameValueLists(QList<NameValueList *> &NVLs, QXmlStreamReader &xml);
 
 private:
     XMLSerialiserNameValueList();

@@ -16,7 +16,6 @@
 */
 
 #include <QObject>
-#include <QPointer>
 #include <QString>
 #include <QJsonObject>
 

@@ -40,7 +40,7 @@ CorpusAnnotation::CorpusAnnotation(CorpusAnnotation *other, QObject *parent) :
     copyPropertiesFrom(other);
 }
 
-QPointer<Corpus> CorpusAnnotation::corpus() const
+Corpus * CorpusAnnotation::corpus() const
 {
     CorpusCommunication *com = qobject_cast<CorpusCommunication *>(this->parent());
     if (com) return qobject_cast<Corpus *>(com->parent());
@@ -118,7 +118,7 @@ void CorpusAnnotation::removeLanguage(const QString &languageID)
 bool CorpusAnnotation::save() {
     if (!m_repository) return false;
     if (!m_repository->metadata()) return false;
-    return m_repository->metadata()->saveAnnotations(QList<QPointer<CorpusAnnotation> >() << this);
+    return m_repository->metadata()->saveAnnotations(QList<CorpusAnnotation *>() << this);
 }
 
 PRAALINE_CORE_END_NAMESPACE

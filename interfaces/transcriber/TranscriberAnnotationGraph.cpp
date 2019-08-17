@@ -218,8 +218,8 @@ TranscriberAnnotationGraph::TransData *TranscriberAnnotationGraph::readTrans(QXm
 
 
 // static
-bool TranscriberAnnotationGraph::load(const QString &filename, QList<QPointer<CorpusSpeaker> > &speakers,
-                                      QMap<QString, QPointer<AnnotationTierGroup> > &tiersAll)
+bool TranscriberAnnotationGraph::load(const QString &filename, QList<CorpusSpeaker *> &speakers,
+                                      SpeakerAnnotationTierGroupMap &tiersAll)
 {
     TransData *trans = nullptr;
     QFile file(filename);
@@ -263,8 +263,8 @@ bool TranscriberAnnotationGraph::load(const QString &filename, QList<QPointer<Co
 }
 
 // static
-bool TranscriberAnnotationGraph::save(const QString &filename, QList<QPointer<CorpusSpeaker> > &speakers,
-                                      QMap<QString, QPointer<AnnotationTierGroup> > &tiersAll)
+bool TranscriberAnnotationGraph::save(const QString &filename, QList<CorpusSpeaker *> &speakers,
+                                      SpeakerAnnotationTierGroupMap &tiersAll)
 {
     Q_UNUSED(filename)
     Q_UNUSED(speakers)

@@ -1,5 +1,4 @@
 #include <QObject>
-#include <QPointer>
 #include <QString>
 #include <QFile>
 #include <QJsonDocument>
@@ -18,7 +17,7 @@ JSONSerialiserNameValueList::~JSONSerialiserNameValueList()
 }
 
 // public static
-bool JSONSerialiserNameValueList::saveNameValueLists(const QList<QPointer<NameValueList> > &NVLs, const QString &filename)
+bool JSONSerialiserNameValueList::saveNameValueLists(const QList<NameValueList *> &NVLs, const QString &filename)
 {
     // Open file for writing
     QFile file(filename);
@@ -35,11 +34,11 @@ bool JSONSerialiserNameValueList::saveNameValueLists(const QList<QPointer<NameVa
 }
 
 // public static
-bool JSONSerialiserNameValueList::saveNameValueLists(const QList<QPointer<NameValueList> > &NVLs, QJsonObject &json)
+bool JSONSerialiserNameValueList::saveNameValueLists(const QList<NameValueList *> &NVLs, QJsonObject &json)
 {
     QJsonObject jsonNameValueLists;
     QJsonArray arrayNameValueLists;
-    foreach (QPointer<NameValueList> nvl, NVLs) {
+    foreach (NameValueList * nvl, NVLs) {
         QJsonObject jsonNameValueList = writeNameValueList(nvl);
         if (!jsonNameValueList.isEmpty()) arrayNameValueLists.append(jsonNameValueList);
     }
@@ -49,7 +48,7 @@ bool JSONSerialiserNameValueList::saveNameValueLists(const QList<QPointer<NameVa
 }
 
 // public static
-bool JSONSerialiserNameValueList::loadNameValueLists(QList<QPointer<NameValueList> > &NVLs, const QString &filename)
+bool JSONSerialiserNameValueList::loadNameValueLists(QList<NameValueList *> &NVLs, const QString &filename)
 {
     QFile file(filename);
     if (!file.open(QIODevice::ReadOnly)) {
@@ -62,7 +61,7 @@ bool JSONSerialiserNameValueList::loadNameValueLists(QList<QPointer<NameValueLis
 }
 
 // public static
-bool JSONSerialiserNameValueList::loadNameValueLists(QList<QPointer<NameValueList> > &NVLs, QJsonObject &json)
+bool JSONSerialiserNameValueList::loadNameValueLists(QList<NameValueList *> &NVLs, QJsonObject &json)
 {
     if (json.contains("nameValueLists") && json["nameValueLists"].isObject()) {
         QJsonObject jsonNameValueLists = json["nameValueLists"].toObject();
@@ -71,7 +70,7 @@ bool JSONSerialiserNameValueList::loadNameValueLists(QList<QPointer<NameValueLis
             for (int i = 0; i < arrayNameValueLists.size(); ++i) {
                 QJsonObject jsonNameValueList = arrayNameValueLists[i].toObject();
                 NameValueList *nvl = readNameValueList(jsonNameValueList);
-                if (nvl) NVLs.append(QPointer<NameValueList>(nvl));
+                if (nvl) NVLs.append(nvl);
             }
         }
         return true;

@@ -56,7 +56,7 @@ public:
      * \brief Construct the type from
      * \param string the string representation of an sql type
      */
-    DataType(const QString &string);
+    explicit DataType(const QString &string);
 
     /*!
      * \brief Constructs the type
@@ -64,7 +64,7 @@ public:
      * \param precision if supported or required the precision or length
      * \param scale if supported or required by the base type
      */
-    DataType(Base base, quint64 precision = 0, int scale = 0);
+    DataType(Base base = DataType::Invalid, quint64 precision = 0, int scale = 0);
 
     //! \return the string representation of the data type
     const QString string() const;

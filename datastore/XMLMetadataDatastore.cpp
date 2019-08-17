@@ -1,3 +1,5 @@
+#include <QObject>
+#include <QPointer>
 #include "corpus/CorpusObject.h"
 #include "corpus/CorpusObjectInfo.h"
 #include "structure/MetadataStructure.h"
@@ -8,13 +10,20 @@
 
 PRAALINE_CORE_BEGIN_NAMESPACE
 
+struct XMLMetadataDatastoreData {
+    QString filename;
+    QPointer<MetadataStructure> structure;
+};
+
 XMLMetadataDatastore::XMLMetadataDatastore(MetadataStructure *structure, CorpusRepository *repository, QObject *parent) :
-    MetadataDatastore(repository, parent), m_structure(structure)
+    MetadataDatastore(repository, parent), d(new XMLMetadataDatastoreData)
 {
+    d->structure = structure;
 }
 
 XMLMetadataDatastore::~XMLMetadataDatastore()
 {
+    delete d;
 }
 
 // ==========================================================================================================================
@@ -50,7 +59,7 @@ bool XMLMetadataDatastore::saveMetadataStructure()
     return false;
 }
 
-bool XMLMetadataDatastore::createMetadataAttribute(CorpusObject::Type type, QPointer<MetadataStructureAttribute> newAttribute)
+bool XMLMetadataDatastore::createMetadataAttribute(CorpusObject::Type type, MetadataStructureAttribute *newAttribute)
 {
     Q_UNUSED(type)
     Q_UNUSED(newAttribute)
@@ -94,9 +103,9 @@ QStringList XMLMetadataDatastore::getAllNameValueListIDs()
     return QStringList();
 }
 
-QMap<QString, QPointer<NameValueList> > XMLMetadataDatastore::getAllNameValueLists()
+QMap<QString, NameValueList *> XMLMetadataDatastore::getAllNameValueLists()
 {
-    QMap<QString, QPointer<NameValueList> >  ret;
+    QMap<QString, NameValueList *>  ret;
     return ret;
 }
 
@@ -139,38 +148,38 @@ Corpus *XMLMetadataDatastore::getCorpus(const QString &corpusID)
     return nullptr;
 }
 
-QList<QPointer<CorpusCommunication> > XMLMetadataDatastore::getCommunications(const Selection &selection)
+QList<CorpusCommunication *> XMLMetadataDatastore::getCommunications(const Selection &selection)
 {
     Q_UNUSED(selection)
-    QList<QPointer<CorpusCommunication> > list;
+    QList<CorpusCommunication *> list;
     return list;
 }
 
-QList<QPointer<CorpusSpeaker> > XMLMetadataDatastore::getSpeakers(const Selection &selection)
+QList<CorpusSpeaker *> XMLMetadataDatastore::getSpeakers(const Selection &selection)
 {
     Q_UNUSED(selection)
-    QList<QPointer<CorpusSpeaker> > list;
+    QList<CorpusSpeaker *> list;
     return list;
 }
 
-QList<QPointer<CorpusRecording> > XMLMetadataDatastore::getRecordings(const Selection &selection)
+QList<CorpusRecording *> XMLMetadataDatastore::getRecordings(const Selection &selection)
 {
     Q_UNUSED(selection)
-    QList<QPointer<CorpusRecording> > list;
+    QList<CorpusRecording *> list;
     return list;
 }
 
-QList<QPointer<CorpusAnnotation> > XMLMetadataDatastore::getAnnotations(const Selection &selection)
+QList<CorpusAnnotation *> XMLMetadataDatastore::getAnnotations(const Selection &selection)
 {
     Q_UNUSED(selection)
-    QList<QPointer<CorpusAnnotation> > list;
+    QList<CorpusAnnotation *> list;
     return list;
 }
 
-QList<QPointer<CorpusParticipation> > XMLMetadataDatastore::getParticipations(const Selection &selection)
+QList<CorpusParticipation *> XMLMetadataDatastore::getParticipations(const Selection &selection)
 {
     Q_UNUSED(selection)
-    QList<QPointer<CorpusParticipation> > list;
+    QList<CorpusParticipation *> list;
     return list;
 }
 
@@ -187,7 +196,7 @@ bool XMLMetadataDatastore::saveCommunication(CorpusCommunication *communication)
     return false;
 }
 
-bool XMLMetadataDatastore::saveCommunications(QList<QPointer<CorpusCommunication> > &communications)
+bool XMLMetadataDatastore::saveCommunications(QList<CorpusCommunication *> &communications)
 {
     Q_UNUSED(communications)
     return false;
@@ -199,25 +208,25 @@ bool XMLMetadataDatastore::saveSpeaker(CorpusSpeaker *speaker)
     return false;
 }
 
-bool XMLMetadataDatastore::saveSpeakers(QList<QPointer<CorpusSpeaker> > &speakers)
+bool XMLMetadataDatastore::saveSpeakers(QList<CorpusSpeaker *> &speakers)
 {
     Q_UNUSED(speakers)
     return false;
 }
 
-bool XMLMetadataDatastore::saveRecordings(QList<QPointer<CorpusRecording> > &recordings)
+bool XMLMetadataDatastore::saveRecordings(QList<CorpusRecording *> &recordings)
 {
     Q_UNUSED(recordings)
     return false;
 }
 
-bool XMLMetadataDatastore::saveAnnotations(QList<QPointer<CorpusAnnotation> >  &annotations)
+bool XMLMetadataDatastore::saveAnnotations(QList<CorpusAnnotation *>  &annotations)
 {
     Q_UNUSED(annotations)
     return false;
 }
 
-bool XMLMetadataDatastore::saveParticipations(QList<QPointer<CorpusParticipation> >  &participations)
+bool XMLMetadataDatastore::saveParticipations(QList<CorpusParticipation *>  &participations)
 {
     Q_UNUSED(participations)
     return false;

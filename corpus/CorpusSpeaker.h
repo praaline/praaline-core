@@ -37,7 +37,7 @@ public:
     CorpusObject::Type type() const override { return CorpusObject::Type_Speaker; }
     bool save() override;
 
-    QPointer<Corpus> corpus() const;
+    Corpus *corpus() const;
 
     QString name() const { return m_name; }
     void setName(const QString &name);

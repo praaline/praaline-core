@@ -16,7 +16,6 @@
 */
 
 #include <QList>
-#include <QPointer>
 #include <QXmlStreamWriter>
 #include <QXmlStreamReader>
 
@@ -41,19 +40,19 @@ public:
     static bool saveAnnotation(CorpusAnnotation *annot, MetadataStructure *mstructure, QXmlStreamWriter &xml);
     static bool saveParticipation(CorpusParticipation *participation, MetadataStructure *mstructure, QXmlStreamWriter &xml);
 
-    static bool saveCorpora(const QList<QPointer<Corpus> > &list, MetadataStructure *mstructure, QXmlStreamWriter &xml);
-    static bool saveCommunications(const QList<QPointer<CorpusCommunication> > &list, MetadataStructure *mstructure, QXmlStreamWriter &xml);
-    static bool saveSpeakers(const QList<QPointer<CorpusSpeaker> > &list, MetadataStructure *mstructure, QXmlStreamWriter &xml);
-    static bool saveRecordings(const QList<QPointer<CorpusRecording> > &list, MetadataStructure *mstructure, QXmlStreamWriter &xml);
-    static bool saveAnnotations(const QList<QPointer<CorpusAnnotation> > &list, MetadataStructure *mstructure, QXmlStreamWriter &xml);
-    static bool saveParticipations(const QList<QPointer<CorpusParticipation> > &list, MetadataStructure *mstructure, QXmlStreamWriter &xml);
+    static bool saveCorpora(const QList<Corpus *> &list, MetadataStructure *mstructure, QXmlStreamWriter &xml);
+    static bool saveCommunications(const QList<CorpusCommunication *> &list, MetadataStructure *mstructure, QXmlStreamWriter &xml);
+    static bool saveSpeakers(const QList<CorpusSpeaker *> &list, MetadataStructure *mstructure, QXmlStreamWriter &xml);
+    static bool saveRecordings(const QList<CorpusRecording *> &list, MetadataStructure *mstructure, QXmlStreamWriter &xml);
+    static bool saveAnnotations(const QList<CorpusAnnotation *> &list, MetadataStructure *mstructure, QXmlStreamWriter &xml);
+    static bool saveParticipations(const QList<CorpusParticipation *> &list, MetadataStructure *mstructure, QXmlStreamWriter &xml);
 
-    static bool loadCorpora(QList<QPointer<Corpus> > &list, MetadataStructure *mstructure, QXmlStreamReader &xml);
-    static bool loadCommunications(QList<QPointer<CorpusCommunication> > &list, MetadataStructure *mstructure, QXmlStreamReader &xml);
-    static bool loadSpeakers(QList<QPointer<CorpusSpeaker> > &list, MetadataStructure *mstructure, QXmlStreamReader &xml);
-    static bool loadRecordings(QList<QPointer<CorpusRecording> > &list, MetadataStructure *mstructure, QXmlStreamReader &xml);
-    static bool loadAnnotations(QList<QPointer<CorpusAnnotation> > &list, MetadataStructure *mstructure, QXmlStreamReader &xml);
-   // static bool loadParticipations(QList<QPointer<CorpusParticipation> > &list, MetadataStructure *mstructure, QXmlStreamReader &xml);
+    static bool loadCorpora(QList<Corpus *> &list, MetadataStructure *mstructure, QXmlStreamReader &xml);
+    static bool loadCommunications(QList<CorpusCommunication *> &list, MetadataStructure *mstructure, QXmlStreamReader &xml);
+    static bool loadSpeakers(QList<CorpusSpeaker *> &list, MetadataStructure *mstructure, QXmlStreamReader &xml);
+    static bool loadRecordings(QList<CorpusRecording *> &list, MetadataStructure *mstructure, QXmlStreamReader &xml);
+    static bool loadAnnotations(QList<CorpusAnnotation *> &list, MetadataStructure *mstructure, QXmlStreamReader &xml);
+   // static bool loadParticipations(QList<CorpusParticipation *> &list, MetadataStructure *mstructure, QXmlStreamReader &xml);
 
 private:
     XMLSerialiserMetadata() {}

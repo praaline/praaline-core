@@ -61,7 +61,7 @@ QString CorpusRecording::communicationID() const
     return QString();
 }
 
-QPointer<Corpus> CorpusRecording::corpus() const
+Corpus * CorpusRecording::corpus() const
 {
     CorpusCommunication *com = qobject_cast<CorpusCommunication *>(this->parent());
     if (com) return qobject_cast<Corpus *>(com->parent());
@@ -188,7 +188,7 @@ void CorpusRecording::setChecksumMD5(const QString &checksumMD5)
 bool CorpusRecording::save() {
     if (!m_repository) return false;
     if (!m_repository->metadata()) return false;
-    return m_repository->metadata()->saveRecordings(QList<QPointer<CorpusRecording> >() << this);
+    return m_repository->metadata()->saveRecordings(QList<CorpusRecording *>() << this);
 }
 
 PRAALINE_CORE_END_NAMESPACE

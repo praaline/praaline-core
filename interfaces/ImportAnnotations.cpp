@@ -41,7 +41,7 @@ bool ImportAnnotations::importBasic(Corpus *corpus, CorpusCommunication *com, Co
     if (!corpus->repository()) return false;
     if (!corpus->repository()->annotations()) return false;
 
-    QMap<QString, QPointer<AnnotationTierGroup> > tiersAll;
+    SpeakerAnnotationTierGroupMap tiersAll;
     QString spkID;
 
     // Step 0: Get tiers for current speaker if they already exist

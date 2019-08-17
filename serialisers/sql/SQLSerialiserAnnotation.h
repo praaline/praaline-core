@@ -60,7 +60,7 @@ public:
     static AnnotationTierGroup *getTiers(
             const QString &annotationID, const QString &speakerID, const QStringList &levelIDs,
             AnnotationStructure *structure, QSqlDatabase &db);
-    static QMap<QString, QPointer<AnnotationTierGroup> > getTiersAllSpeakers(
+    static SpeakerAnnotationTierGroupMap getTiersAllSpeakers(
             const QString &annotationID, const QStringList &levelIDs, AnnotationStructure *structure, QSqlDatabase &db);
     static bool saveTier(const QString &annotationID, const QString &speakerID, AnnotationTier *tier,
                          AnnotationStructure *structure, QSqlDatabase &db);
@@ -102,8 +102,9 @@ public:
             const QString &levelID, const QStringList &groupByAttributeIDs, bool excludeNULL, QStringList excludeValues,
             AnnotationStructure *structure, QSqlDatabase &db);
 
-private:
-    SQLSerialiserAnnotation() {}
+protected:
+    SQLSerialiserAnnotation();
+    virtual ~SQLSerialiserAnnotation();
 };
 
 PRAALINE_CORE_END_NAMESPACE

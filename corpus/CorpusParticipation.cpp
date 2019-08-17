@@ -5,7 +5,7 @@
 
 PRAALINE_CORE_BEGIN_NAMESPACE
 
-CorpusParticipation::CorpusParticipation(QPointer<CorpusCommunication> com, QPointer<CorpusSpeaker> spk,
+CorpusParticipation::CorpusParticipation(CorpusCommunication * com, CorpusSpeaker * spk,
                                          QString role, QObject *parent) :
     CorpusObject(nullptr, parent), m_communication(com), m_speaker(spk), m_role(role)
 {
@@ -37,18 +37,18 @@ void CorpusParticipation::setID(const QString &ID)
     Q_UNUSED(ID)
 }
 
-QPointer<Corpus> CorpusParticipation::corpus() const
+Corpus * CorpusParticipation::corpus() const
 {
     return qobject_cast<Corpus *>(this->parent());
 }
 
 // read-only properties
-QPointer<CorpusCommunication> CorpusParticipation::communication() const
+CorpusCommunication * CorpusParticipation::communication() const
 {
     return m_communication;
 }
 
-QPointer<CorpusSpeaker> CorpusParticipation::speaker() const
+CorpusSpeaker * CorpusParticipation::speaker() const
 {
     return m_speaker;
 }
@@ -82,7 +82,7 @@ void CorpusParticipation::setRole(const QString &role)
 bool CorpusParticipation::save() {
     if (!m_repository) return false;
     if (!m_repository->metadata()) return false;
-    return m_repository->metadata()->saveParticipations(QList<QPointer<CorpusParticipation> >() << this);
+    return m_repository->metadata()->saveParticipations(QList<CorpusParticipation *>() << this);
 }
 
 PRAALINE_CORE_END_NAMESPACE

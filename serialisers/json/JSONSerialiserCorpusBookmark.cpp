@@ -1,5 +1,4 @@
 #include <QObject>
-#include <QPointer>
 #include <QString>
 #include <QFile>
 #include <QJsonDocument>
@@ -18,7 +17,7 @@ JSONSerialiserCorpusBookmark::~JSONSerialiserCorpusBookmark()
 }
 
 // public static
-bool JSONSerialiserCorpusBookmark::saveCorpusBookmarks(const QList<QPointer<CorpusBookmark> > &list, const QString &filename)
+bool JSONSerialiserCorpusBookmark::saveCorpusBookmarks(const QList<CorpusBookmark *> &list, const QString &filename)
 {
     // Open file for writing
     QFile file(filename);
@@ -35,11 +34,11 @@ bool JSONSerialiserCorpusBookmark::saveCorpusBookmarks(const QList<QPointer<Corp
 }
 
 // public static
-bool JSONSerialiserCorpusBookmark::saveCorpusBookmarks(const QList<QPointer<CorpusBookmark> > &list, QJsonObject &json)
+bool JSONSerialiserCorpusBookmark::saveCorpusBookmarks(const QList<CorpusBookmark *> &list, QJsonObject &json)
 {
     QJsonObject jsonBookmarks;
     QJsonArray arrayBookmarks;
-    foreach (QPointer<CorpusBookmark> bookmark, list) {
+    foreach (CorpusBookmark * bookmark, list) {
         QJsonObject jsonBookmark = writeBookmark(bookmark);
         if (!jsonBookmark.isEmpty()) arrayBookmarks.append(jsonBookmark);
     }
@@ -49,7 +48,7 @@ bool JSONSerialiserCorpusBookmark::saveCorpusBookmarks(const QList<QPointer<Corp
 }
 
 // public static
-bool JSONSerialiserCorpusBookmark::loadCorpusBookmarks(QList<QPointer<CorpusBookmark> > &list, const QString &filename)
+bool JSONSerialiserCorpusBookmark::loadCorpusBookmarks(QList<CorpusBookmark *> &list, const QString &filename)
 {
     QFile file(filename);
     if (!file.open(QIODevice::ReadOnly)) {
@@ -62,7 +61,7 @@ bool JSONSerialiserCorpusBookmark::loadCorpusBookmarks(QList<QPointer<CorpusBook
 }
 
 // public static
-bool JSONSerialiserCorpusBookmark::loadCorpusBookmarks(QList<QPointer<CorpusBookmark> > &list, QJsonObject &json)
+bool JSONSerialiserCorpusBookmark::loadCorpusBookmarks(QList<CorpusBookmark *> &list, QJsonObject &json)
 {
     if (json.contains("corpusBookmarks") && json["corpusBookmarks"].isObject()) {
         QJsonObject jsonBookmarks = json["corpusBookmarks"].toObject();
@@ -71,7 +70,7 @@ bool JSONSerialiserCorpusBookmark::loadCorpusBookmarks(QList<QPointer<CorpusBook
             for (int i = 0; i < arrayBookmarks.size(); ++i) {
                 QJsonObject jsonBookmark = arrayBookmarks[i].toObject();
                 CorpusBookmark *bookmark = readBookmark(jsonBookmark);
-                if (bookmark) list.append(QPointer<CorpusBookmark>(bookmark));
+                if (bookmark) list.append(bookmark);
             }
         }
         return true;

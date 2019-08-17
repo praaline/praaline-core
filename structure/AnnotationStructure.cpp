@@ -16,6 +16,20 @@ AnnotationStructure::~AnnotationStructure()
 }
 
 // ==========================================================================================================
+// Data
+// ==========================================================================================================
+
+QString AnnotationStructure::ID() const
+{
+    return m_ID;
+}
+
+void AnnotationStructure::setID(const QString &ID)
+{
+    m_ID = ID;
+}
+
+// ==========================================================================================================
 // Annotation levels
 // ==========================================================================================================
 
@@ -27,15 +41,16 @@ AnnotationStructureLevel *AnnotationStructure::level(int index) const
 AnnotationStructureLevel *AnnotationStructure::level(const QString &ID) const
 {
     foreach (AnnotationStructureLevel *level, m_levels) {
-        if (level->ID() == ID) return level;
+        if ((level) && (level->ID() == ID))
+            return level;
     }
     return nullptr;
 }
 
-int AnnotationStructure::getLevelIndexByID(const QString &ID) const
+int AnnotationStructure::levelIndexByID(const QString &ID) const
 {
     for (int i = 0; i < m_levels.count(); i++ ) {
-        if (m_levels[i]->ID() == ID) return i;
+        if ((m_levels[i]) && (m_levels[i]->ID() == ID)) return i;
     }
     return -1;
 }
@@ -47,7 +62,7 @@ int AnnotationStructure::levelsCount() const
 
 bool AnnotationStructure::hasLevel(const QString &ID) const
 {
-    return (getLevelIndexByID(ID) != -1);
+    return (levelIndexByID(ID) != -1);
 }
 
 bool AnnotationStructure::hasLevels() const
@@ -59,7 +74,7 @@ QStringList AnnotationStructure::levelIDs() const
 {
     QStringList ret;
     foreach (AnnotationStructureLevel *level, m_levels)
-        ret << level->ID();
+        if (level) ret << level->ID();
     return ret;
 }
 
@@ -68,20 +83,24 @@ QList<AnnotationStructureLevel *> AnnotationStructure::levels() const
     return m_levels;
 }
 
-void AnnotationStructure::insertLevel(int index, AnnotationStructureLevel *level)
+bool AnnotationStructure::insertLevel(int index, AnnotationStructureLevel *level)
 {
-    if (!level) return;
-    if (hasLevel(level->ID())) return;
+    if (!level) return false;
+    if (hasLevel(level->ID())) return false;
     level->setParent(this);
     m_levels.insert(index, level);
+    emit levelAdded(this, level);
+    return true;
 }
 
-void AnnotationStructure::addLevel(AnnotationStructureLevel *level)
+bool AnnotationStructure::addLevel(AnnotationStructureLevel *level)
 {
-    if (!level) return;
-    if (hasLevel(level->ID())) return;
+    if (!level) return false;
+    if (hasLevel(level->ID())) return false;
     level->setParent(this);
     m_levels << level;
+    emit levelAdded(this, level);
+    return true;
 }
 
 void AnnotationStructure::swapLevels(int oldIndex, int newIndex)
@@ -91,27 +110,28 @@ void AnnotationStructure::swapLevels(int oldIndex, int newIndex)
 
 void AnnotationStructure::removeLevelAt(int i)
 {
+    if ((i < 0) || (i >= m_levels.count())) return;
+    AnnotationStructureLevel *level = m_levels.at(i);
     m_levels.removeAt(i);
+    if (level) {
+        QString levelID = level->ID();
+        delete level;
+        emit levelDeleted(this, levelID);
+    }
 }
 
 void AnnotationStructure::removeLevelByID(const QString &ID)
 {
-    int i = getLevelIndexByID(ID);
+    int i = levelIndexByID(ID);
     if (i != -1)
-        m_levels.removeAt(i);
+        removeLevelAt(i);
 }
-
-
-// ==========================================================================================================
-// Management
-// ==========================================================================================================
 
 void AnnotationStructure::clear()
 {
-    m_ID = "";
-    qDeleteAll(m_levels);
-    m_levels.clear();
-    emit AnnotationStructureChanged();
+    for (int i = levelsCount() - 1; i >= 0; i--) {
+        removeLevelAt(levelsCount() - 1);
+    }
 }
 
 PRAALINE_CORE_END_NAMESPACE

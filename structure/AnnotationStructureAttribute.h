@@ -30,19 +30,19 @@ class PRAALINE_CORE_SHARED_EXPORT AnnotationStructureAttribute : public Structur
 
 public:
     explicit AnnotationStructureAttribute(QObject *parent = nullptr);
-    AnnotationStructureAttribute(const AnnotationStructureAttribute *other, QObject *parent = nullptr);
-    AnnotationStructureAttribute(const QString &ID, const QString &name = QString(), const QString &description = QString(),
+    AnnotationStructureAttribute(const QString &ID,
+                                 const QString &name = QString(), const QString &description = QString(),
                                  const DataType &datatype = DataType(DataType::VarChar, 255), int order = 0,
                                  bool indexed = false, const QString &nameValueList = QString(),
+                                 const QString &statLevelOfMeasurement = QString(),
                                  QObject *parent = nullptr);
+    ~AnnotationStructureAttribute() override;
+
+    AnnotationStructureAttribute *clone(QObject *parent = nullptr) const override;
 
     // Data
-    QString statLevelOfMeasurement() const { return m_statLevelOfMeasurement; }
-    void setStatLevelOfMeasurement(const QString &statLevelOfMeasurement) { m_statLevelOfMeasurement = statLevelOfMeasurement; }
-
-signals:
-    
-public slots:
+    QString statLevelOfMeasurement() const;
+    void setStatLevelOfMeasurement(const QString &statLevelOfMeasurement);
 
 protected:
     QString m_statLevelOfMeasurement;

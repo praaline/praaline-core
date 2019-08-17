@@ -9,6 +9,10 @@
 
 PRAALINE_CORE_BEGIN_NAMESPACE
 
+SQLSerialiserMetadata::SQLSerialiserMetadata() {}
+
+SQLSerialiserMetadata::~SQLSerialiserMetadata() {}
+
 // ==============================================================================================================================
 // Load metadata information
 // ==============================================================================================================================
@@ -176,12 +180,12 @@ Corpus *SQLSerialiserMetadata::getCorpus(
 }
 
 // static
-QList<QPointer<CorpusCommunication> > SQLSerialiserMetadata::getCommunications(
+QList<CorpusCommunication *> SQLSerialiserMetadata::getCommunications(
         const MetadataDatastore::Selection &selection, QSqlDatabase &db, MetadataStructure *structure, CorpusDatastore *datastore)
 {
-    QList<QPointer<CorpusCommunication> > communications;
-    QMap<QString, QPointer<CorpusRecording> > recordings = getRecordingsByCommunication(selection, db, structure, datastore);
-    QMap<QString, QPointer<CorpusAnnotation> > annotations = getAnnotationsByCommunication(selection, db, structure, datastore);
+    QList<CorpusCommunication *> communications;
+    QMap<QString, CorpusRecording *> recordings = getRecordingsByCommunication(selection, db, structure, datastore);
+    QMap<QString, CorpusAnnotation *> annotations = getAnnotationsByCommunication(selection, db, structure, datastore);
 
     QSqlQuery q(db);
     prepareSelectQuery(q, CorpusObject::Type_Communication, selection);
@@ -207,10 +211,10 @@ QList<QPointer<CorpusCommunication> > SQLSerialiserMetadata::getCommunications(
 }
 
 // static
-QList<QPointer<CorpusSpeaker> > SQLSerialiserMetadata::getSpeakers(
+QList<CorpusSpeaker *> SQLSerialiserMetadata::getSpeakers(
         const MetadataDatastore::Selection &selection, QSqlDatabase &db, MetadataStructure *structure, CorpusDatastore *datastore)
 {
-    QList<QPointer<CorpusSpeaker> > speakers;
+    QList<CorpusSpeaker *> speakers;
     QSqlQuery q(db);
     prepareSelectQuery(q, CorpusObject::Type_Speaker, selection);
     q.exec();
@@ -230,10 +234,10 @@ QList<QPointer<CorpusSpeaker> > SQLSerialiserMetadata::getSpeakers(
 }
 
 // static
-QList<QPointer<CorpusParticipation> > SQLSerialiserMetadata::getParticipations(
+QList<CorpusParticipation *> SQLSerialiserMetadata::getParticipations(
         const MetadataDatastore::Selection &selection, QSqlDatabase &db, MetadataStructure *structure, CorpusDatastore *datastore)
 {
-    QList<QPointer<CorpusParticipation> > participations;
+    QList<CorpusParticipation *> participations;
     QSqlQuery q(db);
     prepareSelectQuery(q, CorpusObject::Type_Participation, selection);
     q.exec();
@@ -241,8 +245,8 @@ QList<QPointer<CorpusParticipation> > SQLSerialiserMetadata::getParticipations(
         QString corpusID =  q.value("corpusID").toString();
         QString communicationID = q.value("communicationID").toString();
         QString speakerID = q.value("speakerID").toString();
-        QList<QPointer<CorpusCommunication> > communications = getCommunications(MetadataDatastore::Selection(corpusID, communicationID, ""), db, structure, datastore);
-        QList<QPointer<CorpusSpeaker> > speakers = getSpeakers(MetadataDatastore::Selection(corpusID, "", speakerID), db, structure, datastore);
+        QList<CorpusCommunication *> communications = getCommunications(MetadataDatastore::Selection(corpusID, communicationID, ""), db, structure, datastore);
+        QList<CorpusSpeaker *> speakers = getSpeakers(MetadataDatastore::Selection(corpusID, "", speakerID), db, structure, datastore);
         if ((communications.count() != 1) || (speakers.count() != 1)) {
             qDeleteAll(communications);
             qDeleteAll(speakers);
@@ -261,15 +265,15 @@ QList<QPointer<CorpusParticipation> > SQLSerialiserMetadata::getParticipations(
 }
 
 // static
-QList<QPointer<CorpusRecording> > SQLSerialiserMetadata::getRecordings(
+QList<CorpusRecording *> SQLSerialiserMetadata::getRecordings(
         const MetadataDatastore::Selection &selection, QSqlDatabase &db, MetadataStructure *structure, CorpusDatastore *datastore)
 {
-    QList<QPointer<CorpusRecording> > recordings;
+    QList<CorpusRecording *> recordings;
     QSqlQuery q(db);
     prepareSelectQuery(q, CorpusObject::Type_Recording, selection);
     q.exec();
     while (q.next()) {
-        QPointer<CorpusRecording> rec = new CorpusRecording();
+        CorpusRecording * rec = new CorpusRecording();
         readRecording(q, rec, structure);
         setClean(rec);
         datastore->setRepository(rec);
@@ -279,15 +283,15 @@ QList<QPointer<CorpusRecording> > SQLSerialiserMetadata::getRecordings(
 }
 
 // static
-QList<QPointer<CorpusAnnotation> > SQLSerialiserMetadata::getAnnotations(
+QList<CorpusAnnotation *> SQLSerialiserMetadata::getAnnotations(
         const MetadataDatastore::Selection &selection, QSqlDatabase &db, MetadataStructure *structure, CorpusDatastore *datastore)
 {
-    QList<QPointer<CorpusAnnotation> > annotations;
+    QList<CorpusAnnotation *> annotations;
     QSqlQuery q(db);
     prepareSelectQuery(q, CorpusObject::Type_Annotation, selection);
     q.exec();
     while (q.next()) {
-        QPointer<CorpusAnnotation>  annot = new CorpusAnnotation();
+        CorpusAnnotation *  annot = new CorpusAnnotation();
         readAnnotation(q, annot, structure);
         setClean(annot);
         datastore->setRepository(annot);
@@ -297,15 +301,15 @@ QList<QPointer<CorpusAnnotation> > SQLSerialiserMetadata::getAnnotations(
 }
 
 // static
-QMultiMap<QString, QPointer<CorpusRecording> > SQLSerialiserMetadata::getRecordingsByCommunication(
+QMultiMap<QString, CorpusRecording *> SQLSerialiserMetadata::getRecordingsByCommunication(
         const MetadataDatastore::Selection &selection, QSqlDatabase &db, MetadataStructure *structure, CorpusDatastore *datastore)
 {
-    QMultiMap<QString, QPointer<CorpusRecording> > recordings;
+    QMultiMap<QString, CorpusRecording *> recordings;
     QSqlQuery q(db);
     prepareSelectQuery(q, CorpusObject::Type_Recording, selection);
     q.exec();
     while (q.next()) {
-        QPointer<CorpusRecording> rec = new CorpusRecording();
+        CorpusRecording * rec = new CorpusRecording();
         QString communicationID = q.value("communicationID").toString();
         readRecording(q, rec, structure);
         setClean(rec);
@@ -316,15 +320,15 @@ QMultiMap<QString, QPointer<CorpusRecording> > SQLSerialiserMetadata::getRecordi
 }
 
 // static
-QMultiMap<QString, QPointer<CorpusAnnotation> > SQLSerialiserMetadata::getAnnotationsByCommunication(
+QMultiMap<QString, CorpusAnnotation *> SQLSerialiserMetadata::getAnnotationsByCommunication(
         const MetadataDatastore::Selection &selection, QSqlDatabase &db, MetadataStructure *structure, CorpusDatastore *datastore)
 {
-    QMultiMap<QString, QPointer<CorpusAnnotation> > annotations;
+    QMultiMap<QString, CorpusAnnotation *> annotations;
     QSqlQuery q(db);
     prepareSelectQuery(q, CorpusObject::Type_Annotation, selection);
     q.exec();
     while (q.next()) {
-        QPointer<CorpusAnnotation> annot = new CorpusAnnotation();
+        CorpusAnnotation * annot = new CorpusAnnotation();
         QString communicationID = q.value("communicationID").toString();
         readAnnotation(q, annot, structure);
         setClean(annot);

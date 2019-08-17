@@ -16,7 +16,6 @@
 */
 
 #include <QObject>
-#include <QPointer>
 #include <QString>
 #include <QXmlStreamReader>
 #include <QXmlStreamWriter>
@@ -30,10 +29,10 @@ PRAALINE_CORE_BEGIN_NAMESPACE
 class PRAALINE_CORE_SHARED_EXPORT XMLSerialiserCorpusBookmark : XMLSerialiserBase
 {
 public:
-    static bool saveCorpusBookmarks(const QList<QPointer<CorpusBookmark> > &list, const QString &filename);
-    static bool saveCorpusBookmarks(const QList<QPointer<CorpusBookmark> > &list, QXmlStreamWriter &xml);
-    static bool loadCorpusBookmarks(QList<QPointer<CorpusBookmark> > &list, const QString &filename);
-    static bool loadCorpusBookmarks(QList<QPointer<CorpusBookmark> > &list, QXmlStreamReader &xml);
+    static bool saveCorpusBookmarks(const QList<CorpusBookmark *> &list, const QString &filename);
+    static bool saveCorpusBookmarks(const QList<CorpusBookmark *> &list, QXmlStreamWriter &xml);
+    static bool loadCorpusBookmarks(QList<CorpusBookmark *> &list, const QString &filename);
+    static bool loadCorpusBookmarks(QList<CorpusBookmark *> &list, QXmlStreamReader &xml);
 
 private:
     XMLSerialiserCorpusBookmark();

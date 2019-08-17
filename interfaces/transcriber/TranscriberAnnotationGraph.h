@@ -3,7 +3,6 @@
 
 #include "pncore_global.h"
 #include <QObject>
-#include <QPointer>
 #include <QList>
 #include <QMap>
 #include <QString>
@@ -23,10 +22,10 @@ class PRAALINE_CORE_SHARED_EXPORT TranscriberAnnotationGraph : InterfaceTextFile
 {
 public:    
     // Public static methods to read and write Transcriber Annotation Graphs in XML format
-    static bool load(const QString &filename, QList<QPointer<CorpusSpeaker> > &speakers,
-                     QMap<QString, QPointer<AnnotationTierGroup> > &tiersAll);
-    static bool save(const QString &filename, QList<QPointer<CorpusSpeaker> > &speakers,
-                     QMap<QString, QPointer<AnnotationTierGroup> > &tiersAll);
+    static bool load(const QString &filename, QList<CorpusSpeaker *> &speakers,
+                     SpeakerAnnotationTierGroupMap &tiersAll);
+    static bool save(const QString &filename, QList<CorpusSpeaker *> &speakers,
+                     SpeakerAnnotationTierGroupMap &tiersAll);
 
 private:
     struct SpeakerData {

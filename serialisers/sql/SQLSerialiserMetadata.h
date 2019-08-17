@@ -15,7 +15,6 @@
     the GNU General Public License for more details.
 */
 
-#include <QPointer>
 #include <QSqlDatabase>
 
 #include "pncore_global.h"
@@ -50,19 +49,19 @@ public:
     // Load metadata information
     static Corpus *getCorpus(
             const QString &corpusID, QSqlDatabase &db, MetadataStructure *structure, CorpusDatastore *datastore);
-    static QList<QPointer<CorpusCommunication> > getCommunications(
+    static QList<CorpusCommunication *> getCommunications(
             const MetadataDatastore::Selection &selection, QSqlDatabase &db, MetadataStructure *structure, CorpusDatastore *datastore);
-    static QList<QPointer<CorpusSpeaker> > getSpeakers(
+    static QList<CorpusSpeaker *> getSpeakers(
             const MetadataDatastore::Selection &selection, QSqlDatabase &db, MetadataStructure *structure, CorpusDatastore *datastore);
-    static QList<QPointer<CorpusRecording> > getRecordings(
+    static QList<CorpusRecording *> getRecordings(
             const MetadataDatastore::Selection &selection, QSqlDatabase &db, MetadataStructure *structure, CorpusDatastore *datastore);
-    static QList<QPointer<CorpusAnnotation> > getAnnotations(
+    static QList<CorpusAnnotation *> getAnnotations(
             const MetadataDatastore::Selection &selection, QSqlDatabase &db, MetadataStructure *structure, CorpusDatastore *datastore);
-    static QMultiMap<QString, QPointer<CorpusRecording> > getRecordingsByCommunication(
+    static QMultiMap<QString, CorpusRecording *> getRecordingsByCommunication(
             const MetadataDatastore::Selection &selection, QSqlDatabase &db, MetadataStructure *structure, CorpusDatastore *datastore);
-    static QMultiMap<QString, QPointer<CorpusAnnotation> > getAnnotationsByCommunication(
+    static QMultiMap<QString, CorpusAnnotation *> getAnnotationsByCommunication(
             const MetadataDatastore::Selection &selection, QSqlDatabase &db, MetadataStructure *structure, CorpusDatastore *datastore);
-    static QList<QPointer<CorpusParticipation> > getParticipations(
+    static QList<CorpusParticipation *> getParticipations(
             const MetadataDatastore::Selection &selection, QSqlDatabase &db, MetadataStructure *structure, CorpusDatastore *datastore);
 
     // Save means insert or update, appropriately
@@ -99,9 +98,11 @@ public:
     static QList<QPair<QList<QVariant>, long> > getDistinctValues(CorpusObject::Type type, const QStringList &attributeIDs,
                                                                   QSqlDatabase &db, MetadataStructure *structure);
 
-private:
-    SQLSerialiserMetadata() {}
+protected:
+    SQLSerialiserMetadata();
+    ~SQLSerialiserMetadata();
 
+private:
     // Helper functions
     static QString tableName(CorpusObject::Type type);
 

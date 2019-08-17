@@ -17,7 +17,6 @@
 
 #include <QString>
 #include <QMap>
-#include <QPointer>
 #include <QSqlDatabase>
 
 #include "pncore_global.h"
@@ -42,7 +41,7 @@ public:
     static bool upgradeNameValueListSchema(QSqlDatabase &db);
     static NameValueList *getNameValueList(const QString &listID, NameValueListType listType, QSqlDatabase &db);
     static QStringList getAllNameValueListIDs(NameValueListType listType, QSqlDatabase &db);
-    static QMap<QString, QPointer<NameValueList> > getAllNameValueLists(NameValueListType listType, QSqlDatabase &db);
+    static QMap<QString, NameValueList *> getAllNameValueLists(NameValueListType listType, QSqlDatabase &db);
     static bool createNameValueList(NameValueList *newList, NameValueListType listType, QSqlDatabase &db);
     static bool updateNameValueList(NameValueList *list, NameValueListType listType, QSqlDatabase &db);
     static bool deleteNameValueList(const QString &listID, NameValueListType listType, QSqlDatabase &db);

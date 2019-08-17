@@ -150,7 +150,7 @@ bool XMLSerialiserMetadata::saveParticipation(CorpusParticipation *participation
 void XMLSerialiserMetadata::readAttributes(CorpusObject::Type what, CorpusObject *obj, MetadataStructure *mstructure, QXmlStreamReader &xml)
 {
     QXmlStreamAttributes xmlAttributes = xml.attributes();
-    foreach (QPointer<MetadataStructureAttribute> attribute, mstructure->attributes(what)) {
+    foreach (MetadataStructureAttribute *attribute, mstructure->attributes(what)) {
         if (xmlAttributes.hasAttribute(attribute->ID())) {
             if (attribute->datatype().base() == DataType::Integer)
                 obj->setProperty(attribute->ID(),
@@ -312,7 +312,7 @@ CorpusAnnotation *XMLSerialiserMetadata::readAnnotation(MetadataStructure *mstru
 //    if (xmlAttributes.hasAttribute("communicationID"))  communicationID = xmlAttributes.value("communicationID").toString();
 //    if (xmlAttributes.hasAttribute("speakerID"))        speakerID = xmlAttributes.value("speakerID").toString();
 //    if (xmlAttributes.hasAttribute("role"))             role = xmlAttributes.value("role").toString();
-//    QPointer<CorpusParticipation> participation = corpus->addParticipation(communicationID, speakerID, role);
+//    CorpusParticipation * participation = corpus->addParticipation(communicationID, speakerID, role);
 //    if (!participation) return;
 //    readAttributes(participation, mstructure, CorpusObject::Type_Participation, xml);
 //}
@@ -322,7 +322,7 @@ CorpusAnnotation *XMLSerialiserMetadata::readAnnotation(MetadataStructure *mstru
 
 
 // public static
-bool XMLSerialiserMetadata::saveCorpora(const QList<QPointer<Corpus> > &list, MetadataStructure *mstructure, QXmlStreamWriter &xml)
+bool XMLSerialiserMetadata::saveCorpora(const QList<Corpus *> &list, MetadataStructure *mstructure, QXmlStreamWriter &xml)
 {
     Q_UNUSED(list)
     Q_UNUSED(mstructure)
@@ -331,7 +331,7 @@ bool XMLSerialiserMetadata::saveCorpora(const QList<QPointer<Corpus> > &list, Me
 }
 
 // public static
-bool XMLSerialiserMetadata::saveCommunications(const QList<QPointer<CorpusCommunication> > &list, MetadataStructure *mstructure, QXmlStreamWriter &xml)
+bool XMLSerialiserMetadata::saveCommunications(const QList<CorpusCommunication *> &list, MetadataStructure *mstructure, QXmlStreamWriter &xml)
 {
     Q_UNUSED(list)
     Q_UNUSED(mstructure)
@@ -340,7 +340,7 @@ bool XMLSerialiserMetadata::saveCommunications(const QList<QPointer<CorpusCommun
 }
 
 // public static
-bool XMLSerialiserMetadata::saveSpeakers(const QList<QPointer<CorpusSpeaker> > &list, MetadataStructure *mstructure, QXmlStreamWriter &xml)
+bool XMLSerialiserMetadata::saveSpeakers(const QList<CorpusSpeaker *> &list, MetadataStructure *mstructure, QXmlStreamWriter &xml)
 {
     Q_UNUSED(list)
     Q_UNUSED(mstructure)
@@ -349,7 +349,7 @@ bool XMLSerialiserMetadata::saveSpeakers(const QList<QPointer<CorpusSpeaker> > &
 }
 
 // public static
-bool XMLSerialiserMetadata::saveRecordings(const QList<QPointer<CorpusRecording> > &list, MetadataStructure *mstructure, QXmlStreamWriter &xml)
+bool XMLSerialiserMetadata::saveRecordings(const QList<CorpusRecording *> &list, MetadataStructure *mstructure, QXmlStreamWriter &xml)
 {
     Q_UNUSED(list)
     Q_UNUSED(mstructure)
@@ -358,7 +358,7 @@ bool XMLSerialiserMetadata::saveRecordings(const QList<QPointer<CorpusRecording>
 }
 
 // public static
-bool XMLSerialiserMetadata::saveAnnotations(const QList<QPointer<CorpusAnnotation> > &list, MetadataStructure *mstructure, QXmlStreamWriter &xml)
+bool XMLSerialiserMetadata::saveAnnotations(const QList<CorpusAnnotation *> &list, MetadataStructure *mstructure, QXmlStreamWriter &xml)
 {
     Q_UNUSED(list)
     Q_UNUSED(mstructure)
@@ -367,7 +367,7 @@ bool XMLSerialiserMetadata::saveAnnotations(const QList<QPointer<CorpusAnnotatio
 }
 
 // public static
-bool XMLSerialiserMetadata::saveParticipations(const QList<QPointer<CorpusParticipation> > &list, MetadataStructure *mstructure, QXmlStreamWriter &xml)
+bool XMLSerialiserMetadata::saveParticipations(const QList<CorpusParticipation *> &list, MetadataStructure *mstructure, QXmlStreamWriter &xml)
 {
     Q_UNUSED(list)
     Q_UNUSED(mstructure)
@@ -376,7 +376,7 @@ bool XMLSerialiserMetadata::saveParticipations(const QList<QPointer<CorpusPartic
 }
 
 // public static
-bool XMLSerialiserMetadata::loadCorpora(QList<QPointer<Corpus> > &list, MetadataStructure *mstructure, QXmlStreamReader &xml)
+bool XMLSerialiserMetadata::loadCorpora(QList<Corpus *> &list, MetadataStructure *mstructure, QXmlStreamReader &xml)
 {
     Q_UNUSED(list)
     Q_UNUSED(mstructure)
@@ -385,7 +385,7 @@ bool XMLSerialiserMetadata::loadCorpora(QList<QPointer<Corpus> > &list, Metadata
 }
 
 // public static
-bool XMLSerialiserMetadata::loadCommunications(QList<QPointer<CorpusCommunication> > &list, MetadataStructure *mstructure, QXmlStreamReader &xml)
+bool XMLSerialiserMetadata::loadCommunications(QList<CorpusCommunication *> &list, MetadataStructure *mstructure, QXmlStreamReader &xml)
 {
     Q_UNUSED(list)
     Q_UNUSED(mstructure)
@@ -394,7 +394,7 @@ bool XMLSerialiserMetadata::loadCommunications(QList<QPointer<CorpusCommunicatio
 }
 
 // public static
-bool XMLSerialiserMetadata::loadSpeakers(QList<QPointer<CorpusSpeaker> > &list, MetadataStructure *mstructure, QXmlStreamReader &xml)
+bool XMLSerialiserMetadata::loadSpeakers(QList<CorpusSpeaker *> &list, MetadataStructure *mstructure, QXmlStreamReader &xml)
 {
     Q_UNUSED(list)
     Q_UNUSED(mstructure)
@@ -403,7 +403,7 @@ bool XMLSerialiserMetadata::loadSpeakers(QList<QPointer<CorpusSpeaker> > &list, 
 }
 
 // public static
-bool XMLSerialiserMetadata::loadRecordings(QList<QPointer<CorpusRecording> > &list, MetadataStructure *mstructure, QXmlStreamReader &xml)
+bool XMLSerialiserMetadata::loadRecordings(QList<CorpusRecording *> &list, MetadataStructure *mstructure, QXmlStreamReader &xml)
 {
     Q_UNUSED(list)
     Q_UNUSED(mstructure)
@@ -412,7 +412,7 @@ bool XMLSerialiserMetadata::loadRecordings(QList<QPointer<CorpusRecording> > &li
 }
 
 // public static
-bool XMLSerialiserMetadata::loadAnnotations(QList<QPointer<CorpusAnnotation> > &list, MetadataStructure *mstructure, QXmlStreamReader &xml)
+bool XMLSerialiserMetadata::loadAnnotations(QList<CorpusAnnotation *> &list, MetadataStructure *mstructure, QXmlStreamReader &xml)
 {
     Q_UNUSED(list)
     Q_UNUSED(mstructure)

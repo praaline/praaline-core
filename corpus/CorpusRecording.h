@@ -53,7 +53,7 @@ public:
     bool save() override;
 
     QString communicationID() const;
-    QPointer<Corpus> corpus() const;
+    Corpus * corpus() const;
 
     QString basePath() const;
     QString filePath() const;

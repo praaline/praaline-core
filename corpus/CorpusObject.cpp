@@ -1,5 +1,4 @@
 #include <QObject>
-#include <QPointer>
 #include <QVariant>
 #include <QDynamicPropertyChangeEvent>
 #include "base/ISaveable.h"

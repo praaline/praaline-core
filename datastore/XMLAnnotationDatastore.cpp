@@ -114,9 +114,9 @@ QStringList XMLAnnotationDatastore::getAllNameValueListIDs()
     return ret;
 }
 
-QMap<QString, QPointer<NameValueList> > XMLAnnotationDatastore::getAllNameValueLists()
+QMap<QString, NameValueList *> XMLAnnotationDatastore::getAllNameValueLists()
 {
-    QMap<QString, QPointer<NameValueList> > ret;
+    QMap<QString, NameValueList *> ret;
     return ret;
 }
 
@@ -159,11 +159,11 @@ AnnotationTierGroup *XMLAnnotationDatastore::getTiers(const QString &annotationI
     return nullptr;
 }
 
-QMap<QString, QPointer<AnnotationTierGroup> > XMLAnnotationDatastore::getTiersAllSpeakers(const QString &annotationID, const QStringList &levelIDs)
+QMap<QString, AnnotationTierGroup *> XMLAnnotationDatastore::getTiersAllSpeakers(const QString &annotationID, const QStringList &levelIDs)
 {
     Q_UNUSED(annotationID)
     Q_UNUSED(levelIDs)
-    QMap<QString, QPointer<AnnotationTierGroup> > ret;
+    QMap<QString, AnnotationTierGroup *> ret;
     return ret;
 }
 
@@ -183,7 +183,7 @@ bool XMLAnnotationDatastore::saveTiers(const QString &annotationID, const QStrin
     return false;
 }
 
-bool XMLAnnotationDatastore::saveTiersAllSpeakers(const QString &annotationID, QMap<QString, QPointer<AnnotationTierGroup> > &tiersAllSpeakers)
+bool XMLAnnotationDatastore::saveTiersAllSpeakers(const QString &annotationID, QMap<QString, AnnotationTierGroup *> &tiersAllSpeakers)
 {
     Q_UNUSED(annotationID)
     Q_UNUSED(tiersAllSpeakers)

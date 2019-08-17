@@ -44,7 +44,7 @@ public:
     // ==========================================================================================================================
     bool loadMetadataStructure() override;
     bool saveMetadataStructure() override;
-    bool createMetadataAttribute(CorpusObject::Type type, QPointer<MetadataStructureAttribute> newAttribute) override;
+    bool createMetadataAttribute(CorpusObject::Type type, MetadataStructureAttribute *newAttribute) override;
     bool renameMetadataAttribute(CorpusObject::Type type, const QString &attributeID, const QString &newAttributeID) override;
     bool deleteMetadataAttribute(CorpusObject::Type type, const QString &attributeID) override;
     bool retypeMetadataAttribute(CorpusObject::Type type, const QString &attributeID, const DataType &newDatatype) override;
@@ -54,7 +54,7 @@ public:
     // ==========================================================================================================================
     NameValueList *getNameValueList(const QString &listID) override;
     QStringList getAllNameValueListIDs() override;
-    QMap<QString, QPointer<NameValueList> > getAllNameValueLists() override;
+    QMap<QString, NameValueList *> getAllNameValueLists() override;
     bool createNameValueList(NameValueList *list) override;
     bool updateNameValueList(NameValueList *list) override;
     bool deleteNameValueList(const QString &listID) override;
@@ -70,21 +70,21 @@ public:
     // ==========================================================================================================================
     // Load metadata information
     Corpus *getCorpus(const QString &corpusID) override;
-    QList<QPointer<CorpusCommunication> > getCommunications(const Selection &selection) override;
-    QList<QPointer<CorpusSpeaker> > getSpeakers(const Selection &selection) override;
-    QList<QPointer<CorpusRecording> > getRecordings(const Selection &selection) override;
-    QList<QPointer<CorpusAnnotation> > getAnnotations(const Selection &selection) override;
-    QList<QPointer<CorpusParticipation> > getParticipations(const Selection &selection) override;
+    QList<CorpusCommunication *> getCommunications(const Selection &selection) override;
+    QList<CorpusSpeaker *> getSpeakers(const Selection &selection) override;
+    QList<CorpusRecording *> getRecordings(const Selection &selection) override;
+    QList<CorpusAnnotation *> getAnnotations(const Selection &selection) override;
+    QList<CorpusParticipation *> getParticipations(const Selection &selection) override;
 
     // Save (insert or update) corpus objects
     bool saveCorpus(Corpus *corpus) override;
     bool saveCommunication(CorpusCommunication *communication) override;
-    bool saveCommunications(QList<QPointer<CorpusCommunication> > &communications) override;
+    bool saveCommunications(QList<CorpusCommunication *> &communications) override;
     bool saveSpeaker(CorpusSpeaker *speaker) override;
-    bool saveSpeakers(QList<QPointer<CorpusSpeaker> > &speakers) override;
-    bool saveRecordings(QList<QPointer<CorpusRecording> > &recordings) override;
-    bool saveAnnotations(QList<QPointer<CorpusAnnotation> >  &annotations) override;
-    bool saveParticipations(QList<QPointer<CorpusParticipation> >  &participations) override;  
+    bool saveSpeakers(QList<CorpusSpeaker *> &speakers) override;
+    bool saveRecordings(QList<CorpusRecording *> &recordings) override;
+    bool saveAnnotations(QList<CorpusAnnotation *>  &annotations) override;
+    bool saveParticipations(QList<CorpusParticipation *>  &participations) override;  
 
     // Delete corpus objects
     bool deleteCorpus(const QString &corpusID) override;

@@ -155,7 +155,7 @@ bool createNewSchema(MetadataStructure *structure, CorpusObject::Type what, QSql
 }
 
 // static
-bool SQLSerialiserMetadataStructure::initialiseMetadataSchema(QPointer<MetadataStructure> structure, QSqlDatabase &db)
+bool SQLSerialiserMetadataStructure::initialiseMetadataSchema(MetadataStructure *structure, QSqlDatabase &db)
 {
     if (!structure) return false;
     if (!db.isValid()) return false;
@@ -171,7 +171,7 @@ bool SQLSerialiserMetadataStructure::initialiseMetadataSchema(QPointer<MetadataS
 }
 
 // static
-bool SQLSerialiserMetadataStructure::upgradeMetadataSchema(QPointer<MetadataStructure> structure, QSqlDatabase &db)
+bool SQLSerialiserMetadataStructure::upgradeMetadataSchema(MetadataStructure *structure, QSqlDatabase &db)
 {
     if (!structure) return false;
     if (!db.isValid()) return false;
@@ -201,7 +201,7 @@ void readAttribute(QSqlQuery &q, MetadataStructureAttribute *attribute)
 }
 
 // static
-bool SQLSerialiserMetadataStructure::loadMetadataStructure(QPointer<MetadataStructure> structure, QSqlDatabase &db)
+bool SQLSerialiserMetadataStructure::loadMetadataStructure(MetadataStructure *structure, QSqlDatabase &db)
 {
     if (!structure) return false;
     if (!db.isValid()) return false;
@@ -273,7 +273,7 @@ bool SQLSerialiserMetadataStructure::loadMetadataStructure(QPointer<MetadataStru
     objectTypes << CorpusObject::Type_Corpus << CorpusObject::Type_Communication << CorpusObject::Type_Speaker
                 << CorpusObject::Type_Recording << CorpusObject::Type_Annotation << CorpusObject::Type_Participation;
     foreach (CorpusObject::Type objectType, objectTypes) {
-        foreach (QPointer<MetadataStructureSection> section, structure->sections(objectType)) {
+        foreach (MetadataStructureSection *section, structure->sections(objectType)) {
             q2.bindValue(":objectType", SQLSerialiserSystem::corpusObjectCodeFromType(objectType));
             q2.bindValue(":sectionID", section->ID());
             q2.exec();
@@ -303,7 +303,7 @@ bool SQLSerialiserMetadataStructure::loadMetadataStructure(QPointer<MetadataStru
 }
 
 // static
-bool SQLSerialiserMetadataStructure::saveMetadataStructure(QPointer<MetadataStructure> structure, QSqlDatabase &db)
+bool SQLSerialiserMetadataStructure::saveMetadataStructure(MetadataStructure *structure, QSqlDatabase &db)
 {
     if (!structure) return false;
     if (!db.isValid()) return false;
@@ -325,10 +325,10 @@ bool SQLSerialiserMetadataStructure::saveMetadataStructure(QPointer<MetadataStru
         q2.exec();
         while (q2.next()) attributeIDsInDatabase << q2.value("attributeID").toString();
         // Update (possilby insert)
-        foreach (QPointer<MetadataStructureSection> section, structure->sections(objectType)) {
+        foreach (MetadataStructureSection *section, structure->sections(objectType)) {
             result = result && updateMetadataSection(objectType, section, db);
             sectionIDsInStructure << section->ID();
-            foreach (QPointer<MetadataStructureAttribute> attribute, section->attributes()) {
+            foreach (MetadataStructureAttribute *attribute, section->attributes()) {
                 result = result && updateMetadataAttribute(objectType, attribute, db);
                 attributeIDsInStructure << attribute->ID();
             }
@@ -347,7 +347,7 @@ bool SQLSerialiserMetadataStructure::saveMetadataStructure(QPointer<MetadataStru
 }
 
 // static
-bool SQLSerialiserMetadataStructure::createMetadataSection(CorpusObject::Type type, QPointer<MetadataStructureSection> newSection, QSqlDatabase &db)
+bool SQLSerialiserMetadataStructure::createMetadataSection(CorpusObject::Type type, MetadataStructureSection *newSection, QSqlDatabase &db)
 {
     if (!newSection) return false;
     if (!db.isValid()) return false;
@@ -366,7 +366,7 @@ bool SQLSerialiserMetadataStructure::createMetadataSection(CorpusObject::Type ty
 }
 
 // static
-bool SQLSerialiserMetadataStructure::updateMetadataSection(CorpusObject::Type type, QPointer<MetadataStructureSection> updatedSection, QSqlDatabase &db)
+bool SQLSerialiserMetadataStructure::updateMetadataSection(CorpusObject::Type type, MetadataStructureSection *updatedSection, QSqlDatabase &db)
 {
     if (!updatedSection) return false;
     if (!db.isValid()) return false;
@@ -415,7 +415,7 @@ bool SQLSerialiserMetadataStructure::deleteMetadataSection(CorpusObject::Type ty
 }
 
 // static
-bool SQLSerialiserMetadataStructure::createMetadataAttribute(CorpusObject::Type type, QPointer<MetadataStructureAttribute> newAttribute,
+bool SQLSerialiserMetadataStructure::createMetadataAttribute(CorpusObject::Type type, MetadataStructureAttribute *newAttribute,
                                                              QSqlDatabase &db)
 {
     if (!newAttribute) return false;
@@ -445,7 +445,7 @@ bool SQLSerialiserMetadataStructure::createMetadataAttribute(CorpusObject::Type 
 }
 
 // static
-bool SQLSerialiserMetadataStructure::updateMetadataAttribute(CorpusObject::Type type, QPointer<MetadataStructureAttribute> updatedAttribute,
+bool SQLSerialiserMetadataStructure::updateMetadataAttribute(CorpusObject::Type type, MetadataStructureAttribute *updatedAttribute,
                                                              QSqlDatabase &db)
 {
     if (!updatedAttribute) return false;

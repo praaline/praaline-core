@@ -3,7 +3,6 @@
 
 #include "pncore_global.h"
 #include <QObject>
-#include <QPointer>
 #include <QList>
 #include <QXmlStreamReader>
 #include "base/RealTime.h"

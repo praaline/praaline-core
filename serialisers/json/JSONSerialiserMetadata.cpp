@@ -1,5 +1,4 @@
 #include <QList>
-#include <QPointer>
 #include <QJsonObject>
 #include "JSONSerialiserBase.h"
 #include "corpus/Corpus.h"
@@ -11,6 +10,9 @@
 #include "JSONSerialiserMetadata.h"
 
 PRAALINE_CORE_BEGIN_NAMESPACE
+
+JSONSerialiserMetadata::JSONSerialiserMetadata() {}
+JSONSerialiserMetadata::~JSONSerialiserMetadata() {}
 
 // public static
 bool JSONSerialiserMetadata::saveCorpus(Corpus *corpus, MetadataStructure* structure, QJsonObject &json)
@@ -69,7 +71,7 @@ bool JSONSerialiserMetadata::saveParticipation(CorpusParticipation *participatio
 // ========================================================================================================================================
 
 // public static
-bool JSONSerialiserMetadata::saveCorpora(const QList<QPointer<Corpus> > &list, MetadataStructure *structure, QJsonObject &json)
+bool JSONSerialiserMetadata::saveCorpora(const QList<Corpus *> &list, MetadataStructure *structure, QJsonObject &json)
 {
     Q_UNUSED(list)
     Q_UNUSED(structure)
@@ -78,7 +80,7 @@ bool JSONSerialiserMetadata::saveCorpora(const QList<QPointer<Corpus> > &list, M
 }
 
 // public static
-bool JSONSerialiserMetadata::saveCommunications(const QList<QPointer<CorpusCommunication> > &list, MetadataStructure *structure, QJsonObject &json)
+bool JSONSerialiserMetadata::saveCommunications(const QList<CorpusCommunication *> &list, MetadataStructure *structure, QJsonObject &json)
 {
     Q_UNUSED(list)
     Q_UNUSED(structure)
@@ -87,7 +89,7 @@ bool JSONSerialiserMetadata::saveCommunications(const QList<QPointer<CorpusCommu
 }
 
 // public static
-bool JSONSerialiserMetadata::saveSpeakers(const QList<QPointer<CorpusSpeaker> > &list, MetadataStructure *structure, QJsonObject &json)
+bool JSONSerialiserMetadata::saveSpeakers(const QList<CorpusSpeaker *> &list, MetadataStructure *structure, QJsonObject &json)
 {
     Q_UNUSED(list)
     Q_UNUSED(structure)
@@ -96,7 +98,7 @@ bool JSONSerialiserMetadata::saveSpeakers(const QList<QPointer<CorpusSpeaker> > 
 }
 
 // public static
-bool JSONSerialiserMetadata::saveRecordings(const QList<QPointer<CorpusRecording> > &list, MetadataStructure *structure, QJsonObject &json)
+bool JSONSerialiserMetadata::saveRecordings(const QList<CorpusRecording *> &list, MetadataStructure *structure, QJsonObject &json)
 {
     Q_UNUSED(list)
     Q_UNUSED(structure)
@@ -105,7 +107,7 @@ bool JSONSerialiserMetadata::saveRecordings(const QList<QPointer<CorpusRecording
 }
 
 // public static
-bool JSONSerialiserMetadata::saveAnnotations(const QList<QPointer<CorpusAnnotation> > &list, MetadataStructure *structure, QJsonObject &json)
+bool JSONSerialiserMetadata::saveAnnotations(const QList<CorpusAnnotation *> &list, MetadataStructure *structure, QJsonObject &json)
 {
     Q_UNUSED(list)
     Q_UNUSED(structure)
@@ -114,7 +116,7 @@ bool JSONSerialiserMetadata::saveAnnotations(const QList<QPointer<CorpusAnnotati
 }
 
 // public static
-bool JSONSerialiserMetadata::saveParticipations(const QList<QPointer<CorpusParticipation> > &list, MetadataStructure *structure, QJsonObject &json)
+bool JSONSerialiserMetadata::saveParticipations(const QList<CorpusParticipation *> &list, MetadataStructure *structure, QJsonObject &json)
 {
     Q_UNUSED(list)
     Q_UNUSED(structure)
@@ -125,7 +127,7 @@ bool JSONSerialiserMetadata::saveParticipations(const QList<QPointer<CorpusParti
 // ========================================================================================================================================
 
 // public static
-bool JSONSerialiserMetadata::loadCorpora(QList<QPointer<Corpus> > &list, MetadataStructure *structure, QJsonObject &json)
+bool JSONSerialiserMetadata::loadCorpora(QList<Corpus *> &list, MetadataStructure *structure, QJsonObject &json)
 {
     Q_UNUSED(list)
     Q_UNUSED(structure)
@@ -134,7 +136,7 @@ bool JSONSerialiserMetadata::loadCorpora(QList<QPointer<Corpus> > &list, Metadat
 }
 
 // public static
-bool JSONSerialiserMetadata::loadCommunications(QList<QPointer<CorpusCommunication> > &list, MetadataStructure *structure, QJsonObject &json)
+bool JSONSerialiserMetadata::loadCommunications(QList<CorpusCommunication *> &list, MetadataStructure *structure, QJsonObject &json)
 {
     Q_UNUSED(list)
     Q_UNUSED(structure)
@@ -143,7 +145,7 @@ bool JSONSerialiserMetadata::loadCommunications(QList<QPointer<CorpusCommunicati
 }
 
 // public static
-bool JSONSerialiserMetadata::loadSpeakers(QList<QPointer<CorpusSpeaker> > &list, MetadataStructure *structure, QJsonObject &json)
+bool JSONSerialiserMetadata::loadSpeakers(QList<CorpusSpeaker *> &list, MetadataStructure *structure, QJsonObject &json)
 {
     Q_UNUSED(list)
     Q_UNUSED(structure)
@@ -152,7 +154,7 @@ bool JSONSerialiserMetadata::loadSpeakers(QList<QPointer<CorpusSpeaker> > &list,
 }
 
 // public static
-bool JSONSerialiserMetadata::loadRecordings(QList<QPointer<CorpusRecording> > &list, MetadataStructure *structure, QJsonObject &json)
+bool JSONSerialiserMetadata::loadRecordings(QList<CorpusRecording *> &list, MetadataStructure *structure, QJsonObject &json)
 {
     Q_UNUSED(list)
     Q_UNUSED(structure)
@@ -161,7 +163,7 @@ bool JSONSerialiserMetadata::loadRecordings(QList<QPointer<CorpusRecording> > &l
 }
 
 // public static
-bool JSONSerialiserMetadata::loadAnnotations(QList<QPointer<CorpusAnnotation> > &list, MetadataStructure *structure, QJsonObject &json)
+bool JSONSerialiserMetadata::loadAnnotations(QList<CorpusAnnotation *> &list, MetadataStructure *structure, QJsonObject &json)
 {
     Q_UNUSED(list)
     Q_UNUSED(structure)
@@ -170,7 +172,7 @@ bool JSONSerialiserMetadata::loadAnnotations(QList<QPointer<CorpusAnnotation> > 
 }
 
 // public static
-//bool JSONSerialiserMetadata::loadParticipations(QList<QPointer<CorpusParticipation> > &list, MetadataStructure *structure, QJsonObject &json)
+//bool JSONSerialiserMetadata::loadParticipations(QList<CorpusParticipation *> &list, MetadataStructure *structure, QJsonObject &json)
 //{
 
 //}

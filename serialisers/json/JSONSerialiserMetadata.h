@@ -16,7 +16,6 @@
 */
 
 #include <QList>
-#include <QPointer>
 #include <QJsonObject>
 
 #include "pncore_global.h"
@@ -41,24 +40,25 @@ public:
     static bool saveAnnotation(CorpusAnnotation *annot, MetadataStructure *structure, QJsonObject &json);
     static bool saveParticipation(CorpusParticipation *participation, MetadataStructure *structure, QJsonObject &json);
 
-    static bool saveCorpora(const QList<QPointer<Corpus> > &list, MetadataStructure *structure, QJsonObject &json);
-    static bool saveCommunications(const QList<QPointer<CorpusCommunication> > &list, MetadataStructure *structure, QJsonObject &json);
-    static bool saveSpeakers(const QList<QPointer<CorpusSpeaker> > &list, MetadataStructure *structure, QJsonObject &json);
-    static bool saveRecordings(const QList<QPointer<CorpusRecording> > &list, MetadataStructure *structure, QJsonObject &json);
-    static bool saveAnnotations(const QList<QPointer<CorpusAnnotation> > &list, MetadataStructure *structure, QJsonObject &json);
-    static bool saveParticipations(const QList<QPointer<CorpusParticipation> > &list, MetadataStructure *structure, QJsonObject &json);
+    static bool saveCorpora(const QList<Corpus *> &list, MetadataStructure *structure, QJsonObject &json);
+    static bool saveCommunications(const QList<CorpusCommunication *> &list, MetadataStructure *structure, QJsonObject &json);
+    static bool saveSpeakers(const QList<CorpusSpeaker *> &list, MetadataStructure *structure, QJsonObject &json);
+    static bool saveRecordings(const QList<CorpusRecording *> &list, MetadataStructure *structure, QJsonObject &json);
+    static bool saveAnnotations(const QList<CorpusAnnotation *> &list, MetadataStructure *structure, QJsonObject &json);
+    static bool saveParticipations(const QList<CorpusParticipation *> &list, MetadataStructure *structure, QJsonObject &json);
 
-    static bool loadCorpora(QList<QPointer<Corpus> > &list, MetadataStructure *structure, QJsonObject &json);
-    static bool loadCommunications(QList<QPointer<CorpusCommunication> > &list, MetadataStructure *structure, QJsonObject &json);
-    static bool loadSpeakers(QList<QPointer<CorpusSpeaker> > &list, MetadataStructure *structure, QJsonObject &json);
-    static bool loadRecordings(QList<QPointer<CorpusRecording> > &list, MetadataStructure *structure, QJsonObject &json);
-    static bool loadAnnotations(QList<QPointer<CorpusAnnotation> > &list, MetadataStructure *structure, QJsonObject &json);
-   // static bool loadParticipations(QList<QPointer<CorpusParticipation> > &list, MetadataStructure *structure, QJsonObject &json);
+    static bool loadCorpora(QList<Corpus *> &list, MetadataStructure *structure, QJsonObject &json);
+    static bool loadCommunications(QList<CorpusCommunication *> &list, MetadataStructure *structure, QJsonObject &json);
+    static bool loadSpeakers(QList<CorpusSpeaker *> &list, MetadataStructure *structure, QJsonObject &json);
+    static bool loadRecordings(QList<CorpusRecording *> &list, MetadataStructure *structure, QJsonObject &json);
+    static bool loadAnnotations(QList<CorpusAnnotation *> &list, MetadataStructure *structure, QJsonObject &json);
+   // static bool loadParticipations(QList<CorpusParticipation *> &list, MetadataStructure *structure, QJsonObject &json);
+
+protected:
+    JSONSerialiserMetadata();
+    ~JSONSerialiserMetadata();
 
 private:
-    JSONSerialiserMetadata() {}
-    ~JSONSerialiserMetadata() {}
-
     static Corpus *readCorpus(MetadataStructure *structure, QJsonObject &json);
     static CorpusCommunication *readCommunication(MetadataStructure *structure, QJsonObject &json);
     static CorpusSpeaker *readSpeaker(MetadataStructure *structure, QJsonObject &json);

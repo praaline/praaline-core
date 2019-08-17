@@ -16,6 +16,9 @@
 
 PRAALINE_CORE_BEGIN_NAMESPACE
 
+SQLSerialiserAnnotation::SQLSerialiserAnnotation() {}
+SQLSerialiserAnnotation::~SQLSerialiserAnnotation() {}
+
 // ==========================================================================================================================
 // Helper Functions
 // ==========================================================================================================================
@@ -366,7 +369,7 @@ AnnotationTierGroup *SQLSerialiserAnnotation::getTiers(
     return tiers;
 }
 
-QMap<QString, QPointer<AnnotationTierGroup> > SQLSerialiserAnnotation::getTiersAllSpeakers(
+SpeakerAnnotationTierGroupMap SQLSerialiserAnnotation::getTiersAllSpeakers(
         const QString &annotationID, const QStringList &levelIDs, AnnotationStructure *structure, QSqlDatabase &db)
 {
     // Check which levels exist in the database (out of those requested)
@@ -379,7 +382,7 @@ QMap<QString, QPointer<AnnotationTierGroup> > SQLSerialiserAnnotation::getTiersA
         }
     }
     // Collect data
-    QMap<QString, QPointer<AnnotationTierGroup> > tiersAll;
+    SpeakerAnnotationTierGroupMap tiersAll;
     foreach (QString levelID, effectiveLevelIDs) {
         QString q = QString("SELECT DISTINCT speakerID FROM %1 WHERE annotationID = :annotationID").arg(levelID);
         QSqlQuery query(db);
@@ -389,7 +392,7 @@ QMap<QString, QPointer<AnnotationTierGroup> > SQLSerialiserAnnotation::getTiersA
         query.exec();
         while (query.next()) {
             QString speakerID = query.value(0).toString();
-            QPointer<AnnotationTierGroup> tiersSpk;
+            AnnotationTierGroup *tiersSpk;
             if (tiersAll.contains(speakerID))
                 tiersSpk = tiersAll.value(speakerID);
             else {
@@ -578,7 +581,7 @@ IntervalTier *SQLSerialiserAnnotation::getSpeakerTimeline(
 {
     QList<RealTime> timelineBoundaries;
     QMap<QString, QList<Interval *> > speakingIntervals;
-    QMap<QString, IntervalTier * > speakingTiers;
+    QMap<QString, IntervalTier *> speakingTiers;
 
     if (!structure) return nullptr;
     AnnotationStructureLevel *level = structure->level(levelID);

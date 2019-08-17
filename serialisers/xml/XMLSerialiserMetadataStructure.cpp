@@ -9,9 +9,8 @@ QString XMLSerialiserMetadataStructure::xmlElementName_Structure("MetadataStruct
 QString XMLSerialiserMetadataStructure::xmlElementName_Section("MetadataStructureSection");
 QString XMLSerialiserMetadataStructure::xmlElementName_Attribute("MetadataStructureAttribute");
 
-XMLSerialiserMetadataStructure::XMLSerialiserMetadataStructure()
-{
-}
+XMLSerialiserMetadataStructure::XMLSerialiserMetadataStructure() {}
+XMLSerialiserMetadataStructure::~XMLSerialiserMetadataStructure() {}
 
 // -------------------------------------------------------------------------------------------------------------------------
 

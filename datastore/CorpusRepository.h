@@ -18,7 +18,6 @@
 #include "pncore_global.h"
 #include <QObject>
 #include <QString>
-#include <QPointer>
 #include "base/DataType.h"
 #include "corpus/CorpusObjectInfo.h"
 
@@ -53,16 +52,16 @@ public:
 
     // Datastores
     // ==========================================================================================================================
-    QPointer<AnnotationDatastore> annotations() const;
-    QPointer<MetadataDatastore> metadata() const;
-    QPointer<FileDatastore> files() const;
+    AnnotationDatastore *annotations() const;
+    MetadataDatastore *metadata() const;
+    FileDatastore *files() const;
     QList<CorpusObjectInfo> listCorporaInfo() const;
     QStringList listCorporaIDs() const;
 
     // Metadata and Annotation structures
     // ==========================================================================================================================
-    QPointer<MetadataStructure> metadataStructure() const;
-    QPointer<AnnotationStructure> annotationStructure() const;
+    MetadataStructure *metadataStructure() const;
+    AnnotationStructure *annotationStructure() const;
     void importMetadataStructure(MetadataStructure *otherStructure);
     void importAnnotationStructure(AnnotationStructure *otherStructure);
     bool createMetadataAttribute(CorpusObject::Type type, const QString &sectionID, const QString &ID, const QString &name = QString(),

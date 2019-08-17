@@ -7,44 +7,61 @@
 
 PRAALINE_CORE_BEGIN_NAMESPACE
 
+// private
+void MetadataStructure::createDefaultSection(CorpusObject::Type what)
+{
+    if (what == CorpusObject::Type_Corpus) {
+        m_sections[CorpusObject::Type_Corpus].append(
+                    new MetadataStructureSection("corpus", tr("Corpus"), tr("Corpus Metadata"), 0, this));
+    } else if (what == CorpusObject::Type_Communication) {
+        m_sections[CorpusObject::Type_Communication].append(
+                    new MetadataStructureSection("communication", tr("Communication"), tr("Communication Metadata"), 0, this));
+    } else if (what == CorpusObject::Type_Speaker) {
+        m_sections[CorpusObject::Type_Speaker].append(
+                    new MetadataStructureSection("speaker", tr("Speaker"), tr("Speaker Metadata"), 0, this));
+    } else if (what == CorpusObject::Type_Recording) {
+        m_sections[CorpusObject::Type_Recording].append(
+                    new MetadataStructureSection("recording", tr("Recording"), tr("Recording Metadata"), 0, this));
+    } else if (what == CorpusObject::Type_Annotation) {
+        m_sections[CorpusObject::Type_Annotation].append(
+                    new MetadataStructureSection("annotation", tr("Annotation"), tr("Annotation Metadata"), 0, this));
+    } else if (what == CorpusObject::Type_Participation) {
+        m_sections[CorpusObject::Type_Participation].append(
+                    new MetadataStructureSection("participation", tr("Participation"), tr("Participation Metadata"), 0, this));
+    }
+}
+
 MetadataStructure::MetadataStructure(QObject *parent) :
     QObject(parent)
 {
     // There is always a default metadata section for each corpus object type
-    m_sections[CorpusObject::Type_Corpus].append(
-                new MetadataStructureSection("corpus", tr("Corpus"), tr("Corpus Metadata"), 0, this));
-    m_sections[CorpusObject::Type_Communication].append(
-                new MetadataStructureSection("communication", tr("Communication"), tr("Communication Metadata"), 0, this));
-    m_sections[CorpusObject::Type_Speaker].append(
-                new MetadataStructureSection("speaker", tr("Speaker"), tr("Speaker Metadata"), 0, this));
-    m_sections[CorpusObject::Type_Recording].append(
-                new MetadataStructureSection("recording", tr("Recording"), tr("Recording Metadata"), 0, this));
-    m_sections[CorpusObject::Type_Annotation].append(
-                new MetadataStructureSection("annotation", tr("Annotation"), tr("Annotation Metadata"), 0, this));
-    m_sections[CorpusObject::Type_Participation].append(
-                new MetadataStructureSection("participation", tr("Participation"), tr("Participation Metadata"), 0, this));
+    createDefaultSection(CorpusObject::Type_Corpus);
+    createDefaultSection(CorpusObject::Type_Communication);
+    createDefaultSection(CorpusObject::Type_Speaker);
+    createDefaultSection(CorpusObject::Type_Recording);
+    createDefaultSection(CorpusObject::Type_Annotation);
+    createDefaultSection(CorpusObject::Type_Participation);
 }
 
 MetadataStructure::~MetadataStructure()
 {
-    foreach (CorpusObject::Type type, m_sections.keys())
-        qDeleteAll(m_sections[type]);
+    // Sections are QObjects, they will be deleted when their parent (this) is deleted.
 }
 
 // ==========================================================================================================
 // Metadata structure sections
 // ==========================================================================================================
 
-QPointer<MetadataStructureSection> MetadataStructure::section(CorpusObject::Type what, int index) const
+MetadataStructureSection *MetadataStructure::section(CorpusObject::Type what, int index) const
 {
     if (!m_sections.contains(what)) return nullptr;
     return m_sections[what].value(index);
 }
 
-QPointer<MetadataStructureSection> MetadataStructure::section(CorpusObject::Type what, const QString &ID) const
+MetadataStructureSection *MetadataStructure::section(CorpusObject::Type what, const QString &ID) const
 {
     if (!m_sections.contains(what)) return nullptr;
-    foreach (QPointer<MetadataStructureSection> section, m_sections[what]) {
+    foreach (MetadataStructureSection *section, m_sections[what]) {
         if ((section) && section->ID() == ID)
             return section;
     }
@@ -73,69 +90,122 @@ bool MetadataStructure::hasSections(CorpusObject::Type what) const
     return !m_sections[what].isEmpty();
 }
 
-QList<QPointer<MetadataStructureSection> > MetadataStructure::sections(CorpusObject::Type what) const
+bool MetadataStructure::hasSection(CorpusObject::Type what, const QString &ID) const
+{
+    return (sectionIndexByID(what, ID) != -1);
+}
+
+QList<MetadataStructureSection *> MetadataStructure::sections(CorpusObject::Type what) const
 {
     return m_sections[what];
 }
 
-void MetadataStructure::insertSection(CorpusObject::Type what, int index, MetadataStructureSection *section)
+bool MetadataStructure::replaceDefaultSection(CorpusObject::Type what, MetadataStructureSection *section)
 {
-    if (!section) return;
+    if (!section) return false;
+    section->setParent(this);
+    MetadataStructureSection *previousDefaultSection = m_sections[what].takeFirst();
+    m_sections[what].prepend(section);
+    delete previousDefaultSection;
+    emit sectionDeleted(this, what, defaultSectionID(what));
+    emit sectionAdded(this, what, section);
+    return true;
+}
+
+bool MetadataStructure::insertSection(CorpusObject::Type what, int index, MetadataStructureSection *section)
+{
+    if (!section) return false;
+    if (section->ID() == defaultSectionID(what)) {
+        replaceDefaultSection(what, section);
+    }
+    if (hasSection(what, section->ID())) return false;
     section->setParent(this);
     if (index == 0) index = 1; // you cannot insert before the default
     m_sections[what].insert(index, section);
-    emit MetadataStructureChanged();
+    emit sectionAdded(this, what, section);
+    return true;
 }
 
-void MetadataStructure::addSection(CorpusObject::Type what, MetadataStructureSection *section)
+bool MetadataStructure::addSection(CorpusObject::Type what, MetadataStructureSection *section)
 {
-    if (!section) return;
+    if (!section) return false;
+    if (section->ID() == defaultSectionID(what)) {
+        replaceDefaultSection(what, section);
+    }
+    if (hasSection(what, section->ID())) return false;
     section->setParent(this);
     m_sections[what] << section;
-    emit MetadataStructureChanged();
+    emit sectionAdded(this, what, section);
+    return true;
 }
 
 void MetadataStructure::swapSections(CorpusObject::Type what, int oldIndex, int newIndex)
 {
     if ((oldIndex == 0) || (newIndex == 0)) return;
     m_sections[what].swapItemsAt(oldIndex, newIndex);
-    emit MetadataStructureChanged();
 }
+
 
 void MetadataStructure::removeSectionAt(CorpusObject::Type what, int i)
 {
-    if (i == 0) return;
+    // cannot remove default section (at index 0)
+    if ((i <= 0) || (i >= m_sections[what].count())) return;
+    MetadataStructureSection *section = m_sections[what].at(i);
     m_sections[what].removeAt(i);
-    emit MetadataStructureChanged();
+    if (section) {
+        QString sectionID = section->ID();
+        delete section;
+        emit sectionDeleted(this, what, sectionID);
+    }
 }
 
 void MetadataStructure::removeSectionByID(CorpusObject::Type what, const QString &ID)
 {
     int i = sectionIndexByID(what, ID);
-    if (i != -1 && i != 0) {
-        m_sections[what].removeAt(i);
-        emit MetadataStructureChanged();
+    if ((i != -1) && (i != 0)) {
+        removeSectionAt(what, i);
     }
 }
 
-QPointer<MetadataStructureAttribute> MetadataStructure::attribute(CorpusObject::Type what, const QString &ID) const
+void MetadataStructure::clear(CorpusObject::Type what)
 {
-    foreach (QPointer<MetadataStructureSection> section, m_sections[what]) {
+    // Delete all sections except the default one
+    for (int i = sectionsCount(what) - 1; i > 0; i--) {
+        removeSectionAt(what, sectionsCount(what) - 1);
+    }
+    // Clear the default section
+    m_sections[what].at(0)->clear();
+}
+
+void MetadataStructure::clearAll()
+{
+    foreach (CorpusObject::Type what, m_sections.keys()) {
+        clear(what);
+    }
+}
+
+// ==========================================================================================================
+// Direct access to attributes
+// ==========================================================================================================
+
+MetadataStructureAttribute *MetadataStructure::attribute(CorpusObject::Type what, const QString &ID) const
+{
+    foreach (MetadataStructureSection *section, m_sections[what]) {
         if (!section) continue;
-        foreach (QPointer<MetadataStructureAttribute> attribute, section->attributes())
+        foreach (MetadataStructureAttribute *attribute, section->attributes())
             if ((attribute) && (attribute->ID() == ID))
                 return attribute;
     }
     return nullptr;
 }
 
-QList<QPointer<MetadataStructureAttribute> > MetadataStructure::attributes(CorpusObject::Type what) const
+QList<MetadataStructureAttribute *> MetadataStructure::attributes(CorpusObject::Type what) const
 {
-    QList<QPointer<MetadataStructureAttribute> > ret;
+    QList<MetadataStructureAttribute *> ret;
     if (!m_sections.contains(what)) return ret;
-    foreach (QPointer<MetadataStructureSection> section, m_sections[what]) {
+    foreach (MetadataStructureSection *section, m_sections[what]) {
         if (!section) continue;
-        foreach (QPointer<MetadataStructureAttribute> attribute, section->attributes()) {
+        foreach (MetadataStructureAttribute *attribute, section->attributes()) {
             if (attribute) ret << attribute;
         }
     }
@@ -146,7 +216,7 @@ QStringList MetadataStructure::attributeIDs(CorpusObject::Type what) const
 {
     QStringList ret;
     if (!m_sections.contains(what)) return ret;
-    foreach (QPointer<MetadataStructureSection> section, m_sections[what]) {
+    foreach (MetadataStructureSection *section, m_sections[what]) {
         if (!section) continue;
         ret << section->attributeIDs();
     }
@@ -157,53 +227,14 @@ QStringList MetadataStructure::attributeNames(CorpusObject::Type what) const
 {
     QStringList ret;
     if (!m_sections.contains(what)) return ret;
-    foreach (QPointer<MetadataStructureSection> section, m_sections[what]) {
+    foreach (MetadataStructureSection *section, m_sections[what]) {
         if (!section) continue;
         ret << section->attributeNames();
     }
     return ret;
 }
 
-// ==========================================================================================================
-// Management
-// ==========================================================================================================
-
-void MetadataStructure::clear(CorpusObject::Type what)
-{
-    qDeleteAll(m_sections[what]);
-    m_sections[what].clear();
-    if (what == CorpusObject::Type_Corpus) {
-        m_sections[CorpusObject::Type_Corpus].append(
-                    new MetadataStructureSection("corpus", tr("Corpus"), tr("Corpus Metadata"), 0, this));
-    } else if (what == CorpusObject::Type_Communication) {
-        m_sections[CorpusObject::Type_Communication].append(
-                    new MetadataStructureSection("communication", tr("Communication"), tr("Communication Metadata"), 0, this));
-    } else if (what == CorpusObject::Type_Speaker) {
-        m_sections[CorpusObject::Type_Speaker].append(
-                    new MetadataStructureSection("speaker", tr("Speaker"), tr("Speaker Metadata"), 0, this));
-    } else if (what == CorpusObject::Type_Recording) {
-        m_sections[CorpusObject::Type_Recording].append(
-                    new MetadataStructureSection("recording", tr("Recording"), tr("Recording Metadata"), 0, this));
-    } else if (what == CorpusObject::Type_Annotation) {
-        m_sections[CorpusObject::Type_Annotation].append(
-                    new MetadataStructureSection("annotation", tr("Annotation"), tr("Annotation Metadata"), 0, this));
-    } else if (what == CorpusObject::Type_Participation) {
-        m_sections[CorpusObject::Type_Participation].append(
-                    new MetadataStructureSection("participation", tr("Participation"), tr("Participation Metadata"), 0, this));
-    }
-    emit MetadataStructureChanged();
-}
-
-void MetadataStructure::clearAll()
-{
-    m_ID = "";
-    foreach (CorpusObject::Type what, m_sections.keys()) {
-        clear(what);
-    }
-    emit MetadataStructureChanged();
-}
-
-CorpusObject::Type MetadataStructure::corpusObjectTypeOfSection(QPointer<MetadataStructureSection> section) const
+CorpusObject::Type MetadataStructure::corpusObjectTypeOfSection(MetadataStructureSection *section) const
 {
     foreach (CorpusObject::Type type, m_sections.keys()) {
         if (m_sections[type].contains(section))
@@ -211,6 +242,10 @@ CorpusObject::Type MetadataStructure::corpusObjectTypeOfSection(QPointer<Metadat
     }
     return CorpusObject::Type_Undefined;
 }
+
+// ==========================================================================================================
+// Defaults
+// ==========================================================================================================
 
 // static
 QString MetadataStructure::defaultSectionID(CorpusObject::Type type)
@@ -269,7 +304,7 @@ QStringList MetadataStructure::allAttributeIDs(CorpusObject::Type what) const
     QStringList ret;
     ret << basicAttributeIDs(what);
     if (!m_sections.contains(what)) return ret;
-    foreach (QPointer<MetadataStructureSection> section, m_sections[what]) {
+    foreach (MetadataStructureSection *section, m_sections[what]) {
         if (!section) continue;
         ret << section->attributeIDs();
     }
@@ -281,7 +316,7 @@ QStringList MetadataStructure::allAttributeNames(CorpusObject::Type what) const
     QStringList ret;
     ret << basicAttributeNames(what);
     if (!m_sections.contains(what)) return ret;
-    foreach (QPointer<MetadataStructureSection> section, m_sections[what]) {
+    foreach (MetadataStructureSection *section, m_sections[what]) {
         if (!section) continue;
         ret << section->attributeNames();
     }

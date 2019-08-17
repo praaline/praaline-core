@@ -1,4 +1,6 @@
 #include <QDebug>
+#include <QObject>
+#include <QPointer>
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include <QSqlError>
@@ -107,7 +109,7 @@ bool SQLMetadataDatastore::closeDatastore()
 // ==========================================================================================================================
 // Metadata Structure
 // ==========================================================================================================================
-bool SQLMetadataDatastore::createMetadataAttribute(CorpusObject::Type type, QPointer<MetadataStructureAttribute> newAttribute)
+bool SQLMetadataDatastore::createMetadataAttribute(CorpusObject::Type type, MetadataStructureAttribute *newAttribute)
 {
     return SQLSerialiserMetadataStructure::createMetadataAttribute(type, newAttribute, d->database);
 }
@@ -151,7 +153,7 @@ QStringList SQLMetadataDatastore::getAllNameValueListIDs()
     return SQLSerialiserNameValueList::getAllNameValueListIDs(SQLSerialiserNameValueList::Metadata, d->database);
 }
 
-QMap<QString, QPointer<NameValueList> > SQLMetadataDatastore::getAllNameValueLists()
+QMap<QString, NameValueList *> SQLMetadataDatastore::getAllNameValueLists()
 {
     return SQLSerialiserNameValueList::getAllNameValueLists(SQLSerialiserNameValueList::Metadata, d->database);
 }
@@ -194,27 +196,27 @@ Corpus *SQLMetadataDatastore::getCorpus(const QString &corpusID)
     return SQLSerialiserMetadata::getCorpus(corpusID, d->database, d->structure, this);
 }
 
-QList<QPointer<CorpusCommunication> > SQLMetadataDatastore::getCommunications(const Selection &selection)
+QList<CorpusCommunication *> SQLMetadataDatastore::getCommunications(const Selection &selection)
 {
     return SQLSerialiserMetadata::getCommunications(selection, d->database, d->structure, this);
 }
 
-QList<QPointer<CorpusSpeaker> > SQLMetadataDatastore::getSpeakers(const Selection &selection)
+QList<CorpusSpeaker *> SQLMetadataDatastore::getSpeakers(const Selection &selection)
 {
     return SQLSerialiserMetadata::getSpeakers(selection, d->database, d->structure, this);
 }
 
-QList<QPointer<CorpusRecording> > SQLMetadataDatastore::getRecordings(const Selection &selection)
+QList<CorpusRecording *> SQLMetadataDatastore::getRecordings(const Selection &selection)
 {
     return SQLSerialiserMetadata::getRecordings(selection, d->database, d->structure, this);
 }
 
-QList<QPointer<CorpusAnnotation> > SQLMetadataDatastore::getAnnotations(const Selection &selection)
+QList<CorpusAnnotation *> SQLMetadataDatastore::getAnnotations(const Selection &selection)
 {
     return SQLSerialiserMetadata::getAnnotations(selection, d->database, d->structure, this);
 }
 
-QList<QPointer<CorpusParticipation> > SQLMetadataDatastore::getParticipations(const Selection &selection)
+QList<CorpusParticipation *> SQLMetadataDatastore::getParticipations(const Selection &selection)
 {
     return SQLSerialiserMetadata::getParticipations(selection, d->database, d->structure, this);
 }
@@ -230,10 +232,10 @@ bool SQLMetadataDatastore::saveCommunication(CorpusCommunication *communication)
     return SQLSerialiserMetadata::saveCommunication(communication, d->database, d->structure, this);
 }
 
-bool SQLMetadataDatastore::saveCommunications(QList<QPointer<CorpusCommunication> > &communications)
+bool SQLMetadataDatastore::saveCommunications(QList<CorpusCommunication *> &communications)
 {
     bool success = true;
-    foreach (QPointer<CorpusCommunication> com, communications) {
+    foreach (CorpusCommunication * com, communications) {
         if (!com) continue;
         success = success && SQLSerialiserMetadata::saveCommunication(com, d->database, d->structure, this);
     }
@@ -245,40 +247,40 @@ bool SQLMetadataDatastore::saveSpeaker(CorpusSpeaker *speaker)
     return SQLSerialiserMetadata::saveSpeaker(speaker, d->database, d->structure, this);
 }
 
-bool SQLMetadataDatastore::saveSpeakers(QList<QPointer<CorpusSpeaker> > &speakers)
+bool SQLMetadataDatastore::saveSpeakers(QList<CorpusSpeaker *> &speakers)
 {
     bool success = true;
-    foreach (QPointer<CorpusSpeaker> spk, speakers) {
+    foreach (CorpusSpeaker * spk, speakers) {
         if (!spk) continue;
         success = success && SQLSerialiserMetadata::saveSpeaker(spk, d->database, d->structure, this);
     }
     return success;
 }
 
-bool SQLMetadataDatastore::saveRecordings(QList<QPointer<CorpusRecording> > &recordings)
+bool SQLMetadataDatastore::saveRecordings(QList<CorpusRecording *> &recordings)
 {
     bool success = true;
-    foreach (QPointer<CorpusRecording> rec, recordings) {
+    foreach (CorpusRecording * rec, recordings) {
         if (!rec) continue;
         success = success && SQLSerialiserMetadata::saveRecording(rec, d->database, d->structure, this);
     }
     return success;
 }
 
-bool SQLMetadataDatastore::saveAnnotations(QList<QPointer<CorpusAnnotation> >  &annotations)
+bool SQLMetadataDatastore::saveAnnotations(QList<CorpusAnnotation *>  &annotations)
 {
     bool success = true;
-    foreach (QPointer<CorpusAnnotation> annot, annotations) {
+    foreach (CorpusAnnotation * annot, annotations) {
         if (!annot) continue;
         success = success && SQLSerialiserMetadata::saveAnnotation(annot, d->database, d->structure, this);
     }
     return success;
 }
 
-bool SQLMetadataDatastore::saveParticipations(QList<QPointer<CorpusParticipation> >  &participations)
+bool SQLMetadataDatastore::saveParticipations(QList<CorpusParticipation *>  &participations)
 {
     bool success = true;
-    foreach (QPointer<CorpusParticipation> part, participations) {
+    foreach (CorpusParticipation * part, participations) {
         if (!part) continue;
         success = success && SQLSerialiserMetadata::saveParticipation(part, d->database, d->structure, this);
     }

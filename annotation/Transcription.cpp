@@ -43,9 +43,9 @@ QStringList Transcription::speakerIDs() const
     return QStringList();
 }
 
-QList<CorpusSpeaker> Transcription::speakers() const
+QList<CorpusSpeaker *> Transcription::speakers() const
 {
-    QList<CorpusSpeaker> ret;
+    QList<CorpusSpeaker *> ret;
     return ret;
 }
 

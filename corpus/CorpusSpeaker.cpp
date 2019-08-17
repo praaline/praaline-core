@@ -33,7 +33,7 @@ CorpusSpeaker::CorpusSpeaker(CorpusSpeaker *other, QObject *parent) :
     copyPropertiesFrom(other);
 }
 
-QPointer<Corpus> CorpusSpeaker::corpus() const
+Corpus *CorpusSpeaker::corpus() const
 {
     return qobject_cast<Corpus *>(this->parent());
 }
@@ -49,7 +49,7 @@ void CorpusSpeaker::setName(const QString &name)
 bool CorpusSpeaker::save() {
     if (!m_repository) return false;
     if (!m_repository->metadata()) return false;
-    return m_repository->metadata()->saveSpeakers(QList<QPointer<CorpusSpeaker> >() << this);
+    return m_repository->metadata()->saveSpeakers(QList<CorpusSpeaker *>() << this);
 }
 
 PRAALINE_CORE_END_NAMESPACE

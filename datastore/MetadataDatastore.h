@@ -17,7 +17,6 @@
 
 #include "pncore_global.h"
 #include <QObject>
-#include <QPointer>
 #include <QList>
 #include <QMap>
 #include "base/DataType.h"
@@ -81,7 +80,7 @@ public:
     // ==========================================================================================================================
     virtual bool loadMetadataStructure() = 0;
     virtual bool saveMetadataStructure() = 0;
-    virtual bool createMetadataAttribute(CorpusObject::Type type, QPointer<MetadataStructureAttribute> newAttribute) = 0;
+    virtual bool createMetadataAttribute(CorpusObject::Type type, MetadataStructureAttribute *newAttribute) = 0;
     virtual bool renameMetadataAttribute(CorpusObject::Type type, const QString &attributeID, const QString &newAttributeID) = 0;
     virtual bool deleteMetadataAttribute(CorpusObject::Type type, const QString &attributeID) = 0;
     virtual bool retypeMetadataAttribute(CorpusObject::Type type, const QString &attributeID, const DataType &newDatatype) = 0;
@@ -91,7 +90,7 @@ public:
     // ==========================================================================================================================
     virtual NameValueList *getNameValueList(const QString &listID) = 0;
     virtual QStringList getAllNameValueListIDs() = 0;
-    virtual QMap<QString, QPointer<NameValueList> > getAllNameValueLists() = 0;
+    virtual QMap<QString, NameValueList *> getAllNameValueLists() = 0;
     virtual bool createNameValueList(NameValueList *list) = 0;
     virtual bool updateNameValueList(NameValueList *list) = 0;
     virtual bool deleteNameValueList(const QString &listID) = 0;
@@ -107,21 +106,21 @@ public:
     // ==========================================================================================================================
     // Load metadata information
     virtual Corpus *getCorpus(const QString &corpusID) = 0;
-    virtual QList<QPointer<CorpusCommunication> > getCommunications(const Selection &selection) = 0;
-    virtual QList<QPointer<CorpusSpeaker> > getSpeakers(const Selection &selection) = 0;
-    virtual QList<QPointer<CorpusRecording> > getRecordings(const Selection &selection) = 0;
-    virtual QList<QPointer<CorpusAnnotation> > getAnnotations(const Selection &selection) = 0;
-    virtual QList<QPointer<CorpusParticipation> > getParticipations(const Selection &selection) = 0;
+    virtual QList<CorpusCommunication *> getCommunications(const Selection &selection) = 0;
+    virtual QList<CorpusSpeaker *> getSpeakers(const Selection &selection) = 0;
+    virtual QList<CorpusRecording *> getRecordings(const Selection &selection) = 0;
+    virtual QList<CorpusAnnotation *> getAnnotations(const Selection &selection) = 0;
+    virtual QList<CorpusParticipation *> getParticipations(const Selection &selection) = 0;
 
     // Save (insert or update) corpus objects
     virtual bool saveCorpus(Corpus *corpus) = 0;
     virtual bool saveCommunication(CorpusCommunication *communication) = 0;
-    virtual bool saveCommunications(QList<QPointer<CorpusCommunication> > &communications) = 0;
+    virtual bool saveCommunications(QList<CorpusCommunication *> &communications) = 0;
     virtual bool saveSpeaker(CorpusSpeaker *speaker) = 0;
-    virtual bool saveSpeakers(QList<QPointer<CorpusSpeaker> > &speakers) = 0;
-    virtual bool saveRecordings(QList<QPointer<CorpusRecording> > &recordings) = 0;
-    virtual bool saveAnnotations(QList<QPointer<CorpusAnnotation> >  &annotations) = 0;
-    virtual bool saveParticipations(QList<QPointer<CorpusParticipation> >  &participations) = 0;
+    virtual bool saveSpeakers(QList<CorpusSpeaker *> &speakers) = 0;
+    virtual bool saveRecordings(QList<CorpusRecording *> &recordings) = 0;
+    virtual bool saveAnnotations(QList<CorpusAnnotation *>  &annotations) = 0;
+    virtual bool saveParticipations(QList<CorpusParticipation *>  &participations) = 0;
 
     // Delete corpus objects
     virtual bool deleteCorpus(const QString &corpusID) = 0;

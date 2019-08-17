@@ -37,17 +37,17 @@ QString SpeakerTimeline::minimalLevelID() const
     return d->minimalLevelID;
 }
 
-QPointer<IntervalTier> SpeakerTimeline::timelineDetailed() const
+IntervalTier *SpeakerTimeline::timelineDetailed() const
 {
     return d->tier_timelineSyll;
 }
 
-QPointer<IntervalTier> SpeakerTimeline::timelineCoarse() const
+IntervalTier *SpeakerTimeline::timelineCoarse() const
 {
     return d->tier_timelineSpk;
 }
 
-bool SpeakerTimeline::calculate(QPointer<CorpusCommunication> com, const QString &minimalLevelID)
+bool SpeakerTimeline::calculate(CorpusCommunication * com, const QString &minimalLevelID)
 {
     if (!com) return false;
     if (!com->repository()) return false;
@@ -122,7 +122,7 @@ bool SpeakerTimeline::calculate(QPointer<CorpusCommunication> com, const QString
     return true;
 }
 
-void debugCreateTimelineTextgrid(QPointer<CorpusCommunication> com, const QString &minimalLevelID)
+void debugCreateTimelineTextgrid(CorpusCommunication * com, const QString &minimalLevelID)
 {
     if (!com) return;
     if (!com->repository()) return;
@@ -130,17 +130,17 @@ void debugCreateTimelineTextgrid(QPointer<CorpusCommunication> com, const QStrin
     SpeakerTimeline timeline;
     if (!timeline.calculate(com, minimalLevelID)) return;
 
-    IntervalTier *tier_timelineSyll(timeline.timelineDetailed().data());
-    IntervalTier *tier_timelineSpk(timeline.timelineCoarse().data());
+    IntervalTier *tier_timelineSyll(timeline.timelineDetailed());
+    IntervalTier *tier_timelineSpk(timeline.timelineCoarse());
 
     QString path = com->repository()->files()->basePath();
     QScopedPointer<AnnotationTierGroup> txg(new AnnotationTierGroup());
-    foreach (QPointer<CorpusAnnotation> annot, com->annotations()) {
+    foreach (CorpusAnnotation * annot, com->annotations()) {
         if (!annot) continue;
         QString annotationID = annot->ID();
-        QMap<QString, QPointer<AnnotationTierGroup> > tiersAll = com->repository()->annotations()->getTiersAllSpeakers(annotationID);
+        SpeakerAnnotationTierGroupMap tiersAll = com->repository()->annotations()->getTiersAllSpeakers(annotationID);
         foreach (QString speakerID, tiersAll.keys()) {
-            QPointer<AnnotationTierGroup> tiers = tiersAll.value(speakerID);
+            AnnotationTierGroup *tiers = tiersAll.value(speakerID);
             if (!tiers) continue;
             IntervalTier *tier_syll = tiers->getIntervalTierByName("syll");
             IntervalTier *tier_tokmin = tiers->getIntervalTierByName("tok_min");

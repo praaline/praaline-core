@@ -16,7 +16,6 @@
 */
 
 #include <QObject>
-#include <QPointer>
 #include <QString>
 #include <QJsonObject>
 
@@ -29,15 +28,16 @@ PRAALINE_CORE_BEGIN_NAMESPACE
 class PRAALINE_CORE_SHARED_EXPORT JSONSerialiserCorpusBookmark : JSONSerialiserBase
 {
 public:
-    static bool saveCorpusBookmarks(const QList<QPointer<CorpusBookmark> > &list, const QString &filename);
-    static bool saveCorpusBookmarks(const QList<QPointer<CorpusBookmark> > &list, QJsonObject &json);
-    static bool loadCorpusBookmarks(QList<QPointer<CorpusBookmark> > &list, const QString &filename);
-    static bool loadCorpusBookmarks(QList<QPointer<CorpusBookmark> > &list, QJsonObject &json);
+    static bool saveCorpusBookmarks(const QList<CorpusBookmark *> &list, const QString &filename);
+    static bool saveCorpusBookmarks(const QList<CorpusBookmark *> &list, QJsonObject &json);
+    static bool loadCorpusBookmarks(QList<CorpusBookmark *> &list, const QString &filename);
+    static bool loadCorpusBookmarks(QList<CorpusBookmark *> &list, QJsonObject &json);
 
-private:
+protected:
     JSONSerialiserCorpusBookmark();
     ~JSONSerialiserCorpusBookmark();
 
+private:
     static CorpusBookmark *readBookmark(QJsonObject &json);
     static QJsonObject writeBookmark(CorpusBookmark *bookmark);
 };

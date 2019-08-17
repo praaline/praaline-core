@@ -15,7 +15,6 @@
     the GNU General Public License for more details.
 */
 
-#include <QPointer>
 #include <QSqlDatabase>
 
 #include "pncore_global.h"
@@ -29,16 +28,16 @@ class SQLSerialiserAnnotationStructure : public SQLSchemaProxyBase
 public:
     static bool initialiseAnnotationStructureTables(QSqlDatabase &db);
 
-    static bool loadAnnotationStructure(QPointer<AnnotationStructure> structure, QSqlDatabase &db);
-    static bool saveAnnotationStructure(QPointer<AnnotationStructure> structure, QSqlDatabase &db);
+    static bool loadAnnotationStructure(AnnotationStructure *structure, QSqlDatabase &db);
+    static bool saveAnnotationStructure(AnnotationStructure *structure, QSqlDatabase &db);
 
-    static bool createAnnotationLevel(QPointer<AnnotationStructureLevel> newLevel, QSqlDatabase &db);
-    static bool updateAnnotationLevel(QPointer<AnnotationStructureLevel> updatedLevel, QSqlDatabase &db);
+    static bool createAnnotationLevel(AnnotationStructureLevel *newLevel, QSqlDatabase &db);
+    static bool updateAnnotationLevel(AnnotationStructureLevel *updatedLevel, QSqlDatabase &db);
     static bool renameAnnotationLevel(const QString &levelID, const QString &newLevelID, QSqlDatabase &db);
     static bool deleteAnnotationLevel(const QString &levelID, QSqlDatabase &db);
 
-    static bool createAnnotationAttribute(const QString &levelID, QPointer<AnnotationStructureAttribute> newAttribute, QSqlDatabase &db);
-    static bool updateAnnotationAttribute(const QString &levelID, QPointer<AnnotationStructureAttribute> updatedAttribute, QSqlDatabase &db);
+    static bool createAnnotationAttribute(const QString &levelID, AnnotationStructureAttribute *newAttribute, QSqlDatabase &db);
+    static bool updateAnnotationAttribute(const QString &levelID, AnnotationStructureAttribute *updatedAttribute, QSqlDatabase &db);
     static bool renameAnnotationAttribute(const QString &levelID, const QString &attributeID, const QString &newAttributeID, QSqlDatabase &db);
     static bool retypeAnnotationAttribute(const QString &levelID, const QString &attributeID, const DataType &newDataType, QSqlDatabase &db);
     static bool deleteAnnotationAttribute(const QString &levelID, const QString &attributeID, QSqlDatabase &db);

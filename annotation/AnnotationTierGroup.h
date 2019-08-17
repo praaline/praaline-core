@@ -93,7 +93,7 @@ protected:
     QString speakerID;
 };
 
-typedef QMap<QString, QPointer<AnnotationTierGroup> > AnnotationTierGroupPerSpeakerMap;
+typedef QMap<QString, AnnotationTierGroup *> SpeakerAnnotationTierGroupMap;
 
 PRAALINE_CORE_END_NAMESPACE
 

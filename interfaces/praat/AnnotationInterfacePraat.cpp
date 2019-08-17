@@ -149,12 +149,12 @@ bool AnnotationInterfacePraat::exportAnnotation(CorpusRepository *repository, co
         if (!levelIDs.contains(correspondance.levelID)) levelIDs << correspondance.levelID;
 
     // Get data for all speakers
-    QMap<QString, QPointer<AnnotationTierGroup> > tiersAll = repository->annotations()->getTiersAllSpeakers(annotationID, levelIDs);
+    SpeakerAnnotationTierGroupMap tiersAll = repository->annotations()->getTiersAllSpeakers(annotationID, levelIDs);
 
     bool result = true;
     if (d->speakerPolicy == SpeakerPolicy_SinglePerFile) {
         foreach (QString speakerID, tiersAll.keys()) {
-            QPointer<AnnotationTierGroup> tiers = tiersAll.value(speakerID);
+            AnnotationTierGroup *tiers = tiersAll.value(speakerID);
             if (!tiers) continue;
             QScopedPointer<AnnotationTierGroup> txg(new AnnotationTierGroup(this)); // the TextGrid
             copyToTextgrid(tiers, txg.data());
@@ -166,7 +166,7 @@ bool AnnotationInterfacePraat::exportAnnotation(CorpusRepository *repository, co
     else if (d->speakerPolicy == SpeakerPolicy_PrefixTierNames) {
         QScopedPointer<AnnotationTierGroup> txg(new AnnotationTierGroup(this)); // the TextGrid       
         foreach (QString speakerID, tiersAll.keys()) {
-            QPointer<AnnotationTierGroup> tiers = tiersAll.value(speakerID);
+            AnnotationTierGroup *tiers = tiersAll.value(speakerID);
             if (!tiers) continue;
             // Include speaker IDs in the tier name only if there is more than one speaker
             QString prefixTierNames = (tiersAll.keys().count() > 1) ? QString("%1-").arg(speakerID) : QString();

@@ -17,7 +17,6 @@
 
 #include "pncore_global.h"
 #include <QObject>
-#include <QPointer>
 #include <QString>
 #include <QList>
 #include <QHash>
@@ -36,28 +35,27 @@ public:
     QString ID() const { return m_ID; }
     void setID(const QString &ID) { m_ID = ID; }
 
-    // Management
-    void clear(CorpusObject::Type what);
-    void clearAll();
-
     // METADATA STRUCTURE SECTIONS by OBJECT
-    QPointer<MetadataStructureSection> section(CorpusObject::Type what, int index) const;
-    QPointer<MetadataStructureSection> section(CorpusObject::Type what, const QString &ID) const;
+    MetadataStructureSection *section(CorpusObject::Type what, int index) const;
+    MetadataStructureSection *section(CorpusObject::Type what, const QString &ID) const;
     int sectionIndexByID(CorpusObject::Type what, const QString &ID) const;
     int sectionsCount(CorpusObject::Type what) const;
     bool hasSections(CorpusObject::Type what) const;
-    QList<QPointer<MetadataStructureSection> > sections(CorpusObject::Type what) const;
-    void insertSection(CorpusObject::Type what, int index, MetadataStructureSection *section);
-    void addSection(CorpusObject::Type what, MetadataStructureSection *section);
+    bool hasSection(CorpusObject::Type what, const QString &ID) const;
+    QList<MetadataStructureSection *> sections(CorpusObject::Type what) const;
+    bool insertSection(CorpusObject::Type what, int index, MetadataStructureSection *section);
+    bool addSection(CorpusObject::Type what, MetadataStructureSection *section);
     void swapSections(CorpusObject::Type what, int oldIndex, int newIndex);
     void removeSectionAt(CorpusObject::Type what, int i);
     void removeSectionByID(CorpusObject::Type what, const QString &ID);
+    void clear(CorpusObject::Type what);
+    void clearAll();
     // Direct access to attributes
-    QPointer<MetadataStructureAttribute> attribute(CorpusObject::Type what, const QString &ID) const;
-    QList<QPointer<MetadataStructureAttribute> > attributes(CorpusObject::Type what) const;
+    MetadataStructureAttribute *attribute(CorpusObject::Type what, const QString &ID) const;
+    QList<MetadataStructureAttribute *> attributes(CorpusObject::Type what) const;
     QStringList attributeIDs(CorpusObject::Type what) const;
     QStringList attributeNames(CorpusObject::Type what) const;
-    CorpusObject::Type corpusObjectTypeOfSection(QPointer<MetadataStructureSection> section) const;
+    CorpusObject::Type corpusObjectTypeOfSection(MetadataStructureSection *section) const;
     // Defaults
     static QString defaultSectionID(CorpusObject::Type type);
     static QStringList basicAttributeIDs(CorpusObject::Type type);
@@ -66,13 +64,16 @@ public:
     QStringList allAttributeNames(CorpusObject::Type what) const;
 
 signals:
-    void MetadataStructureChanged();
-
-public slots:
+    void sectionAdded(MetadataStructure *structure, CorpusObject::Type what, MetadataStructureSection *section);
+    void sectionDeleted(MetadataStructure *structure, CorpusObject::Type what, QString sectionID);
 
 protected:
     QString m_ID;
-    QHash<CorpusObject::Type, QList<QPointer<MetadataStructureSection> > > m_sections;
+    QHash<CorpusObject::Type, QList<MetadataStructureSection *> > m_sections;
+
+private:
+    void createDefaultSection(CorpusObject::Type what);
+    bool replaceDefaultSection(CorpusObject::Type what, MetadataStructureSection *section);
 };
 
 PRAALINE_CORE_END_NAMESPACE

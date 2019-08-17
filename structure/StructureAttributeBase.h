@@ -35,11 +35,13 @@ class PRAALINE_CORE_SHARED_EXPORT StructureAttributeBase : public QObject
 
 public:
     explicit StructureAttributeBase(QObject *parent = nullptr);
-    StructureAttributeBase(const QString &ID, QObject *parent = nullptr);
-    StructureAttributeBase(const QString &ID, const QString &name, const QString &description, const DataType &datatype,
-                  int order = 0, bool indexed = false, const QString &nameValueList = QString(), QObject *parent = nullptr);
-    StructureAttributeBase(const StructureAttributeBase *other, QObject *parent = nullptr);
-    virtual ~StructureAttributeBase() {}
+    StructureAttributeBase(const QString &ID,
+                           const QString &name = QString(), const QString &description = QString(),
+                           const DataType &datatype = DataType::Invalid, int order = 0, bool indexed = false,
+                           const QString &nameValueList = QString(), QObject *parent = nullptr);
+    virtual ~StructureAttributeBase();
+
+    virtual StructureAttributeBase *clone(QObject *parent = nullptr) const;
 
     // Data
     virtual QString ID() const { return m_ID; }
@@ -58,10 +60,6 @@ public:
     virtual void setIndexed(bool indexed) { m_indexed = indexed; }
     virtual QString nameValueList() const { return m_nameValueList; }
     virtual void setNameValueList(const QString &nameValueList) { m_nameValueList = nameValueList; }
-
-signals:
-
-public slots:
 
 protected:
     QString m_ID;               // ID (e.g. f0min)

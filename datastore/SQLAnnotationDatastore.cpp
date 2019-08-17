@@ -1,4 +1,6 @@
 #include <QDebug>
+#include <QObject>
+#include <QPointer>
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include <QSqlError>
@@ -162,7 +164,7 @@ QStringList SQLAnnotationDatastore::getAllNameValueListIDs()
     return SQLSerialiserNameValueList::getAllNameValueListIDs(SQLSerialiserNameValueList::Annotation, d->database);
 }
 
-QMap<QString, QPointer<NameValueList> > SQLAnnotationDatastore::getAllNameValueLists()
+QMap<QString, NameValueList *> SQLAnnotationDatastore::getAllNameValueLists()
 {
     return SQLSerialiserNameValueList::getAllNameValueLists(SQLSerialiserNameValueList::Annotation, d->database);
 }
@@ -227,7 +229,7 @@ AnnotationTierGroup *SQLAnnotationDatastore::getTiers(const QString &annotationI
     return SQLSerialiserAnnotation::getTiers(annotationID, speakerID, levelIDs, d->structure, d->database);
 }
 
-QMap<QString, QPointer<AnnotationTierGroup> > SQLAnnotationDatastore::getTiersAllSpeakers(const QString &annotationID, const QStringList &levelIDs)
+QMap<QString, AnnotationTierGroup *> SQLAnnotationDatastore::getTiersAllSpeakers(const QString &annotationID, const QStringList &levelIDs)
 {
     return SQLSerialiserAnnotation::getTiersAllSpeakers(annotationID, levelIDs, d->structure, d->database);
 }
@@ -242,7 +244,7 @@ bool SQLAnnotationDatastore::saveTiers(const QString &annotationID, const QStrin
     return SQLSerialiserAnnotation::saveTiers(annotationID, speakerID, tiers, d->structure, d->database);
 }
 
-bool SQLAnnotationDatastore::saveTiersAllSpeakers(const QString &annotationID, QMap<QString, QPointer<AnnotationTierGroup> > &tiersAllSpeakers)
+bool SQLAnnotationDatastore::saveTiersAllSpeakers(const QString &annotationID, QMap<QString, AnnotationTierGroup *> &tiersAllSpeakers)
 {
     bool success = true;
     foreach (QString speakerID, tiersAllSpeakers.keys()) {

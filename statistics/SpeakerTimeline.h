@@ -35,11 +35,11 @@ public:
     explicit SpeakerTimeline(QObject *parent = nullptr);
     virtual ~SpeakerTimeline();
 
-    bool calculate(QPointer<CorpusCommunication> com, const QString &minimalLevelID);
+    bool calculate(CorpusCommunication * com, const QString &minimalLevelID);
 
     QString minimalLevelID() const;
-    QPointer<IntervalTier> timelineDetailed() const;
-    QPointer<IntervalTier> timelineCoarse() const;
+    IntervalTier *timelineDetailed() const;
+    IntervalTier *timelineCoarse() const;
 
 signals:
 

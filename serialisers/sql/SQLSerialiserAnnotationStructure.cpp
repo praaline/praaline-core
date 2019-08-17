@@ -52,7 +52,7 @@ bool SQLSerialiserAnnotationStructure::initialiseAnnotationStructureTables(QSqlD
 }
 
 // static
-bool SQLSerialiserAnnotationStructure::loadAnnotationStructure(QPointer<AnnotationStructure> structure, QSqlDatabase &db)
+bool SQLSerialiserAnnotationStructure::loadAnnotationStructure(AnnotationStructure *structure, QSqlDatabase &db)
 {
     if (!structure) return false;
     if (!db.isValid()) return false;
@@ -104,7 +104,7 @@ bool SQLSerialiserAnnotationStructure::loadAnnotationStructure(QPointer<Annotati
 }
 
 // static
-bool SQLSerialiserAnnotationStructure::saveAnnotationStructure(QPointer<AnnotationStructure> structure, QSqlDatabase &db)
+bool SQLSerialiserAnnotationStructure::saveAnnotationStructure(AnnotationStructure *structure, QSqlDatabase &db)
 {
     if (!structure) return false;
     if (!db.isValid()) return false;
@@ -119,7 +119,7 @@ bool SQLSerialiserAnnotationStructure::saveAnnotationStructure(QPointer<Annotati
     q1.exec();
     while (q1.next()) levelIDsInDatabase << q1.value("levelID").toString();
     // Update (possilby insert)
-    foreach (QPointer<AnnotationStructureLevel> level, structure->levels()) {
+    foreach (AnnotationStructureLevel *level, structure->levels()) {
         if (!level) continue;
         result = result && updateAnnotationLevel(level, db);
         levelIDsInStructure << level->ID();
@@ -128,7 +128,7 @@ bool SQLSerialiserAnnotationStructure::saveAnnotationStructure(QPointer<Annotati
         q2.bindValue(":levelID", level->ID());
         q2.exec();
         while (q2.next()) attributeIDsInDatabase << q2.value("attributeID").toString();
-        foreach (QPointer<AnnotationStructureAttribute> attribute, level->attributes()) {
+        foreach (AnnotationStructureAttribute *attribute, level->attributes()) {
             result = result && updateAnnotationAttribute(level->ID(), attribute, db);
             attributeIDsInStructure << attribute->ID();
         }
@@ -147,7 +147,7 @@ bool SQLSerialiserAnnotationStructure::saveAnnotationStructure(QPointer<Annotati
 }
 
 // static
-bool SQLSerialiserAnnotationStructure::createAnnotationLevel(QPointer<AnnotationStructureLevel> newLevel, QSqlDatabase &db)
+bool SQLSerialiserAnnotationStructure::createAnnotationLevel(AnnotationStructureLevel *newLevel, QSqlDatabase &db)
 {
     if (!newLevel) return false;
     if (!db.isValid()) return false;
@@ -236,7 +236,7 @@ bool SQLSerialiserAnnotationStructure::createAnnotationLevel(QPointer<Annotation
 }
 
 // static
-bool SQLSerialiserAnnotationStructure::updateAnnotationLevel(QPointer<AnnotationStructureLevel> updatedLevel, QSqlDatabase &db)
+bool SQLSerialiserAnnotationStructure::updateAnnotationLevel(AnnotationStructureLevel *updatedLevel, QSqlDatabase &db)
 {
     if (!updatedLevel) return false;
     if (!db.isValid()) return false;
@@ -309,7 +309,7 @@ bool SQLSerialiserAnnotationStructure::deleteAnnotationLevel(const QString &leve
 }
 
 // static
-bool SQLSerialiserAnnotationStructure::createAnnotationAttribute(const QString &levelID, QPointer<AnnotationStructureAttribute> newAttribute,
+bool SQLSerialiserAnnotationStructure::createAnnotationAttribute(const QString &levelID, AnnotationStructureAttribute *newAttribute,
                                                                  QSqlDatabase &db)
 {
     if (levelID.isEmpty()) return false;
@@ -342,7 +342,7 @@ bool SQLSerialiserAnnotationStructure::createAnnotationAttribute(const QString &
 }
 
 // static
-bool SQLSerialiserAnnotationStructure::updateAnnotationAttribute(const QString &levelID, QPointer<AnnotationStructureAttribute> updatedAttribute,
+bool SQLSerialiserAnnotationStructure::updateAnnotationAttribute(const QString &levelID, AnnotationStructureAttribute *updatedAttribute,
                                                                  QSqlDatabase &db)
 {
     if (levelID.isEmpty()) return false;

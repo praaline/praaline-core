@@ -1,6 +1,5 @@
 #include <QObject>
 #include <QMetaEnum>
-#include <QPointer>
 #include <QString>
 #include <QList>
 #include <QMap>
@@ -56,11 +55,11 @@ void Corpus::setCorpusID(const QString &corpusID)
     if (m_ID != corpusID) {
         m_ID = corpusID;
         m_corpusID = corpusID;
-        foreach (QPointer<CorpusCommunication> com, m_communications)
+        foreach (CorpusCommunication * com, m_communications)
             if (com) com->setCorpusID(corpusID);
-        foreach (QPointer<CorpusSpeaker> spk, m_speakers)
+        foreach (CorpusSpeaker * spk, m_speakers)
             if (spk) spk->setCorpusID(corpusID);
-        foreach (QPointer<CorpusParticipation> part, m_participationsByCommunication.values())
+        foreach (CorpusParticipation * part, m_participationsByCommunication.values())
             if (part) part->setCorpusID(corpusID);
         m_isDirty = true;
     }
@@ -86,7 +85,7 @@ bool Corpus::save() {
 // Communications
 // ==============================================================================================================================
 
-QPointer<CorpusCommunication> Corpus::communication(const QString &communicationID) const
+CorpusCommunication * Corpus::communication(const QString &communicationID) const
 {
     return m_communications.value(communicationID, nullptr);
 }
@@ -111,7 +110,7 @@ QStringList Corpus::communicationIDs() const
     return m_communications.keys();
 }
 
-const QMap<QString, QPointer<CorpusCommunication> > &Corpus::communications() const
+const QMap<QString, CorpusCommunication *> &Corpus::communications() const
 {
     return m_communications;
 }
@@ -130,11 +129,11 @@ void Corpus::addCommunication(CorpusCommunication *communication)
 void Corpus::removeCommunication(const QString &communicationID)
 {
     if (!m_communications.contains(communicationID)) return;
-    QPointer<CorpusCommunication> communication = m_communications.value(communicationID);
+    CorpusCommunication * communication = m_communications.value(communicationID);
     // remove related participations before removing speaker
-    QList<QPointer<CorpusParticipation> > participationsToDelete;
+    QList<CorpusParticipation *> participationsToDelete;
     participationsToDelete = m_participationsByCommunication.values(communicationID);
-    foreach (QPointer<CorpusParticipation> participation, participationsToDelete)
+    foreach (CorpusParticipation * participation, participationsToDelete)
         removeParticipation(participation->communicationID(), participation->speakerID());
     // remove communication
     m_communications.remove(communicationID);
@@ -147,12 +146,12 @@ void Corpus::removeCommunication(const QString &communicationID)
 void Corpus::communicationChangedID(const QString &oldID, const QString &newID)
 {
     if (oldID == newID) return;
-    QPointer<CorpusCommunication> com = m_communications.value(oldID);
+    CorpusCommunication * com = m_communications.value(oldID);
     if (!com) return;
     m_communications.remove(oldID);
     m_communications.insert(newID, com);
     // participations
-    foreach (QPointer<CorpusParticipation> participation, m_participationsByCommunication.values(oldID)) {
+    foreach (CorpusParticipation * participation, m_participationsByCommunication.values(oldID)) {
         m_participationsByCommunication.insert(newID, participation);
     }
     m_participationsByCommunication.remove(oldID);
@@ -162,7 +161,7 @@ void Corpus::communicationChangedID(const QString &oldID, const QString &newID)
 // Speakers
 // ==============================================================================================================================
 
-QPointer<CorpusSpeaker> Corpus::speaker(const QString &speakerID) const
+CorpusSpeaker * Corpus::speaker(const QString &speakerID) const
 {
     return m_speakers.value(speakerID, nullptr);
 }
@@ -187,7 +186,7 @@ QStringList Corpus::speakerIDs() const
     return m_speakers.keys();
 }
 
-const QMap<QString, QPointer<CorpusSpeaker> > &Corpus::speakers() const
+const QMap<QString, CorpusSpeaker *> &Corpus::speakers() const
 {
     return m_speakers;
 }
@@ -205,12 +204,12 @@ void Corpus::addSpeaker(CorpusSpeaker *speaker)
 
 void Corpus::removeSpeaker(const QString &speakerID)
 {
-    QPointer<CorpusSpeaker> speaker = m_speakers.value(speakerID, nullptr);
+    CorpusSpeaker * speaker = m_speakers.value(speakerID, nullptr);
     if (!speaker) return;
     // remove related participations before removing speaker
-    QList<QPointer<CorpusParticipation> > participationsToDelete;
+    QList<CorpusParticipation *> participationsToDelete;
     participationsToDelete = m_participationsBySpeaker.values(speakerID);
-    foreach (QPointer<CorpusParticipation> participation, participationsToDelete) {
+    foreach (CorpusParticipation * participation, participationsToDelete) {
         if (!participation) continue;
         removeParticipation(participation->communicationID(), participation->speakerID());
     }
@@ -225,12 +224,12 @@ void Corpus::removeSpeaker(const QString &speakerID)
 void Corpus::speakerChangedID(const QString &oldID, const QString &newID)
 {
     if (oldID == newID) return;
-    QPointer<CorpusSpeaker> spk = m_speakers.value(oldID);
+    CorpusSpeaker * spk = m_speakers.value(oldID);
     if (!spk) return;
     m_speakers.remove(oldID);
     m_speakers.insert(newID, spk);
     // participations
-    foreach (QPointer<CorpusParticipation> participation, m_participationsBySpeaker.values(oldID)) {
+    foreach (CorpusParticipation * participation, m_participationsBySpeaker.values(oldID)) {
         m_participationsBySpeaker.insert(newID, participation);
     }
     m_participationsBySpeaker.remove(oldID);
@@ -240,9 +239,9 @@ void Corpus::speakerChangedID(const QString &oldID, const QString &newID)
 // Participation of Speakers in Communications
 // ==============================================================================================================================
 
-QPointer<CorpusParticipation> Corpus::participation(const QString &communicationID, const QString &speakerID)
+CorpusParticipation * Corpus::participation(const QString &communicationID, const QString &speakerID)
 {
-    foreach (QPointer<CorpusParticipation> participation, m_participationsByCommunication.values(communicationID)) {
+    foreach (CorpusParticipation * participation, m_participationsByCommunication.values(communicationID)) {
         if (participation && participation->speakerID() == speakerID)
             return participation;
     }
@@ -251,32 +250,32 @@ QPointer<CorpusParticipation> Corpus::participation(const QString &communication
 
 bool Corpus::hasParticipation(const QString &communicationID, const QString &speakerID)
 {
-    foreach (QPointer<CorpusParticipation> participation, m_participationsByCommunication.values(communicationID)) {
+    foreach (CorpusParticipation * participation, m_participationsByCommunication.values(communicationID)) {
         if (participation && participation->speakerID() == speakerID)
             return true;
     }
     return false;
 }
 
-QList<QPointer<CorpusParticipation> > Corpus::participations()
+QList<CorpusParticipation *> Corpus::participations()
 {
     return m_participationsByCommunication.values();
 }
 
-QList<QPointer<CorpusParticipation> > Corpus::participationsForCommunication(const QString &communicationID)
+QList<CorpusParticipation *> Corpus::participationsForCommunication(const QString &communicationID)
 {
     return m_participationsByCommunication.values(communicationID);
 }
 
-QList<QPointer<CorpusParticipation> > Corpus::participationsForSpeaker(const QString &speakerID)
+QList<CorpusParticipation *> Corpus::participationsForSpeaker(const QString &speakerID)
 {
     return m_participationsBySpeaker.values(speakerID);
 }
 
-QPointer<CorpusParticipation> Corpus::addParticipation(const QString &communicationID, const QString &speakerID, const QString &role)
+CorpusParticipation * Corpus::addParticipation(const QString &communicationID, const QString &speakerID, const QString &role)
 {
-    QPointer<CorpusCommunication> com = this->communication(communicationID);
-    QPointer<CorpusSpeaker> spk = this->speaker(speakerID);
+    CorpusCommunication * com = this->communication(communicationID);
+    CorpusSpeaker * spk = this->speaker(speakerID);
     if (!com || !spk) return nullptr;
     CorpusParticipation *participation = new CorpusParticipation(com, spk, role, this);
     participation->setCorpusID(this->ID());
@@ -287,19 +286,19 @@ QPointer<CorpusParticipation> Corpus::addParticipation(const QString &communicat
 
 void Corpus::removeParticipation(const QString &communicationID, const QString &speakerID)
 {
-    QList<QPointer<CorpusParticipation> > participationsToDelete;
-    foreach (QPointer<CorpusParticipation> participation, m_participationsByCommunication.values(communicationID)) {
+    QList<CorpusParticipation *> participationsToDelete;
+    foreach (CorpusParticipation * participation, m_participationsByCommunication.values(communicationID)) {
         if (participation && participation->speakerID() == speakerID) {
             m_participationsByCommunication.remove(communicationID, participation);
             participationsToDelete << participation;
         }
     }
-    foreach (QPointer<CorpusParticipation> participation, m_participationsBySpeaker.values(speakerID)) {
+    foreach (CorpusParticipation * participation, m_participationsBySpeaker.values(speakerID)) {
         if (participation && participation->communicationID() == communicationID) {
             m_participationsBySpeaker.remove(speakerID, participation);
         }
     }
-    foreach (QPointer<CorpusParticipation> participation, participationsToDelete) {
+    foreach (CorpusParticipation * participation, participationsToDelete) {
         if (participation) delete participation;
     }
     deletedParticipationIDs << QPair<QString, QString>(communicationID, speakerID);
@@ -312,8 +311,8 @@ void Corpus::removeParticipation(const QString &communicationID, const QString &
 QStringList Corpus::recordingIDs() const
 {
     QStringList list;
-    foreach(QPointer<CorpusCommunication> com, m_communications) {
-        foreach(QPointer<CorpusRecording> rec, com->recordings())
+    foreach(CorpusCommunication * com, m_communications) {
+        foreach(CorpusRecording * rec, com->recordings())
             if (rec) list << rec->ID();
     }
     return list;
@@ -322,52 +321,52 @@ QStringList Corpus::recordingIDs() const
 QStringList Corpus::annotationIDs() const
 {
     QStringList list;
-    foreach(QPointer<CorpusCommunication> com, m_communications) {
-        foreach(QPointer<CorpusAnnotation> annot, com->annotations())
+    foreach(CorpusCommunication * com, m_communications) {
+        foreach(CorpusAnnotation * annot, com->annotations())
             if (annot) list << annot->ID();
     }
     return list;
 }
 
-QList<QPointer<CorpusCommunication> > Corpus::communicationsList() const
+QList<CorpusCommunication *> Corpus::communicationsList() const
 {
     return m_communications.values();
 }
 
-QList<QPointer<CorpusSpeaker> > Corpus::speakersList() const
+QList<CorpusSpeaker *> Corpus::speakersList() const
 {
     return m_speakers.values();
 }
 
-QList<QPointer<CorpusRecording> > Corpus::recordingsList() const
+QList<CorpusRecording *> Corpus::recordingsList() const
 {
-    QList<QPointer<CorpusRecording> > list;
-    foreach(QPointer<CorpusCommunication> com, m_communications) {
-        foreach(QPointer<CorpusRecording> rec, com->recordings())
+    QList<CorpusRecording *> list;
+    foreach(CorpusCommunication * com, m_communications) {
+        foreach(CorpusRecording * rec, com->recordings())
             if (rec) list << rec;
     }
     return list;
 }
 
-QList<QPointer<CorpusAnnotation> > Corpus::annotationsList() const
+QList<CorpusAnnotation *> Corpus::annotationsList() const
 {
-    QList<QPointer<CorpusAnnotation> > list;
-    foreach(QPointer<CorpusCommunication> com, m_communications) {
-        foreach(QPointer<CorpusAnnotation> annot, com->annotations())
+    QList<CorpusAnnotation *> list;
+    foreach(CorpusCommunication * com, m_communications) {
+        foreach(CorpusAnnotation * annot, com->annotations())
             if (annot) list << annot;
     }
     return list;
 }
 
-QMap<QString, QPair<QPointer<CorpusRecording>, QPointer<CorpusAnnotation> > > Corpus::getRecordings_x_Annotations() const
+QMap<QString, QPair<CorpusRecording *, CorpusAnnotation *> > Corpus::getRecordings_x_Annotations() const
 {
-    QMap<QString, QPair<QPointer<CorpusRecording>, QPointer<CorpusAnnotation> > > list;
-    foreach(QPointer<CorpusCommunication> com, m_communications) {
+    QMap<QString, QPair<CorpusRecording *, CorpusAnnotation *> > list;
+    foreach(CorpusCommunication * com, m_communications) {
         if (!com) continue;
-        foreach(QPointer<CorpusRecording> rec, com->recordings()) {
-            foreach(QPointer<CorpusAnnotation> annot, com->annotations()) {
+        foreach(CorpusRecording * rec, com->recordings()) {
+            foreach(CorpusAnnotation * annot, com->annotations()) {
                 if (!rec || !annot) continue;
-                QPair<QPointer<CorpusRecording>, QPointer<CorpusAnnotation> > item(rec, annot);
+                QPair<CorpusRecording *, CorpusAnnotation *> item(rec, annot);
                 list.insert(rec->ID(), item);
             }
         }
@@ -375,15 +374,15 @@ QMap<QString, QPair<QPointer<CorpusRecording>, QPointer<CorpusAnnotation> > > Co
     return list;
 }
 
-QMap<QString, QPair<QPointer<CorpusAnnotation>, QPointer<CorpusRecording> > > Corpus::getAnnotations_x_Recordings() const
+QMap<QString, QPair<CorpusAnnotation *, CorpusRecording *> > Corpus::getAnnotations_x_Recordings() const
 {
-    QMap<QString, QPair<QPointer<CorpusAnnotation>, QPointer<CorpusRecording> > > list;
-    foreach(QPointer<CorpusCommunication> com, m_communications) {
+    QMap<QString, QPair<CorpusAnnotation *, CorpusRecording *> > list;
+    foreach(CorpusCommunication * com, m_communications) {
         if (!com) continue;
-        foreach(QPointer<CorpusAnnotation> annot, com->annotations()) {
-            foreach(QPointer<CorpusRecording> rec, com->recordings()) {
+        foreach(CorpusAnnotation * annot, com->annotations()) {
+            foreach(CorpusRecording * rec, com->recordings()) {
                 if (!rec || !annot) continue;
-                QPair<QPointer<CorpusAnnotation>, QPointer<CorpusRecording> > item(annot, rec);
+                QPair<CorpusAnnotation *, CorpusRecording *> item(annot, rec);
                 list.insert(annot->ID(), item);
             }
         }
@@ -394,9 +393,9 @@ QMap<QString, QPair<QPointer<CorpusAnnotation>, QPointer<CorpusRecording> > > Co
 QList<QPair<QString, QString> > Corpus::getCommunicationsAnnotationsIDs() const
 {
     QList<QPair<QString, QString> > list;
-    foreach(QPointer<CorpusCommunication> com, m_communications) {
+    foreach(CorpusCommunication * com, m_communications) {
         if (!com) continue;
-        foreach (QPointer<CorpusAnnotation> annot, com->annotations()) {
+        foreach (CorpusAnnotation * annot, com->annotations()) {
             if (!annot) continue;
             list << QPair<QString, QString>(com->ID(), annot->ID());
         }
@@ -407,9 +406,9 @@ QList<QPair<QString, QString> > Corpus::getCommunicationsAnnotationsIDs() const
 QList<QPair<QString, QString> > Corpus::getCommunicationsRecordingsIDs() const
 {
     QList<QPair<QString, QString> > list;
-    foreach(QPointer<CorpusCommunication> com, m_communications) {
+    foreach(CorpusCommunication * com, m_communications) {
         if (!com) continue;
-        foreach (QPointer<CorpusRecording> rec, com->recordings()) {
+        foreach (CorpusRecording * rec, com->recordings()) {
             if (!rec) continue;
             list << QPair<QString, QString>(com->ID(), rec->ID());
         }

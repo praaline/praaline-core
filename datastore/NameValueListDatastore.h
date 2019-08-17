@@ -17,7 +17,6 @@
 
 #include "pncore_global.h"
 #include <QString>
-#include <QPointer>
 #include <QMap>
 
 PRAALINE_CORE_BEGIN_NAMESPACE
@@ -33,7 +32,7 @@ public:
 
     virtual NameValueList *getNameValueList(const QString &listID) = 0;
     virtual QStringList getAllNameValueListIDs() = 0;
-    virtual QMap<QString, QPointer<NameValueList> > getAllNameValueLists() = 0;
+    virtual QMap<QString, NameValueList *> getAllNameValueLists() = 0;
     virtual bool createNameValueList(NameValueList *list) = 0;
     virtual bool updateNameValueList(NameValueList *list) = 0;
     virtual bool deleteNameValueList(const QString &listID) = 0;

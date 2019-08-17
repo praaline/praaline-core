@@ -33,10 +33,11 @@ public:
     static AnnotationStructure *read(const QString &filename);
     static AnnotationStructure *read(QXmlStreamReader &xml);
 
-private:
-    XMLSerialiserAnnotationStructure() {}
-    ~XMLSerialiserAnnotationStructure() {}
+protected:
+    XMLSerialiserAnnotationStructure();
+    ~XMLSerialiserAnnotationStructure() override;
 
+private:
     static void writeLevel(AnnotationStructureLevel *level, QXmlStreamWriter &xml);
     static AnnotationStructureLevel *readLevel(QXmlStreamReader &xml);
     static void writeAttribute(AnnotationStructureAttribute *attribute, QXmlStreamWriter &xml);

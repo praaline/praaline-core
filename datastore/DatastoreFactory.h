@@ -16,7 +16,6 @@
 */
 
 #include "pncore_global.h"
-#include <QPointer>
 
 PRAALINE_CORE_BEGIN_NAMESPACE
 

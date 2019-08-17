@@ -57,7 +57,7 @@ public:
     // ==========================================================================================================================
     NameValueList *getNameValueList(const QString &listID) override;
     QStringList getAllNameValueListIDs() override;
-    QMap<QString, QPointer<NameValueList> > getAllNameValueLists() override;
+    QMap<QString, NameValueList *> getAllNameValueLists() override;
     bool createNameValueList(NameValueList *list) override;
     bool updateNameValueList(NameValueList *list) override;
     bool deleteNameValueList(const QString &listID) override;
@@ -69,11 +69,11 @@ public:
                             const QString &levelID, const QStringList &attributeIDs = QStringList()) override;
     AnnotationTierGroup *getTiers(const QString &annotationID, const QString &speakerID,
                                   const QStringList &levelIDs = QStringList()) override;
-    QMap<QString, QPointer<AnnotationTierGroup> > getTiersAllSpeakers(const QString &annotationID,
-                                                                      const QStringList &levelIDs = QStringList()) override;
+    QMap<QString, AnnotationTierGroup *> getTiersAllSpeakers(const QString &annotationID,
+                                                             const QStringList &levelIDs = QStringList()) override;
     bool saveTier(const QString &annotationID, const QString &speakerID, AnnotationTier *tier) override;
     bool saveTiers(const QString &annotationID, const QString &speakerID, AnnotationTierGroup *tiers) override;
-    bool saveTiersAllSpeakers(const QString &annotationID, QMap<QString, QPointer<AnnotationTierGroup> > &tiersAllSpeakers) override;
+    bool saveTiersAllSpeakers(const QString &annotationID, QMap<QString, AnnotationTierGroup *> &tiersAllSpeakers) override;
     bool deleteTier(const QString &annotationID, const QString &speakerID, const QString &levelID) override;
     bool deleteTiers(const QString &annotationID, const QString &speakerID, const QStringList &levelIDs = QStringList()) override;
     bool deleteAllTiersAllSpeakers(const QString &annotationID) override;

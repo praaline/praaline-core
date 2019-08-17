@@ -17,7 +17,6 @@
 
 #include "pncore_global.h"
 #include <QObject>
-#include <QPointer>
 #include <QString>
 #include "CorpusObject.h"
 #include "CorpusCommunication.h"
@@ -35,7 +34,7 @@ class PRAALINE_CORE_SHARED_EXPORT CorpusParticipation : public CorpusObject
     Q_PROPERTY(QString role READ role WRITE setRole)
 
 public:
-    CorpusParticipation(QPointer<CorpusCommunication> com, QPointer<CorpusSpeaker> spk, QString role = QString(),
+    CorpusParticipation(CorpusCommunication * com, CorpusSpeaker * spk, QString role = QString(),
                         QObject *parent = nullptr);
     ~CorpusParticipation() override {}
     void copyProperties(CorpusParticipation *other);
@@ -47,11 +46,11 @@ public:
     QString ID() const override;
     void setID(const QString &ID) override;
 
-    QPointer<Corpus> corpus() const;
+    Corpus * corpus() const;
 
     // read-only properties
-    QPointer<CorpusCommunication> communication() const;
-    QPointer<CorpusSpeaker> speaker() const;
+    CorpusCommunication * communication() const;
+    CorpusSpeaker * speaker() const;
     QString communicationID() const;
     QString speakerID() const;
 
@@ -59,8 +58,8 @@ public:
     void setRole(const QString &role);
 
 private:
-    QPointer<CorpusCommunication> m_communication;
-    QPointer<CorpusSpeaker> m_speaker;
+    CorpusCommunication * m_communication;
+    CorpusSpeaker * m_speaker;
     QString m_role;
 
     Q_DISABLE_COPY(CorpusParticipation)

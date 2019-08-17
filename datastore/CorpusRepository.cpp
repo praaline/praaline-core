@@ -150,17 +150,17 @@ void CorpusRepository::setBasePathMedia(const QString &path)
 // Datastores
 // ==============================================================================================================================
 
-QPointer<AnnotationDatastore> CorpusRepository::annotations() const
+AnnotationDatastore *CorpusRepository::annotations() const
 {
     return d->datastoreAnnotations;
 }
 
-QPointer<MetadataDatastore> CorpusRepository::metadata() const
+MetadataDatastore *CorpusRepository::metadata() const
 {
     return d->datastoreMetadata;
 }
 
-QPointer<FileDatastore> CorpusRepository::files() const
+FileDatastore *CorpusRepository::files() const
 {
     return d->datastoreFiles;
 }
@@ -193,12 +193,12 @@ QStringList CorpusRepository::listCorporaIDs() const
 // Metadata and annotation structures
 // ==============================================================================================================================
 
-QPointer<MetadataStructure> CorpusRepository::metadataStructure() const
+MetadataStructure *CorpusRepository::metadataStructure() const
 {
     return d->metadataStructure;
 }
 
-QPointer<AnnotationStructure> CorpusRepository::annotationStructure() const
+AnnotationStructure *CorpusRepository::annotationStructure() const
 {
     return d->annotationStructure;
 }

@@ -238,7 +238,7 @@ bool AnvilMetadataTranscript::load(const QString &filename, Corpus *corpus)
     // Update / create corpus items
     if (!session) return false;
     QString communicationID = QString(session->name).remove("-meta");
-    QPointer<CorpusCommunication> com = corpus->communication(communicationID);
+    CorpusCommunication * com = corpus->communication(communicationID);
     if (!com) return false;
     com->setProperty("title", session->title);
     com->setProperty("dateRecorded", session->date);
@@ -260,7 +260,7 @@ bool AnvilMetadataTranscript::load(const QString &filename, Corpus *corpus)
     foreach (ActorData *actor, session->actors) {
         QString speakerID = QString("%1_$L%2").arg(communicationID).arg(i);
         i++;
-        QPointer<CorpusSpeaker> spk = corpus->speaker(speakerID);
+        CorpusSpeaker * spk = corpus->speaker(speakerID);
         if (!spk) continue;
         spk->setProperty("age", actor->age);
         spk->setProperty("anonymized", actor->anonymized);
@@ -275,7 +275,7 @@ bool AnvilMetadataTranscript::load(const QString &filename, Corpus *corpus)
         spk->setProperty("name", actor->name);
         spk->setProperty("sex", actor->sex);
 
-        QPointer<CorpusParticipation> participation = corpus->participation(communicationID, speakerID);
+        CorpusParticipation * participation = corpus->participation(communicationID, speakerID);
         if (participation) {
             participation->setProperty("role", actor->role);
         }

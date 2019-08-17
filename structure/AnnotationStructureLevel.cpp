@@ -1,5 +1,4 @@
 #include <QObject>
-#include <QPointer>
 #include <QString>
 #include <QList>
 #include "StructureAttributeBase.h"
@@ -9,7 +8,8 @@
 PRAALINE_CORE_BEGIN_NAMESPACE
 
 AnnotationStructureLevel::AnnotationStructureLevel(QObject *parent) :
-    StructureAttributeBase(parent)
+    StructureAttributeBase(parent),
+    m_levelType(AnnotationStructureLevel::IndependentIntervalsLevel)
 {
 }
 
@@ -23,6 +23,20 @@ AnnotationStructureLevel::AnnotationStructureLevel(const QString &ID, Annotation
 {
 }
 
+AnnotationStructureLevel::~AnnotationStructureLevel()
+{
+    // Attributes are QObjects, they are deleted as children of this QObject.
+}
+
+// ==========================================================================================================
+// Data
+// ==========================================================================================================
+
+AnnotationStructureLevel::LevelType AnnotationStructureLevel::levelType() const
+{
+    return m_levelType;
+}
+
 bool AnnotationStructureLevel::isLevelTypePrimary() const
 {
     if ((m_levelType == AnnotationStructureLevel::IndependentPointsLevel) ||
@@ -34,23 +48,33 @@ bool AnnotationStructureLevel::isLevelTypePrimary() const
     return false;
 }
 
-AnnotationStructureLevel::~AnnotationStructureLevel()
+void AnnotationStructureLevel::setLevelType(LevelType type)
 {
-    // Attributes are QObjects, they are deleted as children of this QObject.
+    m_levelType = type;
+}
+
+QString AnnotationStructureLevel::parentLevelID() const
+{
+    return m_parentLevelID;
+}
+
+void AnnotationStructureLevel::setParentLevelID(const QString &parentLevelID)
+{
+    m_parentLevelID = parentLevelID;
 }
 
 // ==========================================================================================================
-// ATTRIBUTES
+// Annotation Attributes
 // ==========================================================================================================
 
 AnnotationStructureAttribute *AnnotationStructureLevel::attribute(int index) const
 {
-    return m_attributes.value(index);
+    return m_attributes.value(index, nullptr);
 }
 
 AnnotationStructureAttribute *AnnotationStructureLevel::attribute(const QString &ID) const
 {
-    foreach (QPointer<AnnotationStructureAttribute> attribute, m_attributes) {
+    foreach (AnnotationStructureAttribute *attribute, m_attributes) {
         if ((attribute) && (attribute->ID() == ID))
             return attribute;
     }
@@ -76,7 +100,7 @@ bool AnnotationStructureLevel::hasAttributes() const
     return !m_attributes.isEmpty();
 }
 
-bool AnnotationStructureLevel::hasAttribute(const QString &ID)
+bool AnnotationStructureLevel::hasAttribute(const QString &ID) const
 {
     return (attributeIndexByID(ID) != -1);
 }
@@ -84,8 +108,16 @@ bool AnnotationStructureLevel::hasAttribute(const QString &ID)
 QStringList AnnotationStructureLevel::attributeIDs() const
 {
     QStringList ret;
-    foreach (QPointer<AnnotationStructureAttribute> attribute, m_attributes)
+    foreach (AnnotationStructureAttribute *attribute, m_attributes)
         if (attribute) ret << attribute->ID();
+    return ret;
+}
+
+QStringList AnnotationStructureLevel::attributeNames() const
+{
+    QStringList ret;
+    foreach (AnnotationStructureAttribute *attribute, m_attributes)
+        if (attribute) ret << attribute->name();
     return ret;
 }
 
@@ -94,18 +126,24 @@ QList<AnnotationStructureAttribute *> AnnotationStructureLevel::attributes() con
     return m_attributes;
 }
 
-void AnnotationStructureLevel::insertAttribute(int index, AnnotationStructureAttribute *attribute)
+bool AnnotationStructureLevel::insertAttribute(int index, AnnotationStructureAttribute *attribute)
 {
-    if (!attribute) return;
+    if (!attribute) return false;
+    if (hasAttribute(attribute->ID())) return false;
     attribute->setParent(this);
     m_attributes.insert(index, attribute);
+    emit attributeAdded(this, attribute);
+    return true;
 }
 
-void AnnotationStructureLevel::addAttribute(AnnotationStructureAttribute *attribute)
+bool AnnotationStructureLevel::addAttribute(AnnotationStructureAttribute *attribute)
 {
-    if (!attribute) return;
+    if (!attribute) return false;
+    if (hasAttribute(attribute->ID())) return false;
     attribute->setParent(this);
     m_attributes << attribute;
+    emit attributeAdded(this, attribute);
+    return true;
 }
 
 void AnnotationStructureLevel::swapAttribute(int oldIndex, int newIndex)
@@ -115,8 +153,13 @@ void AnnotationStructureLevel::swapAttribute(int oldIndex, int newIndex)
 
 void AnnotationStructureLevel::removeAttributeAt(int i)
 {
-    if (i >= 0 && i < m_attributes.count()) {
-        m_attributes.removeAt(i);
+    if ((i < 0) || (i >= m_attributes.count())) return;
+    AnnotationStructureAttribute *attribute = m_attributes.at(i);
+    m_attributes.removeAt(i);
+    if (attribute) {
+        QString attributeID = attribute->ID();
+        delete attribute;
+        emit attributeDeleted(this, attributeID);
     }
 }
 
@@ -124,7 +167,14 @@ void AnnotationStructureLevel::removeAttributeByID(const QString &ID)
 {
     int i = attributeIndexByID(ID);
     if (i != -1)
-        m_attributes.removeAt(i);
+        removeAttributeAt(i);
+}
+
+void AnnotationStructureLevel::clear()
+{
+    for (int i = attributesCount() - 1; i >= 0; i--) {
+        removeAttributeAt(attributesCount() - 1);
+    }
 }
 
 PRAALINE_CORE_END_NAMESPACE

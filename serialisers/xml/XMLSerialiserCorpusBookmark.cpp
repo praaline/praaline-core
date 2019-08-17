@@ -1,5 +1,4 @@
 #include <QObject>
-#include <QPointer>
 #include <QString>
 #include <QFile>
 #include <QXmlStreamReader>
@@ -60,7 +59,7 @@ bool XMLSerialiserCorpusBookmark::writeBookmark(CorpusBookmark *bookmark, QXmlSt
 }
 
 // static
-bool XMLSerialiserCorpusBookmark::saveCorpusBookmarks(const QList<QPointer<CorpusBookmark> > &list, QXmlStreamWriter &xml)
+bool XMLSerialiserCorpusBookmark::saveCorpusBookmarks(const QList<CorpusBookmark *> &list, QXmlStreamWriter &xml)
 {
     xml.writeStartElement("CorpusBookmarks");
     foreach (CorpusBookmark *bookmark, list) {
@@ -72,7 +71,7 @@ bool XMLSerialiserCorpusBookmark::saveCorpusBookmarks(const QList<QPointer<Corpu
 }
 
 // static
-bool XMLSerialiserCorpusBookmark::loadCorpusBookmarks(QList<QPointer<CorpusBookmark> > &list, QXmlStreamReader &xml)
+bool XMLSerialiserCorpusBookmark::loadCorpusBookmarks(QList<CorpusBookmark *> &list, QXmlStreamReader &xml)
 {
     list.clear();
     while (!xml.atEnd() && !xml.hasError()) {
@@ -98,7 +97,7 @@ bool XMLSerialiserCorpusBookmark::loadCorpusBookmarks(QList<QPointer<CorpusBookm
 }
 
 // static
-bool XMLSerialiserCorpusBookmark::saveCorpusBookmarks(const QList<QPointer<CorpusBookmark> > &list, const QString &filename)
+bool XMLSerialiserCorpusBookmark::saveCorpusBookmarks(const QList<CorpusBookmark *> &list, const QString &filename)
 {
     QFile file(filename);
     if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) return false;
@@ -112,7 +111,7 @@ bool XMLSerialiserCorpusBookmark::saveCorpusBookmarks(const QList<QPointer<Corpu
 }
 
 // static
-bool XMLSerialiserCorpusBookmark::loadCorpusBookmarks(QList<QPointer<CorpusBookmark> > &list, const QString &filename)
+bool XMLSerialiserCorpusBookmark::loadCorpusBookmarks(QList<CorpusBookmark *> &list, const QString &filename)
 {
     QFile file(filename);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) return false;

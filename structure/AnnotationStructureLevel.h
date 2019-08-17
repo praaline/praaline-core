@@ -17,7 +17,7 @@
 
 #include "pncore_global.h"
 #include <QObject>
-#include <QPointer>
+#include <QList>
 #include <QString>
 #include <QStringList>
 #include "structure/StructureAttributeBase.h"
@@ -51,33 +51,36 @@ public:
                              QObject *parent = nullptr);
     ~AnnotationStructureLevel() override;
 
-    // Data
-    LevelType levelType() const { return m_levelType; }
+    // DATA
+    LevelType levelType() const;
     bool isLevelTypePrimary() const;
-    void setLevelType(LevelType type) { m_levelType = type; }
-    QString parentLevelID() const { return m_parentLevelID; }
-    void setParentLevelID(const QString &parentLevelID) { m_parentLevelID = parentLevelID; }
+    void setLevelType(LevelType type);
+    QString parentLevelID() const;
+    void setParentLevelID(const QString &parentLevelID);
 
-    // ATTRIBUTES
+    // ANNOTATION ATTRIBUTES
     // Accessors
     AnnotationStructureAttribute *attribute(int index) const;
     AnnotationStructureAttribute *attribute(const QString &ID) const;
     int attributeIndexByID(const QString &ID) const;
     int attributesCount() const;
     bool hasAttributes() const;
-    bool hasAttribute(const QString &ID);
+    bool hasAttribute(const QString &ID) const;
     QStringList attributeIDs() const;
+    QStringList attributeNames() const;
     QList<AnnotationStructureAttribute *> attributes() const;
-    void insertAttribute(int index, AnnotationStructureAttribute *attribute);
-    void addAttribute(AnnotationStructureAttribute *attribute);
+    // Mutators
+    bool insertAttribute(int index, AnnotationStructureAttribute *attribute);
+    bool addAttribute(AnnotationStructureAttribute *attribute);
     void swapAttribute(int oldIndex, int newIndex);
     void removeAttributeAt(int i);
     void removeAttributeByID(const QString &ID);
+    void clear();
 
 signals:
+    void attributeAdded(AnnotationStructureLevel *level, AnnotationStructureAttribute *attribute);
+    void attributeDeleted(AnnotationStructureLevel *level, QString attributeID);
     
-public slots:
-
 protected:
     LevelType m_levelType;      // Level type (e.g. independent or grouping)
     QString m_parentLevelID;    // Parent level ID for grouping levels (e.g. phone for syll)
