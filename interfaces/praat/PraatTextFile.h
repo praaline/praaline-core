@@ -13,8 +13,8 @@ PRAALINE_CORE_BEGIN_NAMESPACE
 class PRAALINE_CORE_SHARED_EXPORT PraatTextFile : InterfaceTextFile
 {
 protected:
-    PraatTextFile() {}
-    virtual ~PraatTextFile() {}
+    PraatTextFile();
+    virtual ~PraatTextFile();
 
     static void detectEncoding(QFile &file, QTextStream &stream);
     static QString seekPattern(QTextStream &stream, const QRegularExpression &regex);

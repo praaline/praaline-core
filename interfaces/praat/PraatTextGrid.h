@@ -36,6 +36,9 @@ public:
     static QList<PraatTierData> getTierData(const QString &filename);
 
 protected:
+    PraatTextGrid();
+    virtual ~PraatTextGrid();
+
     // IO Functions
     static bool readTierHeader(bool isShortFile, QTextStream &stream, QString &line,
                                int &tierType, int &tierSize, QString &name, double &xMin, double &xMax);
