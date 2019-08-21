@@ -69,6 +69,16 @@ HEADERS += \
     datastore/SQLMetadataDatastore.h \
     datastore/XMLAnnotationDatastore.h \
     datastore/XMLMetadataDatastore.h \
+    diff/DiffIntervals.h \
+    diff/DiffPoints.h \
+    diff/dtl/diff.h \
+    diff/dtl/diff3.h \
+    diff/dtl/dtl.h \
+    diff/dtl/functors.h \
+    diff/dtl/lcs.h \
+    diff/dtl/sequence.h \
+    diff/dtl/ses.h \
+    diff/dtl/variables.h \
     interfaces/anvil/AnvilMetadataTranscript.h \
     interfaces/conll/CoNLLXDocument.h \
     interfaces/csv/CSVFileAnnotation.h \
@@ -274,6 +284,8 @@ SOURCES += \
     datastore/SQLMetadataDatastore.cpp \
     datastore/XMLAnnotationDatastore.cpp \
     datastore/XMLMetadataDatastore.cpp \
+    diff/DiffIntervals.cpp \
+    diff/DiffPoints.cpp \
     interfaces/anvil/AnvilMetadataTranscript.cpp \
     interfaces/conll/CoNLLXDocument.cpp \
     interfaces/csv/CSVFileAnnotation.cpp \
