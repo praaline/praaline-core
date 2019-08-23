@@ -56,6 +56,7 @@ HEADERS += \
     corpus/CorpusParticipation.h \
     corpus/CorpusRecording.h \
     corpus/CorpusSpeaker.h \
+    dataframe/DataFrame.h \
     datastore/AnnotationDatastore.h \
     datastore/CorpusDatastore.h \
     datastore/CorpusRepository.h \
@@ -272,6 +273,7 @@ SOURCES += \
     corpus/CorpusParticipation.cpp \
     corpus/CorpusRecording.cpp \
     corpus/CorpusSpeaker.cpp \
+    dataframe/DataFrame.cpp \
     datastore/AnnotationDatastore.cpp \
     datastore/CorpusDatastore.cpp \
     datastore/CorpusRepository.cpp \
