@@ -320,7 +320,7 @@ namespace dtl {
         template < typename stream >
         void printSES (stream& out) const {
             sesElemVec ses_v = ses.getSequence();
-            for_each(ses_v.begin(), ses_v.end(), ChangePrinter< sesElem, stream >(out));
+            std::for_each(ses_v.begin(), ses_v.end(), ChangePrinter< sesElem, stream >(out));
         }
                 
         void printSES (std::ostream& out = std::cout) const {
@@ -333,7 +333,7 @@ namespace dtl {
         template < typename stream >
         static void printSES (const Ses< elem >& s, stream& out) {
             sesElemVec ses_v = s.getSequence();
-            for_each(ses_v.begin(), ses_v.end(), ChangePrinter< sesElem, stream >(out));
+            std::for_each(ses_v.begin(), ses_v.end(), ChangePrinter< sesElem, stream >(out));
         }
         
         static void printSES (const Ses< elem >& s, std::ostream& out = std::cout) {
@@ -346,7 +346,7 @@ namespace dtl {
         template < typename stream, template < typename SEET, typename STRT > class PT >
         void printSES (stream& out) const {
             sesElemVec ses_v = ses.getSequence ();
-            for_each (ses_v.begin (), ses_v.end(), PT < sesElem, stream > (out));
+            std::for_each (ses_v.begin (), ses_v.end(), PT < sesElem, stream > (out));
         }
         
         /**
@@ -354,7 +354,7 @@ namespace dtl {
          */
         template < typename stream >
         void printUnifiedFormat (stream& out) const {
-            for_each(uniHunks.begin(), uniHunks.end(), UniHunkPrinter< sesElem, stream >(out));
+            std::for_each(uniHunks.begin(), uniHunks.end(), UniHunkPrinter< sesElem, stream >(out));
         }
         
         void printUnifiedFormat (std::ostream& out = std::cout) const {
@@ -366,7 +366,7 @@ namespace dtl {
          */
         template < typename stream >
         static void printUnifiedFormat (const uniHunkVec& hunks, stream& out) {
-            for_each(hunks.begin(), hunks.end(), UniHunkPrinter< sesElem >(out));
+            std::for_each(hunks.begin(), hunks.end(), UniHunkPrinter< sesElem >(out));
         }
 
         static void printUnifiedFormat (const uniHunkVec& hunks, std::ostream& out = std::cout) {
