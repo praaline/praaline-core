@@ -13,6 +13,9 @@
 
 PRAALINE_CORE_BEGIN_NAMESPACE
 
+PraatPointTierFile::PraatPointTierFile() {}
+PraatPointTierFile::~PraatPointTierFile() {}
+
 bool PraatPointTierFile::readPoint(bool isShortFile, QTextStream &stream, QString &line,
                                    double &timePoint, double &value)
 {

@@ -22,7 +22,7 @@ public:
         AnnotationTier *tierToExport;
     };
 
-    explicit ExmaraldaTranscriptionBridge(QObject *parent = 0);
+    explicit ExmaraldaTranscriptionBridge(QObject *parent = nullptr);
     void addTier(const QString &tierID, const QString &speakerID,
                  const QString &type, const QString &category,
                  const QString &displayName,

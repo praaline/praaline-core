@@ -5,6 +5,9 @@
 
 PRAALINE_CORE_BEGIN_NAMESPACE
 
+PraatTextFile::PraatTextFile() {}
+PraatTextFile::~PraatTextFile() {}
+
 void PraatTextFile::detectEncoding(QFile &file, QTextStream &stream)
 {
     InterfaceTextFile::detectEncoding(file, stream);

@@ -37,6 +37,8 @@ QRegularExpression PraatTextGrid::regex_short_text = QRegularExpression("\\\"(.*
 QRegularExpression PraatTextGrid::regex_short_time = QRegularExpression("[+-]?(\\d+\\.?\\d*)");
 QRegularExpression PraatTextGrid::regex_short_mark = QRegularExpression("\\\"(.*)\\\"");
 
+PraatTextGrid::PraatTextGrid() {}
+PraatTextGrid::~PraatTextGrid() {}
 
 // The following private, static member functions are used to process a TextGrid file
 

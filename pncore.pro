@@ -56,6 +56,7 @@ HEADERS += \
     corpus/CorpusParticipation.h \
     corpus/CorpusRecording.h \
     corpus/CorpusSpeaker.h \
+    dataframe/DataFrame.h \
     datastore/AnnotationDatastore.h \
     datastore/CorpusDatastore.h \
     datastore/CorpusRepository.h \
@@ -69,6 +70,16 @@ HEADERS += \
     datastore/SQLMetadataDatastore.h \
     datastore/XMLAnnotationDatastore.h \
     datastore/XMLMetadataDatastore.h \
+    diff/DiffIntervals.h \
+    diff/DiffPoints.h \
+    diff/dtl/diff.h \
+    diff/dtl/diff3.h \
+    diff/dtl/dtl.h \
+    diff/dtl/functors.h \
+    diff/dtl/lcs.h \
+    diff/dtl/sequence.h \
+    diff/dtl/ses.h \
+    diff/dtl/variables.h \
     interfaces/anvil/AnvilMetadataTranscript.h \
     interfaces/conll/CoNLLXDocument.h \
     interfaces/csv/CSVFileAnnotation.h \
@@ -262,6 +273,7 @@ SOURCES += \
     corpus/CorpusParticipation.cpp \
     corpus/CorpusRecording.cpp \
     corpus/CorpusSpeaker.cpp \
+    dataframe/DataFrame.cpp \
     datastore/AnnotationDatastore.cpp \
     datastore/CorpusDatastore.cpp \
     datastore/CorpusRepository.cpp \
@@ -274,6 +286,8 @@ SOURCES += \
     datastore/SQLMetadataDatastore.cpp \
     datastore/XMLAnnotationDatastore.cpp \
     datastore/XMLMetadataDatastore.cpp \
+    diff/DiffIntervals.cpp \
+    diff/DiffPoints.cpp \
     interfaces/anvil/AnvilMetadataTranscript.cpp \
     interfaces/conll/CoNLLXDocument.cpp \
     interfaces/csv/CSVFileAnnotation.cpp \

@@ -23,10 +23,13 @@ public:
     static bool save(const QString &filename,  const QString &praatObjectClass,
                      QMap<RealTime, double> &points);
 
+protected:
+    PraatPointTierFile();
+    virtual ~PraatPointTierFile();
+
 private:
     static bool readPoint(bool isShortFile, QTextStream &stream, QString &line,
                           double &timePoint, double &value);
-    PraatPointTierFile() {}
 };
 
 PRAALINE_CORE_END_NAMESPACE
