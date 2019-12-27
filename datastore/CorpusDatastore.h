@@ -25,7 +25,7 @@ class CorpusObject;
 class CorpusRepository;
 
 // Internal class
-class CorpusDatastore : public QObject
+class PRAALINE_CORE_SHARED_EXPORT CorpusDatastore : public QObject
 {
     Q_OBJECT
 public:

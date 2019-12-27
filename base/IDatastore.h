@@ -21,7 +21,7 @@
 PRAALINE_CORE_BEGIN_NAMESPACE
 
 // Internal interface
-class IDatastore {
+class PRAALINE_CORE_SHARED_EXPORT IDatastore {
 public:
     IDatastore();
     virtual ~IDatastore();

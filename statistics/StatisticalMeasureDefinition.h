@@ -22,7 +22,7 @@
 
 PRAALINE_CORE_BEGIN_NAMESPACE
 
-class StatisticalMeasureDefinition
+class PRAALINE_CORE_SHARED_EXPORT StatisticalMeasureDefinition
 {
 public:
     StatisticalMeasureDefinition();

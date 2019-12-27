@@ -24,7 +24,7 @@ PRAALINE_CORE_BEGIN_NAMESPACE
 class NameValueList;
 
 // internal interface
-class NameValueListDatastore
+class PRAALINE_CORE_SHARED_EXPORT NameValueListDatastore
 {
 public:
     NameValueListDatastore();

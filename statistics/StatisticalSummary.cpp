@@ -13,11 +13,13 @@
 // This class is considered CRITICAL and any change MUST be accompanied with
 // full unit tests in testStatisticalSummary.cpp.
 
-#include "StatisticalSummary.h"
 #include <limits>
 #include <qmath.h>
 #include <QString>
 #include <QObject>
+#include <QList>
+#include <QMap>
+#include "StatisticalSummary.h"
 
 PRAALINE_CORE_BEGIN_NAMESPACE
 
