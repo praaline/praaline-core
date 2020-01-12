@@ -4,23 +4,23 @@ matrix:
   include:
   - if: tag IS blank
     os: linux
-    dist: trusty
+    dist: bionic
     sudo: required
     compiler: gcc
     env:
-    - QT_BASE=59
+    - QT_BASE=5.14
   - if: tag IS blank
     os: osx
     compiler: clang
     env:
-    - QT_BASE=59
+    - QT_BASE=5.14
   fast_finish: true
 
 cache: packages
 
 before_install:
-- if [[ "$QT_BASE" = "59" && "$TRAVIS_OS_NAME" = "linux" ]]; then 
-    sudo add-apt-repository ppa:beineri/opt-qt592-trusty -y; 
+- if [[ "$QT_BASE" = "5.14" && "$TRAVIS_OS_NAME" = "linux" ]]; then 
+    sudo add-apt-repository ppa:beineri/opt-qt-5.14.0-bionic -y; 
   fi
 - if [ "$TRAVIS_OS_NAME" = "linux" ]; then 
     sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y; 
@@ -36,15 +36,15 @@ install:
     sudo apt-get install -qq g++-5;
     sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-5 90;
   fi
-- if [ "$QT_BASE" = "59" ]; then
+- if [ "$QT_BASE" = "5.14" ]; then
     if [ "$TRAVIS_OS_NAME" = "linux" ]; then
-      sudo apt-get install -qq qt59base;
-      source /opt/qt59/bin/qt59-env.sh;
+      sudo apt-get install -qq qt514base;
+      source /opt/qt514/bin/qt514-env.sh;
     else
       brew install qt5;
       brew link --force qt5;
       export HOMEBREW_QT5_VERSION=$(brew list --versions qt5 | rev | cut -d' ' -f1 | rev);
-	  export HOMEBREW_QT5_VERSION = 5.10.1;
+	  export HOMEBREW_QT5_VERSION = 5.14.0;
       ln -s /usr/local/Cellar/qt5/$HOMEBREW_QT5_VERSION/mkspecs /usr/local/mkspecs;
     fi
   fi
@@ -52,7 +52,7 @@ install:
 script:
 - g++ -v;
 - qmake -v;
-- qmake ./pncore.pro CONFIG+=release && make
+- qmake ./praaline-core.pro CONFIG+=release && make
 - ls -R
 # Package
 - mkdir deploy
