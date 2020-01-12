@@ -68,8 +68,8 @@ Diff<Interval *, std::vector<Interval *>, CompareInterval>
 DiffIntervals::intervalDiff(QList<Interval *> listA, QList<Interval *> listB, bool compareBoundaries,
                             QString attributeID_A, QString attributeID_B)
 {
-    std::vector<Interval *> sequenceA = listA.toVector().toStdVector();
-    std::vector<Interval *> sequenceB = listB.toVector().toStdVector();
+    std::vector<Interval *> sequenceA = std::vector<Interval *>(listA.toVector().begin(), listA.toVector().end());
+    std::vector<Interval *> sequenceB = std::vector<Interval *>(listB.toVector().begin(), listB.toVector().end());
     CompareInterval comparator(compareBoundaries, attributeID_A, attributeID_B);
     Diff<Interval *, std::vector<Interval *>, CompareInterval> d(sequenceA, sequenceB, false, comparator);
     d.compose();

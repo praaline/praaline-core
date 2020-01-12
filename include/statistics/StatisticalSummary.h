@@ -19,6 +19,13 @@
     the GNU General Public License for more details.
 */
 
+#ifdef min
+#undef min
+#endif
+#ifdef max
+#undef max
+#endif
+
 #include "pncore_global.h"
 #include <QMap>
 

@@ -21,7 +21,7 @@
 
 PRAALINE_CORE_BEGIN_NAMESPACE
 
-class SerialiserMetadataStructure
+class PRAALINE_CORE_SHARED_EXPORT SerialiserMetadataStructure
 {
 protected:
     SerialiserMetadataStructure();

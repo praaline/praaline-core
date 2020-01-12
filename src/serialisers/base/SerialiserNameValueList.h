@@ -20,7 +20,7 @@
 
 PRAALINE_CORE_BEGIN_NAMESPACE
 
-class SerialiserNameValueList
+class PRAALINE_CORE_SHARED_EXPORT SerialiserNameValueList
 {
 protected:
     SerialiserNameValueList();

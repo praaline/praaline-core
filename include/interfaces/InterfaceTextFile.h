@@ -18,6 +18,8 @@ protected:
     InterfaceTextFile();
     ~InterfaceTextFile();
     static void detectEncoding(QFile &file, QTextStream &stream);
+
+private:
     static QString m_defaultEncoding;
 };
 

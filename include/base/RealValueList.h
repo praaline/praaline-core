@@ -16,6 +16,7 @@
 */
 
 #include "pncore_global.h"
+#include <QSet>
 #include <QList>
 
 class PRAALINE_CORE_SHARED_EXPORT  RealValueList : public QList<double>

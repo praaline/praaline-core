@@ -68,8 +68,8 @@ Diff<Point *, std::vector<Point *>, ComparePoint>
 DiffPoints::PointDiff(QList<Point *> listA, QList<Point *> listB, bool compareBoundaries,
                             QString attributeID_A, QString attributeID_B)
 {
-    std::vector<Point *> sequenceA = listA.toVector().toStdVector();
-    std::vector<Point *> sequenceB = listB.toVector().toStdVector();
+    std::vector<Point *> sequenceA = std::vector<Point *>(listA.toVector().begin(), listA.toVector().end());
+    std::vector<Point *> sequenceB = std::vector<Point *>(listB.toVector().begin(), listB.toVector().end());
     ComparePoint comparator(compareBoundaries, attributeID_A, attributeID_B);
     Diff<Point *, std::vector<Point *>, ComparePoint> d(sequenceA, sequenceB, false, comparator);
     d.compose();
