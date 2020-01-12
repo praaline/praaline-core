@@ -1,6 +1,6 @@
 #include <QDebug>
 #include <QXmlStreamReader>
-#include "TEIHeader.h"
+#include "interfaces/tei/TEIHeader.h"
 
 PRAALINE_CORE_BEGIN_NAMESPACE
 
