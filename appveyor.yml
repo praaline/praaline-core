@@ -20,19 +20,19 @@ before_build:
 build_script:
 # Build Praaline Core Library
 - qmake -v
-- qmake .\pncore.pro CONFIG+=release && mingw32-make
-- copy build\release\pncore.dll .\pncore.dll
+- qmake .\praaline-core.pro CONFIG+=release && mingw32-make
+- copy build\release\praaline-core.dll .\praaline-core.dll
 - dir /s
 
 artifacts:
-- path: pncore.dll
+- path: praaline-core.dll
 
 deploy:
   - provider: GitHub
     release: $(COMMIT_TIMESTAMP)
     auth_token: 
       secure: QP8Fu6Yw87cA6bQ0G7hf/MPFzYw0+/wwnLKnMahrETh7gPXh5Ad/2gOIEfvGrfpn
-    artifact: pncore.dll
+    artifact: praaline-core.dll
     force_update: true
     on: 
       branch: master
