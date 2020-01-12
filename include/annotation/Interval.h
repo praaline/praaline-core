@@ -83,7 +83,18 @@ public:
         { return (m_tMax - m_tMin); }
 
     // Overrides
+    /**
+     * @brief attribute property
+     * @param name The name of the attribute.
+     * @return Returns a named attribute for this interval.
+     */
     virtual QVariant attribute(const QString &name) const override ;
+    /**
+     * @brief setAttribute method
+     * @param name The name of the attribute.
+     * @param value The value to which the named attribute will be set.
+     * @return Sets the value of a named attribute for this interval. If the named attribute does not exist, it will be created.
+     */
     virtual void setAttribute(const QString &name, QVariant value) override;
     inline virtual ElementType elementType() const override {
         return Type_Interval;
