@@ -3,6 +3,8 @@
 
 #include <QObject>
 #include <QList>
+
+#include "praaline-core_global.h"
 #include "annotation/AnnotationTier.h"
 #include "interfaces/exmaralda/ExmaraldaBasicTranscription.h"
 

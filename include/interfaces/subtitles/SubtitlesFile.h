@@ -1,8 +1,9 @@
 #ifndef SUBTITLESFILE_H
 #define SUBTITLESFILE_H
 
-#include "pncore_global.h"
 #include <QString>
+
+#include "praaline-core_global.h"
 #include "interfaces/InterfaceTextFile.h"
 #include "annotation/IntervalTier.h"
 

@@ -1,5 +1,5 @@
 # Praaline Core Library
-# (c) George Christodoulides 2012-2017
+# (c) George Christodoulides 2012-2020
 
 ! include( ../common.pri ) {
     ! include( ./praaline-core-common.pri ) {
@@ -217,7 +217,7 @@ SOURCES += \
 # Public headers
 
 HEADERS += \
-    include/pncore_global.h \
+    include/praaline-core_global.h \
     include/annotation/AnnotationDataTable.h \
     include/annotation/AnnotationElement.h \
     include/annotation/AnnotationTier.h \
@@ -234,6 +234,7 @@ HEADERS += \
     include/annotation/TreeTier.h \
     include/base/BaseTypes.h \
     include/base/DataType.h \
+    include/base/IDatastore.h \
     include/base/ISaveable.h \
     include/base/RealTime.h \
     include/base/RealValueList.h \
@@ -320,7 +321,6 @@ HEADERS += \
 # Private headers
 
 HEADERS += \
-    src/base/IDatastore.h \
     src/datastore/SQLAnnotationDatastore.h \
     src/datastore/SQLMetadataDatastore.h \
     src/datastore/XMLAnnotationDatastore.h \

@@ -3,7 +3,7 @@
 
 /*
     Praaline - Core module - Diff
-    Copyright (c) 2011-2019 George Christodoulides
+    Copyright (c) 2011-2020 George Christodoulides
 
     This program or module is free software: you can redistribute it
     and/or modify it under the terms of the GNU General Public License
@@ -15,9 +15,9 @@
     the GNU General Public License for more details.
 */
 
-#include "pncore_global.h"
 #include <QString>
 
+#include "praaline-core_global.h"
 #include "annotation/Interval.h"
 #include "diff/dtl/dtl.h"
 
@@ -50,7 +50,7 @@ public:
     DiffIntervals();
     ~DiffIntervals();
 
-    static Diff<std::string> stringDiff(QList<Praaline::Core::Interval *> listA, QList<Praaline::Core::Interval *> listB,
+    static Diff<std::string> stringDiff(QList<PRAALINE_CORE_NAMESPACE::Interval *> listA, QList<PRAALINE_CORE_NAMESPACE::Interval *> listB,
                                         QString attributeID_A = QString(), QString attributeID_B = QString());
     static Diff<PRAALINE_CORE_NAMESPACE::Interval *, std::vector<PRAALINE_CORE_NAMESPACE::Interval *>, CompareInterval>
 

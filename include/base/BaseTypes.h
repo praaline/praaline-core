@@ -2,7 +2,7 @@
 
 /*
     Praaline - Core module - Base
-    Copyright (c) 2011-2019 George Christodoulides
+    Copyright (c) 2011-2020 George Christodoulides
 
     This is a modified version of a source file from:
     Sonic Visualiser - An audio file viewer and annotation editor.

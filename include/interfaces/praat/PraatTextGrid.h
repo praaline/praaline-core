@@ -1,7 +1,6 @@
 #ifndef PRAATTEXTGRID_H
 #define PRAATTEXTGRID_H
 
-#include "pncore_global.h"
 #include <QObject>
 #include <QString>
 #include <QList>
@@ -9,6 +8,8 @@
 #include <QFile>
 #include <QTextStream>
 #include <QRegularExpression>
+
+#include "praaline-core_global.h"
 #include "base/RealTime.h"
 #include "annotation/AnnotationTierGroup.h"
 #include "annotation/AnnotationTier.h"

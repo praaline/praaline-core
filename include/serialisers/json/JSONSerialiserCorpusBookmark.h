@@ -3,7 +3,7 @@
 
 /*
     Praaline - Core module - JSON Serialisers
-    Copyright (c) 2011-2019 George Christodoulides
+    Copyright (c) 2011-2020 George Christodoulides
 
     This program or module is free software: you can redistribute it
     and/or modify it under the terms of the GNU General Public License
@@ -19,7 +19,7 @@
 #include <QString>
 #include <QJsonObject>
 
-#include "pncore_global.h"
+#include "praaline-core_global.h"
 #include "corpus/CorpusBookmark.h"
 #include "serialisers/json/JSONSerialiserBase.h"
 

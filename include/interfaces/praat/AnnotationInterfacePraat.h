@@ -1,9 +1,10 @@
 #ifndef ANNOTATIONINTERFACEPRAAT_H
 #define ANNOTATIONINTERFACEPRAAT_H
 
-#include "pncore_global.h"
 #include <QObject>
 #include <QString>
+
+#include "praaline-core_global.h"
 
 PRAALINE_CORE_BEGIN_NAMESPACE
 

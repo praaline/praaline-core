@@ -2,7 +2,7 @@
 
 /*
     Praaline - Core module - Base
-    Copyright (c) 2011-2017 George Christodoulides
+    Copyright (c) 2011-2020 George Christodoulides
 
     This is a modified version of a source file from:
     Sonic Visualiser - An audio file viewer and annotation editor.
@@ -27,9 +27,9 @@
 #ifndef REAL_TIME_H
 #define REAL_TIME_H
 
-#include "pncore_global.h"
 #include <iostream>
 #include <string>
+#include "praaline-core_global.h"
 #include "base/BaseTypes.h"
 
 struct timeval;

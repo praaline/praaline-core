@@ -3,7 +3,7 @@
 
 /*
     Praaline - Core module - Statistics
-    Copyright (c) 2011-2019 George Christodoulides
+    Copyright (c) 2011-2020 George Christodoulides
 
     This file is based on:
     QGIS qgsstatisticalsummary.h
@@ -26,7 +26,7 @@
 #undef max
 #endif
 
-#include "pncore_global.h"
+#include "praaline-core_global.h"
 #include <QMap>
 
 PRAALINE_CORE_BEGIN_NAMESPACE

@@ -1,11 +1,12 @@
 #ifndef TEIHEADER_H
 #define TEIHEADER_H
 
-#include "pncore_global.h"
 #include <QObject>
 #include <QList>
 #include <QMap>
 #include <QString>
+
+#include "praaline-core_global.h"
 #include "base/RealTime.h"
 #include "interfaces/InterfaceTextFile.h"
 

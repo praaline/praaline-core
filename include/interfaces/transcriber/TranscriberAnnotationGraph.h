@@ -1,11 +1,12 @@
 #ifndef TRANSCRIBERANNOTATIONGRAPH_H
 #define TRANSCRIBERANNOTATIONGRAPH_H
 
-#include "pncore_global.h"
 #include <QObject>
 #include <QList>
 #include <QMap>
 #include <QString>
+
+#include "praaline-core_global.h"
 #include "base/RealTime.h"
 #include "corpus/CorpusSpeaker.h"
 #include "annotation/AnnotationTierGroup.h"

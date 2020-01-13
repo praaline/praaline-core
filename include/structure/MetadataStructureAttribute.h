@@ -3,7 +3,7 @@
 
 /*
     Praaline - Core module - Corpus Structure Definition
-    Copyright (c) 2011-2019 George Christodoulides
+    Copyright (c) 2011-2020 George Christodoulides
 
     This program or module is free software: you can redistribute it
     and/or modify it under the terms of the GNU General Public License
@@ -15,10 +15,10 @@
     the GNU General Public License for more details.
 */
 
-#include "pncore_global.h"
 #include <QObject>
 #include <QString>
 #include <QVariant>
+#include "praaline-core_global.h"
 #include "structure/StructureAttributeBase.h"
 
 PRAALINE_CORE_BEGIN_NAMESPACE

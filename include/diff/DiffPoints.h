@@ -3,7 +3,7 @@
 
 /*
     Praaline - Core module - Diff
-    Copyright (c) 2011-2019 George Christodoulides
+    Copyright (c) 2011-2020 George Christodoulides
 
     This program or module is free software: you can redistribute it
     and/or modify it under the terms of the GNU General Public License
@@ -15,9 +15,9 @@
     the GNU General Public License for more details.
 */
 
-#include "pncore_global.h"
 #include <QString>
 
+#include "praaline-core_global.h"
 #include "annotation/Point.h"
 #include "diff/dtl/dtl.h"
 
@@ -50,7 +50,7 @@ public:
     DiffPoints();
     ~DiffPoints();
 
-    static Diff<std::string> stringDiff(QList<Praaline::Core::Point *> listA, QList<Praaline::Core::Point *> listB,
+    static Diff<std::string> stringDiff(QList<PRAALINE_CORE_NAMESPACE::Point *> listA, QList<PRAALINE_CORE_NAMESPACE::Point *> listB,
                                         QString attributeID_A = QString(), QString attributeID_B = QString());
     static Diff<PRAALINE_CORE_NAMESPACE::Point *, std::vector<PRAALINE_CORE_NAMESPACE::Point *>, ComparePoint>
 

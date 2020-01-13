@@ -11,6 +11,8 @@
 #include <QXmlStreamReader>
 #include <QXmlStreamWriter>
 #include <QRegExp>
+
+#include "praaline-core_global.h"
 #include "base/RealTime.h"
 #include "annotation/AnnotationTierGroup.h"
 #include "annotation/AnnotationTier.h"

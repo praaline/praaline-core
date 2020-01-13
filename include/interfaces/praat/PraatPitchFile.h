@@ -1,7 +1,6 @@
 #ifndef PRAATPITCHFILE_H
 #define PRAATPITCHFILE_H
 
-#include "pncore_global.h"
 #include <QObject>
 #include <QString>
 #include <QList>
@@ -9,6 +8,8 @@
 #include <QFile>
 #include <QTextStream>
 #include <QRegularExpression>
+
+#include "praaline-core_global.h"
 #include "base/RealTime.h"
 #include "interfaces/praat/PraatTextFile.h"
 

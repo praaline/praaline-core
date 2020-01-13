@@ -3,7 +3,7 @@
 
 /*
     Praaline - Core module - Corpus metadata
-    Copyright (c) 2011-2019 George Christodoulides
+    Copyright (c) 2011-2020 George Christodoulides
 
     This program or module is free software: you can redistribute it
     and/or modify it under the terms of the GNU General Public License
@@ -17,6 +17,7 @@
 
 #include <QString>
 #include <QVariant>
+#include "praaline-core_global.h"
 #include "base/ISaveable.h"
 #include "corpus/CorpusObject.h"
 

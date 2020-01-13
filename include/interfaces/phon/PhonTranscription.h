@@ -1,10 +1,11 @@
 #ifndef PHONTRANSCRIPTION_H
 #define PHONTRANSCRIPTION_H
 
-#include "pncore_global.h"
 #include <QObject>
 #include <QList>
 #include <QXmlStreamReader>
+
+#include "praaline-core_global.h"
 #include "base/RealTime.h"
 
 PRAALINE_CORE_BEGIN_NAMESPACE

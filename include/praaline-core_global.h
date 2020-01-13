@@ -24,7 +24,7 @@
 #endif
 
 
-#if !defined(USE_PRAALINE_CORE_NAMESPACE) /* namespace */
+#if !defined(USE_NAMESPACE_PRAALINE_CORE) /* namespace */
 # define PRAALINE_CORE_NAMESPACE
 # define PRAALINE_CORE_USING_NAMESPACE
 # define PRAALINE_CORE_BEGIN_NAMESPACE

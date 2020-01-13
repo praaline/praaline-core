@@ -1,11 +1,12 @@
 #ifndef PRAATTEXTFILE_H
 #define PRAATTEXTFILE_H
 
-#include "pncore_global.h"
 #include <QString>
 #include <QFile>
 #include <QTextStream>
 #include <QRegularExpression>
+
+#include "praaline-core_global.h"
 #include "interfaces/InterfaceTextFile.h"
 
 PRAALINE_CORE_BEGIN_NAMESPACE

@@ -3,7 +3,7 @@
 
 /*
     Praaline - Core module - SQL Serialisers
-    Copyright (c) 2011-2019 George Christodoulides
+    Copyright (c) 2011-2020 George Christodoulides
 
     This program or module is free software: you can redistribute it
     and/or modify it under the terms of the GNU General Public License
@@ -17,9 +17,8 @@
 
 #include <QSqlDatabase>
 
-#include "pncore_global.h"
+#include "praaline-core_global.h"
 #include "base/IDatastore.h"
-#include "serialisers/base/SerialiserMetadata.h"
 #include "corpus/CorpusObjectInfo.h"
 #include "corpus/Corpus.h"
 #include "corpus/CorpusCommunication.h"
@@ -28,6 +27,7 @@
 #include "corpus/CorpusAnnotation.h"
 #include "corpus/CorpusParticipation.h"
 #include "datastore/MetadataDatastore.h"
+#include "serialisers/base/SerialiserMetadata.h"
 
 PRAALINE_CORE_BEGIN_NAMESPACE
 

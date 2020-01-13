@@ -10,6 +10,8 @@
 #include <QFile>
 #include <QTextStream>
 #include <QRegExp>
+
+#include "praaline-core_global.h"
 #include "base/RealTime.h"
 #include "interfaces/praat/PraatTextFile.h"
 

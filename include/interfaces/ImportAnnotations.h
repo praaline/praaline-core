@@ -3,7 +3,7 @@
 
 #include <QString>
 #include <QList>
-#include "pncore_global.h"
+#include "praaline-core_global.h"
 
 PRAALINE_CORE_BEGIN_NAMESPACE
 

@@ -1,10 +1,11 @@
 #ifndef INTERFACETEXTFILE_H
 #define INTERFACETEXTFILE_H
 
-#include "pncore_global.h"
 #include <QString>
 #include <QFile>
 #include <QTextStream>
+
+#include "praaline-core_global.h"
 
 PRAALINE_CORE_BEGIN_NAMESPACE
 

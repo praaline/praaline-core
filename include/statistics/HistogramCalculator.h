@@ -3,7 +3,7 @@
 
 /*
     Praaline - Core module - Statistics
-    Copyright (c) 2011-2019 George Christodoulides
+    Copyright (c) 2011-2020 George Christodoulides
 
     This file is based on:
     QGIS qgshistogram.
@@ -19,8 +19,8 @@
     the GNU General Public License for more details.
 */
 
-#include "pncore_global.h"
 #include <QList>
+#include "praaline-core_global.h"
 
 PRAALINE_CORE_BEGIN_NAMESPACE
 
