@@ -1,7 +1,7 @@
 #ifndef STRUCTURE_SQLTYPE_H
 #define STRUCTURE_SQLTYPE_H
 
-#include "base/DataType.h"
+#include "PraalineCore/Base/DataType.h"
 #include "QSqlMigrator/QSqlMigratorConfig.h"
 
 #include <QString>
