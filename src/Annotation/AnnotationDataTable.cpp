@@ -16,10 +16,57 @@ PRAALINE_CORE_BEGIN_NAMESPACE
 AnnotationDataTable::AnnotationDataTable(QObject *parent) :
     QObject(parent)
 {
+    m_delimiter = "\t";
+    m_textQualifier = "";
+    m_hasHeaders = true;
 }
 
 AnnotationDataTable::~AnnotationDataTable()
 {
+}
+
+// ==========================================================================================================
+// Properties
+// ==========================================================================================================
+
+QString AnnotationDataTable::ID() const
+{
+    return m_ID;
+}
+
+void AnnotationDataTable::setID(const QString &ID)
+{
+    m_ID = ID;
+}
+
+QString AnnotationDataTable::delimiter() const
+{
+    return m_delimiter;
+}
+
+void AnnotationDataTable::setDelimiter(const QString &delimiter)
+{
+    m_delimiter = delimiter;
+}
+
+QString AnnotationDataTable::textQualifier() const
+{
+    return m_textQualifier;
+}
+
+void AnnotationDataTable::setTextQualifier(const QString &textQualifier)
+{
+    m_textQualifier = textQualifier;
+}
+
+bool AnnotationDataTable::hasHeaders() const
+{
+    return m_hasHeaders;
+}
+
+void AnnotationDataTable::setHasHeaders(bool hasHeaders)
+{
+    m_hasHeaders = hasHeaders;
 }
 
 // ==========================================================================================================
@@ -105,6 +152,16 @@ RealValueList AnnotationDataTable::getValueList(const QString &fieldname)
 // Serialization
 // ==========================================================================================================
 
+QString AnnotationDataTable::removeTextQualifiers(const QString input)
+{
+    QString ret(input);
+    if (m_textQualifier.isEmpty()) return ret;
+    if (ret.indexOf(m_textQualifier) == 0) ret = ret.remove(0, m_textQualifier.length());
+    if (ret.lastIndexOf(m_textQualifier) == ret.length() - 1) ret.chop(m_textQualifier.length());
+    return ret;
+}
+
+
 bool AnnotationDataTable::readFromFile(const QString &filename)
 {
     // Read tab-separated file
@@ -112,21 +169,21 @@ bool AnnotationDataTable::readFromFile(const QString &filename)
     if (!file.open( QIODevice::ReadOnly | QIODevice::Text ))
         return false;
     QTextStream stream(&file);
-    bool headerLine = true;
+    bool expectHeaderLine = m_hasHeaders;
     do {
         QString line = stream.readLine();
-        if (headerLine) {
+        if (expectHeaderLine) {
             int fieldColumn = 0;
-            foreach (QString fieldName, line.split("\t")) {
-                m_fieldNames.insert(fieldName.trimmed(), fieldColumn);
+            foreach (QString fieldName, line.split(m_delimiter)) {
+                m_fieldNames.insert(removeTextQualifiers(fieldName).trimmed(), fieldColumn);
                 fieldColumn++;
             }
-            headerLine = false;
+            expectHeaderLine = false;
         }
         else {
             QList<QVariant> record;
-            foreach (QString value, line.split("\t")) {
-                record.append(QVariant(value));
+            foreach (QString value, line.split(m_delimiter)) {
+                record.append(QVariant(removeTextQualifiers(value)));
             }
             m_data.append(record);
         }

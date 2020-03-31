@@ -34,8 +34,17 @@ public:
     explicit AnnotationDataTable(QObject *parent = nullptr);
     virtual ~AnnotationDataTable();
 
-    QString ID() const { return m_ID; }
-    void setID(const QString &ID) { m_ID = ID; }
+    QString ID() const;
+    void setID(const QString &ID);
+
+    QString delimiter() const;
+    void setDelimiter(const QString &delimiter);
+
+    QString textQualifier() const;
+    void setTextQualifier(const QString &textQualifier);
+
+    bool hasHeaders() const;
+    void setHasHeaders(bool hasHeaders);
 
     virtual int getRowCount() const;
     virtual int getColumnCount() const;
@@ -64,10 +73,16 @@ public slots:
 
 protected:
     QString m_ID;
+    QString m_delimiter;
+    QString m_textQualifier;
+    bool m_hasHeaders;
     QHash<QString, int> m_fieldNames;               // field name, column
     QHash<QString, QString> m_fieldTypes;           // field name, field type
     QHash<QString, QString> m_fieldDescriptions;    // field name, field description
     QList< QList<QVariant> > m_data;                // rows < columns >
+
+private:
+    QString removeTextQualifiers(const QString input);
 };
 
 PRAALINE_CORE_END_NAMESPACE

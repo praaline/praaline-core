@@ -654,10 +654,14 @@ IntervalTier *IntervalTier::getIntervalTierSubset(const RealTime &timeStart, con
     }
     else if (ret->count() > 1) {
         ret->timeShift(-timeStart);
-        if (ret->first()->tMin() < RealTime(0, 0) && ret->first()->tMax() > RealTime(0, 0))
+        if (ret->first()->tMin() < RealTime(0, 0) && ret->first()->tMax() > RealTime(0, 0)) {
             ret->first()->m_tMin = RealTime(0, 0);
-        if (ret->last()->tMax() > (timeEnd - timeStart) && ret->last()->tMin() < (timeEnd - timeStart))
+            ret->m_tMin = ret->first()->tMin();
+        }
+        if (ret->last()->tMax() > (timeEnd - timeStart) && ret->last()->tMin() < (timeEnd - timeStart)) {
             ret->last()->m_tMax = (timeEnd - timeStart);
+            ret->m_tMax = ret->last()->tMax();
+        }
     }
     return ret;
 }

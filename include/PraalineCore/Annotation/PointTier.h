@@ -73,8 +73,11 @@ public:
                                   RealTime threshold = RealTime(0, 100000000));
     QList<Point *> getPointsContainedIn(const Interval *container) const;
     QList<Point *> getPointsContainedIn(RealTime tMin, RealTime tMax) const;
+
+    // Convert point tier to interval tier
     IntervalTier *getIntervalsMin(const QString &name, QObject *parent = nullptr);
     IntervalTier *getIntervalsMax(const QString &name, QObject *parent = nullptr);
+
     QList<Point *> findLocalMaxima(const RealTime &localMaxThreshold, const QString &compareAttributeID) const;
 
     // Clone

@@ -244,7 +244,10 @@ IntervalTier *PointTier::getIntervalsMin(const QString &name, QObject *parent)
     IntervalTier *ret = new IntervalTier(name, m_tMin, m_tMax, parent);
     foreach (Point *p, m_points) {
         Interval *intv = ret->split(ret->count() - 1, p->time());
-        intv->setText(p->text());
+        if (intv) {
+            intv->setText(p->text());
+            foreach (QString attributeName, p->m_attributes.keys()) intv->setAttribute(attributeName, p->attribute(attributeName));
+        }
     }
     return ret;
 }
@@ -254,7 +257,7 @@ IntervalTier *PointTier::getIntervalsMax(const QString &name, QObject *parent)
     QList<Interval *> intervals;
     RealTime tMin = m_tMin;
     foreach (Point *p, m_points) {
-        intervals << new Interval(tMin, p->time(), p->text());
+        intervals << new Interval(tMin, p->time(), p->text(), p->m_attributes);
         tMin = p->time();
     }
     return new IntervalTier(name, intervals, m_tMin, m_tMax, parent);
