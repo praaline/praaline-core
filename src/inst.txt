@@ -1,0 +1,21 @@
+install(TARGETS PraalineCore EXPORT PraalineCoreTargets
+		LIBRARY DESTINATION lib
+		ARCHIVE DESTINATION lib
+		RUNTIME DESTINATION bin
+		INCLUDES DESTINATION include
+)
+install(EXPORT PraalineCoreTargets
+		DESTINATION lib/cmake/PraalineCore
+		FILE PraalineCoreTargets.cmake
+		NAMESPACE Praaline::
+)
+install(DIRECTORY include/PraalineCore
+		DESTINACTION include
+)
+ 
+include(CMakePackageConfigHelpers)
+write_basic_package_version_file(PraalineCoreConfigVersion.cmake COMPATIBILITY SameMajorVersion)
+install(FILES PraalineCoreConfig.cmake ${CMAKE_CURRENT_BINARY_DIR}/PraalineCoreConfigVersion.cmake
+		DESTINACTION lib/cmake/PraalineCore
+)
+
