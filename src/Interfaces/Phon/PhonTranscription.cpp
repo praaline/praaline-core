@@ -311,9 +311,30 @@ bool PhonTranscription::readSegmentOrthography(QXmlStreamReader &xml, PhonTransc
 // private
 bool PhonTranscription::readSegmentIPATier(QXmlStreamReader &xml, PhonTranscription::Segment &segment)
 {
-    Q_UNUSED(segment)
     if ((xml.tokenType() != QXmlStreamReader::StartElement) || (xml.name() != "ipaTier")) return false;
+    IPAData ipaData;
+    if (xml.attributes().hasAttribute("form")) ipaData.form = xml.attributes().value("form").toString();
     xml.readNext();
+    QStringList ipaWords;
+    while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == "ipaTier") && !xml.atEnd()) {
+        if (xml.tokenType() == QXmlStreamReader::StartElement && xml.name() == "pg")   {
+            xml.readNext();
+            while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == "pg") && !xml.atEnd()) {
+                if (xml.tokenType() == QXmlStreamReader::StartElement) {
+                    if      (xml.name() == "w") { ipaWords << xml.readElementText(); }
+                }
+                xml.readNext();
+            }
+        }
+        xml.readNext();
+    }
+    ipaData.pg.clear();
+    ipaData.pg << ipaWords;
+    if (ipaData.form == "model")
+        segment.ipaModel = ipaData;
+    else if (ipaData.form == "actual")
+        segment.ipaActual = ipaData;
+    else return false;
     return true;
 }
 

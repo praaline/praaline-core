@@ -1,0 +1,16 @@
+include(GNUInstallDirs)
+install TARGETS Example
+	RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+		    COMPONENT	Praaline_Core_Runtime
+	LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+			COMPONENT  	Praaline_Core_Runtime
+			NAMELINK_COMPONENT Praaline_Core_Development
+	ARCHIVE DESTINATION	${CMAKE_INSTALL_LIBDIR}
+			COMPONENT	Praaline_Core_Development
+)
+
+# Setting install RPATH to $ORIGIN, i.e. the location of the binary requiring the dependency
+if(NOT APPLE)
+	set(CMAKE_INSTALL_RPATH $ORIGIN)
+endif()
+
