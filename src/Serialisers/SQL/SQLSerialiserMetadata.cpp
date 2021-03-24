@@ -186,8 +186,8 @@ QList<CorpusCommunication *> SQLSerialiserMetadata::getCommunications(
         const MetadataDatastore::Selection &selection, QSqlDatabase &db, MetadataStructure *structure, CorpusDatastore *datastore)
 {
     QList<CorpusCommunication *> communications;
-    QMap<QString, CorpusRecording *> recordings = getRecordingsByCommunication(selection, db, structure, datastore);
-    QMap<QString, CorpusAnnotation *> annotations = getAnnotationsByCommunication(selection, db, structure, datastore);
+    QMultiMap<QString, CorpusRecording *> recordings = getRecordingsByCommunication(selection, db, structure, datastore);
+    QMultiMap<QString, CorpusAnnotation *> annotations = getAnnotationsByCommunication(selection, db, structure, datastore);
 
     QSqlQuery q(db);
     prepareSelectQuery(q, CorpusObject::Type_Communication, selection);
