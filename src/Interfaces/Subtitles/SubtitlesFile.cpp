@@ -1,5 +1,8 @@
 #include <QString>
 #include <QFile>
+#if QT_VERSION >= 0x060000
+#include <QStringConverter>
+#endif
 
 #include "PraalineCore/Interfaces/Subtitles/SubtitlesFile.h"
 
@@ -93,7 +96,11 @@ bool SubtitlesFile::saveSRT(const QString &filename, IntervalTier *tier, const Q
     QFile file(filename);
     if (!file.open(QIODevice::WriteOnly)) return false;
     QTextStream out(&file);
+#if QT_VERSION >= 0x060000
+    out.setEncoding(QStringEncoder::Utf8);
+#else
     out.setCodec("UTF-8");
+#endif
     out.setGenerateByteOrderMark(true);
 
     int subTitleNo = 1;

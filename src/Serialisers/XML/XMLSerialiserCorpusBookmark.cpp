@@ -77,12 +77,12 @@ bool XMLSerialiserCorpusBookmark::loadCorpusBookmarks(QList<CorpusBookmark *> &l
     list.clear();
     while (!xml.atEnd() && !xml.hasError()) {
         // If token is StartElement, we'll see if we can read it.
-        if (xml.tokenType() == QXmlStreamReader::StartElement && xml.name() == "CorpusBookmarks") {
+        if (xml.tokenType() == QXmlStreamReader::StartElement && xml.name() == QLatin1String("CorpusBookmarks")) {
             xml.readNext();
             while (!xml.atEnd() && !xml.hasError() &&
-                   !(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == "CorpusBookmarks")) {
+                   !(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == QLatin1String("CorpusBookmarks"))) {
                 if (xml.tokenType() == QXmlStreamReader::StartElement) {
-                    if (xml.name() == "CorpusBookmark") {
+                    if (xml.name() == QLatin1String("CorpusBookmark")) {
                         CorpusBookmark *bookmark = readBookmark(xml);
                         if (bookmark) list << bookmark;
                     }

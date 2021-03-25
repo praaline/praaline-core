@@ -12,7 +12,7 @@ TEIHeader::TEIHeader()
 bool TEIHeader::readCatRef(QXmlStreamReader &xml, CatRef &catRef)
 {
     // Check that we're really reading a catRef
-    if ((xml.tokenType() != QXmlStreamReader::StartElement) || (xml.name() != "catRef")) {
+    if ((xml.tokenType() != QXmlStreamReader::StartElement) || (xml.name() != QLatin1String("catRef"))) {
         return false;
     }
     QXmlStreamAttributes xmlAttributes = xml.attributes();
@@ -25,7 +25,7 @@ bool TEIHeader::readCatRef(QXmlStreamReader &xml, CatRef &catRef)
 bool TEIHeader::readProfileDesc(QXmlStreamReader &xml, ProfileDesc &profileDesc)
 {
     // Check that we're really reading a profileDesc
-    if ((xml.tokenType() != QXmlStreamReader::StartElement) || (xml.name() != "profileDesc")) {
+    if ((xml.tokenType() != QXmlStreamReader::StartElement) || (xml.name() != QLatin1String("profileDesc"))) {
         return false;
     }
 //    QXmlStreamAttributes xmlAttributes = xml.attributes();
@@ -33,12 +33,12 @@ bool TEIHeader::readProfileDesc(QXmlStreamReader &xml, ProfileDesc &profileDesc)
 //    // qDebug() << section->type << section->startTime.toDouble() << section->endTime.toDouble() << section->topicID;
     // textCat
     xml.readNext();
-    while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == "profileDesc")) {
+    while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == QLatin1String("profileDesc"))) {
         if (xml.tokenType() == QXmlStreamReader::StartElement) {
-            if (xml.name() == "textClass") {
+            if (xml.name() == QLatin1String("textClass")) {
                 xml.readNext();
-                while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == "textClass")) {
-                    if ((xml.tokenType() == QXmlStreamReader::StartElement) && (xml.name() == "catRef")) {
+                while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == QLatin1String("textClass"))) {
+                    if ((xml.tokenType() == QXmlStreamReader::StartElement) && (xml.name() == QLatin1String("catRef"))) {
                         CatRef catRef;
                         if (readCatRef(xml, catRef)) profileDesc.textClass << catRef;
                     }
@@ -61,7 +61,7 @@ bool TEIHeader::load(const QString &filename, TEIHeader &teiHeader)
     QXmlStreamReader xml(&file);
     while (!xml.atEnd() && !xml.hasError()) {
         // If token is StartElement, we'll see if we can read it.
-        if(xml.tokenType() == QXmlStreamReader::StartElement && xml.name() == "profileDesc") {
+        if(xml.tokenType() == QXmlStreamReader::StartElement && xml.name() == QLatin1String("profileDesc")) {
             result = readProfileDesc(xml, teiHeader.profileDesc);
         }
         xml.readNext(); // next element

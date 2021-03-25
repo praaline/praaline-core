@@ -55,7 +55,7 @@ TranscriberAnnotationGraph::TurnData *TranscriberAnnotationGraph::readTurn(QXmlS
     while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == xmlElementName_Turn)) {
         if (xml.tokenType() == QXmlStreamReader::StartElement) {
             // Synchronise
-            if (xml.name() == "Sync") {
+            if (xml.name() == QLatin1String("Sync")) {
                 if (xml.attributes().hasAttribute("time")) {
                     RealTime sync = RealTime::fromSeconds(xml.attributes().value("time").toDouble());
                     if (text.isEmpty()) {
@@ -78,7 +78,7 @@ TranscriberAnnotationGraph::TurnData *TranscriberAnnotationGraph::readTurn(QXmlS
                 }
             }
             // Change of speaker?
-            if (xml.name() == "Who") {
+            if (xml.name() == QLatin1String("Who")) {
                 if (xml.attributes().hasAttribute("nb")) {
                     int i = xml.attributes().value("nb").toInt();
                     if (i >= 1 && i <= turn->speakerIDs.count()) {
@@ -86,7 +86,7 @@ TranscriberAnnotationGraph::TurnData *TranscriberAnnotationGraph::readTurn(QXmlS
                     }
                 }
             }
-            if (xml.name() == "Event") {
+            if (xml.name() == QLatin1String("Event")) {
                 // Add an event right here
                 QString eventDesc, eventType, eventExtent;
                 xmlAttributes = xml.attributes();
@@ -169,9 +169,9 @@ TranscriberAnnotationGraph::TransData *TranscriberAnnotationGraph::readTrans(QXm
     while (!(xml.atEnd()) && !(xml.hasError()) &&
            !(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == xmlElementName_Trans)) {
         if (xml.tokenType() == QXmlStreamReader::StartElement) {
-            if (xml.name() == "Topics") {
+            if (xml.name() == QLatin1String("Topics")) {
                 xml.readNext();
-                while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == "Topics")) {
+                while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == QLatin1String("Topics"))) {
                     if (xml.tokenType() == QXmlStreamReader::StartElement) {
                         if (xml.name() == xmlElementName_Topic) {
                             QString topicID, topicDesc;
@@ -184,9 +184,9 @@ TranscriberAnnotationGraph::TransData *TranscriberAnnotationGraph::readTrans(QXm
                     xml.readNext();
                 }
             }
-            else if (xml.name() == "Speakers") {
+            else if (xml.name() == QLatin1String("Speakers")) {
                 xml.readNext();
-                while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == "Speakers")) {
+                while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == QLatin1String("Speakers"))) {
                     if (xml.tokenType() == QXmlStreamReader::StartElement) {
                         if (xml.name() == xmlElementName_Speaker) {
                             SpeakerData *speaker = readSpeaker(xml);
@@ -196,9 +196,9 @@ TranscriberAnnotationGraph::TransData *TranscriberAnnotationGraph::readTrans(QXm
                     xml.readNext();
                 }
             }
-            else if (xml.name() == "Episode") {
+            else if (xml.name() == QLatin1String("Episode")) {
                 xml.readNext();
-                while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == "Episode")) {
+                while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == QLatin1String("Episode"))) {
                     if (xml.tokenType() == QXmlStreamReader::StartElement) {
                         if (xml.name() == xmlElementName_Section) {
                             SectionData *section = readSection(xml);
@@ -228,7 +228,7 @@ bool TranscriberAnnotationGraph::load(const QString &filename, QList<CorpusSpeak
     QXmlStreamReader xml(&file);
     while (!xml.atEnd() && !xml.hasError()) {
         // If token is StartElement, we'll see if we can read it.
-        if(xml.tokenType() == QXmlStreamReader::StartElement && xml.name() == "Trans") {
+        if(xml.tokenType() == QXmlStreamReader::StartElement && xml.name() == QLatin1String("Trans")) {
             trans = readTrans(xml);
             file.close();
         }

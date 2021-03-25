@@ -31,10 +31,10 @@ AnvilMetadataTranscript::readLocation(QXmlStreamReader &xml)
     xml.readNext();
     while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == xmlElementName_Location) && !xml.atEnd()) {
         if (xml.tokenType() == QXmlStreamReader::StartElement) {
-            if      (xml.name() == "Continent")  { location->continent = xml.readElementText(); }
-            else if (xml.name() == "Country")    { location->country = xml.readElementText(); }
-            else if (xml.name() == "Region")     { location->region = xml.readElementText(); }
-            else if (xml.name() == "Address")    { location->address = xml.readElementText(); }
+            if      (xml.name() == QLatin1String("Continent"))  { location->continent = xml.readElementText(); }
+            else if (xml.name() == QLatin1String("Country"))    { location->country = xml.readElementText(); }
+            else if (xml.name() == QLatin1String("Region"))     { location->region = xml.readElementText(); }
+            else if (xml.name() == QLatin1String("Address"))    { location->address = xml.readElementText(); }
         }
         xml.readNext();
     }
@@ -50,10 +50,10 @@ AnvilMetadataTranscript::readContact(QXmlStreamReader &xml)
     xml.readNext();
     while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == xmlElementName_Contact) && !xml.atEnd()) {
         if (xml.tokenType() == QXmlStreamReader::StartElement) {
-            if      (xml.name() == "Name")          { contact->name = xml.readElementText(); }
-            else if (xml.name() == "Address")       { contact->address = xml.readElementText(); }
-            else if (xml.name() == "Email")         { contact->email = xml.readElementText(); }
-            else if (xml.name() == "Organisation")  { contact->organisation = xml.readElementText(); }
+            if      (xml.name() == QLatin1String("Name"))          { contact->name = xml.readElementText(); }
+            else if (xml.name() == QLatin1String("Address"))       { contact->address = xml.readElementText(); }
+            else if (xml.name() == QLatin1String("Email"))         { contact->email = xml.readElementText(); }
+            else if (xml.name() == QLatin1String("Organisation"))  { contact->organisation = xml.readElementText(); }
         }
         xml.readNext();
     }
@@ -69,11 +69,11 @@ AnvilMetadataTranscript::readProject(QXmlStreamReader &xml)
     xml.readNext();
     while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == xmlElementName_Project) && !xml.atEnd()) {
         if (xml.tokenType() == QXmlStreamReader::StartElement) {
-            if      (xml.name() == "Name")        { project->name = xml.readElementText(); }
-            else if (xml.name() == "Title")       { project->title = xml.readElementText(); }
-            else if (xml.name() == "Id")          { project->id = xml.readElementText(); }
-            else if (xml.name() == "Description") { project->description = xml.readElementText(); }
-            else if (xml.name() == "Contact") {
+            if      (xml.name() == QLatin1String("Name"))        { project->name = xml.readElementText(); }
+            else if (xml.name() == QLatin1String("Title"))       { project->title = xml.readElementText(); }
+            else if (xml.name() == QLatin1String("Id"))          { project->id = xml.readElementText(); }
+            else if (xml.name() == QLatin1String("Description")) { project->description = xml.readElementText(); }
+            else if (xml.name() == QLatin1String("Contact")) {
                 ContactData *contact = readContact(xml);
                 if (contact) project->contacts << contact;
             }
@@ -92,17 +92,17 @@ AnvilMetadataTranscript::readContent(QXmlStreamReader &xml)
     xml.readNext();
     while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == xmlElementName_Content) && !xml.atEnd()) {
         if (xml.tokenType() == QXmlStreamReader::StartElement) {
-            if      (xml.name() == "Genre")          { content->genre = xml.readElementText(); }
-            else if (xml.name() == "SubGenre")       { content->subGenres = xml.readElementText(); }
-            else if (xml.name() == "Task")           { content->task = xml.readElementText(); }
-            else if (xml.name() == "Modalities")     { content->modalities = xml.readElementText(); }
-            else if (xml.name() == "Subject")        { content->subjects = xml.readElementText(); }
-            else if (xml.name() == "Interactivity")  { content->interactivity = xml.readElementText(); }
-            else if (xml.name() == "PlanningType")   { content->planning = xml.readElementText(); }
-            else if (xml.name() == "Involvement")    { content->involvement = xml.readElementText(); }
-            else if (xml.name() == "SocialContext")  { content->socialContext = xml.readElementText(); }
-            else if (xml.name() == "EventStructure") { content->eventStructure = xml.readElementText(); }
-            else if (xml.name() == "Channel")        { content->channel = xml.readElementText(); }
+            if      (xml.name() == QLatin1String("Genre"))          { content->genre = xml.readElementText(); }
+            else if (xml.name() == QLatin1String("SubGenre"))       { content->subGenres = xml.readElementText(); }
+            else if (xml.name() == QLatin1String("Task"))           { content->task = xml.readElementText(); }
+            else if (xml.name() == QLatin1String("Modalities"))     { content->modalities = xml.readElementText(); }
+            else if (xml.name() == QLatin1String("Subject"))        { content->subjects = xml.readElementText(); }
+            else if (xml.name() == QLatin1String("Interactivity"))  { content->interactivity = xml.readElementText(); }
+            else if (xml.name() == QLatin1String("PlanningType"))   { content->planning = xml.readElementText(); }
+            else if (xml.name() == QLatin1String("Involvement"))    { content->involvement = xml.readElementText(); }
+            else if (xml.name() == QLatin1String("SocialContext"))  { content->socialContext = xml.readElementText(); }
+            else if (xml.name() == QLatin1String("EventStructure")) { content->eventStructure = xml.readElementText(); }
+            else if (xml.name() == QLatin1String("Channel"))        { content->channel = xml.readElementText(); }
         }
         xml.readNext();
     }
@@ -118,22 +118,22 @@ AnvilMetadataTranscript::readActor(QXmlStreamReader &xml)
     xml.readNext();
     while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == xmlElementName_Actor) && !xml.atEnd()) {
         if (xml.tokenType() == QXmlStreamReader::StartElement) {
-            if      (xml.name() == "Role")              { actor->role = xml.readElementText(); }
-            else if (xml.name() == "Name")              { actor->name = xml.readElementText(); }
-            else if (xml.name() == "FullName")          { actor->fullName = xml.readElementText(); }
-            else if (xml.name() == "Code")              { actor->code = xml.readElementText(); }
-            else if (xml.name() == "FamilySocialRole")  { actor->familySocialRole = xml.readElementText(); }
-            else if (xml.name() == "EthnicGroup")       { actor->ethnicGroup = xml.readElementText(); }
-            else if (xml.name() == "Age")               { actor->age = xml.readElementText().toInt(); }
-            else if (xml.name() == "BirthDate")         { actor->birthDate = xml.readElementText(); }
-            else if (xml.name() == "Sex")               { actor->sex = xml.readElementText(); }
-            else if (xml.name() == "Education")         { actor->education = xml.readElementText(); }
-            else if (xml.name() == "Anonymized")        { actor->anonymized = xml.readElementText(); }
-            else if (xml.name() == "Contact")           { ContactData *contact = readContact(xml);
+            if      (xml.name() == QLatin1String("Role"))              { actor->role = xml.readElementText(); }
+            else if (xml.name() == QLatin1String("Name"))              { actor->name = xml.readElementText(); }
+            else if (xml.name() == QLatin1String("FullName"))          { actor->fullName = xml.readElementText(); }
+            else if (xml.name() == QLatin1String("Code"))              { actor->code = xml.readElementText(); }
+            else if (xml.name() == QLatin1String("FamilySocialRole"))  { actor->familySocialRole = xml.readElementText(); }
+            else if (xml.name() == QLatin1String("EthnicGroup"))       { actor->ethnicGroup = xml.readElementText(); }
+            else if (xml.name() == QLatin1String("Age"))               { actor->age = xml.readElementText().toInt(); }
+            else if (xml.name() == QLatin1String("BirthDate"))         { actor->birthDate = xml.readElementText(); }
+            else if (xml.name() == QLatin1String("Sex"))               { actor->sex = xml.readElementText(); }
+            else if (xml.name() == QLatin1String("Education"))         { actor->education = xml.readElementText(); }
+            else if (xml.name() == QLatin1String("Anonymized"))        { actor->anonymized = xml.readElementText(); }
+            else if (xml.name() == QLatin1String("Contact"))           { ContactData *contact = readContact(xml);
                 QStringList contactData; contactData << contact->name << contact->organisation << contact->address << contact->email;
                 actor->contact = contactData.join(", ");
             }
-            else if (xml.name() == "Description")       { actor->description = xml.readElementText(); }
+            else if (xml.name() == QLatin1String("Description"))       { actor->description = xml.readElementText(); }
         }
         xml.readNext();
     }
@@ -165,10 +165,10 @@ AnvilMetadataTranscript::readSession(QXmlStreamReader &xml)
     xml.readNext();
     while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == xmlElementName_Session) && !xml.atEnd()) {
         if (xml.tokenType() == QXmlStreamReader::StartElement) {
-            if      (xml.name() == "Name")           { session->name = xml.readElementText(); }
-            else if (xml.name() == "Title")          { session->title = xml.readElementText(); }
-            else if (xml.name() == "Date")           { session->date = xml.readElementText(); }
-            else if (xml.name() == "Descripiton")    { session->description = xml.readElementText(); }
+            if      (xml.name() == QLatin1String("Name"))           { session->name = xml.readElementText(); }
+            else if (xml.name() == QLatin1String("Title"))          { session->title = xml.readElementText(); }
+            else if (xml.name() == QLatin1String("Date"))           { session->date = xml.readElementText(); }
+            else if (xml.name() == QLatin1String("Descripiton"))    { session->description = xml.readElementText(); }
             else if (xml.name() == xmlElementName_MDGroup) {
                 xml.readNext();
                 while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == xmlElementName_MDGroup) && !xml.atEnd()) {
@@ -225,7 +225,7 @@ bool AnvilMetadataTranscript::load(const QString &filename, Corpus *corpus)
     QXmlStreamReader xml(&file);
     while (!xml.atEnd() && !xml.hasError()) {
         // If token is StartElement, we'll see if we can read it.
-        if (xml.tokenType() == QXmlStreamReader::StartElement && xml.name() == "Session") {
+        if (xml.tokenType() == QXmlStreamReader::StartElement && xml.name() == QLatin1String("Session")) {
             session = readSession(xml);
             file.close();
         }

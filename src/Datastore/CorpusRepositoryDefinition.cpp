@@ -93,20 +93,20 @@ bool CorpusRepositoryDefinition::load(const QString &filename)
     QXmlStreamReader xml(&file);
     while (!xml.atEnd() && !xml.hasError()) {
         // If token is StartElement, we'll see if we can read it.
-        if (xml.tokenType() == QXmlStreamReader::StartElement && xml.name() == "PraalineCorpusDefinition") {
+        if (xml.tokenType() == QXmlStreamReader::StartElement && xml.name() == QLatin1String("PraalineCorpusDefinition")) {
             if (xml.attributes().hasAttribute("ID")) repositoryID = xml.attributes().value("ID").toString();
             if (xml.attributes().hasAttribute("name")) repositoryName = xml.attributes().value("name").toString();
             xml.readNext();
             while (!xml.atEnd() && !xml.hasError() &&
-                   !(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == "PraalineCorpusDefinition")) {
+                   !(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == QLatin1String("PraalineCorpusDefinition"))) {
                 if (xml.tokenType() == QXmlStreamReader::StartElement) {
-                    if (xml.name() == "MetadataDatastore") {
+                    if (xml.name() == QLatin1String("MetadataDatastore")) {
                         readDatastoreInfo(xml, infoDatastoreMetadata);
                     }
-                    else if (xml.name() == "AnnotationsDatastore") {
+                    else if (xml.name() == QLatin1String("AnnotationsDatastore")) {
                         readDatastoreInfo(xml, infoDatastoreAnnotations);
                     }
-                    else if (xml.name() == "MediaDatastore") {
+                    else if (xml.name() == QLatin1String("MediaDatastore")) {
                         if (xml.attributes().hasAttribute("baseMediaPath"))
                             this->basePathMedia = xml.attributes().value("baseMediaPath").toString();
                     }

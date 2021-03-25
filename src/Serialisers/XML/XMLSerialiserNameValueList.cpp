@@ -77,12 +77,12 @@ bool XMLSerialiserNameValueList::loadNameValueLists(QList<NameValueList *> &NVLs
     NVLs.clear();
     while (!xml.atEnd() && !xml.hasError()) {
         // If token is StartElement, we'll see if we can read it.
-        if (xml.tokenType() == QXmlStreamReader::StartElement && xml.name() == "NameValueLists") {
+        if (xml.tokenType() == QXmlStreamReader::StartElement && xml.name() == QLatin1String("NameValueLists")) {
             xml.readNext();
             while (!xml.atEnd() && !xml.hasError() &&
-                   !(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == "NameValueLists")) {
+                   !(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == QLatin1String("NameValueLists"))) {
                 if (xml.tokenType() == QXmlStreamReader::StartElement) {
-                    if (xml.name() == "NameValueList") {
+                    if (xml.name() == QLatin1String("NameValueList")) {
                         NameValueList *nvl = readNameValueList(xml);
                         if (nvl) NVLs << nvl;
                     }

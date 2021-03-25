@@ -9,7 +9,6 @@
 #include <QStringList>
 #include <QFile>
 #include <QTextStream>
-#include <QRegExp>
 
 #include "PraalineCore/PraalineCore_Global.h"
 #include "PraalineCore/Base/RealTime.h"

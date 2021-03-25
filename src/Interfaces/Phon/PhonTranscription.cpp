@@ -103,7 +103,7 @@ bool PhonTranscription::load(const QString &filename)
     QXmlStreamReader xml(&file);
     while (!xml.atEnd() && !xml.hasError()) {
         // If token is StartElement, we'll see if we can read it.
-        if (xml.tokenType() == QXmlStreamReader::StartElement && xml.name() == "session") {
+        if (xml.tokenType() == QXmlStreamReader::StartElement && xml.name() == QLatin1String("session")) {
             result = readSession(xml);
             file.close();
         }
@@ -127,40 +127,40 @@ bool PhonTranscription::readSession(QXmlStreamReader &xml)
     xml.readNext();
     while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == xmlElementName_Session) && !xml.atEnd()) {
         if (xml.tokenType() == QXmlStreamReader::StartElement) {
-            if      (xml.name() == "header") {
+            if      (xml.name() == QLatin1String("header")) {
                 readHeader(xml);
             }
-            else if (xml.name() == "participants") {
+            else if (xml.name() == QLatin1String("participants")) {
                 xml.readNext();
-                while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == "participants") && !xml.atEnd()) {
+                while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == QLatin1String("participants")) && !xml.atEnd()) {
                     if (xml.tokenType() == QXmlStreamReader::StartElement && xml.name() == xmlElementName_Participant) {
                         readParticipant(xml);
                     }
                     xml.readNext();
                 }
             }
-            else if (xml.name() == "userTiers") {
+            else if (xml.name() == QLatin1String("userTiers")) {
                 xml.readNext();
-                while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == "userTiers") && !xml.atEnd()) {
+                while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == QLatin1String("userTiers")) && !xml.atEnd()) {
                     if (xml.tokenType() == QXmlStreamReader::StartElement && xml.name() == xmlElementName_UserTier) {
                         readUserTier(xml);
                     }
                     xml.readNext();
                 }
             }
-            else if (xml.name() == "tierOrder") {
+            else if (xml.name() == QLatin1String("tierOrder")) {
                 xml.readNext();
-                while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == "tierOrder") && !xml.atEnd()) {
+                while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == QLatin1String("tierOrder")) && !xml.atEnd()) {
                     if (xml.tokenType() == QXmlStreamReader::StartElement && xml.name() == xmlElementName_Tier) {
                         readTierOrder(xml);
                     }
                     xml.readNext();
                 }
             }
-            else if (xml.name() == "transcript") {
+            else if (xml.name() == QLatin1String("transcript")) {
                 xml.readNext();
-                while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == "transcript") && !xml.atEnd()) {
-                    if (xml.tokenType() == QXmlStreamReader::StartElement && xml.name() == "u") {
+                while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == QLatin1String("transcript")) && !xml.atEnd()) {
+                    if (xml.tokenType() == QXmlStreamReader::StartElement && xml.name() == QLatin1String("u")) {
                         readSegment(xml);
                     }
                     xml.readNext();
@@ -179,8 +179,8 @@ bool PhonTranscription::readHeader(QXmlStreamReader &xml)
     xml.readNext();
     while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == xmlElementName_Header) && !xml.atEnd()) {
         if (xml.tokenType() == QXmlStreamReader::StartElement) {
-            if      (xml.name() == "date")  { d->recordingDate = QDate::fromString(xml.readElementText()); }
-            else if (xml.name() == "media") { d->recordingFilename = xml.readElementText(); }
+            if      (xml.name() == QLatin1String("date"))  { d->recordingDate = QDate::fromString(xml.readElementText()); }
+            else if (xml.name() == QLatin1String("media")) { d->recordingFilename = xml.readElementText(); }
         }
         xml.readNext();
     }
@@ -196,10 +196,10 @@ bool PhonTranscription::readParticipant(QXmlStreamReader &xml)
     xml.readNext();
     while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == xmlElementName_Participant) && !xml.atEnd()) {
         if (xml.tokenType() == QXmlStreamReader::StartElement) {
-            if      (xml.name() == "role")      { participant.role = xml.readElementText(); }
-            else if (xml.name() == "name")      { participant.name = xml.readElementText(); }
-            else if (xml.name() == "sex")       { participant.sex = xml.readElementText(); }
-            else if (xml.name() == "language")  { participant.language = xml.readElementText(); }
+            if      (xml.name() == QLatin1String("role"))      { participant.role = xml.readElementText(); }
+            else if (xml.name() == QLatin1String("name"))      { participant.name = xml.readElementText(); }
+            else if (xml.name() == QLatin1String("sex"))       { participant.sex = xml.readElementText(); }
+            else if (xml.name() == QLatin1String("language"))  { participant.language = xml.readElementText(); }
         }
         xml.readNext();
     }
@@ -256,7 +256,7 @@ bool PhonTranscription::readTierOrder(QXmlStreamReader &xml)
 // private
 bool PhonTranscription::readSegment(QXmlStreamReader &xml)
 {
-    if ((xml.tokenType() != QXmlStreamReader::StartElement) || (xml.name() != "u")) return false;
+    if ((xml.tokenType() != QXmlStreamReader::StartElement) || (xml.name() != QLatin1String("u"))) return false;
     Segment segment;
     if (xml.attributes().hasAttribute("speaker"))
         segment.speakerID = xml.attributes().value("speaker").toString();
@@ -265,13 +265,13 @@ bool PhonTranscription::readSegment(QXmlStreamReader &xml)
     if (xml.attributes().hasAttribute("excludeFromSearches"))
         segment.excludeFromSearches = (xml.attributes().value("excludeFromSearches").toString() == "true") ? true : false;
     xml.readNext();
-    while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == "u") && !xml.atEnd()) {
+    while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == QLatin1String("u")) && !xml.atEnd()) {
         if (xml.tokenType() == QXmlStreamReader::StartElement) {
-            if      (xml.name() == "orthography")   { readSegmentOrthography(xml, segment); }
-            else if (xml.name() == "ipaTier")       { readSegmentIPATier(xml, segment); }
-            else if (xml.name() == "alignment")     { readSegmentAlignment(xml, segment); }
-            else if (xml.name() == "groupTier")     { readSegmentGroupTier(xml, segment); }
-            else if (xml.name() == "segment") {
+            if      (xml.name() == QLatin1String("orthography"))   { readSegmentOrthography(xml, segment); }
+            else if (xml.name() == QLatin1String("ipaTier"))       { readSegmentIPATier(xml, segment); }
+            else if (xml.name() == QLatin1String("alignment"))     { readSegmentAlignment(xml, segment); }
+            else if (xml.name() == QLatin1String("groupTier"))     { readSegmentGroupTier(xml, segment); }
+            else if (xml.name() == QLatin1String("segment")) {
                 if (xml.attributes().hasAttribute("startTime"))
                     segment.startTime = RealTime::fromSeconds(xml.attributes().value("startTime").toDouble() / 1000.0);
                 if (xml.attributes().hasAttribute("duration"))
@@ -287,16 +287,16 @@ bool PhonTranscription::readSegment(QXmlStreamReader &xml)
 // private
 bool PhonTranscription::readSegmentOrthography(QXmlStreamReader &xml, PhonTranscription::Segment &segment)
 {
-    if ((xml.tokenType() != QXmlStreamReader::StartElement) || (xml.name() != "orthography")) return false;
+    if ((xml.tokenType() != QXmlStreamReader::StartElement) || (xml.name() != QLatin1String("orthography"))) return false;
     xml.readNext();
     QStringList words;
-    while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == "orthography") && !xml.atEnd()) {
-        if (xml.tokenType() == QXmlStreamReader::StartElement && xml.name() == "g")   {
+    while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == QLatin1String("orthography")) && !xml.atEnd()) {
+        if (xml.tokenType() == QXmlStreamReader::StartElement && xml.name() == QLatin1String("g"))   {
             xml.readNext();
-            while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == "g") && !xml.atEnd()) {
+            while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == QLatin1String("g")) && !xml.atEnd()) {
                 if (xml.tokenType() == QXmlStreamReader::StartElement) {
-                    if      (xml.name() == "w") { words << xml.readElementText(); }
-                    else if (xml.name() == "p") { words << xml.readElementText(); }
+                    if      (xml.name() == QLatin1String("w")) { words << xml.readElementText(); }
+                    else if (xml.name() == QLatin1String("p")) { words << xml.readElementText(); }
                 }
                 xml.readNext();
             }
@@ -311,17 +311,17 @@ bool PhonTranscription::readSegmentOrthography(QXmlStreamReader &xml, PhonTransc
 // private
 bool PhonTranscription::readSegmentIPATier(QXmlStreamReader &xml, PhonTranscription::Segment &segment)
 {
-    if ((xml.tokenType() != QXmlStreamReader::StartElement) || (xml.name() != "ipaTier")) return false;
+    if ((xml.tokenType() != QXmlStreamReader::StartElement) || (xml.name() != QLatin1String("ipaTier"))) return false;
     IPAData ipaData;
     if (xml.attributes().hasAttribute("form")) ipaData.form = xml.attributes().value("form").toString();
     xml.readNext();
     QStringList ipaWords;
-    while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == "ipaTier") && !xml.atEnd()) {
-        if (xml.tokenType() == QXmlStreamReader::StartElement && xml.name() == "pg")   {
+    while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == QLatin1String("ipaTier")) && !xml.atEnd()) {
+        if (xml.tokenType() == QXmlStreamReader::StartElement && xml.name() == QLatin1String("pg"))   {
             xml.readNext();
-            while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == "pg") && !xml.atEnd()) {
+            while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == QLatin1String("pg")) && !xml.atEnd()) {
                 if (xml.tokenType() == QXmlStreamReader::StartElement) {
-                    if      (xml.name() == "w") { ipaWords << xml.readElementText(); }
+                    if      (xml.name() == QLatin1String("w")) { ipaWords << xml.readElementText(); }
                 }
                 xml.readNext();
             }
@@ -342,7 +342,7 @@ bool PhonTranscription::readSegmentIPATier(QXmlStreamReader &xml, PhonTranscript
 bool PhonTranscription::readSegmentAlignment(QXmlStreamReader &xml, PhonTranscription::Segment &segment)
 {
     Q_UNUSED(segment)
-    if ((xml.tokenType() != QXmlStreamReader::StartElement) || (xml.name() != "alignment")) return false;
+    if ((xml.tokenType() != QXmlStreamReader::StartElement) || (xml.name() != QLatin1String("alignment"))) return false;
     xml.readNext();
     return true;
 }
@@ -350,7 +350,7 @@ bool PhonTranscription::readSegmentAlignment(QXmlStreamReader &xml, PhonTranscri
 // private
 bool PhonTranscription::readSegmentGroupTier(QXmlStreamReader &xml, PhonTranscription::Segment &segment)
 {
-    if ((xml.tokenType() != QXmlStreamReader::StartElement) || (xml.name() != "groupTier")) return false;
+    if ((xml.tokenType() != QXmlStreamReader::StartElement) || (xml.name() != QLatin1String("groupTier"))) return false;
     // Find the name of the tier we're reading
     QString tierName;
     if (xml.attributes().hasAttribute("tierName")) tierName = xml.attributes().value("tierName").toString();
@@ -358,13 +358,13 @@ bool PhonTranscription::readSegmentGroupTier(QXmlStreamReader &xml, PhonTranscri
     // Read it
     xml.readNext();
     QStringList words;
-    while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == "groupTier") && !xml.atEnd()) {
-        if (xml.tokenType() == QXmlStreamReader::StartElement && xml.name() == "tg")   {
+    while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == QLatin1String("groupTier")) && !xml.atEnd()) {
+        if (xml.tokenType() == QXmlStreamReader::StartElement && xml.name() == QLatin1String("tg"))   {
             xml.readNext();
-            while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == "tg") && !xml.atEnd()) {
+            while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == QLatin1String("tg")) && !xml.atEnd()) {
                 if (xml.tokenType() == QXmlStreamReader::StartElement) {
-                    if      (xml.name() == "w") { words << xml.readElementText(); }
-                    else if (xml.name() == "p") { words << xml.readElementText(); }
+                    if      (xml.name() == QLatin1String("w")) { words << xml.readElementText(); }
+                    else if (xml.name() == QLatin1String("p")) { words << xml.readElementText(); }
                 }
                 xml.readNext();
             }

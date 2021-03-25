@@ -10,7 +10,6 @@
 #include <QTextStream>
 #include <QXmlStreamReader>
 #include <QXmlStreamWriter>
-#include <QRegExp>
 
 #include "PraalineCore/PraalineCore_Global.h"
 #include "PraalineCore/Base/RealTime.h"

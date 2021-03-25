@@ -31,7 +31,10 @@ public:
     explicit CorpusObjectInfo();
     explicit CorpusObjectInfo(CorpusObject::Type type);
     CorpusObjectInfo(const CorpusObjectInfo &other);
-    virtual ~CorpusObjectInfo();
+
+    CorpusObjectInfo(CorpusObjectInfo&&) = default;
+    CorpusObjectInfo& operator=(const CorpusObjectInfo&) = default;
+    CorpusObjectInfo& operator=(CorpusObjectInfo&&) = default;
     // Notes: Requirements for QVariant are a public default constructor, a public copy constructor, and a public destructor.
     // All constructors set isNew and isDirty to true. If the object is retrieved from the database, the datastore will set
     // its state to Clean.

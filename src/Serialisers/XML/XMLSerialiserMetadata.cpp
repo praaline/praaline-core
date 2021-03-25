@@ -290,9 +290,9 @@ CorpusAnnotation *XMLSerialiserMetadata::readAnnotation(MetadataStructure *mstru
     // Languages
     xml.readNext(); // next element
     // The order of the elements is not fixed: loop until we hit an EndElement.
-    while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == "languages")) {
+    while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == QLatin1String("languages"))) {
         if(xml.tokenType() == QXmlStreamReader::StartElement) {
-            if (xml.name() == "language"){
+            if (xml.name() == QLatin1String("language")){
                 annot->addLanguage(xml.readElementText());
             }
         }

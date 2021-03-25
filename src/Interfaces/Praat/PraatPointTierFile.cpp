@@ -5,6 +5,9 @@
 #include <QFile>
 #include <QTextStream>
 #include <QRegularExpression>
+#if QT_VERSION >= 0x060000
+#include <QStringConverter>
+#endif
 
 #include "PraalineCore/Annotation/AnnotationTier.h"
 #include "PraalineCore/Annotation/PointTier.h"
@@ -87,7 +90,11 @@ bool PraatPointTierFile::save(const QString &filename, const QString &praatObjec
     }
 
     QTextStream out(&file);
+#if QT_VERSION >= 0x060000
+    out.setEncoding(QStringEncoder::Utf8);
+#else
     out.setCodec("UTF-8");
+#endif
     out.setGenerateByteOrderMark(true);
 
     // write PitchTier header

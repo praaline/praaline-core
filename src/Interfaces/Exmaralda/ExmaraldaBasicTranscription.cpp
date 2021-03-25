@@ -4,7 +4,6 @@
 #include <QStringList>
 #include <QFile>
 #include <QTextStream>
-#include <QRegExp>
 
 #include "PraalineCore/Base/RealTime.h"
 #include "PraalineCore/Annotation/AnnotationTierGroup.h"
@@ -19,16 +18,16 @@ PRAALINE_CORE_BEGIN_NAMESPACE
 bool ExmaraldaBasicTranscription::readMetadata(QXmlStreamReader &xml)
 {
     // Check that we're really reading a corpus annotation
-    if (xml.tokenType() != QXmlStreamReader::StartElement && xml.name() == "head") {
+    if (xml.tokenType() != QXmlStreamReader::StartElement && xml.name() == QLatin1String("head")) {
         return false;
     }
     xml.readNext(); // next element
-    while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == "head")) {
+    while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == QLatin1String("head"))) {
         if(xml.tokenType() == QXmlStreamReader::StartElement) {
-            if (xml.name() == "meta-information") {
+            if (xml.name() == QLatin1String("meta-information")) {
                 readMetaInformation(xml);
             }
-            else if (xml.name() == "speakertable") {
+            else if (xml.name() == QLatin1String("speakertable")) {
                 readSpeakerTable(xml);
             }
         }
@@ -51,25 +50,25 @@ bool ExmaraldaBasicTranscription::writeMetadata(QXmlStreamWriter &xml)
 bool ExmaraldaBasicTranscription::readMetaInformation(QXmlStreamReader &xml)
 {
     // Check that we're really reading a corpus annotation
-    if (xml.tokenType() != QXmlStreamReader::StartElement && xml.name() == "meta-information") {
+    if (xml.tokenType() != QXmlStreamReader::StartElement && xml.name() == QLatin1String("meta-information")) {
         return false;
     }
     xml.readNext(); // next element
-    while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == "meta-information")) {
+    while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == QLatin1String("meta-information"))) {
         if (xml.tokenType() == QXmlStreamReader::StartElement) {
-            if (xml.name() == "project-name") { m_projectName = xml.readElementText(); }
-            else if (xml.name() == "transcription-name") { m_transcriptionName = xml.readElementText(); }
-            else if (xml.name() == "transcription-convention") { m_transcriptionConvention = xml.readElementText(); }
-            else if (xml.name() == "comment") { m_comment = xml.readElementText(); }
-            else if (xml.name() == "referenced-file") {
+            if (xml.name() == QLatin1String("project-name")) { m_projectName = xml.readElementText(); }
+            else if (xml.name() == QLatin1String("transcription-name")) { m_transcriptionName = xml.readElementText(); }
+            else if (xml.name() == QLatin1String("transcription-convention")) { m_transcriptionConvention = xml.readElementText(); }
+            else if (xml.name() == QLatin1String("comment")) { m_comment = xml.readElementText(); }
+            else if (xml.name() == QLatin1String("referenced-file")) {
                 if (xml.attributes().hasAttribute("url")) {
                     m_referencedFiles.append(xml.attributes().value("url").toString());
                 }
             }
-            else if (xml.name() == "ud-meta-information") {
+            else if (xml.name() == QLatin1String("ud-meta-information")) {
                 xml.readNext(); // next element
-                while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == "ud-meta-information")) {
-                    if (xml.tokenType() == QXmlStreamReader::StartElement && xml.name() == "ud-information") {
+                while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == QLatin1String("ud-meta-information"))) {
+                    if (xml.tokenType() == QXmlStreamReader::StartElement && xml.name() == QLatin1String("ud-information")) {
                         if (xml.attributes().hasAttribute("attribute-name")) {
                             QString attributeName = xml.attributes().value("attribute-name").toString();
                             m_udMetaInfo.insert(attributeName, xml.readElementText());
@@ -109,12 +108,12 @@ bool ExmaraldaBasicTranscription::writeMetaInformation(QXmlStreamWriter &xml)
 bool ExmaraldaBasicTranscription::readSpeakerTable(QXmlStreamReader &xml)
 {
     // Check that we're really reading a corpus annotation
-    if (xml.tokenType() != QXmlStreamReader::StartElement && xml.name() == "speakertable") {
+    if (xml.tokenType() != QXmlStreamReader::StartElement && xml.name() == QLatin1String("speakertable")) {
         return false;
     }
     xml.readNext(); // next element
-    while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == "speakertable")) {
-        if(xml.tokenType() == QXmlStreamReader::StartElement && xml.name() == "speaker") {
+    while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == QLatin1String("speakertable"))) {
+        if(xml.tokenType() == QXmlStreamReader::StartElement && xml.name() == QLatin1String("speaker")) {
             SpeakerInfo s = readSpeaker(xml);
             m_speakerTable.append(s);
         }
@@ -127,26 +126,26 @@ ExmaraldaBasicTranscription::SpeakerInfo ExmaraldaBasicTranscription::readSpeake
 {
     SpeakerInfo s;
     // Check that we're really reading a speaker
-    if (xml.tokenType() != QXmlStreamReader::StartElement && xml.name() == "speaker") {
+    if (xml.tokenType() != QXmlStreamReader::StartElement && xml.name() == QLatin1String("speaker")) {
         return s;
     }
     if (xml.attributes().hasAttribute("id")) {
         s.id = xml.attributes().value("id").toString();
     }
     xml.readNext(); // next element
-    while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == "speaker")) {
+    while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == QLatin1String("speaker"))) {
         if(xml.tokenType() == QXmlStreamReader::StartElement) {
-            if (xml.name() == "abbreviation") { s.abbreviation = xml.readElementText(); }
-            else if (xml.name() == "languages-used") { s.languagesUsed = xml.readElementText(); }
-            else if (xml.name() == "l1") { s.L1 = xml.readElementText(); }
-            else if (xml.name() == "l2") { s.L2 = xml.readElementText(); }
-            else if (xml.name() == "comment") { s.comment = xml.readElementText(); }
-            else if (xml.name() == "sex") {
+            if (xml.name() == QLatin1String("abbreviation")) { s.abbreviation = xml.readElementText(); }
+            else if (xml.name() == QLatin1String("languages-used")) { s.languagesUsed = xml.readElementText(); }
+            else if (xml.name() == QLatin1String("l1")) { s.L1 = xml.readElementText(); }
+            else if (xml.name() == QLatin1String("l2")) { s.L2 = xml.readElementText(); }
+            else if (xml.name() == QLatin1String("comment")) { s.comment = xml.readElementText(); }
+            else if (xml.name() == QLatin1String("sex")) {
                 if (xml.attributes().hasAttribute("value")) { s.sex =  xml.attributes().value("value").toString(); }
             }
-            else if (xml.name() == "ud-speaker-information") {
-                while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == "ud-speaker-information")) {
-                    if(xml.tokenType() == QXmlStreamReader::StartElement && xml.name() == "ud-information") {
+            else if (xml.name() == QLatin1String("ud-speaker-information")) {
+                while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == QLatin1String("ud-speaker-information"))) {
+                    if(xml.tokenType() == QXmlStreamReader::StartElement && xml.name() == QLatin1String("ud-information")) {
                         if (xml.attributes().hasAttribute("attribute-name")) {
                             QString attributeName = xml.attributes().value("attribute-name").toString();
                             s.udMetaInfo.insert(attributeName, xml.readElementText());
@@ -190,12 +189,12 @@ bool ExmaraldaBasicTranscription::writeSpeakerTable(QXmlStreamWriter &xml)
 bool ExmaraldaBasicTranscription::readCommonTimeline(QXmlStreamReader &xml)
 {
     // Check that we're really reading a common timeline
-    if (xml.tokenType() != QXmlStreamReader::StartElement && xml.name() == "common-timeline") {
+    if (xml.tokenType() != QXmlStreamReader::StartElement && xml.name() == QLatin1String("common-timeline")) {
         return false;
     }
     xml.readNext(); // next element
-    while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == "common-timeline")) {
-        if(xml.tokenType() == QXmlStreamReader::StartElement && xml.name() == "tli") {
+    while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == QLatin1String("common-timeline"))) {
+        if(xml.tokenType() == QXmlStreamReader::StartElement && xml.name() == QLatin1String("tli")) {
             TimelineInfo tli = readTimelineInfo(xml);
             m_commonTL.append(tli);
         }
@@ -208,7 +207,7 @@ ExmaraldaBasicTranscription::TimelineInfo ExmaraldaBasicTranscription::readTimel
 {
     TimelineInfo tli;
     // Check that we're really reading a timeline info
-    if (xml.tokenType() != QXmlStreamReader::StartElement && xml.name() == "tli") {
+    if (xml.tokenType() != QXmlStreamReader::StartElement && xml.name() == QLatin1String("tli")) {
         return tli;
     }
     if (xml.attributes().hasAttribute("id")) {
@@ -243,7 +242,7 @@ bool ExmaraldaBasicTranscription::readTier(QXmlStreamReader &xml)
     TierInfo tier;
     QString tierID;
     // Check that we're really reading a tier
-    if (xml.tokenType() != QXmlStreamReader::StartElement && xml.name() == "tier") {
+    if (xml.tokenType() != QXmlStreamReader::StartElement && xml.name() == QLatin1String("tier")) {
         return false;
     }
     // Attributes
@@ -265,8 +264,8 @@ bool ExmaraldaBasicTranscription::readTier(QXmlStreamReader &xml)
         tier.displayName = xml.attributes().value("display-name").toString();
     }
     xml.readNext(); // next element
-    while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == "tier")) {
-        if(xml.tokenType() == QXmlStreamReader::StartElement && xml.name() == "event") {
+    while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == QLatin1String("tier"))) {
+        if(xml.tokenType() == QXmlStreamReader::StartElement && xml.name() == QLatin1String("event")) {
             EventInfo event;
             if (xml.attributes().hasAttribute("start")) {
                 event.start = xml.attributes().value("start").toString();
@@ -321,15 +320,15 @@ bool ExmaraldaBasicTranscription::load(const QString &filename, ExmaraldaBasicTr
         if (token == QXmlStreamReader::StartDocument) continue;
         // If token is StartElement, we'll see if we can read it.
         if(token == QXmlStreamReader::StartElement) {
-            if (xml.name() == "basic-transcription")
+            if (xml.name() == QLatin1String("basic-transcription"))
                 continue;
-            else if (xml.name() == "head") {
+            else if (xml.name() == QLatin1String("head")) {
                 transcription.readMetadata(xml);
             }
-            else if (xml.name() == "common-timeline") {
+            else if (xml.name() == QLatin1String("common-timeline")) {
                 transcription.readCommonTimeline(xml);
             }
-            else if (xml.name() == "tier") {
+            else if (xml.name() == QLatin1String("tier")) {
                 transcription.readTier(xml);
             }
         }

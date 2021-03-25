@@ -23,10 +23,6 @@ CorpusObjectInfo::CorpusObjectInfo(const CorpusObjectInfo &other) :
     m_isDirty = true;
 }
 
-CorpusObjectInfo::~CorpusObjectInfo()
-{
-}
-
 PRAALINE_CORE_END_NAMESPACE
 
 
