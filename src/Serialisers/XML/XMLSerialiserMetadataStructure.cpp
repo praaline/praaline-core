@@ -64,6 +64,7 @@ void XMLSerialiserMetadataStructure::writeSection(CorpusObject::Type what, Metad
     xml.writeAttribute("id", section->ID());
     xml.writeAttribute("name", section->name());
     xml.writeAttribute("description", section->description());
+    xml.writeAttribute("itemOrder", QString::number(section->itemOrder()));
     foreach (MetadataStructureAttribute *attribute, section->attributes()) {
         writeAttribute(attribute, xml);
     }
@@ -81,6 +82,8 @@ void XMLSerialiserMetadataStructure::writeAttribute(MetadataStructureAttribute *
     xml.writeAttribute("datalength", QString::number(attribute->datatypePrecision()));
     xml.writeAttribute("indexed", (attribute->indexed()) ? "true" : "false");
     xml.writeAttribute("nameValueList", attribute->nameValueList());
+    xml.writeAttribute("mandatory", (attribute->mandatory()) ? "true" : "false");
+    xml.writeAttribute("itemOrder", QString::number(attribute->itemOrder()));
     xml.writeEndElement();
 }
 
@@ -181,6 +184,7 @@ MetadataStructureSection *XMLSerialiserMetadataStructure::readSection(QXmlStream
     MetadataStructureSection *section = new MetadataStructureSection();
     // Check that we're really reading a corpus metadata section specification
     if (xml.tokenType() != QXmlStreamReader::StartElement && xml.name() == xmlElementName_Section) {
+        delete section;
         return nullptr;
     }
     // Read the corpus item's attributes
@@ -193,6 +197,9 @@ MetadataStructureSection *XMLSerialiserMetadataStructure::readSection(QXmlStream
     }
     if (attributes.hasAttribute("description")) {
         section->setDescription(attributes.value("description").toString());
+    }
+    if (attributes.hasAttribute("itemOrder")) {
+        section->setItemOrder(attributes.value("itemOrder").toInt());
     }
     xml.readNext(); // next element
     // The order of the elements is not fixed: loop until we hit an EndElement.
@@ -218,6 +225,7 @@ MetadataStructureAttribute *XMLSerialiserMetadataStructure::readAttribute(QXmlSt
     MetadataStructureAttribute *attribute = new MetadataStructureAttribute();
     // Check that we're really reading a corpus metadata section specification
     if (xml.tokenType() != QXmlStreamReader::StartElement && xml.name() == xmlElementName_Attribute) {
+        delete attribute;
         return nullptr;
     }
     // Read the corpus item's attributes
@@ -242,6 +250,12 @@ MetadataStructureAttribute *XMLSerialiserMetadataStructure::readAttribute(QXmlSt
     }
     if (xmlAttributes.hasAttribute("nameValueList")) {
         attribute->setNameValueList(xmlAttributes.value("nameValueList").toString());
+    }
+    if (xmlAttributes.hasAttribute("mandatory")) {
+        if (xmlAttributes.value("mandatory").toString() == "true") attribute->setMandatory(true); else attribute->setMandatory(false);
+    }
+    if (xmlAttributes.hasAttribute("itemOrder")) {
+        attribute->setItemOrder(xmlAttributes.value("itemOrder").toInt());
     }
     xml.readNext(); // next element
     while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == xmlElementName_Attribute)) {

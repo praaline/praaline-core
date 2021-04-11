@@ -251,6 +251,8 @@ void CorpusRepository::importMetadataStructure(MetadataStructure *otherStructure
     if (!d->datastoreMetadata) return;
     if (!d->metadataStructure) return;
 
+    std::vector<QString> errors;
+
     const QMetaObject &mo = CorpusObject::staticMetaObject;
     int index = mo.indexOfEnumerator("Type");
     QMetaEnum metaEnum = mo.enumerator(index);
@@ -269,10 +271,13 @@ void CorpusRepository::importMetadataStructure(MetadataStructure *otherStructure
                 foreach (MetadataStructureAttribute *otherAttribute, otherSection->attributes()) {
                     MetadataStructureAttribute *myAttribute = mySection->attribute(otherAttribute->ID());
                     if (!myAttribute) {
-                        myAttribute = new MetadataStructureAttribute(otherAttribute);
-                        if (d->datastoreMetadata->createMetadataAttribute(type, myAttribute))
+                        myAttribute = otherAttribute->clone();
+                        if (d->datastoreMetadata->createMetadataAttribute(type, myAttribute)) {
                             mySection->addAttribute(myAttribute);
-                        else delete myAttribute;
+                        } else {
+                            errors.emplace_back(QString("Error adding attribute: ").arg(myAttribute->ID()));
+                            delete myAttribute;
+                        }
                     }
                 }
             }
@@ -281,10 +286,13 @@ void CorpusRepository::importMetadataStructure(MetadataStructure *otherStructure
                 mySection = new MetadataStructureSection(otherSection->ID(), otherSection->name(), otherSection->description());
                 d->metadataStructure->addSection(type, mySection);
                 foreach (MetadataStructureAttribute *otherAttribute, otherSection->attributes()) {
-                    MetadataStructureAttribute *myAttribute = new MetadataStructureAttribute(otherAttribute);
-                    if (d->datastoreMetadata->createMetadataAttribute(type, myAttribute))
+                    MetadataStructureAttribute *myAttribute = otherAttribute->clone();
+                    if (d->datastoreMetadata->createMetadataAttribute(type, myAttribute)) {
                         mySection->addAttribute(myAttribute);
-                    else delete myAttribute;
+                    } else {
+                        errors.emplace_back(QString("Error adding attribute: ").arg(myAttribute->ID()));
+                        delete myAttribute;
+                    }
                 }
             }
         }

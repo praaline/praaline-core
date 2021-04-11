@@ -224,6 +224,7 @@ QList<Interval *> SQLSerialiserAnnotation::getIntervals(
     QSqlQuery query(db);
     prepareSelectQuery(query, level, effectiveAttributeIDs, selection);
     query.exec();
+    qDebug() << "getIntervals reading " << query.size() << " intervals";
     // Read annotation elements
     while (query.next()) {
         RealTime tMin(RealTime::fromNanoseconds(query.value("tMin").toLongLong()));

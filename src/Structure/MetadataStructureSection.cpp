@@ -143,6 +143,7 @@ bool MetadataStructureSection::addAttribute(MetadataStructureAttribute *attribut
     if (!attribute) return false;
     if (hasAttribute(attribute->ID())) return false;
     attribute->setParent(this);
+    attribute->setItemOrder(m_attributes.count() + 1);
     m_attributes << attribute;
     emit attributeAdded(this, attribute);
     return true;

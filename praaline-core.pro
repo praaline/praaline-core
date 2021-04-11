@@ -123,7 +123,8 @@ HEADERS += \
     external/QSqlMigrator/Structure/Index.h \
     external/QSqlMigrator/Structure/LocalScheme.h \
     external/QSqlMigrator/Structure/SqlType.h \
-    external/QSqlMigrator/Structure/Table.h
+    external/QSqlMigrator/Structure/Table.h \
+    src/Serialisers/SQL/SQLSerialiserSpeakerRelation.h
 
 SOURCES += \
     external/QSqlMigrator/BaseSqlMigrator/CommandExecution/BaseSqlAddColumnService.cpp \
@@ -209,7 +210,8 @@ SOURCES += \
     external/QSqlMigrator/Structure/Index.cpp \
     external/QSqlMigrator/Structure/LocalScheme.cpp \
     external/QSqlMigrator/Structure/SqlType.cpp \
-    external/QSqlMigrator/Structure/Table.cpp
+    external/QSqlMigrator/Structure/Table.cpp \
+    src/Serialisers/SQL/SQLSerialiserSpeakerRelation.cpp
 
 # ===========================================================================================================
 # Praaline Core
@@ -248,6 +250,7 @@ HEADERS += \
     include/PraalineCore/Corpus/CorpusParticipation.h \
     include/PraalineCore/Corpus/CorpusRecording.h \
     include/PraalineCore/Corpus/CorpusSpeaker.h \
+    include/PraalineCore/Corpus/CorpusSpeakerRelation.h \
     include/PraalineCore/Dataframe/DataFrame.h \
     include/PraalineCore/Datastore/AnnotationDatastore.h \
     include/PraalineCore/Datastore/CorpusDatastore.h \
@@ -376,6 +379,7 @@ SOURCES += \
     src/Corpus/CorpusParticipation.cpp \
     src/Corpus/CorpusRecording.cpp \
     src/Corpus/CorpusSpeaker.cpp \
+    src/Corpus/CorpusSpeakerRelation.cpp \
     src/Dataframe/DataFrame.cpp \
     src/Datastore/AnnotationDatastore.cpp \
     src/Datastore/CorpusDatastore.cpp \

@@ -42,6 +42,7 @@ public:
         Type_Annotation,
         Type_Participation,
         Type_Bookmark,
+        Type_SpeakerRelation,
         Type_Undefined
     };
     Q_ENUM(Type)
