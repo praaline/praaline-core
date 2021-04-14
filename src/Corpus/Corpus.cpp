@@ -122,7 +122,7 @@ void Corpus::addCommunication(CorpusCommunication *communication)
     communication->setParent(this);
     communication->setCorpusID(this->ID());
     m_communications.insert(communication->ID(), communication);
-    // connect(communication, SIGNAL(changedID(QString,QString)), this, SLOT(communicationChangedID(QString,QString)));
+    connect(communication, SIGNAL(changedID(QString,QString)), this, SLOT(communicationChangedID(QString,QString)));
     m_isDirty = true;
     emit communicationAdded(communication);
 }
