@@ -65,6 +65,8 @@ public:
 
     // Access to base annotation elements
     QList<AnnotationElement *> sequenceElements(int sequenceIndex) const;
+    QString baseTierText(int sequenceIndex, const QString &delimiter = " ") const;
+    QString sequenceTextForBaseElement(int baseElementIndex, const QString &delimiter = " ") const;
 
     // Clone
     SequenceTier *clone(const QString &name = QString(), QObject *parent = nullptr) const;

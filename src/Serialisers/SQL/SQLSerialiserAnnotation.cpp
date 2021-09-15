@@ -354,19 +354,35 @@ AnnotationTierGroup *SQLSerialiserAnnotation::getTiers(
         const QString &annotationID, const QString &speakerID, const QStringList &levelIDs,
         AnnotationStructure *structure, QSqlDatabase &db)
 {
-    // Check which levels exist in the database (out of those requested)
-    QStringList effectiveLevelIDs;
-    if (levelIDs.isEmpty())
-        effectiveLevelIDs = structure->levelIDs();
-    else {
-        foreach (QString levelID, levelIDs) {
-            if (structure->hasLevel(levelID)) effectiveLevelIDs << levelID;
-        }
-    }
+    // Effective level IDs are based on the user-requested levels, filtered to ensure that the names are correct,
+    // and including the parent levels whenever derived levels are requested.
+    QStringList effectiveLevelIDs = getEffectiveLevelIDs(structure, levelIDs);
     // Collect data
     AnnotationTierGroup *tiers = new AnnotationTierGroup();
     foreach (QString levelID, effectiveLevelIDs) {
         AnnotationTier *tier = getTier(annotationID, speakerID, levelID, QStringList(), structure, db);
+        // For derived levels, we create empty tiers if they are not in the database; we also set the parent.
+        // We expect to find the parent tier in the tier group because the getEffectiveLevelIDs function returns the names
+        // of parent tiers before the names of derived tiers.
+        if (structure->level(levelID)->isLevelTypeDerived()) {
+            AnnotationTier *parentTier = tiers->tier(structure->level(levelID)->parentLevelID());
+            if      (structure->level(levelID)->levelType() == AnnotationStructureLevel::SequencesLevel) {
+                if (!tier)
+                    tier = new SequenceTier(levelID, parentTier);
+                else
+                    static_cast<SequenceTier *>(tier)->setBaseTier(parentTier);
+            }
+            else if (structure->level(levelID)->levelType() == AnnotationStructureLevel::TreeLevel) {
+                // if (!tier) ... else ...
+                // tier = new TreeTier();
+            }
+            else if (structure->level(levelID)->levelType() == AnnotationStructureLevel::RelationsLevel) {
+                if (!tier)
+                    tier = new RelationTier(levelID, parentTier);
+                else
+                    static_cast<RelationTier *>(tier)->setBaseTier(parentTier);
+            }
+        }
         if (tier) tiers->addTier(tier);
     }
     return tiers;
@@ -375,36 +391,21 @@ AnnotationTierGroup *SQLSerialiserAnnotation::getTiers(
 SpeakerAnnotationTierGroupMap SQLSerialiserAnnotation::getTiersAllSpeakers(
         const QString &annotationID, const QStringList &levelIDs, AnnotationStructure *structure, QSqlDatabase &db)
 {
-    // Check which levels exist in the database (out of those requested)
-    QStringList effectiveLevelIDs;
-    if (levelIDs.isEmpty())
-        effectiveLevelIDs = structure->levelIDs();
-    else {
-        foreach (QString levelID, levelIDs) {
-            if (structure->hasLevel(levelID)) effectiveLevelIDs << levelID;
+    // Effective level IDs are based on the user-requested levels, filtered to ensure that the names are correct,
+    // and including the parent levels whenever derived levels are requested.
+    QStringList effectiveLevelIDs = getEffectiveLevelIDs(structure, levelIDs);
+    // Collect data
+    QStringList speakerIDs;
+    foreach (QString levelID, effectiveLevelIDs) {
+        foreach (QString speakerID, getSpeakersInLevel(annotationID, levelID, structure, db, false)) {
+            if (!speakerIDs.contains(speakerID))
+                speakerIDs << speakerID;
         }
     }
-    // Collect data
     SpeakerAnnotationTierGroupMap tiersAll;
-    foreach (QString levelID, effectiveLevelIDs) {
-        QString q = QString("SELECT DISTINCT speakerID FROM %1 WHERE annotationID = :annotationID").arg(levelID);
-        QSqlQuery query(db);
-        query.setForwardOnly(true);
-        query.prepare(q);
-        query.bindValue(":annotationID", annotationID);
-        query.exec();
-        while (query.next()) {
-            QString speakerID = query.value(0).toString();
-            AnnotationTierGroup *tiersSpk;
-            if (tiersAll.contains(speakerID))
-                tiersSpk = tiersAll.value(speakerID);
-            else {
-                tiersSpk = new AnnotationTierGroup();
-                tiersAll.insert(speakerID, tiersSpk);
-            }
-            AnnotationTier *tier = getTier(annotationID, speakerID, levelID, QStringList(), structure, db);
-            if (tier) tiersSpk->addTier(tier);
-        }
+    foreach (QString speakerID, speakerIDs) {
+        AnnotationTierGroup *tiersSpk = getTiers(annotationID, speakerID, effectiveLevelIDs, structure, db);
+        tiersAll.insert(speakerID, tiersSpk);
     }
     return tiersAll;
 }

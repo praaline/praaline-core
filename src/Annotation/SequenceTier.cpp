@@ -179,6 +179,30 @@ QList<AnnotationElement *> SequenceTier::sequenceElements(int sequenceIndex) con
     return elements;
 }
 
+QString SequenceTier::baseTierText(int sequenceIndex, const QString &delimiter) const
+{
+    QList<AnnotationElement *> elements = sequenceElements(sequenceIndex);
+    QString ret;
+    foreach (AnnotationElement *element, elements) {
+        ret.append(element->text()).append(delimiter);
+    }
+    if (ret.length() >= delimiter.length()) ret.chop(delimiter.length());
+    return ret;
+}
+
+QString SequenceTier::sequenceTextForBaseElement(int baseElementIndex, const QString &delimiter) const
+{
+    QString ret;
+    for (int sequenceIndex = 0; sequenceIndex < m_sequences.count(); ++sequenceIndex) {
+        if ((m_sequences.at(sequenceIndex)->indexFrom() <= baseElementIndex) &&
+            (m_sequences.at(sequenceIndex)->indexTo()   >= baseElementIndex)) {
+            ret.append(m_sequences.at(sequenceIndex)->text()).append(delimiter);
+        }
+    }
+    if (ret.length() >= delimiter.length()) ret.chop(delimiter.length());
+    return ret;
+}
+
 // ==============================================================================================================================
 // Clone
 // ==============================================================================================================================

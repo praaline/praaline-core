@@ -54,6 +54,7 @@ public:
     // DATA
     LevelType levelType() const;
     bool isLevelTypePrimary() const;
+    bool isLevelTypeDerived() const;
     void setLevelType(LevelType type);
     QString parentLevelID() const;
     void setParentLevelID(const QString &parentLevelID);

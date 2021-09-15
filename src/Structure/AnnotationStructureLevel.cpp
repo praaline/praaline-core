@@ -48,6 +48,11 @@ bool AnnotationStructureLevel::isLevelTypePrimary() const
     return false;
 }
 
+bool AnnotationStructureLevel::isLevelTypeDerived() const
+{
+    return !isLevelTypePrimary();
+}
+
 void AnnotationStructureLevel::setLevelType(LevelType type)
 {
     m_levelType = type;
