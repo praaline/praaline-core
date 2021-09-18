@@ -124,7 +124,7 @@ void Corpus::addCommunication(CorpusCommunication *communication)
     communication->setParent(this);
     communication->setCorpusID(this->ID());
     m_communications.insert(communication->ID(), communication);
-    connect(communication, SIGNAL(changedID(QString,QString)), this, SLOT(communicationChangedID(QString,QString)));
+    connect(communication, &CorpusObject::changedID, this, &Corpus::communicationChangedID);
     m_isDirty = true;
     emit communicationAdded(communication);
 }
@@ -200,7 +200,7 @@ void Corpus::addSpeaker(CorpusSpeaker *speaker)
     speaker->setParent(this);
     speaker->setCorpusID(this->ID());
     m_speakers.insert(speaker->ID(), speaker);
-    connect(speaker, SIGNAL(changedID(QString,QString)), this, SLOT(speakerChangedID(QString,QString)));
+    connect(speaker, &CorpusObject::changedID, this, &Corpus::speakerChangedID);
     m_isDirty = true;
     emit speakerAdded(speaker);
 }

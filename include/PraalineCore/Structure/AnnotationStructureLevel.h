@@ -30,7 +30,6 @@ class PRAALINE_CORE_SHARED_EXPORT AnnotationStructureLevel : public StructureAtt
     Q_OBJECT
     Q_PROPERTY(LevelType levelType READ levelType WRITE setLevelType)
     Q_PROPERTY(QString parentLevelID READ parentLevelID WRITE setParentLevelID)
-    Q_ENUMS(LevelType)
 
 public:
     enum LevelType {
@@ -41,6 +40,7 @@ public:
         TreeLevel                 = 50,
         RelationsLevel            = 60
     };
+    Q_ENUM(LevelType)
 
     explicit AnnotationStructureLevel(QObject *parent = nullptr);
     AnnotationStructureLevel(const QString &ID, LevelType type = IndependentIntervalsLevel,

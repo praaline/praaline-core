@@ -107,7 +107,7 @@ void CorpusCommunication::addRecording(CorpusRecording *recording)
     recording->setParent(this);
     recording->setCorpusID(this->corpusID());
     m_recordings.insert(recording->ID(), recording);
-    connect(recording, SIGNAL(changedID(QString,QString)), this, SLOT(recordingChangedID(QString,QString)));
+    connect(recording, &CorpusObject::changedID, this, &CorpusCommunication::recordingChangedID);
     m_isDirty = true;
     emit corpusRecordingAdded(recording);
 }
@@ -194,7 +194,7 @@ void CorpusCommunication::addAnnotation(CorpusAnnotation *annotation)
     annotation->setParent(this);
     annotation->setCorpusID(this->corpusID());
     m_annotations.insert(annotation->ID(), annotation);
-    connect(annotation, SIGNAL(changedID(QString,QString)), this, SLOT(annotationChangedID(QString,QString)));
+    connect(annotation, &CorpusObject::changedID, this, &CorpusCommunication::annotationChangedID);
     m_isDirty = true;
     emit corpusAnnotationAdded(annotation);
 }
