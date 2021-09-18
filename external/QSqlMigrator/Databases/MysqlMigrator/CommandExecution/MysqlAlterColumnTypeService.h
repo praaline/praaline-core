@@ -42,11 +42,11 @@ class MysqlAlterColumnTypeService : public BaseSqlAlterColumnTypeService
 {
 public:
     MysqlAlterColumnTypeService();
-    ~MysqlAlterColumnTypeService() Q_DECL_OVERRIDE {}
+    ~MysqlAlterColumnTypeService() override {}
 
     static bool execute(const Commands::AlterColumnType &alterColumnType, const Structure::Column &originalColumn, const CommandExecution::CommandExecutionContext &context);
 
-    bool execute(const Commands::ConstCommandPtr &command, CommandExecution::CommandExecutionContext &context) const Q_DECL_OVERRIDE;
+    bool execute(const Commands::ConstCommandPtr &command, CommandExecution::CommandExecutionContext &context) const override;
 };
 
 } // namespace CommandExecution

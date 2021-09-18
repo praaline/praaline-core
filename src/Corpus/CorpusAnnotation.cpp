@@ -59,6 +59,7 @@ void CorpusAnnotation::setName(const QString &name)
     if (m_name != name) {
         m_name = name;
         m_isDirty = true;
+        emit nameChanged();
     }
 }
 
@@ -75,6 +76,7 @@ void CorpusAnnotation::setFilename(const QString &filename)
     if (m_filename != filename) {
         m_filename = filename;
         m_isDirty = true;
+        emit filenameChanged();
     }
 }
 
@@ -83,6 +85,7 @@ void CorpusAnnotation::setFormat(const QString &format)
     if (m_format != format) {
         m_format = format;
         m_isDirty = true;
+        emit formatChanged();
     }
 }
 
@@ -104,6 +107,7 @@ void CorpusAnnotation::addLanguage(const QString &languageID)
     if (!m_languages.contains(languageID)) {
         m_languages.append(languageID);
         m_isDirty = true;
+        emit languagesChanged();
     }
 }
 
@@ -112,6 +116,7 @@ void CorpusAnnotation::removeLanguage(const QString &languageID)
     if (m_languages.contains(languageID)) {
         m_languages.removeOne(languageID);
         m_isDirty = true;
+        emit languagesChanged();
     }
 }
 

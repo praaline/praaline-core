@@ -40,7 +40,7 @@ class /* QSQLMIGRATOR_DLL_EXPORT */ RenameColumn : public BaseCommand
 {
 public:
     explicit RenameColumn(const QString &oldName, const QString &newName, const QString &tableName);
-    ~RenameColumn() Q_DECL_OVERRIDE {}
+    ~RenameColumn() override {}
 
     static const QString &typeName();
 
@@ -48,7 +48,7 @@ public:
     const QString &newName() const;
     const QString &tableName() const;
 
-    CommandPtr reverse() const Q_DECL_OVERRIDE;
+    CommandPtr reverse() const override;
 
 private:
     const QString m_oldName;

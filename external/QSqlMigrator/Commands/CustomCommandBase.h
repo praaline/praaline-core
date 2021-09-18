@@ -43,7 +43,7 @@ class /* QSQLMIGRATOR_DLL_EXPORT */ CustomCommandBase : public BaseCommand
 {
 public:
     explicit CustomCommandBase(const QString &commandName);
-    ~CustomCommandBase() Q_DECL_OVERRIDE {}
+    ~CustomCommandBase() override {}
 
     static const QString &typeName();
 
@@ -53,7 +53,7 @@ public:
     virtual bool down(const QSqlDatabase &database) const;
 
     //! \return invalid command (not reversable)
-    CommandPtr reverse() const Q_DECL_OVERRIDE;
+    CommandPtr reverse() const override;
 
 private:
     QString m_customName;

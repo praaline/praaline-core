@@ -43,14 +43,14 @@ class PostgresqlStructureService : public SqlStructureService
 {
 public:
     PostgresqlStructureService();
-    ~PostgresqlStructureService() Q_DECL_OVERRIDE {}
+    ~PostgresqlStructureService() override {}
 
     Structure::Table getTableDefinition(const QString &tableName,
-                                        QSqlDatabase database) const Q_DECL_OVERRIDE;
+                                        QSqlDatabase database) const override;
 
     Structure::Index getIndexDefinition(const QString &indexName,
                                         const QString &tableName,
-                                        QSqlDatabase database) const Q_DECL_OVERRIDE;
+                                        QSqlDatabase database) const override;
 };
 
 } // namespace Helper

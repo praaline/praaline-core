@@ -45,12 +45,12 @@ class PostgresqlColumnService : public BaseSqlColumnService
 {
 public:
     PostgresqlColumnService(const PostgresqlTypeMapperService& postgresqlTypeMapperService);
-    ~PostgresqlColumnService() Q_DECL_OVERRIDE {}
+    ~PostgresqlColumnService() override {}
 
-    QString buildColumnTypeSql(const Structure::Column &column) const Q_DECL_OVERRIDE;
+    QString buildColumnTypeSql(const Structure::Column &column) const override;
 
     void buildColumnOptionsSql(const Structure::Column &column,
-                               const StringOutputFunction &addOption) const Q_DECL_OVERRIDE;
+                               const StringOutputFunction &addOption) const override;
 };
 
 } // namespace Helper

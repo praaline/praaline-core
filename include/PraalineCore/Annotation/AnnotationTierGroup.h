@@ -81,7 +81,7 @@ public:
     void mergeSilentPausesOnAllIntervalTiers(const QString &silentPauseText);
 
 signals:
-    void tierInserted(AnnotationTier *tier);
+    void tierInserted(Praaline::Core::AnnotationTier *tier);
     void tierDeleted(QString tierName);
     
 public slots:

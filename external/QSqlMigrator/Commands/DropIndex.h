@@ -40,14 +40,14 @@ class /* QSQLMIGRATOR_DLL_EXPORT */ DropIndex : public BaseCommand
 public:
     explicit DropIndex(const QString &name);
     explicit DropIndex(const Structure::Index &index);
-    ~DropIndex() Q_DECL_OVERRIDE {}
+    ~DropIndex() override {}
 
     static const QString &typeName();
 
     const Structure::Index &index() const;
     const QString &name() const;
 
-    CommandPtr reverse() const Q_DECL_OVERRIDE;
+    CommandPtr reverse() const override;
 
 private:
     const Structure::Index m_index;

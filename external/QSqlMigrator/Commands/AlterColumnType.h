@@ -48,7 +48,7 @@ public:
                              const QString &tableName,
                              const Structure::SqlType &newType);
 
-    ~AlterColumnType() Q_DECL_OVERRIDE {}
+    ~AlterColumnType() override {}
 
     static const QString &typeName();
 
@@ -57,7 +57,7 @@ public:
     const Structure::SqlType &newType() const;
     const Structure::SqlType &oldType() const;
 
-    CommandPtr reverse() const Q_DECL_OVERRIDE;
+    CommandPtr reverse() const override;
 
 private:
     const QString m_tableName;

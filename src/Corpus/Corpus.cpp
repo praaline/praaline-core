@@ -39,6 +39,7 @@ void Corpus::setName(const QString &name)
 {
     if (m_name != name) {
         m_name = name;
+        emit nameChanged();
         m_isDirty = true;
     }
 }
@@ -74,6 +75,7 @@ void Corpus::clear()
     m_communications.clear();
     qDeleteAll(m_speakers);
     m_speakers.clear();
+    emit nameChanged();
 }
 
 bool Corpus::save() {

@@ -43,14 +43,14 @@ class FirebirdSqlStructureService : public SqlStructureService
 {
 public:
     FirebirdSqlStructureService();
-    ~FirebirdSqlStructureService() Q_DECL_OVERRIDE {}
+    ~FirebirdSqlStructureService() override {}
 
     Structure::Table getTableDefinition(const QString &tableName,
-                                        QSqlDatabase database) const Q_DECL_OVERRIDE;
+                                        QSqlDatabase database) const override;
 
     Structure::Index getIndexDefinition(const QString &indexName,
                                         const QString &tableName,
-                                        QSqlDatabase database) const Q_DECL_OVERRIDE;
+                                        QSqlDatabase database) const override;
 };
 
 } // namespace Helper

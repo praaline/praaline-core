@@ -39,13 +39,13 @@ class /* QSQLMIGRATOR_DLL_EXPORT */ CreateTable : public BaseCommand
 {
 public:
     explicit CreateTable(const Structure::Table &table);
-    ~CreateTable() Q_DECL_OVERRIDE {}
+    ~CreateTable() override {}
 
     static const QString &typeName();
 
     const Structure::Table &table() const;
 
-    CommandPtr reverse() const Q_DECL_OVERRIDE;
+    CommandPtr reverse() const override;
 
 private:
     const Structure::Table m_table;

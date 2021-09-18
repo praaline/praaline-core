@@ -40,14 +40,14 @@ class /* QSQLMIGRATOR_DLL_EXPORT */ RenameTable : public BaseCommand
 {
 public:
     explicit RenameTable(const QString &name, const QString &newName);
-    ~RenameTable() Q_DECL_OVERRIDE {}
+    ~RenameTable() override {}
 
     static const QString &typeName();
 
     const QString &name() const;
     const QString &newName() const;
 
-    CommandPtr reverse() const Q_DECL_OVERRIDE;
+    CommandPtr reverse() const override;
 
 private:
     QString m_name;

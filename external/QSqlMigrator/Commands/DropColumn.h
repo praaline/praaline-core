@@ -44,7 +44,7 @@ public:
     //! Constructs the command to drop a column with a column definition, allowing a restore
     explicit DropColumn(const Structure::Column &column, const QString &tableName);
 
-    ~DropColumn() Q_DECL_OVERRIDE {}
+    ~DropColumn() override {}
 
     static const QString &typeName();
 
@@ -52,7 +52,7 @@ public:
     QString columnName() const;
     const Structure::Column &column() const;
 
-    CommandPtr reverse() const Q_DECL_OVERRIDE;
+    CommandPtr reverse() const override;
 
 private:
     const QString m_tableName;

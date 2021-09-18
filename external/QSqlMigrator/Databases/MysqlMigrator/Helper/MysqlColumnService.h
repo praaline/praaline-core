@@ -45,10 +45,10 @@ class MysqlColumnService : public BaseSqlColumnService
 {
 public:
     MysqlColumnService(const MysqlTypeMapperService& mysqlTypeMapperService);
-    ~MysqlColumnService() Q_DECL_OVERRIDE {}
+    ~MysqlColumnService() override {}
 
     void buildColumnOptionsSql(const Structure::Column &column,
-                               const StringOutputFunction &addOption) const Q_DECL_OVERRIDE;
+                               const StringOutputFunction &addOption) const override;
 };
 
 } // namespace Helper

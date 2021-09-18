@@ -44,22 +44,22 @@ namespace MigrationTracker {
 class /* QSQLMIGRATOR_DLL_EXPORT */ BaseMigrationTableService : public MigrationTracker::MigrationTrackerService
 {
 public:
-    ~BaseMigrationTableService() Q_DECL_OVERRIDE {}
+    ~BaseMigrationTableService() override {}
 
-    bool canRevertStrucuturalChangesUsingTransactions() const Q_DECL_OVERRIDE;
+    bool canRevertStrucuturalChangesUsingTransactions() const override;
 
     bool wasMigrationExecuted(const QString &migrationName,
-                              const CommandExecution::CommandExecutionContext &context) const Q_DECL_OVERRIDE;
+                              const CommandExecution::CommandExecutionContext &context) const override;
 
-    QStringList migrationList(const CommandExecution::CommandExecutionContext &context) const Q_DECL_OVERRIDE;
+    QStringList migrationList(const CommandExecution::CommandExecutionContext &context) const override;
 
     bool addMigration(const QString &migrationName,
-                      const CommandExecution::CommandExecutionContext &context) const Q_DECL_OVERRIDE;
+                      const CommandExecution::CommandExecutionContext &context) const override;
 
     bool removeMigration(const QString &migrationName,
-                         const CommandExecution::CommandExecutionContext &context) const Q_DECL_OVERRIDE;
+                         const CommandExecution::CommandExecutionContext &context) const override;
 
-    bool prepare(const MigrationExecution::MigrationExecutionContext &context) const Q_DECL_OVERRIDE;
+    bool prepare(const MigrationExecution::MigrationExecutionContext &context) const override;
 };
 
 } // namespace MigrationTracker

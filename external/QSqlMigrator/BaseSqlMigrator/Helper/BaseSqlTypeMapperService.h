@@ -44,9 +44,9 @@ class /* QSQLMIGRATOR_DLL_EXPORT */ BaseSqlTypeMapperService : public TypeMapper
 {
 public:
     BaseSqlTypeMapperService();
-    ~BaseSqlTypeMapperService() Q_DECL_OVERRIDE {}
+    ~BaseSqlTypeMapperService() override {}
 
-    QString map(const Structure::SqlType &type) const Q_DECL_OVERRIDE;
+    QString map(const Structure::SqlType &type) const override;
 
 protected:
     QHash<Structure::SqlType::Base, QString> m_typeMap;

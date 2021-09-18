@@ -39,14 +39,14 @@ class /* QSQLMIGRATOR_DLL_EXPORT */ AddColumn : public BaseCommand
 {
 public:
     explicit AddColumn(const Structure::Column &column, const QString &tableName);
-    ~AddColumn() Q_DECL_OVERRIDE {}
+    ~AddColumn() override {}
 
     static const QString &typeName();
 
     const Structure::Column &column() const;
     const QString &tableName() const;
 
-    CommandPtr reverse() const Q_DECL_OVERRIDE;
+    CommandPtr reverse() const override;
 
 private:
     const QString m_tableName;

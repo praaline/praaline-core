@@ -36,9 +36,9 @@ class SqliteAlterColumnTypeService : public BaseSqlAlterColumnTypeService
 {
 public:
     SqliteAlterColumnTypeService();
-    ~SqliteAlterColumnTypeService() Q_DECL_OVERRIDE {}
+    ~SqliteAlterColumnTypeService() override {}
 
-    bool execute(const Commands::ConstCommandPtr &command, CommandExecution::CommandExecutionContext &context) const Q_DECL_OVERRIDE;
+    bool execute(const Commands::ConstCommandPtr &command, CommandExecution::CommandExecutionContext &context) const override;
 };
 
 } // namespace CommandExecution

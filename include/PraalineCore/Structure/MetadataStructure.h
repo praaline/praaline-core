@@ -65,8 +65,8 @@ public:
     QStringList allAttributeNames(CorpusObject::Type what) const;
 
 signals:
-    void sectionAdded(MetadataStructure *structure, CorpusObject::Type what, MetadataStructureSection *section);
-    void sectionDeleted(MetadataStructure *structure, CorpusObject::Type what, QString sectionID);
+    void sectionAdded(Praaline::Core::MetadataStructure *structure, Praaline::Core::CorpusObject::Type what, Praaline::Core::MetadataStructureSection *section);
+    void sectionDeleted(Praaline::Core::MetadataStructure *structure, Praaline::Core::CorpusObject::Type what, QString sectionID);
 
 protected:
     QString m_ID;

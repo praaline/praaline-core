@@ -43,14 +43,14 @@ class SqliteSqlStructureService : public SqlStructureService
 {
 public:
     SqliteSqlStructureService();
-    ~SqliteSqlStructureService() Q_DECL_OVERRIDE {}
+    ~SqliteSqlStructureService() override {}
 
     Structure::Table getTableDefinition(const QString &tableName,
-                                        QSqlDatabase database) const Q_DECL_OVERRIDE;
+                                        QSqlDatabase database) const override;
 
     Structure::Index getIndexDefinition(const QString &indexName,
                                         const QString &tableName,
-                                        QSqlDatabase database) const Q_DECL_OVERRIDE;
+                                        QSqlDatabase database) const override;
 };
 
 } // namespace Helper

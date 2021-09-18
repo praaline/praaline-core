@@ -40,14 +40,14 @@ class /* QSQLMIGRATOR_DLL_EXPORT */ DropTable : public BaseCommand
 public:
     explicit DropTable(const QString &name);
     explicit DropTable(const Structure::Table &table);
-    ~DropTable() Q_DECL_OVERRIDE {}
+    ~DropTable() override {}
 
     static const QString &typeName();
 
     const Structure::Table &table() const;
     const QString &tableName() const;
 
-    CommandPtr reverse() const Q_DECL_OVERRIDE;
+    CommandPtr reverse() const override;
 
 private:
     Structure::Table m_table;

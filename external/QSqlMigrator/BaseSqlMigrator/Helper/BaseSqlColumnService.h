@@ -45,16 +45,16 @@ public:
     typedef std::function< void(const QString &type) > StringOutputFunction;
 
     BaseSqlColumnService(const TypeMapperService& typeMapperService);
-    ~BaseSqlColumnService() Q_DECL_OVERRIDE {}
+    ~BaseSqlColumnService() override {}
 
     virtual QString buildColumnTypeSql(const Structure::Column &column) const;
     virtual void buildColumnOptionsSql(const Structure::Column &column, const StringOutputFunction &addOption) const;
 
-    QString generateColumnDefinitionSql(const Structure::Column &column) const Q_DECL_OVERRIDE;
-    QString generateColumnsDefinitionSql(const QList<Structure::Column> &columnList) const Q_DECL_OVERRIDE;
+    QString generateColumnDefinitionSql(const Structure::Column &column) const override;
+    QString generateColumnsDefinitionSql(const QList<Structure::Column> &columnList) const override;
 
-    QString generateIndexColumnDefinitionSql(const Structure::Index::Column &column) const Q_DECL_OVERRIDE;
-    QString generateIndexColumnsDefinitionSql(const Structure::Index::ColumnList &columns) const Q_DECL_OVERRIDE;
+    QString generateIndexColumnDefinitionSql(const Structure::Index::Column &column) const override;
+    QString generateIndexColumnsDefinitionSql(const Structure::Index::ColumnList &columns) const override;
 
 protected:
     const TypeMapperService& m_typeMapperService;

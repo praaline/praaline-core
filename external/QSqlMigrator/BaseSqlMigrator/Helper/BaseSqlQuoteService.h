@@ -39,11 +39,11 @@ class /* QSQLMIGRATOR_DLL_EXPORT */ BaseSqlQuoteService : public QuoteService
 {
 public:
     BaseSqlQuoteService();
-    ~BaseSqlQuoteService() Q_DECL_OVERRIDE {}
+    ~BaseSqlQuoteService() override {}
 
-    QString quoteTableName(const QString &tableName) const Q_DECL_OVERRIDE;
-    QString quoteColumnName(const QString &columnName) const Q_DECL_OVERRIDE;
-    QString quoteString(const QString &string) const Q_DECL_OVERRIDE;
+    QString quoteTableName(const QString &tableName) const override;
+    QString quoteColumnName(const QString &columnName) const override;
+    QString quoteString(const QString &string) const override;
 };
 
 } // namespace Helper

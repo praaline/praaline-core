@@ -41,9 +41,9 @@ class PostgresqlTypeMapperService : public BaseSqlTypeMapperService
 {
 public:
     PostgresqlTypeMapperService();
-    ~PostgresqlTypeMapperService() Q_DECL_OVERRIDE {}
+    ~PostgresqlTypeMapperService() override {}
 
-    QString map(const Structure::SqlType &type) const Q_DECL_OVERRIDE;
+    QString map(const Structure::SqlType &type) const override;
 };
 
 } // namespace Helper

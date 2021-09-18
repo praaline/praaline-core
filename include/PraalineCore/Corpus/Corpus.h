@@ -33,7 +33,7 @@ PRAALINE_CORE_BEGIN_NAMESPACE
 class PRAALINE_CORE_SHARED_EXPORT Corpus : public CorpusObject
 {
     Q_OBJECT
-    Q_PROPERTY(QString name READ name WRITE setName)
+    Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)
 
 public:
     explicit Corpus(CorpusRepository *repository = nullptr, QObject *parent = nullptr);
@@ -115,6 +115,7 @@ public:
     QList<QPair<QString, QString> > deletedParticipationIDs;
 
 signals:
+    void nameChanged();
     void communicationAdded(PRAALINE_CORE_NAMESPACE::CorpusCommunication *communication);
     void communicationDeleted(QString ID);
     void speakerAdded(PRAALINE_CORE_NAMESPACE::CorpusSpeaker *speaker);

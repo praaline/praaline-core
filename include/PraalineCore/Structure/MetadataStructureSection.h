@@ -66,8 +66,8 @@ public:
     void clear();
 
 signals:
-    void attributeAdded(MetadataStructureSection *section, MetadataStructureAttribute *attribute);
-    void attributeDeleted(MetadataStructureSection *section, QString attributeID);
+    void attributeAdded(Praaline::Core::MetadataStructureSection *section, Praaline::Core::MetadataStructureAttribute *attribute);
+    void attributeDeleted(Praaline::Core::MetadataStructureSection *section, QString attributeID);
 
 protected:
     QString m_ID;           // Section ID (e.g. speaker)

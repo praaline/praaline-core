@@ -30,9 +30,9 @@ class PRAALINE_CORE_SHARED_EXPORT AnnotationTier : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)
-    Q_PROPERTY(RealTime tMin READ tMin)
-    Q_PROPERTY(RealTime tMax READ tMax)
-    Q_PROPERTY(RealTime duration READ duration)
+    Q_PROPERTY(RealTime tMin READ tMin NOTIFY tMinChanged)
+    Q_PROPERTY(RealTime tMax READ tMax NOTIFY tMaxChanged)
+    Q_PROPERTY(RealTime duration READ duration NOTIFY durationChanged)
 
 public:
     enum TierType {
@@ -68,6 +68,9 @@ public:
 
 signals:
     void nameChanged();
+    void tMinChanged();
+    void tMaxChanged();
+    void durationChanged();
 
 protected:
     QString m_name;

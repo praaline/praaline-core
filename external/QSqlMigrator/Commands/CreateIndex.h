@@ -39,13 +39,13 @@ class /* QSQLMIGRATOR_DLL_EXPORT */ CreateIndex : public BaseCommand
 {
 public:
     explicit CreateIndex(const Structure::Index &index);
-    ~CreateIndex() Q_DECL_OVERRIDE {}
+    ~CreateIndex() override {}
 
     static const QString &typeName();
 
     const Structure::Index &index() const;
 
-    CommandPtr reverse() const Q_DECL_OVERRIDE;
+    CommandPtr reverse() const override;
 
 private:
     const Structure::Index m_index;

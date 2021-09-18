@@ -37,11 +37,11 @@
 //#  define /* QSQLMIGRATOR_DLL_EXPORT */ Q_DECL_IMPORT
 //#endif
 
-//#ifndef Q_DECL_OVERRIDE
-//#   define Q_DECL_OVERRIDE
+//#ifndef override
+//#   define override
 //#endif
 //#if _MSC_VER >= 1700
-//#   define QSQL_OVERRIDE_D Q_DECL_OVERRIDE
+//#   define QSQL_OVERRIDE_D override
 //#else
 //#   define QSQL_OVERRIDE_D
 //#endif

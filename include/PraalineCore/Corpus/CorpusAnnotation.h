@@ -28,11 +28,11 @@ class Corpus;
 class PRAALINE_CORE_SHARED_EXPORT CorpusAnnotation : public CorpusObject
 {
     Q_OBJECT
-    Q_PROPERTY(QString name READ name WRITE setName)
-    Q_PROPERTY(QString filename READ filename WRITE setFilename)
-    Q_PROPERTY(QString format READ format WRITE setFormat)
-    Q_PROPERTY(QStringList languages READ languages)
-    Q_PROPERTY(QString communicationID READ communicationID)
+    Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)
+    Q_PROPERTY(QString filename READ filename WRITE setFilename NOTIFY filenameChanged)
+    Q_PROPERTY(QString format READ format WRITE setFormat NOTIFY formatChanged)
+    Q_PROPERTY(QStringList languages READ languages NOTIFY languagesChanged)
+    Q_PROPERTY(QString communicationID READ communicationID CONSTANT)
 
 public:
     explicit CorpusAnnotation(CorpusRepository *repository = nullptr, QObject *parent = nullptr);
@@ -62,6 +62,12 @@ public:
     QStringList languages() const;
     void addLanguage(const QString &languageID);
     void removeLanguage(const QString &languageID);
+
+signals:
+    void nameChanged();
+    void filenameChanged();
+    void formatChanged();
+    void languagesChanged();
 
 private:
     QString m_name;

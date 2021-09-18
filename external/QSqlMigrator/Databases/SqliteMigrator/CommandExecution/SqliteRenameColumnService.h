@@ -35,10 +35,10 @@ class SqliteRenameColumnService : public BaseSqlRenameColumnService
 {
 public:
     SqliteRenameColumnService();
-    ~SqliteRenameColumnService() Q_DECL_OVERRIDE {}
+    ~SqliteRenameColumnService() override {}
 
     bool execute(const Commands::ConstCommandPtr &command,
-                 CommandExecution::CommandExecutionContext &context) const Q_DECL_OVERRIDE;
+                 CommandExecution::CommandExecutionContext &context) const override;
 };
 
 } // namespace CommandExecution

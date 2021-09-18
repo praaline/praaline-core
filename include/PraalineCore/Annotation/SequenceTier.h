@@ -58,6 +58,8 @@ public:
     Sequence* sequence(int index) const;
     QList<Sequence *> sequences() const;
 
+    int indexOfSequence(Sequence *sequence) const;
+
     // Mutators for Sequences
     void addSequence(Sequence *sequence);
     void addSequences(QList<Sequence *> sequences);

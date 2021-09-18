@@ -53,8 +53,8 @@ public:
     void clear();
 
 signals:
-    void levelAdded(AnnotationStructure *structure, AnnotationStructureLevel *level);
-    void levelDeleted(AnnotationStructure *structure, QString levelID);
+    void levelAdded(Praaline::Core::AnnotationStructure *structure, Praaline::Core::AnnotationStructureLevel *level);
+    void levelDeleted(Praaline::Core::AnnotationStructure *structure, QString levelID);
 
 protected:
     QString m_ID;

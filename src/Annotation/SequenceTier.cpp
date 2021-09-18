@@ -143,10 +143,20 @@ QList<Sequence *> SequenceTier::sequences() const
 }
 
 bool SequenceTier::compareSequences(Sequence *A, Sequence *B) {
-    if (A->indexFrom() == B->indexFrom())
-        return (A->indexTo() < B->indexTo());
+    if (A->indexFrom() == B->indexFrom()) {
+        if (A->indexTo() == B->indexTo()) {
+            return (A->text() < B->text());
+        } else {
+            return (A->indexTo() < B->indexTo());
+        }
+    }
     // else
     return (A->indexFrom() < B->indexFrom());
+}
+
+int SequenceTier::indexOfSequence(Sequence *sequence) const
+{
+    return m_sequences.indexOf(sequence);
 }
 
 void SequenceTier::addSequence(Sequence *sequence)
