@@ -2,6 +2,7 @@
 
 #include "PraalineCore/Annotation/Sequence.h"
 #include "PraalineCore/Annotation/SequenceTier.h"
+#include "PraalineCore/Annotation/PointTier.h"
 #include "PraalineCore/Annotation/IntervalTier.h"
 #include "PraalineCore/Annotation/AnnotationTier.h"
 
@@ -176,6 +177,8 @@ void SequenceTier::removeSequenceAt(int i)
     m_sequences.removeAt(i);
 }
 
+// Access to base annotation elements
+
 QList<AnnotationElement *> SequenceTier::sequenceElements(int sequenceIndex) const
 {
     QList<AnnotationElement *> elements;
@@ -189,7 +192,7 @@ QList<AnnotationElement *> SequenceTier::sequenceElements(int sequenceIndex) con
     return elements;
 }
 
-QString SequenceTier::baseTierText(int sequenceIndex, const QString &delimiter) const
+QString SequenceTier::sequenceBaseTierText(int sequenceIndex, const QString &delimiter) const
 {
     QList<AnnotationElement *> elements = sequenceElements(sequenceIndex);
     QString ret;
@@ -200,7 +203,38 @@ QString SequenceTier::baseTierText(int sequenceIndex, const QString &delimiter) 
     return ret;
 }
 
-QString SequenceTier::sequenceTextForBaseElement(int baseElementIndex, const QString &delimiter) const
+RealTime SequenceTier::sequenceTimeMin(int sequenceIndex) const
+{
+    if (!m_baseTier) return RealTime();
+    if ((sequenceIndex < 0) || (sequenceIndex >= m_sequences.count())) return RealTime();
+    int from = m_sequences.at(sequenceIndex)->indexFrom();
+    if (m_baseTier->tierType() == AnnotationTier::TierType_Points)
+        return static_cast<PointTier *>(m_baseTier)->point(from)->time();
+    else if (m_baseTier->tierType() == AnnotationTier::TierType_Intervals)
+        return static_cast<IntervalTier *>(m_baseTier)->interval(from)->tMin();
+    return RealTime();
+}
+
+RealTime SequenceTier::sequenceTimeMax(int sequenceIndex) const
+{
+    if (!m_baseTier) return RealTime();
+    if ((sequenceIndex < 0) || (sequenceIndex >= m_sequences.count())) return RealTime();
+    int to = m_sequences.at(sequenceIndex)->indexTo();
+    if (m_baseTier->tierType() == AnnotationTier::TierType_Points)
+        return static_cast<PointTier *>(m_baseTier)->point(to)->time();
+    else if (m_baseTier->tierType() == AnnotationTier::TierType_Intervals)
+        return static_cast<IntervalTier *>(m_baseTier)->interval(to)->tMax();
+    return RealTime();
+}
+
+RealTime SequenceTier::sequenceDuration(int sequenceIndex) const
+{
+    return sequenceTimeMax(sequenceIndex) - sequenceTimeMin(sequenceIndex);
+}
+
+// Sequences annotating a given element of the base tier
+
+QString SequenceTier::sequencesTextForBaseElement(int baseElementIndex, const QString &delimiter) const
 {
     QString ret;
     for (int sequenceIndex = 0; sequenceIndex < m_sequences.count(); ++sequenceIndex) {

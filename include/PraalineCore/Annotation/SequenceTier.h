@@ -67,8 +67,13 @@ public:
 
     // Access to base annotation elements
     QList<AnnotationElement *> sequenceElements(int sequenceIndex) const;
-    QString baseTierText(int sequenceIndex, const QString &delimiter = " ") const;
-    QString sequenceTextForBaseElement(int baseElementIndex, const QString &delimiter = " ") const;
+    QString sequenceBaseTierText(int sequenceIndex, const QString &delimiter = " ") const;
+    RealTime sequenceTimeMin(int sequenceIndex) const;
+    RealTime sequenceTimeMax(int sequenceIndex) const;
+    RealTime sequenceDuration(int sequenceIndex) const;
+
+    // Sequences annotating a given element of the base tier
+    QString sequencesTextForBaseElement(int baseElementIndex, const QString &delimiter = " ") const;
 
     // Clone
     SequenceTier *clone(const QString &name = QString(), QObject *parent = nullptr) const;
