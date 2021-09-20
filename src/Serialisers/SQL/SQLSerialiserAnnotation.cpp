@@ -136,7 +136,7 @@ bool prepareUpdateQuery(QSqlQuery &query, AnnotationStructureLevel *level, const
     case AnnotationStructureLevel::SequencesLevel:
     case AnnotationStructureLevel::TreeLevel:
     case AnnotationStructureLevel::RelationsLevel:
-        q.append("AND intervalNoLeft = :intervalNoLeft, intervalNoRight = :intervalNoRight");
+        q.append("AND intervalNoLeft = :intervalNoLeft AND intervalNoRight = :intervalNoRight");
         break;
     }
     query.prepare(q);
@@ -169,11 +169,20 @@ QList<AnnotationElement *> SQLSerialiserAnnotation::getAnnotationElements(
         }
         if (selection.annotationID.isEmpty()) attributes.insert("annotationID", query.value("annotationID"));
         if (selection.speakerID.isEmpty())    attributes.insert("speakerID", query.value("speakerID"));
-        if (query.value("intervalNo").isValid())        attributes.insert("indexNo", query.value("intervalNo"));
-        if (query.value("intervalNoLeft").isValid())    attributes.insert("indexFrom", query.value("intervalNoLeft"));
-        if (query.value("intervalNoRight").isValid())   attributes.insert("indexTo", query.value("intervalNoRight"));
-        if (query.value("tMin").isValid())              attributes.insert("tMin_nsec", query.value("tMin"));
-        if (query.value("tMax").isValid())              attributes.insert("tMax_nsec", query.value("tMax"));
+        if      (level->levelType() == AnnotationStructureLevel::IndependentPointsLevel) {
+            if (query.value("tMin").isValid())              attributes.insert("tMin_nsec", query.value("tMin"));
+        }
+        else if ((level->levelType() == AnnotationStructureLevel::IndependentIntervalsLevel) ||
+                 (level->levelType() == AnnotationStructureLevel::GroupingLevel)) {
+            if (query.value("intervalNo").isValid())        attributes.insert("indexNo", query.value("intervalNo"));
+            if (query.value("tMin").isValid())              attributes.insert("tMin_nsec", query.value("tMin"));
+            if (query.value("tMax").isValid())              attributes.insert("tMax_nsec", query.value("tMax"));
+        } else if ((level->levelType() == AnnotationStructureLevel::SequencesLevel) ||
+                   (level->levelType() == AnnotationStructureLevel::TreeLevel) ||
+                   (level->levelType() == AnnotationStructureLevel::RelationsLevel)) {
+            if (query.value("intervalNoLeft").isValid())    attributes.insert("indexFrom", query.value("intervalNoLeft"));
+            if (query.value("intervalNoRight").isValid())   attributes.insert("indexTo", query.value("intervalNoRight"));
+        }
         AnnotationElement *element = new AnnotationElement(xText, attributes);
         setClean(element);
         elements << element;
