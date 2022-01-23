@@ -3,7 +3,7 @@
 
 /*
     Praaline - Core module - XML Serialisers
-    Copyright (c) 2011-2020 George Christodoulides
+    Copyright (c) 2011-2022 George Christodoulides
 
     This program or module is free software: you can redistribute it
     and/or modify it under the terms of the GNU General Public License
@@ -43,6 +43,7 @@ private:
     static bool writeNameValueList(NameValueList *nvl, QXmlStreamWriter &xml);
 
     static QString xmlElementName_NameValueList;
+    static QString xmlElementName_NameValueListItem;
 };
 
 PRAALINE_CORE_END_NAMESPACE

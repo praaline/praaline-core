@@ -171,6 +171,7 @@ MetadataStructure *XMLSerialiserMetadataStructure::readPartial(CorpusObject::Typ
                     }
                 }
             }
+            // else if (xml.name() == xmlElementName_NameValueList)
         }
         xml.readNext(); // next element
     }
