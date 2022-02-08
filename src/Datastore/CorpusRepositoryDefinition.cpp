@@ -11,7 +11,7 @@
 PRAALINE_CORE_BEGIN_NAMESPACE
 
 CorpusRepositoryDefinition::CorpusRepositoryDefinition() :
-    basePath(QString()), basePathMedia(QString())
+    basePath(QString()), basePathMedia(QString()), useRelativeBasePathMedia(true)
 {
 }
 
@@ -57,8 +57,13 @@ bool CorpusRepositoryDefinition::save(const QString &filename)
     xml.writeAttribute("usepassword", (infoDatastoreAnnotations.usePassword) ? "yes" : "no");
     xml.writeEndElement(); // AnnotationsDatastore
     xml.writeStartElement("MediaDatastore");
-    QString relativeBasePathMedia = QDir(basePath).relativeFilePath(basePathMedia);
-    xml.writeAttribute("baseMediaPath", relativeBasePathMedia);
+    if (useRelativeBasePathMedia) {
+        QString relativeBasePathMedia = QDir(basePath).relativeFilePath(basePathMedia);
+        xml.writeAttribute("baseMediaPath", relativeBasePathMedia);
+    }
+    else {
+        xml.writeAttribute("baseMediaPath", basePathMedia);
+    }
     xml.writeEndElement(); // MediaDatastore
     xml.writeEndElement(); // PraalineCorpusDefinition
     xml.writeEndDocument();
@@ -88,7 +93,6 @@ void readDatastoreInfo(QXmlStreamReader &xml, DatastoreInfo &info)
 bool CorpusRepositoryDefinition::load(const QString &filename)
 {
     QFile file(filename);
-    QFileInfo finfo(filename);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) return false;
     QXmlStreamReader xml(&file);
     while (!xml.atEnd() && !xml.hasError()) {
@@ -124,15 +128,27 @@ bool CorpusRepositoryDefinition::load(const QString &filename)
     // Removes any device() or data from the reader and resets its internal state to the initial state.
     xml.clear();
     file.close();
+
+    // Set the filename of Repository Definition file, and set the base path to the absolute path of that file.
     this->filenameDefinition = filename;
-    this->basePath = finfo.canonicalPath();
-    // Media path is relative to corpus definition file
-    if (this->basePathMedia.isEmpty())
+    this->basePath = QFileInfo(filename).canonicalPath();
+    // Set the media path.
+    // If no specific media path is given, then it is the same as the base path (i.e. the path of the Repository
+    // Definition file) and use relative path when saving.
+    if (this->basePathMedia.isEmpty()) {
         this->basePathMedia = this->basePath;
+        useRelativeBasePathMedia = true;
+    }
     else {
-        // Convert to absolute path
-        QDir path(this->basePath + "/" + this->basePathMedia);
-        this->basePathMedia = path.absolutePath();
+        // If however, a specific media path is given, then check if it relative or absolute.
+        // If it is given as a relative path, then the convert it to an absolute path, relative to the base path.
+        if (QDir::isRelativePath(this->basePathMedia)) {
+            this->basePathMedia = QDir(this->basePath + "/" + this->basePathMedia).absolutePath();
+            useRelativeBasePathMedia = true;
+        }
+        else {
+            useRelativeBasePathMedia = false;
+        }
     }
     // Adjust to open correctly SQLite databases
     if (this->infoDatastoreMetadata.driver == "QSQLITE")

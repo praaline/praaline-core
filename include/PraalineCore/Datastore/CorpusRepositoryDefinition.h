@@ -38,9 +38,8 @@ public:
     bool save(const QString &filename);
     bool load(const QString &filename);
 
-signals:
-
-public slots:
+private:
+    bool useRelativeBasePathMedia;
 };
 
 PRAALINE_CORE_END_NAMESPACE
