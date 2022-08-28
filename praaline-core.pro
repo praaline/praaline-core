@@ -124,6 +124,7 @@ HEADERS += \
     external/QSqlMigrator/Structure/LocalScheme.h \
     external/QSqlMigrator/Structure/SqlType.h \
     external/QSqlMigrator/Structure/Table.h \
+    include/PraalineCore/SPIMPL.h \
     src/Serialisers/SQL/SQLSerialiserSpeakerRelation.h
 
 SOURCES += \
