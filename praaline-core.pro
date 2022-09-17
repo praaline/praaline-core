@@ -1,5 +1,5 @@
 # Praaline Core Library
-# (c) George Christodoulides 2012-2020
+# (c) George Christodoulides 2012-2022
 
 ! include( ../common.pri ) {
     ! include( ./praaline-core-common.pri ) {
