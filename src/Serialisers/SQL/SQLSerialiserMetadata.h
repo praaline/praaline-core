@@ -61,6 +61,8 @@ public:
             const MetadataDatastore::Selection &selection, QSqlDatabase &db, MetadataStructure *structure, CorpusDatastore *datastore);
     static QMultiMap<QString, CorpusAnnotation *> getAnnotationsByCommunication(
             const MetadataDatastore::Selection &selection, QSqlDatabase &db, MetadataStructure *structure, CorpusDatastore *datastore);
+    static QMultiMap<QString, CorpusCommunicationSpeakerRelation> getSpeakerRelationByCommunication(
+            const MetadataDatastore::Selection &selection, QSqlDatabase &db, MetadataStructure *structure, CorpusDatastore *datastore);
     static QList<CorpusParticipation *> getParticipations(
             const MetadataDatastore::Selection &selection, QSqlDatabase &db, MetadataStructure *structure, CorpusDatastore *datastore);
 
@@ -108,6 +110,7 @@ private:
 
     static void readRecording(QSqlQuery &q, CorpusRecording *rec, MetadataStructure *structure);
     static void readAnnotation(QSqlQuery &q, CorpusAnnotation *annot, MetadataStructure *structure);
+    static CorpusCommunicationSpeakerRelation readSpeakerRelation(QSqlQuery &q);
 
     static QString prepareInsertSQL(MetadataStructure *structure, CorpusObject::Type what, QStringList requestedAttributeIDs = QStringList());
     static QString prepareUpdateSQL(MetadataStructure *structure, CorpusObject::Type what, QStringList requestedAttributeIDs = QStringList());
@@ -119,6 +122,7 @@ private:
     static bool execSaveAnnotation(QString communicationID, CorpusAnnotation *annot, MetadataStructure *structure, QSqlDatabase &db);
     static bool execSaveParticipation(CorpusParticipation *participation, MetadataStructure *structure, QSqlDatabase &db);
     static bool execCleanUpCommunication(CorpusCommunication *com, QSqlDatabase &db);
+    static bool execSaveCommunicationSpeakerRelations(CorpusCommunication *com, QSqlDatabase &db);
 };
 
 PRAALINE_CORE_END_NAMESPACE

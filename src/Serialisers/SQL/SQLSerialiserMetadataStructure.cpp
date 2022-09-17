@@ -140,6 +140,15 @@ bool createNewSchema(MetadataStructure *structure, CorpusObject::Type what, QSql
                    Column("speakerID", SqlType(SqlType::VarChar, 64), "", Column::Primary) <<
                    Column("role", SqlType(SqlType::VarChar, 128));
     }
+    else if (what == CorpusObject::Type_SpeakerRelation) {
+        tableName = "speakerrelation";
+        columns << Column("corpusID", SqlType(SqlType::VarChar, 64), "", Column::Primary) <<
+                   Column("communicationID", SqlType(SqlType::VarChar, 64), "", Column::Primary) <<
+                   Column("speakerID_1", SqlType(SqlType::VarChar, 64), "", Column::Primary) <<
+                   Column("speakerID_2", SqlType(SqlType::VarChar, 64), "", Column::Primary) <<
+                   Column("relation", SqlType(SqlType::VarChar, 128)) <<
+                   Column("notes", SqlType(SqlType::VarChar, 256));
+    }
     else return false;
 
     foreach (MetadataStructureSection *section, structure->sections(what)) {
@@ -160,12 +169,13 @@ bool SQLSerialiserMetadataStructure::initialiseMetadataSchema(MetadataStructure 
     if (!structure) return false;
     if (!db.isValid()) return false;
     db.transaction();
-    if (!createNewSchema(structure, CorpusObject::Type_Corpus, db))         { db.rollback(); return false; }
-    if (!createNewSchema(structure, CorpusObject::Type_Communication, db))  { db.rollback(); return false; }
-    if (!createNewSchema(structure, CorpusObject::Type_Speaker, db))        { db.rollback(); return false; }
-    if (!createNewSchema(structure, CorpusObject::Type_Recording, db))      { db.rollback(); return false; }
-    if (!createNewSchema(structure, CorpusObject::Type_Annotation, db))     { db.rollback(); return false; }
-    if (!createNewSchema(structure, CorpusObject::Type_Participation, db))  { db.rollback(); return false; }
+    if (!createNewSchema(structure, CorpusObject::Type_Corpus, db))          { db.rollback(); return false; }
+    if (!createNewSchema(structure, CorpusObject::Type_Communication, db))   { db.rollback(); return false; }
+    if (!createNewSchema(structure, CorpusObject::Type_Speaker, db))         { db.rollback(); return false; }
+    if (!createNewSchema(structure, CorpusObject::Type_Recording, db))       { db.rollback(); return false; }
+    if (!createNewSchema(structure, CorpusObject::Type_Annotation, db))      { db.rollback(); return false; }
+    if (!createNewSchema(structure, CorpusObject::Type_Participation, db))   { db.rollback(); return false; }
+    if (!createNewSchema(structure, CorpusObject::Type_SpeakerRelation, db)) { db.rollback(); return false; }
     db.commit();
     return true;
 }
@@ -176,12 +186,13 @@ bool SQLSerialiserMetadataStructure::upgradeMetadataSchema(MetadataStructure *st
     if (!structure) return false;
     if (!db.isValid()) return false;
     bool result = true;
-    if (!db.tables().contains("corpus"))        result = result && createNewSchema(structure, CorpusObject::Type_Corpus, db);
-    if (!db.tables().contains("communication")) result = result && createNewSchema(structure, CorpusObject::Type_Communication, db);
-    if (!db.tables().contains("speaker"))       result = result && createNewSchema(structure, CorpusObject::Type_Speaker, db);
-    if (!db.tables().contains("recording"))     result = result && createNewSchema(structure, CorpusObject::Type_Recording, db);
-    if (!db.tables().contains("annotation"))    result = result && createNewSchema(structure, CorpusObject::Type_Annotation, db);
-    if (!db.tables().contains("participation")) result = result && createNewSchema(structure, CorpusObject::Type_Participation, db);
+    if (!db.tables().contains("corpus"))            result = result && createNewSchema(structure, CorpusObject::Type_Corpus, db);
+    if (!db.tables().contains("communication"))     result = result && createNewSchema(structure, CorpusObject::Type_Communication, db);
+    if (!db.tables().contains("speaker"))           result = result && createNewSchema(structure, CorpusObject::Type_Speaker, db);
+    if (!db.tables().contains("recording"))         result = result && createNewSchema(structure, CorpusObject::Type_Recording, db);
+    if (!db.tables().contains("annotation"))        result = result && createNewSchema(structure, CorpusObject::Type_Annotation, db);
+    if (!db.tables().contains("participation"))     result = result && createNewSchema(structure, CorpusObject::Type_Participation, db);
+    if (!db.tables().contains("speakerrelation"))   result = result && createNewSchema(structure, CorpusObject::Type_SpeakerRelation, db);
     return result;
 }
 

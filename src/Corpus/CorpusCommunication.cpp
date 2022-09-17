@@ -231,6 +231,61 @@ void CorpusCommunication::annotationChangedID(const QString &oldID, const QStrin
     m_annotations.insert(newID, annotation);
 }
 
+// ----------------------------------------------------------------------------------------------------------------
+// Speaker Relations within this Communication
+// ----------------------------------------------------------------------------------------------------------------
+
+void removeSpeakerRelation(const QString &speakerID_1, const QString &speakerID_2);
+
+
+CorpusCommunicationSpeakerRelation CorpusCommunication::speakerRelation(const QString &speakerID_1, const QString &speakerID_2)
+{
+    for (const auto &rel : m_speakerRelations) {
+        if ((rel.speakerID_1() == speakerID_1) && (rel.speakerID_2() == speakerID_2)) {
+            return rel;
+        }
+    }
+    return CorpusCommunicationSpeakerRelation(speakerID_1, speakerID_2);
+}
+
+const QList<CorpusCommunicationSpeakerRelation> &CorpusCommunication::speakerRelations() const
+{
+    return m_speakerRelations;
+}
+
+void CorpusCommunication::insertSpeakerRelation(const CorpusCommunicationSpeakerRelation &relation)
+{
+    if (relation.speakerID_1().isEmpty()) return;
+    if (relation.speakerID_2().isEmpty()) return;
+    // search for existing relation between these two speakers
+    for (auto &existingRelation : m_speakerRelations) {
+        if ((existingRelation.speakerID_1() == relation.speakerID_1()) && (existingRelation.speakerID_2() == relation.speakerID_2())) {
+            // found existing relation, update
+            existingRelation.setRelation(relation.relation());
+            existingRelation.setNotes(relation.notes());
+            return;
+        }
+    }
+    // otherwise, add new relation
+    m_speakerRelations << relation;
+}
+
+void CorpusCommunication::removeSpeakerRelation(const QString &speakerID_1, const QString &speakerID_2)
+{
+    int i { 0 }, found { -1 };
+    for (auto &rel: m_speakerRelations) {
+        if ((rel.speakerID_1() == speakerID_1) && (rel.speakerID_2() == speakerID_2)) {
+            found = i;
+            break;
+        }
+        i++;
+    }
+    if (found < 0) return;
+    m_speakerRelations.removeAt(found);
+}
+
+// ----------------------------------------------------------------------------------------------------------------
+
 bool CorpusCommunication::save() {
     if (!m_repository) return false;
     if (!m_repository->metadata()) return false;

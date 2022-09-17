@@ -22,6 +22,7 @@
 #include "PraalineCore/Corpus/CorpusObject.h"
 #include "PraalineCore/Corpus/CorpusRecording.h"
 #include "PraalineCore/Corpus/CorpusAnnotation.h"
+#include "PraalineCore/Corpus/CorpusCommunicationSpeakerRelation.h"
 
 PRAALINE_CORE_BEGIN_NAMESPACE
 
@@ -50,7 +51,9 @@ public:
 
     void setCorpusID(const QString &corpusID) override;
 
-    // RECORDINGS
+    // ----------------------------------------------------------------------------------------------------------------
+    // Recordings
+    // ----------------------------------------------------------------------------------------------------------------
     CorpusRecording * recording(const QString &recordingID) const;
     int recordingsCount() const;
     bool hasRecordings() const;
@@ -62,7 +65,9 @@ public:
     //void unlinkRecording(const QString &recordingID);
     double durationSec() const;
 
-    // ANNOTATIONS
+    // ----------------------------------------------------------------------------------------------------------------
+    // Annotations
+    // ----------------------------------------------------------------------------------------------------------------
     CorpusAnnotation * annotation(const QString &annotationID) const;
     int annotationsCount() const;
     bool hasAnnotations() const;
@@ -72,6 +77,14 @@ public:
     void addAnnotation(CorpusAnnotation *annotation);
     void removeAnnotation(const QString &annotationID);
     //void unlinkAnnotation(const QString &annotationID);
+
+    // ----------------------------------------------------------------------------------------------------------------
+    // Speaker Relations within this Communication
+    // ----------------------------------------------------------------------------------------------------------------
+    CorpusCommunicationSpeakerRelation speakerRelation(const QString &speakerID_1, const QString &speakerID_2);
+    const QList<CorpusCommunicationSpeakerRelation> &speakerRelations() const;
+    void insertSpeakerRelation(const CorpusCommunicationSpeakerRelation &relation);
+    void removeSpeakerRelation(const QString &speakerID_1, const QString &speakerID_2);
 
     // Database helpers
     QList<QString> deletedAnnotationIDs;
@@ -91,6 +104,7 @@ private:
     QString m_name;
     QMap<QString, CorpusRecording *> m_recordings;
     QMap<QString, CorpusAnnotation *> m_annotations;
+    QList<CorpusCommunicationSpeakerRelation> m_speakerRelations;
 
     Q_DISABLE_COPY(CorpusCommunication)
 };

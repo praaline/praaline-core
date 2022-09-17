@@ -64,6 +64,16 @@ void SQLSerialiserMetadata::readAnnotation(QSqlQuery &q, CorpusAnnotation *annot
     }
 }
 
+// private static
+CorpusCommunicationSpeakerRelation SQLSerialiserMetadata::readSpeakerRelation(QSqlQuery &q)
+{
+    QString speakerID_1 = q.value("speakerID_1").toString();
+    QString speakerID_2 = q.value("speakerID_2").toString();
+    QString relation = q.value("relation").toString();
+    QString notes = q.value("notes").toString();
+    return CorpusCommunicationSpeakerRelation(speakerID_1, speakerID_2, relation, notes);
+}
+
 bool prepareSelectQuery(QSqlQuery &query, CorpusObject::Type type, const MetadataDatastore::Selection &selection)
 {
     QString sql;
@@ -99,6 +109,12 @@ bool prepareSelectQuery(QSqlQuery &query, CorpusObject::Type type, const Metadat
         if (!selection.communicationID.isEmpty())   sql.append("AND communicationID = :communicationID ");
         if (!selection.recordingID.isEmpty())       sql.append("AND recordingID = :recordingID ");
         if (!selection.annotationID.isEmpty())      sql.append("AND annotationID = :annotationID ");
+    }
+    else if (type == CorpusObject::Type_SpeakerRelation) {
+        sql = "SELECT * FROM speakerrelation WHERE 1 = 1 ";
+        if (!selection.corpusID.isEmpty())          sql.append("AND corpusID = :corpusID ");
+        if (!selection.communicationID.isEmpty())   sql.append("AND communicationID = :communicationID ");
+        if (!selection.speakerID.isEmpty())         sql.append("AND (speakerID_1 = :speakerID OR speakerID_2 = :speakerID) ");
     }
     // Prepare query
     query.setForwardOnly(true);
@@ -188,6 +204,7 @@ QList<CorpusCommunication *> SQLSerialiserMetadata::getCommunications(
     QList<CorpusCommunication *> communications;
     QMultiMap<QString, CorpusRecording *> recordings = getRecordingsByCommunication(selection, db, structure, datastore);
     QMultiMap<QString, CorpusAnnotation *> annotations = getAnnotationsByCommunication(selection, db, structure, datastore);
+    QMultiMap<QString, CorpusCommunicationSpeakerRelation> relations = getSpeakerRelationByCommunication(selection, db, structure, datastore);
 
     QSqlQuery q(db);
     prepareSelectQuery(q, CorpusObject::Type_Communication, selection);
@@ -205,6 +222,9 @@ QList<CorpusCommunication *> SQLSerialiserMetadata::getCommunications(
             com->addRecording(rec);
         foreach (CorpusAnnotation *annot, annotations.values(communicationID))
             com->addAnnotation(annot);
+        foreach (CorpusCommunicationSpeakerRelation relation, relations.values(communicationID))
+            com->insertSpeakerRelation(relation);
+
         setClean(com);
         datastore->setRepository(com);
         communications << com;
@@ -340,6 +360,26 @@ QMultiMap<QString, CorpusAnnotation *> SQLSerialiserMetadata::getAnnotationsByCo
     return annotations;
 }
 
+// static
+QMultiMap<QString, CorpusCommunicationSpeakerRelation> SQLSerialiserMetadata::getSpeakerRelationByCommunication(
+        const MetadataDatastore::Selection &selection, QSqlDatabase &db, MetadataStructure *structure, CorpusDatastore *datastore)
+{
+    Q_UNUSED(structure)
+    Q_UNUSED(datastore)
+
+    QMultiMap<QString, CorpusCommunicationSpeakerRelation> relations;
+    QSqlQuery q(db);
+    prepareSelectQuery(q, CorpusObject::Type_SpeakerRelation, selection);
+    q.exec();
+    while (q.next()) {
+        CorpusCommunicationSpeakerRelation relation = readSpeakerRelation(q);
+        QString communicationID = q.value("communicationID").toString();
+        relations.insert(communicationID, relation);
+    }
+    return relations;
+}
+
+
 // ==============================================================================================================================
 // Insert and Update Corpus Objects
 // ==============================================================================================================================
@@ -456,6 +496,31 @@ bool SQLSerialiserMetadata::execSaveCorpus(Corpus *corpus, MetadataStructure *st
     }
     q.exec();
     if (q.lastError().isValid()) { qDebug() << "ERROR: execSaveCorpus: ID:" << corpus->ID() << " error:" << q.lastError().text(); return false; }
+    return true;
+}
+
+// static private
+bool SQLSerialiserMetadata::execSaveCommunicationSpeakerRelations(CorpusCommunication *com, QSqlDatabase &db)
+{
+    if (!com) return false;
+    QSqlQuery q(db);
+    q.prepare("DELETE FROM speakerrelation WHERE corpusID=:corpusID AND communicationID=:communicationID");
+    q.bindValue(":corpusID", com->corpusID());
+    q.bindValue(":communicationID", com->ID());
+    q.exec();
+    if (!q.exec()) { qDebug() << q.lastError(); return false; }
+    q.prepare("INSERT INTO speakerrelation (corpusID, communicationID, speakerID_1, speakerID_2, relation, notes) "
+              "VALUES (:corpusID, :communicationID, :speakerID_1, :speakerID_2, :relation, :notes) ");
+    q.bindValue(":corpusID", com->corpusID());
+    q.bindValue(":communicationID", com->ID());
+    for (const auto &relation : com->speakerRelations()) {
+        q.bindValue(":speakerID_1", relation.speakerID_1());
+        q.bindValue(":speakerID_2", relation.speakerID_2());
+        q.bindValue(":relation", relation.relation());
+        q.bindValue(":notes", relation.notes());
+        q.exec();
+        if (!q.exec()) { qDebug() << q.lastError(); return false; }
+    }
     return true;
 }
 
@@ -629,6 +694,8 @@ bool SQLSerialiserMetadata::saveCorpus(Corpus *corpus,
     queryCommunicationAnnotationsDelete.prepare("DELETE FROM annotation WHERE communicationID = :communicationID");
     QSqlQuery queryCommunicationParticipationsDelete(db);
     queryCommunicationParticipationsDelete.prepare("DELETE FROM participation WHERE corpusID = :corpusID AND communicationID = :communicationID");
+    QSqlQuery queryCorpusCommunicationSpeakerRelationDelete(db);
+    queryCorpusCommunicationSpeakerRelationDelete.prepare("DELETE FROM speakerrelation WHERE corpusID = :corpusID AND communicationID = :communicationID");
     QSqlQuery queryRecordingDelete(db);
     queryRecordingDelete.prepare("DELETE FROM recording WHERE communicationID = :communicationID AND recordingID = :recordingID");
     QSqlQuery queryAnnotationDelete(db);
@@ -637,9 +704,11 @@ bool SQLSerialiserMetadata::saveCorpus(Corpus *corpus,
     querySpeakerDelete.prepare("DELETE FROM speaker WHERE corpusID = :corpusID AND speakerID = :speakerID");
     QSqlQuery queryParticipationDelete(db);
     queryParticipationDelete.prepare("DELETE FROM participation WHERE corpusID = :corpusID AND communicationID = :communicationID AND speakerID = :speakerID");
-    // Clean up Communications (including recordings and annotations)
+
+    // Clean up Communications (including recordings, annotations and speaker relations)
     queryCommunicationDelete.bindValue(":corpusID", corpus->ID());
     queryCommunicationParticipationsDelete.bindValue(":corpusID", corpus->ID());
+    queryCorpusCommunicationSpeakerRelationDelete.bindValue(":corpusID", corpus->ID());
     foreach (QString communicationID, corpus->deletedCommunicationIDs) {
         queryCommunicationRecordingsDelete.bindValue(":communicationID", communicationID);
         queryCommunicationRecordingsDelete.exec();
@@ -647,6 +716,8 @@ bool SQLSerialiserMetadata::saveCorpus(Corpus *corpus,
         queryCommunicationAnnotationsDelete.exec();
         queryCommunicationParticipationsDelete.bindValue(":communicationID", communicationID);
         queryCommunicationParticipationsDelete.exec();
+        queryCorpusCommunicationSpeakerRelationDelete.bindValue(":communicationID", communicationID);
+        queryCorpusCommunicationSpeakerRelationDelete.exec();
         queryCommunicationDelete.bindValue(":communicationID", communicationID);
         queryCommunicationDelete.exec();
     }
@@ -715,6 +786,7 @@ bool SQLSerialiserMetadata::saveCommunication(CorpusCommunication *communication
     if (!communication) return false;
     if (!structure) return false;
     execCleanUpCommunication(communication, db);
+    execSaveCommunicationSpeakerRelations(communication, db);
     db.transaction();
     if (communication->isDirty())
         if (!execSaveCommunication(communication, structure, db)) { db.rollback(); return false; }
@@ -832,6 +904,9 @@ bool SQLSerialiserMetadata::deleteCorpus(const QString &corpusID,
     while (q.next()) {
         deleteAnnotation(q.value("annotationID").toString(), db, structure, datastore);
     }
+    q.prepare("DELETE FROM speakerrelation WHERE corpusID=:corpusID");
+    q.bindValue(":corpusID", corpusID);
+    if (!q.exec()) { db.rollback(); qDebug() << "delete speakerrelations: " << q.lastError().text(); return false; }
     q.prepare("DELETE FROM participation WHERE corpusID=:corpusID");
     q.bindValue(":corpusID", corpusID);
     if (!q.exec()) { db.rollback(); qDebug() << "delete participations: " << q.lastError().text(); return false; }
@@ -856,6 +931,9 @@ bool SQLSerialiserMetadata::deleteCommunication(const QString &communicationID,
     Q_UNUSED(datastore)
     QSqlQuery q(db);
     db.transaction();
+    q.prepare("DELETE FROM speakerrelation WHERE communicationID = :communicationID");
+    q.bindValue(":communicationID", communicationID);
+    if (!q.exec()) { db.rollback(); qDebug() << q.lastError().text(); return false; }
     q.prepare("DELETE FROM recording WHERE communicationID = :communicationID");
     q.bindValue(":communicationID", communicationID);
     if (!q.exec()) { db.rollback(); qDebug() << q.lastError().text(); return false; }

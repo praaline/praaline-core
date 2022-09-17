@@ -123,8 +123,7 @@ HEADERS += \
     external/QSqlMigrator/Structure/Index.h \
     external/QSqlMigrator/Structure/LocalScheme.h \
     external/QSqlMigrator/Structure/SqlType.h \
-    external/QSqlMigrator/Structure/Table.h \
-    src/Serialisers/SQL/SQLSerialiserSpeakerRelation.h
+    external/QSqlMigrator/Structure/Table.h
 
 SOURCES += \
     external/QSqlMigrator/BaseSqlMigrator/CommandExecution/BaseSqlAddColumnService.cpp \
@@ -210,8 +209,7 @@ SOURCES += \
     external/QSqlMigrator/Structure/Index.cpp \
     external/QSqlMigrator/Structure/LocalScheme.cpp \
     external/QSqlMigrator/Structure/SqlType.cpp \
-    external/QSqlMigrator/Structure/Table.cpp \
-    src/Serialisers/SQL/SQLSerialiserSpeakerRelation.cpp
+    external/QSqlMigrator/Structure/Table.cpp
 
 # ===========================================================================================================
 # Praaline Core
@@ -245,12 +243,12 @@ HEADERS += \
     include/PraalineCore/Corpus/CorpusAnnotation.h \
     include/PraalineCore/Corpus/CorpusBookmark.h \
     include/PraalineCore/Corpus/CorpusCommunication.h \
+    include/PraalineCore/Corpus/CorpusCommunicationSpeakerRelation.h \
     include/PraalineCore/Corpus/CorpusObject.h \
     include/PraalineCore/Corpus/CorpusObjectInfo.h \
     include/PraalineCore/Corpus/CorpusParticipation.h \
     include/PraalineCore/Corpus/CorpusRecording.h \
     include/PraalineCore/Corpus/CorpusSpeaker.h \
-    include/PraalineCore/Corpus/CorpusSpeakerRelation.h \
     include/PraalineCore/Dataframe/DataFrame.h \
     include/PraalineCore/Datastore/AnnotationDatastore.h \
     include/PraalineCore/Datastore/CorpusDatastore.h \
@@ -374,12 +372,12 @@ SOURCES += \
     src/Corpus/CorpusAnnotation.cpp \
     src/Corpus/CorpusBookmark.cpp \
     src/Corpus/CorpusCommunication.cpp \
+    src/Corpus/CorpusCommunicationSpeakerRelation.cpp \
     src/Corpus/CorpusObject.cpp \
     src/Corpus/CorpusObjectInfo.cpp \
     src/Corpus/CorpusParticipation.cpp \
     src/Corpus/CorpusRecording.cpp \
     src/Corpus/CorpusSpeaker.cpp \
-    src/Corpus/CorpusSpeakerRelation.cpp \
     src/Dataframe/DataFrame.cpp \
     src/Datastore/AnnotationDatastore.cpp \
     src/Datastore/CorpusDatastore.cpp \
