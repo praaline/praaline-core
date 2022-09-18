@@ -83,6 +83,8 @@ public:
     // ----------------------------------------------------------------------------------------------------------------
     CorpusCommunicationSpeakerRelation speakerRelation(const QString &speakerID_1, const QString &speakerID_2);
     const QList<CorpusCommunicationSpeakerRelation> &speakerRelations() const;
+    QList<CorpusCommunicationSpeakerRelation> &speakerRelations();
+    bool hasSpeakerRelation(const QString &speakerID_1, const QString &speakerID_2);
     void insertSpeakerRelation(const CorpusCommunicationSpeakerRelation &relation);
     void removeSpeakerRelation(const QString &speakerID_1, const QString &speakerID_2);
 

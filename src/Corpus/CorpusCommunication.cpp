@@ -253,6 +253,21 @@ const QList<CorpusCommunicationSpeakerRelation> &CorpusCommunication::speakerRel
     return m_speakerRelations;
 }
 
+QList<CorpusCommunicationSpeakerRelation> &CorpusCommunication::speakerRelations()
+{
+    return m_speakerRelations;
+}
+
+bool CorpusCommunication::hasSpeakerRelation(const QString &speakerID_1, const QString &speakerID_2)
+{
+    for (const auto &rel : m_speakerRelations) {
+        if ((rel.speakerID_1() == speakerID_1) && (rel.speakerID_2() == speakerID_2)) {
+            return true;
+        }
+    }
+    return false;
+}
+
 void CorpusCommunication::insertSpeakerRelation(const CorpusCommunicationSpeakerRelation &relation)
 {
     if (relation.speakerID_1().isEmpty()) return;
