@@ -503,12 +503,13 @@ bool SQLSerialiserMetadata::execSaveCorpus(Corpus *corpus, MetadataStructure *st
 bool SQLSerialiserMetadata::execSaveCommunicationSpeakerRelations(CorpusCommunication *com, QSqlDatabase &db)
 {
     if (!com) return false;
+    QSqlQuery qdel(db);
+    qdel.prepare("DELETE FROM speakerrelation WHERE corpusID=:corpusID AND communicationID=:communicationID");
+    qdel.bindValue(":corpusID", com->corpusID());
+    qdel.bindValue(":communicationID", com->ID());
+    qdel.exec();
+    if (!qdel.exec()) { qDebug() << qdel.lastError(); return false; }
     QSqlQuery q(db);
-    q.prepare("DELETE FROM speakerrelation WHERE corpusID=:corpusID AND communicationID=:communicationID");
-    q.bindValue(":corpusID", com->corpusID());
-    q.bindValue(":communicationID", com->ID());
-    q.exec();
-    if (!q.exec()) { qDebug() << q.lastError(); return false; }
     q.prepare("INSERT INTO speakerrelation (corpusID, communicationID, speakerID_1, speakerID_2, relation, notes) "
               "VALUES (:corpusID, :communicationID, :speakerID_1, :speakerID_2, :relation, :notes) ");
     q.bindValue(":corpusID", com->corpusID());
@@ -519,7 +520,7 @@ bool SQLSerialiserMetadata::execSaveCommunicationSpeakerRelations(CorpusCommunic
         q.bindValue(":relation", relation.relation());
         q.bindValue(":notes", relation.notes());
         q.exec();
-        if (!q.exec()) { qDebug() << q.lastError(); return false; }
+        if (!q.exec()) { qDebug() << q.lastError(); /* but continue saving other relations */ }
     }
     return true;
 }
@@ -759,6 +760,7 @@ bool SQLSerialiserMetadata::saveCorpus(Corpus *corpus,
                     datastore->setRepository(annot);
                 }
             }
+            execSaveCommunicationSpeakerRelations(com, db);
         }
     }
     foreach (CorpusSpeaker *spk, corpus->speakers()) {

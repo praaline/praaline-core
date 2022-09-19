@@ -469,7 +469,12 @@ bool updateTier(const QString &annotationID, const QString &speakerID,
         }
         if (!query.exec()) {
             qDebug() << "Error in updateTier: " << annotationID << speakerID << tier->name() << itemNo << query.lastError();
-            return false;
+            // If the tier is sequences or relations, attempt to add the rest of the annotations
+            if ((level->levelType() != AnnotationStructureLevel::SequencesLevel) &&
+                (level->levelType() != AnnotationStructureLevel::TreeLevel) &&
+                (level->levelType() != AnnotationStructureLevel::RelationsLevel)) {
+                return false;
+            }
         }
         ++itemNo;
     }
